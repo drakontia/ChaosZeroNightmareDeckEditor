@@ -1,0 +1,97 @@
+"use client";
+
+import { useState, useCallback } from "react";
+import { Character, Equipment, Card, DeckCard, Deck, HiramekiType, EquipmentType } from "@/types";
+
+export function useDeckBuilder() {
+  const [deck, setDeck] = useState<Deck>({
+    character: null,
+    equipment: {
+      weapon: null,
+      armor: null,
+      pendant: null
+    },
+    cards: []
+  });
+
+  const selectCharacter = useCallback((character: Character) => {
+    setDeck(prev => ({
+      ...prev,
+      character
+    }));
+  }, []);
+
+  const selectEquipment = useCallback((equipment: Equipment) => {
+    setDeck(prev => {
+      const newEquipment = { ...prev.equipment };
+      switch (equipment.type) {
+        case EquipmentType.WEAPON:
+          newEquipment.weapon = equipment;
+          break;
+        case EquipmentType.ARMOR:
+          newEquipment.armor = equipment;
+          break;
+        case EquipmentType.PENDANT:
+          newEquipment.pendant = equipment;
+          break;
+      }
+      return {
+        ...prev,
+        equipment: newEquipment
+      };
+    });
+  }, []);
+
+  const addCard = useCallback((card: Card) => {
+    setDeck(prev => {
+      const deckCard: DeckCard = {
+        ...card,
+        deckId: `${card.id}_${Date.now()}_${Math.random()}`
+      };
+      return {
+        ...prev,
+        cards: [...prev.cards, deckCard]
+      };
+    });
+  }, []);
+
+  const removeCard = useCallback((deckId: string) => {
+    setDeck(prev => ({
+      ...prev,
+      cards: prev.cards.filter(card => card.deckId !== deckId)
+    }));
+  }, []);
+
+  const updateCardHirameki = useCallback((deckId: string, hiramekiType: HiramekiType) => {
+    setDeck(prev => ({
+      ...prev,
+      cards: prev.cards.map(card => 
+        card.deckId === deckId 
+          ? { ...card, hiramekiType }
+          : card
+      )
+    }));
+  }, []);
+
+  const clearDeck = useCallback(() => {
+    setDeck({
+      character: null,
+      equipment: {
+        weapon: null,
+        armor: null,
+        pendant: null
+      },
+      cards: []
+    });
+  }, []);
+
+  return {
+    deck,
+    selectCharacter,
+    selectEquipment,
+    addCard,
+    removeCard,
+    updateCardHirameki,
+    clearDeck
+  };
+}
