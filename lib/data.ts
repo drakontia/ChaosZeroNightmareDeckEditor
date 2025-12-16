@@ -1,35 +1,219 @@
-import { Character, Equipment, EquipmentType, Card, CardType, HiramekiType } from "@/types";
+import { Character, Equipment, EquipmentType, Card, CardType, HiramekiVariation } from "@/types";
 
-// Sample characters from Chaos Zero Nightmare
+// Sample cards with full hirameki variations
+export const CARDS: Card[] = [
+  // Character starting cards (3 basic + 1 with hirameki)
+  {
+    id: "char_card_1",
+    name: "基本攻撃",
+    type: CardType.NORMAL,
+    isBasicCard: true,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "敵単体に攻撃" }
+    ]
+  },
+  {
+    id: "char_card_2",
+    name: "基本防御",
+    type: CardType.NORMAL,
+    isBasicCard: true,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "自身の防御力を上げる" }
+    ]
+  },
+  {
+    id: "char_card_3",
+    name: "基本回復",
+    type: CardType.NORMAL,
+    isBasicCard: true,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "自身のHPを回復" }
+    ]
+  },
+  {
+    id: "char_card_4",
+    name: "ファイアボール",
+    type: CardType.NORMAL,
+    isBasicCard: false,
+    hiramekiVariations: [
+      { level: 0, cost: 3, description: "敵単体に火属性ダメージを与える" },
+      { level: 1, cost: 3, description: "敵単体に火属性ダメージを与える（威力小上昇）", status: "火傷" },
+      { level: 2, cost: 2, description: "敵単体に火属性ダメージを与える（威力上昇）", status: "火傷" },
+      { level: 3, cost: 2, description: "敵単体に大火属性ダメージを与える", status: "火傷・防御低下" },
+      { level: 4, cost: 1, description: "敵単体に大火属性ダメージを与える（威力上昇）", status: "火傷・防御低下" },
+      { level: 5, cost: 1, description: "敵単体に超大火属性ダメージを与える", status: "火傷・防御低下・継続ダメージ" }
+    ],
+    godHirameki: {
+      additionalEffect: "対象の火属性耐性を無視する",
+      costModifier: -1
+    }
+  },
+  // Character hirameki cards
+  {
+    id: "char_hirameki_1",
+    name: "フレイムストライク",
+    type: CardType.NORMAL,
+    hiramekiVariations: [
+      { level: 0, cost: 4, description: "敵単体に強力な火属性ダメージ" },
+      { level: 1, cost: 4, description: "敵単体に強力な火属性ダメージ（威力小上昇）", status: "火傷" },
+      { level: 2, cost: 3, description: "敵単体に強力な火属性ダメージ（威力上昇）", status: "火傷・防御低下" },
+      { level: 3, cost: 3, description: "敵単体に超強力な火属性ダメージ", status: "火傷・防御低下" },
+      { level: 4, cost: 2, description: "敵単体に超強力な火属性ダメージ（威力上昇）", status: "火傷・防御低下・スタン" },
+      { level: 5, cost: 2, description: "敵単体に極大火属性ダメージ", status: "火傷・防御低下・スタン・継続ダメージ" }
+    ],
+    godHirameki: {
+      additionalEffect: "使用後、次のターン火属性ダメージ2倍"
+    }
+  },
+  {
+    id: "char_hirameki_2",
+    name: "アイスシールド",
+    type: CardType.NORMAL,
+    hiramekiVariations: [
+      { level: 0, cost: 2, description: "氷の盾で防御し、攻撃者にダメージ" },
+      { level: 1, cost: 2, description: "氷の盾で防御し、攻撃者にダメージ（威力小上昇）" },
+      { level: 2, cost: 2, description: "氷の盾で防御し、攻撃者に高ダメージ", status: "凍結" },
+      { level: 3, cost: 1, description: "氷の盾で防御し、攻撃者に高ダメージ＋凍結", status: "凍結" },
+      { level: 4, cost: 1, description: "氷の盾で完全防御し、攻撃者に大ダメージ＋凍結", status: "凍結・防御低下" },
+      { level: 5, cost: 0, description: "氷の盾で完全防御し、攻撃者に超大ダメージ", status: "凍結・防御低下・スタン" }
+    ],
+    godHirameki: {
+      additionalEffect: "ダメージ無効1回付与"
+    }
+  },
+  {
+    id: "char_hirameki_3",
+    name: "ヒール",
+    type: CardType.NORMAL,
+    hiramekiVariations: [
+      { level: 0, cost: 2, description: "味方単体のHPを回復する" },
+      { level: 1, cost: 2, description: "味方単体のHPを回復する（回復量小上昇）" },
+      { level: 2, cost: 2, description: "味方単体のHPを回復する（回復量上昇）", status: "再生" },
+      { level: 3, cost: 2, description: "味方全体のHPを回復する" },
+      { level: 4, cost: 1, description: "味方全体のHPを大回復する", status: "再生" },
+      { level: 5, cost: 1, description: "味方全体のHPを超回復する", status: "再生・防御上昇" }
+    ],
+    godHirameki: {
+      additionalEffect: "状態異常を1つ解除"
+    }
+  },
+  {
+    id: "char_hirameki_4",
+    name: "防御",
+    type: CardType.NORMAL,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "自身の防御力を上げる" },
+      { level: 1, cost: 1, description: "自身の防御力を上げる（効果小上昇）" },
+      { level: 2, cost: 1, description: "自身の防御力を大きく上げる", status: "防御上昇" },
+      { level: 3, cost: 0, description: "自身の防御力を大きく上げる＋ダメージ無効1回", status: "防御上昇" },
+      { level: 4, cost: 0, description: "自身の防御力を超上昇＋ダメージ無効2回", status: "防御上昇・再生" },
+      { level: 5, cost: 0, description: "自身を無敵状態にする（1ターン）", status: "無敵・防御上昇・再生" }
+    ],
+    godHirameki: {
+      additionalEffect: "味方全体の防御力も少し上げる"
+    }
+  },
+  // Shared cards (3 hirameki levels)
+  {
+    id: "shared_card_1",
+    name: "全体攻撃",
+    type: CardType.SHARED,
+    hiramekiVariations: [
+      { level: 0, cost: 5, description: "敵全体に無属性ダメージを与える" },
+      { level: 1, cost: 4, description: "敵全体に無属性ダメージを与える（威力上昇）" },
+      { level: 2, cost: 4, description: "敵全体に大無属性ダメージを与える", status: "防御低下" },
+      { level: 3, cost: 3, description: "敵全体に超大無属性ダメージを与える", status: "防御低下・スタン" }
+    ],
+    godHirameki: {
+      additionalEffect: "敵全体の防御力を大幅に下げる"
+    }
+  },
+  {
+    id: "shared_card_2",
+    name: "サンダーストーム",
+    type: CardType.SHARED,
+    hiramekiVariations: [
+      { level: 0, cost: 6, description: "敵全体に雷属性ダメージ" },
+      { level: 1, cost: 5, description: "敵全体に雷属性ダメージ＋麻痺", status: "麻痺" },
+      { level: 2, cost: 5, description: "敵全体に大雷属性ダメージ＋麻痺＋スタン", status: "麻痺・スタン" },
+      { level: 3, cost: 4, description: "敵全体に超大雷属性ダメージ＋麻痺＋スタン", status: "麻痺・スタン・防御低下" }
+    ],
+    godHirameki: {
+      additionalEffect: "確率で即死効果"
+    }
+  },
+  // Monster cards (3 hirameki levels)
+  {
+    id: "monster_card_1",
+    name: "モンスター召喚",
+    type: CardType.MONSTER,
+    hiramekiVariations: [
+      { level: 0, cost: 4, description: "モンスターを召喚して攻撃" },
+      { level: 1, cost: 3, description: "強力なモンスターを召喚して攻撃" },
+      { level: 2, cost: 3, description: "強力なモンスターを召喚して複数回攻撃" },
+      { level: 3, cost: 2, description: "伝説のモンスターを召喚して強力な攻撃", status: "防御低下" }
+    ],
+    godHirameki: {
+      additionalEffect: "召喚したモンスターが場に残る（1ターン）"
+    }
+  },
+  // Forbidden cards (3 hirameki levels)
+  {
+    id: "forbidden_card_1",
+    name: "禁呪",
+    type: CardType.FORBIDDEN,
+    hiramekiVariations: [
+      { level: 0, cost: 7, description: "禁断の魔法で敵に大ダメージ（反動あり）" },
+      { level: 1, cost: 6, description: "禁断の魔法で敵に大ダメージ（反動軽減）" },
+      { level: 2, cost: 6, description: "禁断の魔法で敵に超大ダメージ（反動軽減）" },
+      { level: 3, cost: 5, description: "禁断の魔法で敵に超大ダメージ（反動なし）" }
+    ],
+    godHirameki: {
+      additionalEffect: "使用後HPが1残る"
+    }
+  }
+];
+
+// Sample characters with their card sets
 export const CHARACTERS: Character[] = [
   {
     id: "char_1",
     name: "リリス",
-    rarity: "SSR"
+    rarity: "SSR",
+    startingCards: ["char_card_1", "char_card_2", "char_card_3", "char_card_4"],
+    hiramekiCards: ["char_hirameki_1", "char_hirameki_2", "char_hirameki_3", "char_hirameki_4"]
   },
   {
     id: "char_2",
     name: "アリス",
-    rarity: "SSR"
+    rarity: "SSR",
+    startingCards: ["char_card_1", "char_card_2", "char_card_3", "char_card_4"],
+    hiramekiCards: ["char_hirameki_1", "char_hirameki_2", "char_hirameki_3", "char_hirameki_4"]
   },
   {
     id: "char_3",
     name: "ヴィクター",
-    rarity: "SR"
+    rarity: "SR",
+    startingCards: ["char_card_1", "char_card_2", "char_card_3", "char_card_4"],
+    hiramekiCards: ["char_hirameki_1", "char_hirameki_2", "char_hirameki_3", "char_hirameki_4"]
   },
   {
     id: "char_4",
     name: "エマ",
-    rarity: "SR"
+    rarity: "SR",
+    startingCards: ["char_card_1", "char_card_2", "char_card_3", "char_card_4"],
+    hiramekiCards: ["char_hirameki_1", "char_hirameki_2", "char_hirameki_3", "char_hirameki_4"]
   },
   {
     id: "char_5",
     name: "カイル",
-    rarity: "R"
+    rarity: "R",
+    startingCards: ["char_card_1", "char_card_2", "char_card_3", "char_card_4"],
+    hiramekiCards: ["char_hirameki_1", "char_hirameki_2", "char_hirameki_3", "char_hirameki_4"]
   }
 ];
 
-// Sample equipment
+// Sample equipment (unchanged)
 export const EQUIPMENT: Equipment[] = [
   // Weapons
   {
@@ -99,102 +283,30 @@ export const EQUIPMENT: Equipment[] = [
   }
 ];
 
-// Sample cards with Hirameki variations
-export const CARDS: Card[] = [
-  {
-    id: "card_1",
-    name: "ファイアボール",
-    type: CardType.NORMAL,
-    baseCost: 3,
-    baseDescription: "敵単体に火属性ダメージを与える",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 2,
-    normalHiramekiDescription: "敵単体に火属性ダメージを与える（威力上昇）",
-    godHiramekiCost: 1,
-    godHiramekiDescription: "敵単体に大火属性ダメージを与える"
-  },
-  {
-    id: "card_2",
-    name: "ヒール",
-    type: CardType.NORMAL,
-    baseCost: 2,
-    baseDescription: "味方単体のHPを回復する",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 2,
-    normalHiramekiDescription: "味方単体のHPを回復する（回復量上昇）",
-    godHiramekiCost: 1,
-    godHiramekiDescription: "味方全体のHPを回復する"
-  },
-  {
-    id: "card_3",
-    name: "防御",
-    type: CardType.NORMAL,
-    baseCost: 1,
-    baseDescription: "自身の防御力を上げる",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 1,
-    normalHiramekiDescription: "自身の防御力を大きく上げる",
-    godHiramekiCost: 0,
-    godHiramekiDescription: "自身の防御力を大きく上げる（ダメージ無効1回）"
-  },
-  {
-    id: "card_4",
-    name: "全体攻撃",
-    type: CardType.SHARED,
-    baseCost: 5,
-    baseDescription: "敵全体に無属性ダメージを与える",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 4,
-    normalHiramekiDescription: "敵全体に無属性ダメージを与える（威力上昇）",
-    godHiramekiCost: 3,
-    godHiramekiDescription: "敵全体に大無属性ダメージを与える"
-  },
-  {
-    id: "card_5",
-    name: "モンスター召喚",
-    type: CardType.MONSTER,
-    baseCost: 4,
-    baseDescription: "モンスターを召喚して攻撃",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 3,
-    normalHiramekiDescription: "強力なモンスターを召喚して攻撃",
-    godHiramekiCost: 2,
-    godHiramekiDescription: "伝説のモンスターを召喚して強力な攻撃"
-  },
-  {
-    id: "card_6",
-    name: "禁呪",
-    type: CardType.FORBIDDEN,
-    baseCost: 7,
-    baseDescription: "禁断の魔法で敵に大ダメージ（反動あり）",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 6,
-    normalHiramekiDescription: "禁断の魔法で敵に大ダメージ（反動軽減）",
-    godHiramekiCost: 5,
-    godHiramekiDescription: "禁断の魔法で敵に超大ダメージ（反動なし）"
-  },
-  {
-    id: "card_7",
-    name: "アイスシールド",
-    type: CardType.NORMAL,
-    baseCost: 2,
-    baseDescription: "氷の盾で防御し、攻撃者にダメージ",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 2,
-    normalHiramekiDescription: "氷の盾で防御し、攻撃者に高ダメージ",
-    godHiramekiCost: 1,
-    godHiramekiDescription: "氷の盾で防御し、攻撃者に高ダメージ＋凍結"
-  },
-  {
-    id: "card_8",
-    name: "サンダーストーム",
-    type: CardType.SHARED,
-    baseCost: 6,
-    baseDescription: "敵全体に雷属性ダメージ",
-    hiramekiType: HiramekiType.NONE,
-    normalHiramekiCost: 5,
-    normalHiramekiDescription: "敵全体に雷属性ダメージ＋麻痺",
-    godHiramekiCost: 4,
-    godHiramekiDescription: "敵全体に大雷属性ダメージ＋麻痺＋スタン"
-  }
-];
+// Helper function to get card by ID
+export function getCardById(id: string): Card | undefined {
+  return CARDS.find(card => card.id === id);
+}
+
+// Helper function to get character's starting cards
+export function getCharacterStartingCards(character: Character): Card[] {
+  return character.startingCards
+    .map(id => getCardById(id))
+    .filter((card): card is Card => card !== undefined);
+}
+
+// Helper function to get character's hirameki cards
+export function getCharacterHiramekiCards(character: Character): Card[] {
+  return character.hiramekiCards
+    .map(id => getCardById(id))
+    .filter((card): card is Card => card !== undefined);
+}
+
+// Helper function to get shared/monster/forbidden cards
+export function getAddableCards(): Card[] {
+  return CARDS.filter(card => 
+    card.type === CardType.SHARED || 
+    card.type === CardType.MONSTER || 
+    card.type === CardType.FORBIDDEN
+  );
+}

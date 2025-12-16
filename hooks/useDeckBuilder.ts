@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Character, Equipment, Card, DeckCard, Deck, HiramekiType, EquipmentType } from "@/types";
+import { Character, Equipment, Card, DeckCard, Deck, EquipmentType } from "@/types";
+import { getCharacterStartingCards } from "@/lib/data";
 
 export function useDeckBuilder() {
   const [deck, setDeck] = useState<Deck>({
@@ -15,10 +16,22 @@ export function useDeckBuilder() {
   });
 
   const selectCharacter = useCallback((character: Character) => {
-    setDeck(prev => ({
-      ...prev,
-      character
-    }));
+    setDeck(prev => {
+      // Get starting cards for the character
+      const startingCards = getCharacterStartingCards(character);
+      const deckCards: DeckCard[] = startingCards.map(card => ({
+        ...card,
+        deckId: `${card.id}_${Date.now()}_${Math.random()}`,
+        selectedHiramekiLevel: 0,
+        hasGodHirameki: false
+      }));
+
+      return {
+        ...prev,
+        character,
+        cards: deckCards
+      };
+    });
   }, []);
 
   const selectEquipment = useCallback((equipment: Equipment) => {
@@ -46,7 +59,9 @@ export function useDeckBuilder() {
     setDeck(prev => {
       const deckCard: DeckCard = {
         ...card,
-        deckId: `${card.id}_${Date.now()}_${Math.random()}`
+        deckId: `${card.id}_${Date.now()}_${Math.random()}`,
+        selectedHiramekiLevel: 0,
+        hasGodHirameki: false
       };
       return {
         ...prev,
@@ -62,12 +77,23 @@ export function useDeckBuilder() {
     }));
   }, []);
 
-  const updateCardHirameki = useCallback((deckId: string, hiramekiType: HiramekiType) => {
+  const updateCardHirameki = useCallback((deckId: string, hiramekiLevel: number) => {
     setDeck(prev => ({
       ...prev,
       cards: prev.cards.map(card => 
         card.deckId === deckId 
-          ? { ...card, hiramekiType }
+          ? { ...card, selectedHiramekiLevel: hiramekiLevel }
+          : card
+      )
+    }));
+  }, []);
+
+  const toggleGodHirameki = useCallback((deckId: string) => {
+    setDeck(prev => ({
+      ...prev,
+      cards: prev.cards.map(card => 
+        card.deckId === deckId 
+          ? { ...card, hasGodHirameki: !card.hasGodHirameki }
           : card
       )
     }));
@@ -92,6 +118,7 @@ export function useDeckBuilder() {
     addCard,
     removeCard,
     updateCardHirameki,
+    toggleGodHirameki,
     clearDeck
   };
 }

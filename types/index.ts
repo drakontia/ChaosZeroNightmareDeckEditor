@@ -4,6 +4,8 @@ export interface Character {
   name: string;
   rarity: string; // N, R, SR, SSR
   imgUrl?: string;
+  startingCards: string[]; // IDs of 4 starting cards
+  hiramekiCards: string[]; // IDs of 4 hirameki cards
 }
 
 // Equipment types
@@ -22,13 +24,7 @@ export interface Equipment {
   imgUrl?: string;
 }
 
-// Card types with Hirameki support
-export enum HiramekiType {
-  NONE = "none",
-  NORMAL = "normal", // ヒラメキ
-  GOD = "god"       // 神ヒラメキ
-}
-
+// Card types with enhanced Hirameki support
 export enum CardType {
   NORMAL = "normal",
   SHARED = "shared",      // 共用カード
@@ -36,24 +32,37 @@ export enum CardType {
   FORBIDDEN = "forbidden" // 禁忌カード
 }
 
+// Hirameki variation for a card
+export interface HiramekiVariation {
+  level: number; // 0 = base, 1-5 for character cards, 1-3 for other cards
+  cost: number;
+  description: string;
+  status?: string; // New element: status effects
+}
+
+// God Hirameki adds extra effects
+export interface GodHirameki {
+  additionalEffect: string;
+  costModifier?: number; // Optional cost change
+}
+
 export interface Card {
   id: string;
   name: string;
   type: CardType;
-  baseCost: number;
-  baseDescription: string;
-  hiramekiType: HiramekiType;
+  isBasicCard?: boolean; // True for the 3 basic cards that can't have hirameki
   imgUrl?: string;
-  // Cost and description variations based on hirameki
-  normalHiramekiCost?: number;
-  normalHiramekiDescription?: string;
-  godHiramekiCost?: number;
-  godHiramekiDescription?: string;
+  // Hirameki variations (index 0 is base, 1-5 for character cards, 1-3 for others)
+  hiramekiVariations: HiramekiVariation[];
+  // God hirameki information (separate from normal hirameki)
+  godHirameki?: GodHirameki;
 }
 
 // Deck state
 export interface DeckCard extends Card {
   deckId: string; // unique ID for this card in the deck
+  selectedHiramekiLevel: number; // 0 = base, 1-5 for variations
+  hasGodHirameki: boolean; // Whether god hirameki is applied
 }
 
 export interface Deck {
@@ -66,26 +75,25 @@ export interface Deck {
   cards: DeckCard[];
 }
 
-// Helper function to get card info based on hirameki
-export function getCardInfo(card: Card): {
+// Helper function to get card info based on hirameki level and god hirameki
+export function getCardInfo(card: DeckCard): {
   cost: number;
   description: string;
+  status?: string;
 } {
-  switch (card.hiramekiType) {
-    case HiramekiType.NORMAL:
-      return {
-        cost: card.normalHiramekiCost ?? card.baseCost,
-        description: card.normalHiramekiDescription ?? card.baseDescription
-      };
-    case HiramekiType.GOD:
-      return {
-        cost: card.godHiramekiCost ?? card.baseCost,
-        description: card.godHiramekiDescription ?? card.baseDescription
-      };
-    default:
-      return {
-        cost: card.baseCost,
-        description: card.baseDescription
-      };
+  const variation = card.hiramekiVariations[card.selectedHiramekiLevel] || card.hiramekiVariations[0];
+  
+  let cost = variation.cost;
+  let description = variation.description;
+  const status = variation.status;
+
+  // Apply god hirameki if active
+  if (card.hasGodHirameki && card.godHirameki) {
+    description = `${description}\n${card.godHirameki.additionalEffect}`;
+    if (card.godHirameki.costModifier !== undefined) {
+      cost += card.godHirameki.costModifier;
+    }
   }
+
+  return { cost, description, status };
 }
