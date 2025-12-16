@@ -42,14 +42,13 @@ test.describe('Deck Editor', () => {
     // Add a card
     await page.getByRole('button', { name: /ファイアボール/ }).first().click();
     
-    // Find the hirameki buttons in the deck display
     const deckSection = page.locator('text=現在のデッキ').locator('..');
     
-    // Click on ヒラメキ button
-    await deckSection.getByRole('button', { name: 'ヒラメキ' }).click();
+    // Click on ヒラメキ button - use exact match and first to avoid ambiguity
+    await deckSection.getByRole('button', { name: 'ヒラメキ', exact: true }).first().click();
     
-    // Verify the cost changed (from 3 to 2)
-    await expect(deckSection.getByText('コスト: 2')).toBeVisible();
+    // Verify the cost changed (from 3 to 2) - look for the card cost specifically, not total cost
+    await expect(page.locator('h3:has-text("ファイアボール")').locator('..').getByText('コスト: 2')).toBeVisible();
   });
 
   test('should change card to god hirameki state', async ({ page }) => {
@@ -61,10 +60,10 @@ test.describe('Deck Editor', () => {
     const deckSection = page.locator('text=現在のデッキ').locator('..');
     
     // Click on 神ヒラメキ button
-    await deckSection.getByRole('button', { name: '神ヒラメキ' }).click();
+    await deckSection.getByRole('button', { name: '神ヒラメキ' }).first().click();
     
-    // Verify the cost changed (from 3 to 1)
-    await expect(deckSection.getByText('コスト: 1')).toBeVisible();
+    // Verify the cost changed (from 3 to 1) - look for the card cost specifically, not total cost
+    await expect(page.locator('h3:has-text("ファイアボール")').locator('..').getByText('コスト: 1')).toBeVisible();
   });
 
   test('should remove card from deck', async ({ page }) => {
