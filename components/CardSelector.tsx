@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from 'next-intl';
 
 import { Card, CardType, Character } from "@/types";
 import { getCharacterHiramekiCards, getAddableCards } from "@/lib/data";
@@ -9,19 +10,20 @@ interface CardSelectorProps {
 }
 
 export function CardSelector({ character, onAddCard }: CardSelectorProps) {
+  const t = useTranslations();
   const characterHiramekiCards = character ? getCharacterHiramekiCards(character) : [];
   const addableCards = getAddableCards(character?.job);
 
   const getCardTypeLabel = (type: CardType) => {
     switch (type) {
       case CardType.SHARED:
-        return "共用カード";
+        return t("card.sharedCards");
       case CardType.MONSTER:
-        return "モンスターカード";
+        return t("card.monsterCards");
       case CardType.FORBIDDEN:
-        return "禁忌カード";
+        return t("card.forbiddenCards");
       default:
-        return "カード";
+        return t("card.title");
     }
   };
 
@@ -105,7 +107,7 @@ export function CardSelector({ character, onAddCard }: CardSelectorProps) {
 
       {!character && characterHiramekiCards.length === 0 && (
         <div className="text-sm text-gray-500 dark:text-gray-400 text-center p-4">
-          キャラクターを選択するとヒラメキカードが利用可能になります
+          t("character.select")
         </div>
       )}
     </div>

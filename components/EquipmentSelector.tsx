@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
 import { Equipment, EquipmentType } from "@/types";
 
 interface EquipmentSelectorProps {
@@ -13,17 +14,19 @@ interface EquipmentSelectorProps {
 }
 
 export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: EquipmentSelectorProps) {
+  const t = useTranslations();
+  
   const getEquipmentByType = (type: EquipmentType) => {
     return equipment.filter(eq => eq.type === type);
   };
 
-  const renderEquipmentSection = (type: EquipmentType, title: string) => {
+  const renderEquipmentSection = (type: EquipmentType, titleKey: string) => {
     const items = getEquipmentByType(type);
     const selected = selectedEquipment[type];
 
     return (
       <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">{title}</h3>
+        <h3 className="text-lg font-semibold mb-2">{t(titleKey)}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {items.map((item) => (
             <button
@@ -36,7 +39,7 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
               }`}
             >
               <div className="font-semibold">{item.name}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">{item.rarity}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">{t(`rarity.${item.rarity}`)}</div>
               {item.description && (
                 <div className="text-xs text-gray-500 mt-1">{item.description}</div>
               )}
@@ -49,10 +52,10 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
 
   return (
     <div className="mb-6">
-      <h2 className="text-xl font-bold mb-4">装備選択</h2>
-      {renderEquipmentSection(EquipmentType.WEAPON, "武器")}
-      {renderEquipmentSection(EquipmentType.ARMOR, "防具")}
-      {renderEquipmentSection(EquipmentType.PENDANT, "ペンダント")}
+      <h2 className="text-xl font-bold mb-4">{t('equipment.title')}</h2>
+      {renderEquipmentSection(EquipmentType.WEAPON, "equipment.weapon")}
+      {renderEquipmentSection(EquipmentType.ARMOR, "equipment.armor")}
+      {renderEquipmentSection(EquipmentType.PENDANT, "equipment.pendant")}
     </div>
   );
 }

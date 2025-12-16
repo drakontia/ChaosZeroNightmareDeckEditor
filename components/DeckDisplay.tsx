@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from 'next-intl';
 
 import { DeckCard, getCardInfo, GodType, GOD_HIRAMEKI_EFFECTS } from "@/types";
 
@@ -12,6 +13,7 @@ interface DeckDisplayProps {
 }
 
 export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUpdateHirameki, onSetGodHirameki }: DeckDisplayProps) {
+  const t = useTranslations();
   if (cards.length === 0) {
     return (
       <div className="p-12 text-center text-gray-500 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg">
@@ -64,7 +66,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUpd
                   {/* Mark below cost: Hirameki mark or God mark */}
                   {!isBasicCard && card.selectedHiramekiLevel > 0 && !card.godHiramekiType && (
                     <span className="text-[10px] mt-1 px-1.5 py-0.5 bg-purple-500 text-white rounded font-bold">
-                      ★ ヒラメキ Lv{card.selectedHiramekiLevel}
+                      ★ {t("card.hirameki")} {t("card.level")}{card.selectedHiramekiLevel}
                     </span>
                   )}
                   {!isBasicCard && card.godHiramekiType && (
@@ -98,7 +100,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUpd
               {/* Hirameki Level Selector - only show for non-basic cards */}
               {!isBasicCard && (
                 <div className="space-y-2">
-                  <div className="text-xs text-gray-600 dark:text-gray-400">ヒラメキLv:</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">{t("card.hirameki")}{t("card.level")}:</div>
                   <div className="grid grid-cols-3 gap-1">
                     {[0, 1, 2, 3, 4, 5].map((level) => (
                       <button
@@ -124,14 +126,14 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUpd
                   >
                     {card.godHiramekiType 
                       ? `✦ 神: ${GOD_HIRAMEKI_EFFECTS[card.godHiramekiType].name}`
-                      : "神ヒラメキ選択"}
+                      : "{t("card.godSelect")}"}
                   </button>
                 </div>
               )}
 
               {isBasicCard && (
                 <div className="text-xs text-center text-gray-500 dark:text-gray-400">
-                  基本カード（ヒラメキなし）
+                  {t("card.basicCard")}
                 </div>
               )}
             </div>
