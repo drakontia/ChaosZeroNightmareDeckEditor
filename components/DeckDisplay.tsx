@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { getCardInfo } from "@/lib/deck-utils";
 import { cn } from "@/lib/utils";
-import { CircleX, Lightbulb, LightbulbOff, Zap, ZapOff, Undo2, Copy, ArrowRightLeft } from "lucide-react";
+import { CircleX, Lightbulb, LightbulbOff, Zap, ZapOff, Undo2, Copy, ArrowRightLeft, Menu } from "lucide-react";
 
 interface DeckDisplayProps {
   cards: DeckCard[];
@@ -28,6 +28,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUnd
   const t = useTranslations();
   const [openHiramekiFor, setOpenHiramekiFor] = useState<string | null>(null);
   const [openGodFor, setOpenGodFor] = useState<string | null>(null);
+  const [openActionsFor, setOpenActionsFor] = useState<string | null>(null);
   if (cards.length === 0) {
     return (
       <UiCard className="border-dashed border-2 p-10 text-center text-muted-foreground">
@@ -59,130 +60,124 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUnd
             <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-black/60" />
 
             {/* 上部オーバーレイ：左に大コスト、右に名前/種類 */}
-            <div className="flex items-start p-3 gap-3 z-index-10 relative">
+            <div className="flex items-start pt-3 pl-4 gap-2 z-index-10 relative">
               <div className="flex flex-col items-start">
                 <div className="text-5xl font-extrabold text-white text-shadow-2xl leading-none" >{cardInfo.cost}</div>
-                {!isBasicCard && (
-                  <div className="mt-2 flex flex-col gap-1">
-                    {card.isCopied && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-1 rounded-full bg-blue-600/90 text-white text-shadow-2xl">
-                        📋 {t("card.copied", { defaultValue: "コピー済み" })}
-                      </span>
-                    )}
-                    {card.selectedHiramekiLevel > 0 && !card.godHiramekiType && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-1 rounded-full bg-purple-600/90 text-white text-shadow-2xl">
-                        ★ {t("card.hirameki")} {t("card.level")}{card.selectedHiramekiLevel}
-                      </span>
-                    )}
-                    {card.godHiramekiType && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-1 rounded-full bg-yellow-400 text-black">
-                        ✦ {GOD_HIRAMEKI_EFFECTS[card.godHiramekiType].name}
-                      </span>
-                    )}
-                  </div>
-                )}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-base md:text-2xl font-bold text-white text-shadow-2xl truncate" title={card.name}>{card.name}</div>
                 <div className="text-xs md:text-base text-white/90 text-shadow-4xl">{t(`category.${card.category}`)}</div>
               </div>
-              <div className="flex flex-col gap-1">
-                <button
-                  type="button"
-                  aria-label={t("common.delete", { defaultValue: "削除" })}
-                  onClick={() => onRemoveCard(card.deckId)}
-                  className="inline-flex items-center justify-center rounded-full bg-destructive text-destructive-foreground hover:opacity-90 transition h-8 w-8"
-                  title={t("common.delete", { defaultValue: "削除" })}
-                >
-                  <CircleX className="h-5 w-5" />
-                </button>
-                {!card.isBasicCard && (
-                  <>
-                    <button
-                      type="button"
-                      aria-label={t("common.copy", { defaultValue: "コピー" })}
-                      onClick={() => onCopyCard(card.deckId)}
-                      className="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground hover:opacity-90 transition h-8 w-8"
-                      title={t("common.copy", { defaultValue: "コピー" })}
-                    >
-                      <Copy className="h-5 w-5" />
-                    </button>
-                  </>
-                )}
-                <button
-                  type="button"
-                  aria-label={t("common.convert", { defaultValue: "変換" })}
-                  onClick={() => onConvertCard(card.deckId)}
-                  className="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground hover:opacity-90 transition h-8 w-8"
-                  title={t("common.convert", { defaultValue: "変換" })}
-                >
-                  <ArrowRightLeft className="h-5 w-5" />
-                </button>
+            </div>
 
-                {!card.isStartingCard && (
-                  <>
+            <div className="flex items-start pt-1 pl-3 gap-2 z-index-10 relative">
+              {/* 左下：ヒラメキ/神ヒラメキボタン */}
+              {!isBasicCard && (
+                <div className="flex flex-col gap-2">
+                  <button
+                    type="button"
+                    aria-label={t("card.hirameki")}
+                    title={t("card.hirameki")}
+                    onClick={() => setOpenHiramekiFor(card.deckId)}
+                    className={cn(
+                      "inline-flex items-center justify-center rounded-full transition h-8 w-8",
+                      card.selectedHiramekiLevel > 0
+                        ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
+                        : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                    )}
+                  >
+                    {card.selectedHiramekiLevel > 0 ? (
+                      <Lightbulb className="h-5 w-5" />
+                    ) : (
+                      <LightbulbOff className="h-5 w-5" />
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={t("card.godSelect")}
+                    title={t("card.godSelect")}
+                    onClick={() => setOpenGodFor(card.deckId)}
+                    className={cn(
+                      "inline-flex items-center justify-center rounded-full transition h-8 w-8",
+                      card.godHiramekiType
+                        ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
+                        : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                    )}
+                  >
+                    {card.godHiramekiType ? (
+                      <Zap className="h-5 w-5" />
+                    ) : (
+                      <ZapOff className="h-5 w-5" />
+                    )}
+                  </button>
+                </div>
+              )}
+
+              <div className="relative ml-auto mr-2">
+                <button
+                  type="button"
+                  aria-label={t("actions.menu", { defaultValue: "メニュー" })}
+                  onClick={() => setOpenActionsFor(openActionsFor === card.deckId ? null : card.deckId)}
+                  className="inline-flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition h-7 w-7 ring-1 ring-black/50 shadow-md"
+                  title={t("actions.menu", { defaultValue: "メニュー" })}
+                >
+                  <Menu className="h-5 w-5" />
+                </button>
+                {openActionsFor === card.deckId && (
+                  <div className="absolute right-0 mt-2 w-7 rounded-md border bg-white text-black shadow-lg z-20">
                     <button
                       type="button"
-                      aria-label="戻す"
-                      onClick={() => onUndoCard(card.deckId)}
-                      className="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground hover:opacity-90 transition h-8 w-8"
-                      title="デッキから戻す"
+                      className="flex items-center justify-center px-1 py-2 hover:bg-black/10"
+                      onClick={() => { onRemoveCard(card.deckId); setOpenActionsFor(null); }}
+                      aria-label={t("common.delete", { defaultValue: "削除" })}
+                      title={t("common.delete", { defaultValue: "削除" })}
                     >
-                      <Undo2 className="h-5 w-5" />
+                      <CircleX className="h-5 w-5" />
                     </button>
-                  </>
+                    {!card.isBasicCard && (
+                      <button
+                        type="button"
+                        className="flex items-center justify-center px-1 py-2 hover:bg-black/10"
+                        onClick={() => { onCopyCard(card.deckId); setOpenActionsFor(null); }}
+                        aria-label={t("common.copy", { defaultValue: "コピー" })}
+                        title={t("common.copy", { defaultValue: "コピー" })}
+                      >
+                        <Copy className="h-5 w-5" />
+                      </button>
+                    )}
+                    <button
+                      type="button"
+                      className="flex items-center justify-center px-1 py-2 hover:bg-black/10"
+                      onClick={() => { onConvertCard(card.deckId); setOpenActionsFor(null); }}
+                      aria-label={t("common.convert", { defaultValue: "変換" })}
+                      title={t("common.convert", { defaultValue: "変換" })}
+                    >
+                      <ArrowRightLeft className="h-5 w-5" />
+                    </button>
+                    {!card.isStartingCard && (
+                      <button
+                        type="button"
+                        className="flex items-center justify-center px-1 py-2 hover:bg-black/10"
+                        onClick={() => { onUndoCard(card.deckId); setOpenActionsFor(null); }}
+                        aria-label={t("actions.undo", { defaultValue: "戻す" })}
+                        title={t("actions.undo", { defaultValue: "戻す" })}
+                      >
+                        <Undo2 className="h-5 w-5" />
+                      </button>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
 
-            {/* 左下：ヒラメキ/神ヒラメキボタン */}
-            {!isBasicCard && (
-              <div className="flex flex-col pt-1 pl-3 gap-2 z-index-10 relative">
-                <button
-                  type="button"
-                  aria-label={t("card.hirameki")}
-                  title={t("card.hirameki")}
-                  onClick={() => setOpenHiramekiFor(card.deckId)}
-                  className={cn(
-                    "inline-flex items-center justify-center rounded-full transition h-8 w-8",
-                    card.selectedHiramekiLevel > 0
-                      ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                  )}
-                >
-                  {card.selectedHiramekiLevel > 0 ? (
-                    <Lightbulb className="h-5 w-5" />
-                  ) : (
-                    <LightbulbOff className="h-5 w-5" />
-                  )}
-                </button>
-                <button
-                  type="button"
-                  aria-label={t("card.godSelect")}
-                  title={t("card.godSelect")}
-                  onClick={() => setOpenGodFor(card.deckId)}
-                  className={cn(
-                    "inline-flex items-center justify-center rounded-full transition h-8 w-8",
-                    card.godHiramekiType
-                      ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                  )}
-                >
-                  {card.godHiramekiType ? (
-                    <Zap className="h-5 w-5" />
-                  ) : (
-                    <ZapOff className="h-5 w-5" />
-                  )}
-                </button>
-              </div>
-            )}
-
             {/* 下部中央：ステータスと説明 */}
-            <div className="absolute left-2 right-2 bottom-20 text-center text-white text-xs md:text-sm text-shadow-4xl whitespace-pre-wrap">
-              {cardInfo.status && (
-                <div className="mb-1 text-[11px] font-semibold text-purple-300">[{cardInfo.status}]</div>
+            <div className="absolute left-2 right-2 bottom-12 text-center text-white text-xs md:text-lg text-shadow-4xl whitespace-pre-wrap">
+              {cardInfo.statuses && cardInfo.statuses.length > 0 && (
+                <div className="mb-1 font-semibold text-yellow-300">
+                  [{cardInfo.statuses.map(s => t(`status.${s}`)).join(' / ')}]
+                </div>
               )}
-              {cardInfo.description}
+              {t(`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`, { defaultValue: cardInfo.description })}
             </div>
 
             {/* ヒラメキ選択モーダル（画像付きカード形プレビュー） */}
@@ -209,11 +204,11 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUnd
                         <div className="absolute top-2 left-2 right-2 flex items-start gap-3">
                           <div className="text-2xl font-extrabold text-white text-shadow-2xl">{info.cost}</div>
                           <div className="min-w-0 flex-1">
-                            <div className="text-sm font-bold text-white text-shadow-2xl truncate">{card.name}</div>
+                            <div className="text-sm font-bold text-white text-shadow-2xl truncate">{t(`cards.${card.id}.name`, { defaultValue: card.name })}</div>
                             <div className="text-xs text-white/90 text-shadow-2xl">{level === 0 ? t("card.basicCard") : `${t("card.level")}${level}`}</div>
                           </div>
                         </div>
-                        <div className="absolute left-2 right-2 bottom-2 text-center text-white text-[11px] text-shadow-2xl">{info.description}</div>
+                        <div className="absolute left-2 right-2 bottom-2 text-center text-white text-[11px] text-shadow-2xl">{t(`cards.${card.id}.descriptions.${level}`, { defaultValue: info.description })}</div>
                       </button>
                     );
                   })}

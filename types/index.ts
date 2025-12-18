@@ -84,7 +84,7 @@ export interface HiramekiVariation {
   level: number; // 0 = base, 1-5 for character cards, 1-3 for other cards
   cost: number;
   description: string;
-  status?: string; // Status effects display text
+  statuses?: CardStatus[]; // Status effects display text
   // Variations based on Ego Manifestation level
   egoVariations?: {
     [egoLevel: number]: {
