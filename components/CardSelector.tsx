@@ -55,7 +55,8 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
     } = options;
     const baseVariation = card.hiramekiVariations[0];
     const key = keyPrefix ? `${keyPrefix}-${card.id}` : card.id;
-    const cardTitle = title || card.name;
+    const translatedName = t(`cards.${card.id}.name`, { defaultValue: card.name });
+    const cardTitle = title || translatedName;
 
     return (
       <UiCard
@@ -67,7 +68,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
         {card.imgUrl && (
           <Image
             src={card.imgUrl}
-            alt={card.name}
+            alt={translatedName}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -87,7 +88,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
             <div 
               className="text-base md:text-2xl font-bold text-white text-shadow-2xl truncate"
             >
-              {card.name}
+              {translatedName}
             </div>
             <div 
               className="text-xs md:text-base text-white/90 text-shadow-2xl"
@@ -99,12 +100,14 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
 
         {showFullDescription && (
           <div 
-            className="absolute left-2 right-2 bottom-3 md:bottom-6 text-xs md:text-sm text-center text-white text-shadow-2xl whitespace-pre-wrap"
+            className="absolute left-2 right-2 bottom-3 md:bottom-12 text-xs md:text-lg text-center text-white text-shadow-2xl whitespace-pre-wrap"
           >
-            {baseVariation.status && (
-              <div className="mb-1 text-[11px] font-semibold text-purple-300">[{baseVariation.status}]</div>
+            {baseVariation.statuses && baseVariation.statuses.length > 0 && (
+              <div className="mb-1 text-[11px] font-semibold text-purple-300">
+                [{baseVariation.statuses.map(s => t(`status.${s}`)).join(' / ')}]
+              </div>
             )}
-            {baseVariation.description}
+            {t(`cards.${card.id}.descriptions.0`, { defaultValue: baseVariation.description })}
           </div>
         )}
       </UiCard>
@@ -118,18 +121,20 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
   };
 
   const renderRemovedTile = (card: Card, count: number) => {
+    const translatedName = t(`cards.${card.id}.name`, { defaultValue: card.name });
     return renderCardTile(card, {
       keyPrefix: 'removed',
       onClick: () => onRestoreCard(card),
-      title: `${card.name}をデッキに戻す`,
+      title: `${translatedName}をデッキに戻す`,
     });
   };
 
   const renderConvertedTile = (card: Card) => {
+    const translatedName = t(`cards.${card.id}.name`, { defaultValue: card.name });
     return renderCardTile(card, {
       keyPrefix: 'converted',
       className: '',
-      title: `${card.name}（変換済み）`,
+      title: `${translatedName}（変換済み）`,
       subtitle: '変換済み',
       showFullDescription: true,
     });

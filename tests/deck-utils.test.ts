@@ -10,7 +10,7 @@ describe('getCardInfo', () => {
       level: 0,
       cost: 5,
       description: 'Base description',
-      status: CardStatus.OPENING
+      statuses: [CardStatus.OPENING]
     };
     
     const variation1: HiramekiVariation = {
@@ -48,7 +48,7 @@ describe('getCardInfo', () => {
     const info = getCardInfo(baseCard);
     expect(info.cost).toBe(5);
     expect(info.description).toBe('Base description');
-    expect(info.status).toBe(CardStatus.OPENING);
+    expect(info.statuses).toContain(CardStatus.OPENING);
   });
 
   it('should return hirameki level 1 info', () => {

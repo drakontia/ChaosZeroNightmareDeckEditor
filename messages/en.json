@@ -116,6 +116,16 @@
     "enhancement": "Enhancement",
     "skill": "Skill"
   },
+  "status": {
+    "opening": "Opening",
+    "extinction": "Extinction",
+    "preservation": "Preservation",
+    "recovery": "Recovery",
+    "celestial": "Celestial",
+    "coordination": "Coordination",
+    "ultimate": "Ultimate",
+    "initiative": "Initiative"
+  },
   "actions": {
     "add": "Add",
     "remove": "Remove",
@@ -123,6 +133,121 @@
     "clear": "Clear"
   },
   "common": {
-    "open": "Open"
+    "open": "Open",
+    "delete": "Delete",
+    "convert": "Convert",
+    "remove": "Remove",
+    "copy": "Copy"
+  },
+  "cards": {
+    "char_card_1": {
+      "name": "True Moon",
+      "descriptions": {
+        "0": "Damage 61% x 2"
+      }
+    },
+    "char_card_2": {
+      "name": "Basic Defense",
+      "descriptions": {
+        "0": "Increase own defense"
+      }
+    },
+    "char_card_3": {
+      "name": "Basic Recovery",
+      "descriptions": {
+        "0": "Restore own HP"
+      }
+    },
+    "char_card_4": {
+      "name": "Fireball",
+      "descriptions": {
+        "0": "Deal fire damage to single enemy",
+        "1": "Deal fire damage to single enemy (minor power increase)",
+        "2": "Deal fire damage to single enemy (power increase)",
+        "3": "Deal heavy fire damage to single enemy",
+        "4": "Deal heavy fire damage to single enemy (power increase)",
+        "5": "Deal massive fire damage to single enemy"
+      }
+    },
+    "char_hirameki_1": {
+      "name": "Flame Strike",
+      "descriptions": {
+        "0": "Deal powerful fire damage to single enemy",
+        "1": "Deal powerful fire damage to single enemy (minor power increase)",
+        "2": "Deal powerful fire damage to single enemy (power increase)",
+        "3": "Deal super powerful fire damage to single enemy",
+        "4": "Deal super powerful fire damage to single enemy (power increase)",
+        "5": "Deal extreme fire damage to single enemy"
+      }
+    },
+    "char_hirameki_2": {
+      "name": "Ice Shield",
+      "descriptions": {
+        "0": "Defend with ice shield and damage attacker",
+        "1": "Defend with ice shield and damage attacker (minor power increase)",
+        "2": "Defend with ice shield and deal high damage to attacker",
+        "3": "Defend with ice shield and deal high damage + freeze to attacker",
+        "4": "Perfect defense with ice shield and deal massive damage + freeze to attacker",
+        "5": "Perfect defense with ice shield and deal extreme damage to attacker"
+      }
+    },
+    "char_hirameki_3": {
+      "name": "Heal",
+      "descriptions": {
+        "0": "Restore HP of single ally",
+        "1": "Restore HP of single ally (minor healing increase)",
+        "2": "Restore HP of single ally (healing increase)",
+        "3": "Restore HP of all allies",
+        "4": "Greatly restore HP of all allies",
+        "5": "Massively restore HP of all allies"
+      }
+    },
+    "char_hirameki_4": {
+      "name": "Defense",
+      "descriptions": {
+        "0": "Increase own defense",
+        "1": "Increase own defense (minor effect increase)",
+        "2": "Greatly increase own defense",
+        "3": "Greatly increase own defense + nullify damage once",
+        "4": "Massively increase own defense + nullify damage twice",
+        "5": "Become invincible (1 turn)"
+      }
+    },
+    "monster_card_1": {
+      "name": "Monster Summon",
+      "descriptions": {
+        "0": "Summon a monster to attack",
+        "1": "Summon a powerful monster to attack",
+        "2": "Summon a powerful monster for multiple attacks",
+        "3": "Summon a legendary monster for powerful attack"
+      }
+    },
+    "shared_card_1": {
+      "name": "Area Attack",
+      "descriptions": {
+        "0": "Deal neutral damage to all enemies",
+        "1": "Deal neutral damage to all enemies (power increase)",
+        "2": "Deal heavy neutral damage to all enemies",
+        "3": "Deal massive neutral damage to all enemies"
+      }
+    },
+    "shared_card_2": {
+      "name": "Thunder Storm",
+      "descriptions": {
+        "0": "Deal lightning damage to all enemies",
+        "1": "Deal lightning damage to all enemies + paralyze",
+        "2": "Deal heavy lightning damage to all enemies + paralyze + stun",
+        "3": "Deal massive lightning damage to all enemies + paralyze + stun"
+      }
+    },
+    "forbidden_card_1": {
+      "name": "Forbidden Spell",
+      "descriptions": {
+        "0": "Forbidden magic deals massive damage to enemy (with recoil)",
+        "1": "Forbidden magic deals massive damage to enemy (reduced recoil)",
+        "2": "Forbidden magic deals extreme damage to enemy (reduced recoil)",
+        "3": "Forbidden magic deals extreme damage to enemy (no recoil)"
+      }
+    }
   }
 }

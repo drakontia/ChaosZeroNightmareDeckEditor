@@ -6,13 +6,15 @@ import { getCardById } from "@/lib/data";
 export function getCardInfo(card: DeckCard, egoLevel: number = 0, hasPotential: boolean = false): {
   cost: number;
   description: string;
-  status?: string;
+  statuses?: string[]; // Return raw status array for translation
 } {
   const variation = card.hiramekiVariations[card.selectedHiramekiLevel] || card.hiramekiVariations[0];
   
   let cost = variation.cost;
   let description = variation.description;
-  const status = variation.status;
+  const statuses = variation.statuses && variation.statuses.length > 0 
+    ? variation.statuses
+    : undefined;
 
   // Apply ego level variations
   if (variation.egoVariations && variation.egoVariations[egoLevel]) {
@@ -43,7 +45,7 @@ export function getCardInfo(card: DeckCard, egoLevel: number = 0, hasPotential: 
     }
   }
 
-  return { cost, description, status };
+  return { cost, description, statuses };
 }
 
 // Calculate Faint Memory points based on deck edits
