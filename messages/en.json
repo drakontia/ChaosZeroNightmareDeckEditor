@@ -111,6 +111,23 @@
     "nihilum": "Nihilum",
     "vitol": "Vitol"
   },
+  "godEffects": {
+    "kilken_1": { "name": "Bonus Damage", "additionalEffect": "Deals additional damage on attack" },
+    "kilken_2": { "name": "Critical", "additionalEffect": "Increases critical rate" },
+    "kilken_3": { "name": "Double Strike", "additionalEffect": "Attack triggers twice in succession" },
+    "seclaid_1": { "name": "Defense Up", "additionalEffect": "Greatly increases defense" },
+    "seclaid_2": { "name": "Damage Reduction", "additionalEffect": "Reduces incoming damage by 50%" },
+    "seclaid_3": { "name": "Barrier", "additionalEffect": "Negates the next incoming attack" },
+    "dialos_1": { "name": "AoE Conversion", "additionalEffect": "Converts to area-of-effect" },
+    "dialos_2": { "name": "Wider Range", "additionalEffect": "Doubles the effect range" },
+    "dialos_3": { "name": "Ally Empower", "additionalEffect": "Applies the effect to all allies" },
+    "nihilum_1": { "name": "Nullify Buffs", "additionalEffect": "Nullifies enemy enhancement effects" },
+    "nihilum_2": { "name": "Cleanse Debuffs", "additionalEffect": "Removes all debuffs from allies" },
+    "nihilum_3": { "name": "Silence", "additionalEffect": "Prevents enemy from using skills" },
+    "vitol_1": { "name": "Heal", "additionalEffect": "Restores HP" },
+    "vitol_2": { "name": "Regen", "additionalEffect": "Restores HP over 3 turns" },
+    "vitol_3": { "name": "Revive", "additionalEffect": "Revives a fallen ally" }
+  },
   "category": {
     "attack": "Attack",
     "enhancement": "Enhancement",

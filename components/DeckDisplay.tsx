@@ -7,6 +7,7 @@ import { CardActionsMenu } from './CardActionsMenu';
 import { DeckCard, GodType } from "@/types";
 import { Card as UiCard } from "./ui/card";
 import { getCardInfo } from "@/lib/deck-utils";
+import { GOD_HIRAMEKI_EFFECTS } from "@/lib/god-hirameki";
 
 interface DeckDisplayProps {
   cards: DeckCard[];
@@ -18,14 +19,13 @@ interface DeckDisplayProps {
   onConvertCard: (deckId: string) => void;
   onUpdateHirameki: (deckId: string, hiramekiLevel: number) => void;
   onSetGodHirameki: (deckId: string, godType: GodType | null) => void;
+  onSetGodHiramekiEffect: (deckId: string, effectId: string | null) => void;
 }
 
-export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUndoCard, onCopyCard, onConvertCard, onUpdateHirameki, onSetGodHirameki }: DeckDisplayProps) {
+export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUndoCard, onCopyCard, onConvertCard, onUpdateHirameki, onSetGodHirameki, onSetGodHiramekiEffect }: DeckDisplayProps) {
   const t = useTranslations();
 
-  // Helper function to get translated card name
-  const getTranslatedCardName = (card: DeckCard) =>
-    t(`cards.${card.id}.name`, { defaultValue: card.name });
+  // name translation will be performed in CardFrame using ID
 
   if (cards.length === 0) {
     return (
@@ -40,16 +40,29 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUnd
       {cards.map((card) => {
         const cardInfo = getCardInfo(card, egoLevel, hasPotential);
         const isBasicCard = card.isBasicCard === true;
-        const translatedName = getTranslatedCardName(card);
+        const nameId = `cards.${card.id}.name`;
+        const nameFallback = card.name;
+
+        // Pass god effect ID and fallback; CardFrame will translate at render time
+        let godEffectId: string | undefined;
+        let godEffectFallback: string | undefined;
+        if (card.godHiramekiType && card.godHiramekiEffectId) {
+          const godDef = GOD_HIRAMEKI_EFFECTS[card.godHiramekiType];
+          const effect = godDef.effects.find(e => e.id === card.godHiramekiEffectId);
+          if (effect) {
+            godEffectId = effect.id;
+            godEffectFallback = effect.additionalEffect;
+          }
+        }
 
         const leftControls = !isBasicCard ? (
           <HiramekiControls
             card={card}
             egoLevel={egoLevel}
             hasPotential={hasPotential}
-            translatedName={translatedName}
             onUpdateHirameki={onUpdateHirameki}
             onSetGodHirameki={onSetGodHirameki}
+            onSetGodHiramekiEffect={onSetGodHiramekiEffect}
           />
         ) : undefined;
 
@@ -57,11 +70,15 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, onRemoveCard, onUnd
           <UiCard key={card.deckId}>
             <CardFrame
               imgUrl={card.imgUrl}
-              alt={translatedName}
+              alt={nameFallback}
               cost={cardInfo.cost}
-              name={translatedName}
+              nameId={nameId}
+              nameFallback={nameFallback}
               category={t(`category.${card.category}`)}
-              description={t(`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`, { defaultValue: cardInfo.description })}
+              descriptionId={`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`}
+              descriptionFallback={cardInfo.description}
+              godEffectId={godEffectId}
+              godEffectFallback={godEffectFallback}
               statuses={cardInfo.statuses?.map(s => t(`status.${s}`))}
               leftControls={leftControls}
               rightControls={

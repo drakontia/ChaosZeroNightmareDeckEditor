@@ -1,15 +1,22 @@
 "use client";
 import Image from "next/image";
 import { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface CardFrameProps {
   imgUrl?: string;
-  alt: string;
+  alt?: string;
   cost: number | string;
-  name: string;
+  name?: string;
+  nameId?: string;
+  nameFallback?: string;
   category: string;
   description?: string;
+  descriptionId?: string;
+  descriptionFallback?: string;
+  godEffectId?: string;
+  godEffectFallback?: string;
   statuses?: string[];
   className?: string;
   leftControls?: ReactNode;
@@ -22,14 +29,23 @@ export function CardFrame({
   alt,
   cost,
   name,
+  nameId,
+  nameFallback,
   category,
   description,
+  descriptionId,
+  descriptionFallback,
+  godEffectId,
+  godEffectFallback,
   statuses,
   className,
   leftControls,
   rightControls,
   variant = "default",
 }: CardFrameProps) {
+  const t = useTranslations();
+    const displayName = nameId ? t(nameId, { defaultValue: nameFallback ?? name ?? "" }) : (name ?? "");
+    const displayAlt = displayName || alt || "";
   const isCompact = variant === "compact";
   const costClass = isCompact
     ? "text-2xl"
@@ -44,11 +60,11 @@ export function CardFrame({
   const descTextClass = isCompact ? "text-[11px]" : "text-xs md:text-lg";
 
   return (
-    <div className={cn("relative overflow-hidden aspect-[2/3] rounded-md", className)}>
+    <div className={cn("relative overflow-hidden aspect-2/3 rounded-md", className)}>
       {imgUrl && (
         <Image
           src={imgUrl}
-          alt={alt}
+          alt={displayAlt}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -62,7 +78,7 @@ export function CardFrame({
           <div className={cn(costClass, "font-extrabold text-white text-shadow-2xl leading-none")}>{cost}</div>
         </div>
         <div className="min-w-0 flex-1">
-          <div className={cn(nameClass, "font-bold text-white text-shadow-2xl truncate")} title={name}>{name}</div>
+          <div className={cn(nameClass, "font-bold text-white text-shadow-2xl truncate")} title={displayName}>{displayName}</div>
           <div className={cn(categoryClass, "text-white/90 text-shadow-4xl")}>{category}</div>
         </div>
       </div>
@@ -82,14 +98,21 @@ export function CardFrame({
       )}
 
       {/* Bottom overlay: statuses + description */}
-      {(description || (statuses && statuses.length > 0)) && (
+      {((descriptionId || description) || (statuses && statuses.length > 0)) && (
         <div className={cn("absolute left-2 right-2", bottomOffsetClass, "text-center text-white", descTextClass, "text-shadow-4xl whitespace-pre-wrap")}> 
           {statuses && statuses.length > 0 && (
             <div className="mb-1 font-semibold text-yellow-300">
               [{statuses.join(" / ")}]
             </div>
           )}
-          {description}
+          {descriptionId
+            ? t(descriptionId, { defaultValue: descriptionFallback ?? "" })
+            : description}
+          {godEffectId && (
+            <div className="mt-2 text-yellow-300 font-semibold">
+              {t(`godEffects.${godEffectId}.additionalEffect`, { defaultValue: godEffectFallback ?? "" })}
+            </div>
+          )}
         </div>
       )}
     </div>

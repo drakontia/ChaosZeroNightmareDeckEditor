@@ -48,7 +48,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="w-full aspect-[2/1] h-auto border-dashed relative overflow-hidden"
+            className="w-full aspect-2/1 h-auto border-dashed relative overflow-hidden"
           >
             {selectedCharacter ? (
               <>
@@ -177,19 +177,18 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                             className="w-5 h-5"
                           />
                         )}
-                        <button
-                          type="button"
+                        <div
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();
                             handleEgoIncrement(character, selectedCharacter?.id === character.id);
                           }}
-                          className="px-1.5 py-0.5 rounded border-2 border-white bg-black/80"
+                          className="px-1.5 py-0.5 rounded border-2 border-white bg-black/80 cursor-pointer pointer-events-auto"
                         >
                           <span className="text-xs font-semibold leading-none text-white w-5 h-5">
                             {formatEgoLevel(getEgoLevel(character))}
                           </span>
-                        </button>
+                        </div>
                       </div>
                       <div className="absolute inset-0 pointer-events-none">
                         <div className="absolute bottom-2 right-2 text-right text-gray-100 text-sm font-semibold text-shadow-lg/20">

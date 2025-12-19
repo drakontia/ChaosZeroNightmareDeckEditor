@@ -111,6 +111,23 @@
     "nihilum": "尼希鲁姆",
     "vitol": "维托尔"
   },
+  "godEffects": {
+    "kilken_1": { "name": "追加伤害", "additionalEffect": "攻击时造成追加伤害" },
+    "kilken_2": { "name": "暴击", "additionalEffect": "提高暴击率" },
+    "kilken_3": { "name": "连击", "additionalEffect": "攻击连续触发两次" },
+    "seclaid_1": { "name": "防御强化", "additionalEffect": "大幅提升防御力" },
+    "seclaid_2": { "name": "伤害减免", "additionalEffect": "受到的伤害减少50%" },
+    "seclaid_3": { "name": "护盾", "additionalEffect": "完全无效化下一次攻击" },
+    "dialos_1": { "name": "变为范围", "additionalEffect": "效果变为范围攻击" },
+    "dialos_2": { "name": "范围扩大", "additionalEffect": "效果范围扩大为2倍" },
+    "dialos_3": { "name": "强化盟友", "additionalEffect": "效果施加给全体盟友" },
+    "nihilum_1": { "name": "效果无效化", "additionalEffect": "无效化敌人的强化效果" },
+    "nihilum_2": { "name": "驱散负面", "additionalEffect": "清除我方的所有负面效果" },
+    "nihilum_3": { "name": "沉默", "additionalEffect": "使敌人无法使用技能" },
+    "vitol_1": { "name": "回复HP", "additionalEffect": "回复生命值" },
+    "vitol_2": { "name": "持续回复", "additionalEffect": "3回合持续回复生命值" },
+    "vitol_3": { "name": "复活", "additionalEffect": "复活倒下的盟友" }
+  },
   "category": {
     "attack": "攻击",
     "enhancement": "强化",

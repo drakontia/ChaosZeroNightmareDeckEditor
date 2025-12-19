@@ -3,74 +3,6 @@
     "title": "カオスゼロナイトメア デッキエディター",
     "description": "デッキを自由に編集できるツールです"
   },
-  "character": {
-    "title": "キャラクター",
-    "select": "キャラクターを選択",
-    "job": "職業",
-    "vagueMemory": "曖昧な記憶",
-    "faintMemory": "曖昧な記憶",
-    "egoManifest": "エゴ発現",
-    "potential": "潜在力",
-    "chizuru": "チズル",
-    "alice": "アリス",
-    "victor": "ヴィクター",
-    "emma": "エマ",
-    "kyle": "カイル"
-  },
-  "equipment": {
-    "title": "装備",
-    "none": "なし",
-    "rarity": {
-      "mythical": "神話",
-      "legendary": "伝説",
-      "rare": "希少"
-    },
-    "weapon": {
-      "title": "武器",
-      "weapon_1": {
-        "name": "ガストロノミコン",
-        "description": "コスト2以上の攻撃カード使用時、対象に苦痛3"
-      },
-      "darkSword": {
-        "name": "ダークソード",
-        "description": "闇の力を宿した剣"
-      },
-      "steelSword": {
-        "name": "鋼の剣",
-        "description": "標準的な剣"
-      }
-    },
-    "armor": {
-      "title": "防具",
-      "holyArmor": {
-        "name": "神聖なる鎧",
-        "description": "神々の加護を受けた鎧"
-      },
-      "magicArmor": {
-        "name": "魔法の鎧",
-        "description": "魔法防御力が高い"
-      },
-      "leatherArmor": {
-        "name": "革の鎧",
-        "description": "軽量な鎧"
-      }
-    },
-    "pendant": {
-      "title": "ペンダント",
-      "lifePendant": {
-        "name": "生命のペンダント",
-        "description": "HPを大幅に増加"
-      },
-      "magicPendant": {
-        "name": "魔力のペンダント",
-        "description": "魔力を増加"
-      },
-      "luckyPendant": {
-        "name": "幸運のペンダント",
-        "description": "運を少し上げる"
-      }
-    }
-  },
   "card": {
     "title": "カード",
     "add": "カードを追加",
@@ -115,6 +47,68 @@
     "nihilum": "ニヒルム",
     "vitol": "ヴィトル"
   },
+  "godEffects": {
+    "kilken_1": {
+      "name": "追加ダメージ",
+      "additionalEffect": "攻撃時、追加ダメージを与える"
+    },
+    "kilken_2": {
+      "name": "クリティカル",
+      "additionalEffect": "クリティカル率が上昇する"
+    },
+    "kilken_3": {
+      "name": "連続攻撃",
+      "additionalEffect": "攻撃が2回連続で発動する"
+    },
+    "seclaid_1": {
+      "name": "防御強化",
+      "additionalEffect": "防御力を大幅に上昇させる"
+    },
+    "seclaid_2": {
+      "name": "ダメージ軽減",
+      "additionalEffect": "受けるダメージを50%軽減する"
+    },
+    "seclaid_3": {
+      "name": "バリア",
+      "additionalEffect": "次の攻撃を完全に無効化する"
+    },
+    "dialos_1": {
+      "name": "全体効果",
+      "additionalEffect": "全体効果に変化する"
+    },
+    "dialos_2": {
+      "name": "範囲拡大",
+      "additionalEffect": "効果範囲が2倍になる"
+    },
+    "dialos_3": {
+      "name": "味方強化",
+      "additionalEffect": "味方全体に効果を付与する"
+    },
+    "nihilum_1": {
+      "name": "効果無効化",
+      "additionalEffect": "敵の強化効果を無効化する"
+    },
+    "nihilum_2": {
+      "name": "デバフ解除",
+      "additionalEffect": "味方のデバフを全て解除する"
+    },
+    "nihilum_3": {
+      "name": "沈黙",
+      "additionalEffect": "敵をスキル使用不可にする"
+    },
+    "vitol_1": {
+      "name": "HP回復",
+      "additionalEffect": "HPを回復する"
+    },
+    "vitol_2": {
+      "name": "継続回復",
+      "additionalEffect": "3ターンの間、継続的にHPを回復する"
+    },
+    "vitol_3": {
+      "name": "蘇生",
+      "additionalEffect": "倒れた味方を復活させる"
+    }
+  },
   "category": {
     "attack": "攻撃",
     "enhancement": "強化",
@@ -134,7 +128,9 @@
     "add": "追加",
     "remove": "削除",
     "select": "選択",
-    "clear": "クリア"
+    "clear": "クリア",
+    "menu": "メニュー",
+    "undo": "戻す"
   },
   "common": {
     "open": "開く",
@@ -142,6 +138,39 @@
     "convert": "変換",
     "remove": "除去",
     "copy": "コピー"
+  },
+  "character": {
+    "title": "キャラクター",
+    "select": "キャラクターを選択",
+    "job": "職業",
+    "vagueMemory": "曖昧な記憶",
+    "faintMemory": "曖昧な記憶",
+    "egoManifest": "エゴ発現",
+    "potential": "潜在力",
+    "chizuru": "チズル",
+    "yuki": "ユキ",
+    "luke": "ルーク",
+    "kalipe": "カリーペ",
+    "magna": "マグナ",
+    "rin": "リン",
+    "orlea": "オルレア",
+    "meiling": "メイリン",
+    "belonica": "ベロニカ",
+    "renoa": "レノア",
+    "hugo": "ヒューゴ",
+    "hal": "ハル",
+    "kaylon": "カイロン",
+    "nia": "ニア",
+    "selena": "セレナ",
+    "tresa": "トレサ",
+    "amir": "アミール",
+    "lucas": "ルーカス",
+    "maribelle": "マリベル",
+    "mika": "ミカ",
+    "beril": "ベリル",
+    "kacius": "カシウス",
+    "owen": "オーウェン",
+    "ray": "レイ"
   },
   "cards": {
     "char_card_1": {
@@ -251,6 +280,60 @@
         "1": "禁断の魔法で敵に大ダメージ（反動軽減）",
         "2": "禁断の魔法で敵に超大ダメージ（反動軽減）",
         "3": "禁断の魔法で敵に超大ダメージ（反動なし）"
+      }
+    }
+  },
+  "equipment": {
+    "title": "装備",
+    "none": "なし",
+    "rarity": {
+      "mythical": "神話",
+      "legendary": "伝説",
+      "rare": "希少"
+    },
+    "weapon": {
+      "title": "武器",
+      "weapon_1": {
+        "name": "ガストロノミコン",
+        "description": "コスト2以上の攻撃カード使用時、対象に苦痛3"
+      },
+      "darkSword": {
+        "name": "ダークソード",
+        "description": "闇の力を宿した剣"
+      },
+      "steelSword": {
+        "name": "鋼の剣",
+        "description": "標準的な剣"
+      }
+    },
+    "armor": {
+      "title": "防具",
+      "holyArmor": {
+        "name": "神聖なる鎧",
+        "description": "神々の加護を受けた鎧"
+      },
+      "magicArmor": {
+        "name": "魔法の鎧",
+        "description": "魔法防御力が高い"
+      },
+      "leatherArmor": {
+        "name": "革の鎧",
+        "description": "軽量な鎧"
+      }
+    },
+    "pendant": {
+      "title": "ペンダント",
+      "lifePendant": {
+        "name": "生命のペンダント",
+        "description": "HPを大幅に増加"
+      },
+      "magicPendant": {
+        "name": "魔力のペンダント",
+        "description": "魔力を増加"
+      },
+      "luckyPendant": {
+        "name": "幸運のペンダント",
+        "description": "運を少し上げる"
       }
     }
   }

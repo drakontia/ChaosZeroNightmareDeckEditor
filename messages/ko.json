@@ -104,6 +104,23 @@
     "controller": "컨트롤러",
     "psionic": "사이오닉"
   },
+  "godEffects": {
+    "kilken_1": { "name": "추가 피해", "additionalEffect": "공격 시 추가 피해를 입힌다" },
+    "kilken_2": { "name": "치명타", "additionalEffect": "치명타 확률이 상승한다" },
+    "kilken_3": { "name": "연속 공격", "additionalEffect": "공격이 연속으로 두 번 발동한다" },
+    "seclaid_1": { "name": "방어 강화", "additionalEffect": "방어력을 크게 상승시킨다" },
+    "seclaid_2": { "name": "피해 경감", "additionalEffect": "받는 피해를 50% 경감한다" },
+    "seclaid_3": { "name": "배리어", "additionalEffect": "다음 공격을 완전히 무효화한다" },
+    "dialos_1": { "name": "범위화", "additionalEffect": "효과가 범위 공격으로 변경된다" },
+    "dialos_2": { "name": "범위 확대", "additionalEffect": "효과 범위가 2배로 확대된다" },
+    "dialos_3": { "name": "아군 강화", "additionalEffect": "효과를 아군 전체에 부여한다" },
+    "nihilum_1": { "name": "효과 무효화", "additionalEffect": "적의 강화 효과를 무효화한다" },
+    "nihilum_2": { "name": "디버프 해제", "additionalEffect": "아군의 모든 디버프를 해제한다" },
+    "nihilum_3": { "name": "침묵", "additionalEffect": "적을 스킬 사용 불가로 만든다" },
+    "vitol_1": { "name": "HP 회복", "additionalEffect": "HP를 회복한다" },
+    "vitol_2": { "name": "지속 회복", "additionalEffect": "3턴 동안 지속적으로 HP를 회복한다" },
+    "vitol_3": { "name": "부활", "additionalEffect": "쓰러진 아군을 부활시킨다" }
+  },
   "god": {
     "kilken": "킬켄",
     "seclaid": "세크레드",

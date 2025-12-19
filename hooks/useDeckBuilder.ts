@@ -221,6 +221,17 @@ export function useDeckBuilder() {
     }));
   }, []);
 
+  const setCardGodHiramekiEffect = useCallback((deckId: string, effectId: string | null) => {
+    setDeck(prev => ({
+      ...prev,
+      cards: prev.cards.map(card => 
+        card.deckId === deckId 
+          ? { ...card, godHiramekiEffectId: effectId }
+          : card
+      )
+    }));
+  }, []);
+
   const clearDeck = useCallback(() => {
     setDeck({
       character: null,
@@ -272,6 +283,7 @@ export function useDeckBuilder() {
     convertCard,
     updateCardHirameki,
     setCardGodHirameki,
+    setCardGodHiramekiEffect,
     clearDeck,
     setName,
     setEgoLevel,

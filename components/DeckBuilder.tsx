@@ -32,6 +32,7 @@ export function DeckBuilder() {
     convertCard,
     updateCardHirameki,
     setCardGodHirameki,
+    setCardGodHiramekiEffect,
     clearDeck,
     setName,
     togglePotential
@@ -147,6 +148,7 @@ export function DeckBuilder() {
                   onConvertCard={convertCard}
                   onUpdateHirameki={updateCardHirameki}
                   onSetGodHirameki={setCardGodHirameki}
+                  onSetGodHiramekiEffect={setCardGodHiramekiEffect}
                 />
 
               </CardContent>

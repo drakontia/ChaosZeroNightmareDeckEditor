@@ -47,7 +47,7 @@ test.describe('Deck Editor', () => {
   test('should select a character', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
-    
+
     // Verify character is shown in the deck
     await expect(page.getByText('チズル').first()).toBeVisible();
   });
@@ -55,7 +55,7 @@ test.describe('Deck Editor', () => {
   test('should select equipment', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
-    
+
     // Verify weapon is shown in the deck (selected equipment button reflects the choice)
     await expect(page.getByRole('button', { name: 'ガストロノミコン' })).toBeVisible();
   });
@@ -63,7 +63,7 @@ test.describe('Deck Editor', () => {
   test('should add cards to deck', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
-    
+
     const addedCardName = await addFirstHiramekiCard(page);
     // Verify deck contains the added card by using deck card container
     const deckCard = getDeckCardContainerByName(page, addedCardName);
@@ -74,7 +74,7 @@ test.describe('Deck Editor', () => {
     await expect(totalCardsField.locator('span.text-primary').filter({ hasText: '5' })).toBeVisible();
   });
 
-  test('should change card hirameki state', async ({ page }) => {
+  test('should change card hirameki state and update description to selected level', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
     const cardName = await addFirstHiramekiCard(page);
@@ -82,51 +82,76 @@ test.describe('Deck Editor', () => {
     const hiramekiBtn = page.getByRole('button', { name: 'ヒラメキ' }).filter({ has: page.locator(`div[title="${cardName}"]`) }).first();
     const btnCount = await hiramekiBtn.count();
     if (btnCount === 0) {
-      test.info().skip('ヒラメキボタンが存在しないカードのためスキップ');
+      test.skip(true, 'ヒラメキボタンが存在しないカードのためスキップ');
       return;
     }
     await hiramekiBtn.click();
 
-    // Pick Lv1 in the modal
-    await page.locator('[title="Lv1"]').first().click();
+    // Capture Lv1 description text from the modal preview, then select it
+    const lv1Tile = page.locator('[title="Lv1"]').first();
+    const lv1Text = await lv1Tile.innerText();
+    await lv1Tile.click();
 
     // Verify hirameki button indicates active state
     await expect(hiramekiBtn).toHaveClass(/bg-yellow-400/);
+
+    // Verify deck card description contains the Lv1 preview text
+    const deckCard = getDeckCardContainerByName(page, cardName);
+    await expect(deckCard).toContainText(lv1Text);
   });
 
-  test('should change card to god hirameki state', async ({ page }) => {
+  test('should change card to god hirameki state and show localized effect with correct cost', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
     const cardName = await addFirstHiramekiCard(page);
     const godBtn = page.getByRole('button', { name: '神ヒラメキ選択' }).filter({ has: page.locator(`div[title="${cardName}"]`) }).first();
     const godCount = await godBtn.count();
     if (godCount === 0) {
-      test.info().skip('神ヒラメキボタンが存在しないカードのためスキップ');
+      test.skip(true, '神ヒラメキボタンが存在しないカードのためスキップ');
       return;
     }
     await godBtn.click();
 
-    // Choose the first available god type (button with "選択") in the dialog
-    await page.getByRole('dialog').getByText('選択').first().click();
+    // Choose a god in the horizontal group, then pick first effect preview
+    const dialog = page.getByRole('dialog');
+    const kilkenBtn = dialog.getByRole('button', { name: 'キルケン' });
+    await kilkenBtn.first().click();
+    const effectTile = dialog.locator('button[title]').first();
+    const effectText = await effectTile.innerText();
+    const tileCostMatch = effectText.match(/\b(\d+)\b/);
+    const expectedCost = tileCostMatch ? parseInt(tileCostMatch[1], 10) : undefined;
+    await effectTile.click();
 
     // Verify god button indicates active state
     await expect(godBtn).toHaveClass(/bg-yellow-400/);
+
+    // Verify localized god effect text appears under the card description
+    const deckCard = getDeckCardContainerByName(page, cardName);
+    await expect(deckCard.getByText('攻撃時、追加ダメージを与える')).toBeVisible();
+
+    // Verify the deck card cost matches the effect preview cost
+    if (expectedCost !== undefined) {
+      const deckText = await deckCard.innerText();
+      const deckCostMatch = deckText.match(/\b(\d+)\b/);
+      const deckCost = deckCostMatch ? parseInt(deckCostMatch[1], 10) : undefined;
+      expect(deckCost).toBe(expectedCost);
+    }
   });
 
   test('should remove card from deck', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
     const cardName = await addFirstHiramekiCard(page);
-    
+
     // Remove the card
     const deleteBtn = page.getByRole('button', { name: '削除' }).filter({ has: page.locator(`div[title="${cardName}"]`) }).first();
     const delCount = await deleteBtn.count();
     if (delCount === 0) {
-      test.info().skip('削除ボタンが見つからないためスキップ');
+      test.skip(true, '削除ボタンが見つからないためスキップ');
       return;
     }
     await deleteBtn.click();
-    
+
     // Verify card is removed
     const totalCardsField = page.getByRole('group').filter({ hasText: 'カード枚数' });
     await expect(totalCardsField.getByText('4')).toBeVisible();
@@ -136,10 +161,10 @@ test.describe('Deck Editor', () => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);
     await addFirstHiramekiCard(page);
-    
+
     // Clear deck
     await page.getByRole('button', { name: 'デッキをクリア' }).click();
-    
+
     // Verify deck is cleared
     await expect(page.getByText('キャラクターを選択すると開始カードが表示されます')).toBeVisible();
   });

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Lightbulb, LightbulbOff, Zap, ZapOff } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -16,22 +16,29 @@ interface HiramekiControlsProps {
   card: DeckCard;
   egoLevel: number;
   hasPotential: boolean;
-  translatedName: string;
   onUpdateHirameki: (deckId: string, hiramekiLevel: number) => void;
   onSetGodHirameki: (deckId: string, godType: GodType | null) => void;
+  onSetGodHiramekiEffect: (deckId: string, effectId: string | null) => void;
 }
 
 export function HiramekiControls({ 
   card, 
   egoLevel, 
   hasPotential, 
-  translatedName,
   onUpdateHirameki, 
-  onSetGodHirameki 
+  onSetGodHirameki,
+  onSetGodHiramekiEffect,
 }: HiramekiControlsProps) {
   const t = useTranslations();
   const [openHirameki, setOpenHirameki] = useState(false);
   const [openGod, setOpenGod] = useState(false);
+  const [selectedGod, setSelectedGod] = useState<GodType | null>(null);
+  
+  useEffect(() => {
+    if (openGod) {
+      setSelectedGod(card.godHiramekiType ?? null);
+    }
+  }, [openGod, card.godHiramekiType]);
   
   const isHiramekiActive = card.selectedHiramekiLevel > 0;
   const isGodActive = Boolean(card.godHiramekiType);
@@ -103,11 +110,13 @@ export function HiramekiControls({
                 >
                   <CardFrame
                     imgUrl={card.imgUrl}
-                    alt={translatedName}
+                    alt={card.name}
                     cost={info.cost}
-                    name={translatedName}
+                    nameId={`cards.${card.id}.name`}
+                    nameFallback={card.name}
                     category={t(`category.${card.category}`)}
-                    description={t(`cards.${card.id}.descriptions.${level}`, { defaultValue: info.description })}
+                    descriptionId={`cards.${card.id}.descriptions.${level}`}
+                    descriptionFallback={info.description}
                     statuses={info.statuses?.map(s => t(`status.${s}`))}
                     className="border"
                     variant="default"
@@ -119,22 +128,74 @@ export function HiramekiControls({
         </DialogContent>
       </Dialog>
 
-      {/* 神ヒラメキ選択モーダル（リスト表示） */}
+      {/* 神ヒラメキ選択モーダル（横並びボタングループ + 効果プレビュー） */}
       <Dialog open={openGod} onOpenChange={setOpenGod}>
-        <DialogContent className="max-h-[80vh] overflow-hidden">
+        <DialogContent className="max-h-[85vh] overflow-hidden">
           <DialogHeader>
             <DialogTitle>{t("card.godSelect")}</DialogTitle>
+            <button
+              type="button"
+              onClick={() => { onSetGodHirameki(card.deckId, null); onSetGodHiramekiEffect(card.deckId, null); setOpenGod(false); }}
+              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+            >
+              <span className="text-sm font-medium">{t('common.remove', { defaultValue: '外す' })}</span>
+              <span className="sr-only">{t('common.remove', { defaultValue: '外す' })}</span>
+            </button>
           </DialogHeader>
-          <div className="p-6 pt-0 overflow-y-auto max-h-[60vh] space-y-2">
-            <Button variant="ghost" className="w-full justify-start" onClick={() => { onSetGodHirameki(card.deckId, null); setOpenGod(false); }}>
-              {t('common.remove', { defaultValue: '外す' })}
-            </Button>
-            {GOD_TYPES.map((g) => (
-              <Button key={g} variant={card.godHiramekiType === g ? "secondary" : "outline"} className="w-full justify-between" onClick={() => { onSetGodHirameki(card.deckId, g); setOpenGod(false); }}>
-                <span>✦ {GOD_HIRAMEKI_EFFECTS[g].name}</span>
-                <span className="text-xs text-muted-foreground">{t('actions.select')}</span>
-              </Button>
-            ))}
+
+          {/* 神ボタングループ（横スクロール可） */}
+          <div className="px-6 pt-0 pb-4">
+            <div className="flex gap-2 overflow-x-auto">
+              {GOD_TYPES.map((g) => (
+                <Button
+                  key={g}
+                  variant={selectedGod === g ? "secondary" : "outline"}
+                  className="shrink-0"
+                  onClick={() => setSelectedGod(g)}
+                >
+                  {t(`god.${GOD_HIRAMEKI_EFFECTS[g].name}`, { defaultValue: GOD_HIRAMEKI_EFFECTS[g].name })}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* 効果適用済みカードのプレビュー選択 */}
+          <div className="p-6 pt-0 overflow-y-auto max-h-[60vh]">
+            {!selectedGod ? (
+              <div className="text-sm text-muted-foreground">{t('card.god')}</div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {GOD_HIRAMEKI_EFFECTS[selectedGod].effects.map((effect) => {
+                  const baseInfo = getCardInfo(card, egoLevel, hasPotential);
+                  const costWithGod = baseInfo.cost + (effect.costModifier ?? 0);
+                  const isSelected = card.godHiramekiType === selectedGod && card.godHiramekiEffectId === effect.id;
+                  return (
+                    <button
+                      key={effect.id}
+                      className={cn("rounded-md", isSelected ? "ring-2 ring-primary" : "")}
+                      onClick={() => { onSetGodHirameki(card.deckId, selectedGod); onSetGodHiramekiEffect(card.deckId, effect.id); setOpenGod(false); }}
+                      title={effect.name}
+                    >
+                      <CardFrame
+                        imgUrl={card.imgUrl}
+                        alt={card.name}
+                        cost={costWithGod}
+                        nameId={`cards.${card.id}.name`}
+                        nameFallback={card.name}
+                        category={t(`category.${card.category}`)}
+                        descriptionId={`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`}
+                        descriptionFallback={card.hiramekiVariations[card.selectedHiramekiLevel]?.description}
+                        godEffectId={effect.id}
+                        godEffectFallback={effect.additionalEffect}
+                        statuses={baseInfo.statuses?.map(s => t(`status.${s}`))}
+                        className="border"
+                        variant="default"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>
