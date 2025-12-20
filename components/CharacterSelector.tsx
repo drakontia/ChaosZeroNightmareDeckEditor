@@ -88,31 +88,47 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                           className="w-8 h-8"
                         />
                       )}
-                      <Button
-                        type="button"
+                      <div
+                        role="button"
+                        tabIndex={0}
                         onClick={(e) => {
                           e.stopPropagation();
                           e.preventDefault();
                           handleEgoIncrement(selectedCharacter, true);
                         }}
-                        className="px-2 py-0.5 rounded border-3 border-white bg-black/80 w-8 h-8"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            handleEgoIncrement(selectedCharacter, true);
+                          }
+                        }}
+                        className="px-2 py-0.5 rounded border-3 border-white bg-black/80 w-8 h-8 cursor-pointer"
                       >
                         <span className="text-base font-bold leading-none text-white">
                           {formatEgoLevel(getEgoLevel(selectedCharacter))}
                         </span>
-                      </Button>
-                      <Button
-                        type="button"
+                      </div>
+                      <div
+                        role="button"
+                        tabIndex={0}
                         onClick={(e) => {
                           e.stopPropagation();
                           e.preventDefault();
                           onTogglePotential();
                         }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            onTogglePotential();
+                          }
+                        }}
                         aria-label="toggle potential"
-                        className="p-1 rounded border border-white bg-black/80 text-white w-8 h-8"
+                        className="p-1 rounded border border-white bg-black/80 text-white w-8 h-8 cursor-pointer"
                       >
                         {hasPotential ? <Eye className="h-5 w-5" /> : <EyeOff className="h-5 w-5" />}
-                      </Button>
+                      </div>
                     </div>
                   </div>
                 )}
