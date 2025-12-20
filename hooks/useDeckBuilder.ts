@@ -6,6 +6,7 @@ import { getCharacterStartingCards } from "@/lib/data";
 
 export function useDeckBuilder() {
   const [deck, setDeck] = useState<Deck>({
+    name: "",
     character: null,
     equipment: {
       weapon: null,

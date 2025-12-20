@@ -85,6 +85,8 @@
   "deck": {
     "title": "卡组",
     "clear": "清空卡组",
+    "exportImage": "导出牌组图片",
+    "exportImageFailed": "导出牌组图片失败",
     "totalCards": "卡牌总数",
     "totalCost": "总费用",
     "noDeck": "卡组为空",

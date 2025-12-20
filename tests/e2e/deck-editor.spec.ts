@@ -44,6 +44,17 @@ test.describe('Deck Editor', () => {
     await expect(page.getByText('カオスゼロナイトメア デッキエディター')).toBeVisible();
   });
 
+  test('should export deck image', async ({ page }) => {
+    await page.goto('/');
+    const exportBtn = page.getByRole('button', { name: 'デッキ画像を保存' });
+    await expect(exportBtn).toBeVisible();
+
+    const downloadPromise = page.waitForEvent('download');
+    await exportBtn.click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename().toLowerCase()).toContain('.png');
+  });
+
   test('should select a character', async ({ page }) => {
     await page.goto('/');
     await selectCharacterAndWeapon(page);

@@ -84,6 +84,8 @@
     "clear": "덱 초기화",
     "totalCards": "총 카드 수",
     "totalCost": "총 비용",
+    "exportImageFailed": "덱 이미지 내보내기에 실패했습니다",
+    "exportImage": "덱 이미지 내보내기",
     "noDeck": "덱이 비어 있습니다",
     "namePlaceholder": "덱 이름 입력",
     "createdDate": "생성일"

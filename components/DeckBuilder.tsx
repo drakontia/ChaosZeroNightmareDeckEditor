@@ -15,12 +15,16 @@ import { Button } from "./ui/button";
 import { Field, FieldLabel, FieldGroup, FieldSet } from "./ui/field";
 import { Input } from './ui/input';
 import { Brain, CardSim, Clock12 } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import { toPng } from 'html-to-image';
+import { Camera } from 'lucide-react';
 
 export function DeckBuilder() {
   const t = useTranslations();
   const locale = useLocale();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isExporting, setIsExporting] = useState(false);
+  const deckCaptureRef = useRef<HTMLDivElement | null>(null);
 
   const {
     deck,
@@ -39,6 +43,55 @@ export function DeckBuilder() {
     setName,
     togglePotential
   } = useDeckBuilder();
+
+  const handleExportDeckImage = useCallback(async () => {
+    if (isExporting) return;
+    const node = deckCaptureRef.current;
+    if (!node) return;
+
+    const placeholderImg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAtMB9oN2sT8AAAAASUVORK5CYII=";
+    const cleanup: Array<() => void> = [];
+
+    try {
+      setIsExporting(true);
+      // Give the layout a tick to ensure sizes are settled
+      await new Promise(requestAnimationFrame);
+
+       // Replace cross-origin images to avoid canvas tainting
+      const imgs = Array.from(node.querySelectorAll('img'));
+      imgs.forEach(img => {
+        const src = img.currentSrc || img.src;
+        try {
+          const url = new URL(src, window.location.href);
+          if (url.origin !== window.location.origin) {
+            const original = img.src;
+            img.src = placeholderImg;
+            cleanup.push(() => { img.src = original; });
+          }
+        } catch {
+          // Ignore malformed URLs
+        }
+      });
+
+      const pixelRatio = Math.min(window.devicePixelRatio || 2, 3);
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        pixelRatio,
+      });
+
+      const link = document.createElement('a');
+      link.download = `${deck.name || 'deck'}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error('Failed to export deck image', message);
+      alert(t('deck.exportImageFailed', { defaultValue: 'デッキ画像の保存に失敗しました。' }));
+    } finally {
+      cleanup.forEach(fn => fn());
+      setIsExporting(false);
+    }
+  }, [deck.name, isExporting, t]);
 
   const faintMemoryPoints = calculateFaintMemory(deck);
 
@@ -59,19 +112,30 @@ export function DeckBuilder() {
           </div>
         </header>
 
-        <FieldSet className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 p-6 rounded-xl border bg-card">
+        <div ref={deckCaptureRef}>
+          <FieldSet className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 p-6 rounded-xl border bg-card">
           {/* Top side - Deck name, Deck control */}
           <FieldGroup className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-4">
             <Field orientation={'horizontal'} className="lg:col-span-4">
               <Input
                 type="text"
-                value={deck.name}
+                value={deck.name ?? ""}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full p-3 rounded-lg border border-border bg-background text-foreground"
                 placeholder={t('deck.namePlaceholder')}
               />
             </Field>
-            <div className="lg:col-span-8 flex justify-end">
+            <div className="lg:col-span-8 flex justify-end gap-2">
+              <Button
+                onClick={handleExportDeckImage}
+                variant="secondary"
+                disabled={isExporting}
+                title={t('deck.exportImage')}
+                aria-label={t('deck.exportImage')}
+              >
+                <Camera className="mr-2 h-4 w-4" />
+                {t('deck.exportImage')}
+              </Button>
               <Button
                 onClick={clearDeck}
                 variant="destructive"
@@ -157,7 +221,8 @@ export function DeckBuilder() {
               </CardContent>
             </Card>
           </div>
-        </FieldSet>
+          </FieldSet>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-12">
