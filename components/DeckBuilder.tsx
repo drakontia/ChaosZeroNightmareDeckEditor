@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useDeckBuilder } from "@/hooks/useDeckBuilder";
 import { CardType } from "@/types";
 import { CharacterSelector } from "./CharacterSelector";
@@ -14,17 +15,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Field, FieldLabel, FieldGroup, FieldSet } from "./ui/field";
 import { Input } from './ui/input';
-import { Brain, CardSim, Clock12 } from 'lucide-react';
-import { useCallback, useRef, useState } from 'react';
-import { toPng } from 'html-to-image';
+import { Brain, CardSim, Clock12, Share2 } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Camera } from 'lucide-react';
+import { decodeDeckShare } from "@/lib/deck-share";
+import { Deck } from "@/types";
+import { useShareDeck } from "@/hooks/useShareDeck";
+import { useExportDeckImage } from "@/hooks/useExportDeckImage";
 
-export function DeckBuilder() {
+export type DeckBuilderProps = {
+  shareId?: string;
+};
+
+export function DeckBuilder({ shareId }: DeckBuilderProps) {
   const t = useTranslations();
   const locale = useLocale();
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
-  const [isExporting, setIsExporting] = useState(false);
+  const [sharedDeck, setSharedDeck] = useState<Deck | null>(null);
+  const [shareError, setShareError] = useState<string | null>(null);
+  const hasLoadedShare = useRef(false);
   const deckCaptureRef = useRef<HTMLDivElement | null>(null);
+
+  const { isSharing, handleShareDeck: shareHandler } = useShareDeck();
+  const { isExporting, handleExportDeckImage: exportHandler } = useExportDeckImage();
 
   const {
     deck,
@@ -42,56 +56,29 @@ export function DeckBuilder() {
     clearDeck,
     setName,
     togglePotential
-  } = useDeckBuilder();
+  } = useDeckBuilder(sharedDeck ?? undefined);
 
-  const handleExportDeckImage = useCallback(async () => {
-    if (isExporting) return;
-    const node = deckCaptureRef.current;
-    if (!node) return;
-
-    const placeholderImg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAtMB9oN2sT8AAAAASUVORK5CYII=";
-    const cleanup: Array<() => void> = [];
-
-    try {
-      setIsExporting(true);
-      // Give the layout a tick to ensure sizes are settled
-      await new Promise(requestAnimationFrame);
-
-       // Replace cross-origin images to avoid canvas tainting
-      const imgs = Array.from(node.querySelectorAll('img'));
-      imgs.forEach(img => {
-        const src = img.currentSrc || img.src;
-        try {
-          const url = new URL(src, window.location.href);
-          if (url.origin !== window.location.origin) {
-            const original = img.src;
-            img.src = placeholderImg;
-            cleanup.push(() => { img.src = original; });
-          }
-        } catch {
-          // Ignore malformed URLs
-        }
-      });
-
-      const pixelRatio = Math.min(window.devicePixelRatio || 2, 3);
-      const dataUrl = await toPng(node, {
-        cacheBust: true,
-        pixelRatio,
-      });
-
-      const link = document.createElement('a');
-      link.download = `${deck.name || 'deck'}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (err) {
-      const message = err instanceof Error ? err.message : String(err);
-      console.error('Failed to export deck image', message);
-      alert(t('deck.exportImageFailed', { defaultValue: 'デッキ画像の保存に失敗しました。' }));
-    } finally {
-      cleanup.forEach(fn => fn());
-      setIsExporting(false);
+  useEffect(() => {
+    if (!shareId || hasLoadedShare.current) return;
+    const decoded = decodeDeckShare(shareId);
+    if (decoded) {
+      setSharedDeck(decoded);
+    } else {
+      setShareError(t('deck.shareInvalid', { defaultValue: '共有リンクが無効です。' }));
     }
-  }, [deck.name, isExporting, t]);
+    hasLoadedShare.current = true;
+  }, [shareId, t]);
+
+
+
+  const handleShareDeck = useCallback(() => {
+    shareHandler(deck);
+  }, [deck, shareHandler]);
+
+  const handleClearDeck = useCallback(() => {
+    clearDeck();
+    router.push('/');
+  }, [clearDeck, router]);
 
   const faintMemoryPoints = calculateFaintMemory(deck);
 
@@ -112,6 +99,12 @@ export function DeckBuilder() {
           </div>
         </header>
 
+        {shareError && (
+          <div className="mb-4 text-sm text-destructive">
+            {shareError}
+          </div>
+        )}
+
         <div ref={deckCaptureRef}>
           <FieldSet className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 p-6 rounded-xl border bg-card">
           {/* Top side - Deck name, Deck control */}
@@ -121,13 +114,23 @@ export function DeckBuilder() {
                 type="text"
                 value={deck.name ?? ""}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full p-3 rounded-lg border border-border bg-background text-foreground"
+                className="text-4xl h-12 font-bold"
                 placeholder={t('deck.namePlaceholder')}
               />
             </Field>
             <div className="lg:col-span-8 flex justify-end gap-2">
               <Button
-                onClick={handleExportDeckImage}
+                onClick={handleShareDeck}
+                variant="secondary"
+                disabled={isSharing || !deck.character}
+                title={t('deck.share')}
+                aria-label={t('deck.share')}
+              >
+                <Share2 className="mr-2 h-4 w-4" />
+                {t('deck.share')}
+              </Button>
+              <Button
+                onClick={() => exportHandler(deckCaptureRef, deck.name || 'deck')}
                 variant="secondary"
                 disabled={isExporting}
                 title={t('deck.exportImage')}
@@ -137,7 +140,7 @@ export function DeckBuilder() {
                 {t('deck.exportImage')}
               </Button>
               <Button
-                onClick={clearDeck}
+                onClick={handleClearDeck}
                 variant="destructive"
               >
                 {t('deck.clear')}

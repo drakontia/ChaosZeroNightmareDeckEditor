@@ -1,26 +1,34 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Character, Equipment, Card, DeckCard, Deck, EquipmentType, GodType, CardType } from "@/types";
 import { getCharacterStartingCards } from "@/lib/data";
 
-export function useDeckBuilder() {
-  const [deck, setDeck] = useState<Deck>({
-    name: "",
-    character: null,
-    equipment: {
-      weapon: null,
-      armor: null,
-      pendant: null
-    },
-    cards: [],
-    egoLevel: 0,
-    hasPotential: false,
-    createdAt: new Date(),
-    removedCards: new Map(),
-    copiedCards: new Map(),
-    convertedCards: new Map()
-  });
+const createEmptyDeck = (): Deck => ({
+  name: "",
+  character: null,
+  equipment: {
+    weapon: null,
+    armor: null,
+    pendant: null
+  },
+  cards: [],
+  egoLevel: 0,
+  hasPotential: false,
+  createdAt: new Date(),
+  removedCards: new Map(),
+  copiedCards: new Map(),
+  convertedCards: new Map()
+});
+
+export function useDeckBuilder(initialDeck?: Deck) {
+  const [deck, setDeck] = useState<Deck>(() => initialDeck ?? createEmptyDeck());
+
+  useEffect(() => {
+    if (initialDeck) {
+      setDeck(initialDeck);
+    }
+  }, [initialDeck]);
 
   const selectCharacter = useCallback((character: Character) => {
     setDeck(prev => {
@@ -283,21 +291,7 @@ export function useDeckBuilder() {
   }, []);
 
   const clearDeck = useCallback(() => {
-    setDeck({
-      character: null,
-      equipment: {
-        weapon: null,
-        armor: null,
-        pendant: null
-      },
-      cards: [],
-      egoLevel: 0,
-      hasPotential: false,
-      createdAt: new Date(),
-      removedCards: new Map(),
-      copiedCards: new Map(),
-      convertedCards: new Map()
-    });
+    setDeck(createEmptyDeck());
   }, []);
 
   const setName = useCallback((name: string) => {

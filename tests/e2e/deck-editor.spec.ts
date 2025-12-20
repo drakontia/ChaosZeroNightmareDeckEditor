@@ -263,4 +263,47 @@ test.describe('Deck Editor', () => {
     await expect(restoredDeckCard.getByRole('button', { name: 'メニュー' })).toBeVisible();
     await expect(convertedSection.locator(`div[title="${originalName}"]`)).toHaveCount(0);
   });
+
+  test('should copy share URL and load shared deck', async ({ page }) => {
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'http://localhost:3000' });
+
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const addedCardName = await addFirstHiramekiCard(page);
+
+    // Confirm deck card count is now 5
+    const totalCardsField = page.getByRole('group').filter({ hasText: 'カード枚数' });
+    await expect(totalCardsField.locator('span.text-primary').filter({ hasText: '5' })).toBeVisible();
+
+    // Click share and capture alert
+    const shareBtn = page.getByRole('button', { name: 'デッキを共有' });
+    await expect(shareBtn).toBeEnabled();
+
+    const alertPromise = new Promise<string>((resolve) => {
+      page.once('dialog', async (dialog) => {
+        resolve(dialog.message());
+        await dialog.accept();
+      });
+    });
+
+    await shareBtn.click();
+    const alertMessage = await alertPromise;
+    expect(alertMessage).toContain('共有URLをコピーしました');
+
+    // Read clipboard and navigate to shared URL
+    const shareURL = await page.evaluate(() => navigator.clipboard.readText());
+    expect(shareURL).toMatch(/^http:\/\/localhost:3000\/deck\//);
+
+    await page.goto(shareURL);
+
+    // Verify shared page reflects the same deck state
+    await expect(page.getByText('チズル').first()).toBeVisible();
+    const sharedTotalField = page.getByRole('group').filter({ hasText: 'カード枚数' });
+    await expect(sharedTotalField.locator('span.text-primary').filter({ hasText: '5' })).toBeVisible();
+
+    // Verify the previously added card is present in the shared deck
+    const sharedDeckCard = getDeckCardContainerByName(page, addedCardName);
+    await expect(sharedDeckCard).toBeVisible();
+  });
 });

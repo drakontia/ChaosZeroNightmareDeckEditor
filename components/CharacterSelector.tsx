@@ -103,7 +103,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                             handleEgoIncrement(selectedCharacter, true);
                           }
                         }}
-                        className="px-2 py-0.5 rounded border-3 border-white bg-black/80 w-8 h-8 cursor-pointer"
+                        className="px-1 py-1 rounded border-3 border-white bg-black/80 w-8 h-8 cursor-pointer"
                       >
                         <span className="text-base font-bold leading-none text-white">
                           {formatEgoLevel(getEgoLevel(selectedCharacter))}
@@ -125,7 +125,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                           }
                         }}
                         aria-label="toggle potential"
-                        className="p-1 rounded border border-white bg-black/80 text-white w-8 h-8 cursor-pointer"
+                        className="p-2 rounded border border-white bg-black/80 text-white w-8 h-8 cursor-pointer"
                       >
                         {hasPotential ? <Eye className="h-5 w-5" /> : <EyeOff className="h-5 w-5" />}
                       </div>
