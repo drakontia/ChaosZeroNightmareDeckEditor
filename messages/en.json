@@ -43,7 +43,6 @@
     "exportImage": "Export Image",
     "exportImageFailed": "Image export failed",
     "totalCards": "Card Count",
-    "totalCost": "Total Cost",
     "noDeck": "Deck is empty",
     "namePlaceholder": "Deck Name",
     "createdDate": "Created"
@@ -124,7 +123,6 @@
     "title": "Character",
     "select": "Select Character",
     "job": "Job",
-    "vagueMemory": "Faint Memory",
     "faintMemory": "Faint Memory",
     "egoManifest": "Ego Manifestation",
     "potential": "Potential",
@@ -154,42 +152,6 @@
     "rei": "Rei"
   },
   "cards": {
-    "monster_card_1": {
-      "name": "monster summon",
-      "descriptions": {
-        "0": "Summon and attack monsters",
-        "1": "Summon and attack powerful monsters",
-        "2": "Summon powerful monsters to attack multiple times",
-        "3": "Summon legendary monsters for powerful attacks"
-      }
-    },
-    "shared_card_1": {
-      "name": "All attack",
-      "descriptions": {
-        "0": "Deals non-elemental damage to all enemies",
-        "1": "Deal non-elemental damage to all enemies (power increased)",
-        "2": "Causes massive non-elemental damage to all enemies",
-        "3": "Causes huge non-elemental damage to all enemies"
-      }
-    },
-    "shared_card_2": {
-      "name": "thunderstorm",
-      "descriptions": {
-        "0": "Lightning attribute damage to all enemies",
-        "1": "Lightning attribute damage + paralysis to all enemies",
-        "2": "Heavy lightning damage to all enemies + paralysis + stun",
-        "3": "Super heavy lightning damage to all enemies + paralysis + stun"
-      }
-    },
-    "forbidden_card_1": {
-      "name": "Forbidden curse",
-      "descriptions": {
-        "0": "Great damage to enemies with forbidden magic (with recoil)",
-        "1": "Great damage to enemies with forbidden magic (recoil reduction)",
-        "2": "Huge damage to enemies with forbidden magic (recoil reduction)",
-        "3": "Huge damage to enemies with forbidden magic (no recoil)"
-      }
-    },
     "luke_starting_1": {
       "name": "precision shooting",
       "descriptions": {
