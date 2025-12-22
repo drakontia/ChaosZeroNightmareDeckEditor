@@ -23,9 +23,9 @@ export function getCardInfo(
   let cost = variation.cost;
   let description = variation.description;
   const category = variation.category ?? baseCard.category;
-  const statuses = variation.statuses && variation.statuses.length > 0 
+  const statuses = (variation.statuses && variation.statuses.length > 0)
     ? variation.statuses
-    : undefined;
+    : (baseCard.statuses && baseCard.statuses.length > 0 ? baseCard.statuses : undefined);
 
   // Apply ego level variations
   if (variation.egoVariations && variation.egoVariations[egoLevel]) {

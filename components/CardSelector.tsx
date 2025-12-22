@@ -77,11 +77,14 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
       showFullDescription = true
     } = options;
     const baseVariation = card.hiramekiVariations[0];
+    const rawStatuses = (baseVariation.statuses && baseVariation.statuses.length > 0)
+      ? baseVariation.statuses
+      : card.statuses;
     const key = keyPrefix ? `${keyPrefix}-${card.id}` : card.id;
     const translatedName = t(`cards.${card.id}.name`, { defaultValue: card.name });
     const cardTitle = title || translatedName;
 
-    const statuses = baseVariation.statuses?.map(s => t(`status.${s}`));
+    const statuses = rawStatuses?.map(s => t(`status.${s}`));
     const description = showFullDescription
       ? t(`cards.${card.id}.descriptions.0`, { defaultValue: baseVariation.description })
       : undefined;

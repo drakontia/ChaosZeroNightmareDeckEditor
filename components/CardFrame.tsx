@@ -73,7 +73,7 @@ export function CardFrame({
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-black/60" />
 
       {/* Top overlay: cost + name/category */}
-      <div className="flex items-start pt-3 pl-4 gap-2 z-10 relative bg-gray-600">
+      <div className="flex items-start pt-3 ml-4 gap-2 z-10 relative bg-gray-600">
         <div className="flex flex-col items-start">
           <div className={cn(costClass, "font-extrabold text-white underline decoration-1 text-shadow-2xl leading-none")}>{cost}</div>
         </div>
@@ -85,7 +85,7 @@ export function CardFrame({
 
       {/* Controls row: left and right */}
       {(leftControls || rightControls) && (
-        <div className="flex items-start pt-1 pl-3 gap-2 z-10 relative">
+        <div className="flex items-start pt-1 ml-4 gap-2 z-10 relative">
           {leftControls && (
             <div className="flex flex-col gap-2">
               {leftControls}
@@ -99,7 +99,7 @@ export function CardFrame({
 
       {/* Bottom overlay: statuses + description */}
       {((descriptionId || description) || (statuses && statuses.length > 0)) && (
-        <div className={cn("absolute left-2 right-2 bottom-6 bg-gray-600", "text-center text-white", descTextClass, "text-shadow-4xl whitespace-pre-wrap")}> 
+        <div className={cn("absolute left-4 right-2 bottom-6 bg-gray-600 text-center text-white text-xs md:text-base text-shadow-4xl whitespace-pre-wrap")}> 
           {statuses && statuses.length > 0 && (
             <div className="mb-1 font-semibold text-yellow-300">
               [{statuses.join(" / ")}]
