@@ -92,7 +92,7 @@ export function CardActionsMenu({
           >
             <ArrowRightLeft className="h-5 w-5" />
           </Button>
-          {!card.isStartingCard && (
+          {!card.isBasicCard && (
             <Button
               type="button"
               variant="outline"

@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { Character, Equipment, CznCard, DeckCard, Deck, EquipmentType, GodType, CardType, CardStatus } from "@/types";
 import { getCharacterStartingCards } from "@/lib/data";
+import { sortDeckCards } from "@/lib/deck-utils";
 
 const createEmptyDeck = (): Deck => ({
   name: "",
@@ -92,9 +93,12 @@ export function useDeckBuilder(initialDeck?: Deck) {
         godHiramekiType: null,
         godHiramekiEffectId: null
       };
+      
+      const newCards = sortDeckCards([...prev.cards, deckCard]);
+      
       return {
         ...prev,
-        cards: [...prev.cards, deckCard]
+        cards: newCards
       };
     });
   }, []);
@@ -141,7 +145,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
           newCards[convertedIndex] = restoredDeckCard;
           return {
             ...prev,
-            cards: newCards,
+            cards: sortDeckCards(newCards),
             convertedCards: newConvertedCards
           };
         }
@@ -149,7 +153,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
         // Converted card is no longer in deck; add the original back
         return {
           ...prev,
-          cards: [...prev.cards, restoredDeckCard],
+          cards: sortDeckCards([...prev.cards, restoredDeckCard]),
           convertedCards: newConvertedCards
         };
       }
@@ -169,7 +173,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
 
         return {
           ...prev,
-          cards: [...prev.cards, deckCard],
+          cards: sortDeckCards([...prev.cards, deckCard]),
           removedCards: newRemovedCards
         };
       }
@@ -184,7 +188,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
       };
       return {
         ...prev,
-        cards: [...prev.cards, deckCard]
+        cards: sortDeckCards([...prev.cards, deckCard])
       };
     });
   }, []);
@@ -224,7 +228,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
 
       return {
         ...prev,
-        cards: [...prev.cards, copiedCard],
+        cards: sortDeckCards([...prev.cards, copiedCard]),
         copiedCards: newCopiedCards
       };
     });
@@ -257,7 +261,7 @@ export function useDeckBuilder(initialDeck?: Deck) {
 
       return {
         ...prev,
-        cards: newCards,
+        cards: sortDeckCards(newCards),
         convertedCards: newConverted
       };
     });

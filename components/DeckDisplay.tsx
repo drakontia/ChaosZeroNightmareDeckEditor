@@ -6,7 +6,7 @@ import { CardActionsMenu } from './CardActionsMenu';
 
 import { DeckCard, GodType, CznCard, JobType } from "@/types";
 import { Card as UiCard } from "./ui/card";
-import { getCardInfo } from "@/lib/deck-utils";
+import { getCardInfo, sortDeckCards } from "@/lib/deck-utils";
 import { GOD_HIRAMEKI_EFFECTS } from "@/lib/god-hirameki";
 
 interface DeckDisplayProps {
@@ -26,6 +26,9 @@ interface DeckDisplayProps {
 export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemoveCard, onUndoCard, onCopyCard, onConvertCard, onUpdateHirameki, onSetGodHirameki, onSetGodHiramekiEffect }: DeckDisplayProps) {
   const t = useTranslations();
 
+  // Sort cards to maintain consistent order: Character (Starting -> Hirameki) -> Shared -> Monster -> Forbidden
+  const sortedCards = sortDeckCards(cards);
+
   // name translation will be performed in CardFrame using ID
 
   if (cards.length === 0) {
@@ -38,7 +41,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {cards.map((card) => {
+      {sortedCards.map((card) => {
         const cardInfo = getCardInfo(card, egoLevel, hasPotential);
         const hasNoHirameki = card.hiramekiVariations.length === 1;
         const nameId = `cards.${card.id}.name`;

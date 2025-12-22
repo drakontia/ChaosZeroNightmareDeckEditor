@@ -162,4 +162,36 @@ export function calculateFaintMemory(deck: Deck): number {
     points += deck.convertedCards.size * 10;
   }
 
-  return points;}
+  return points;
+}
+
+// Sort cards by type: Character (Starting -> Hirameki) -> Shared -> Monster -> Forbidden
+export function sortDeckCards(cards: DeckCard[]): DeckCard[] {
+  const typeOrder: Record<CardType, number> = {
+    [CardType.CHARACTER]: 1,
+    [CardType.SHARED]: 2,
+    [CardType.MONSTER]: 3,
+    [CardType.FORBIDDEN]: 4
+  };
+
+  return [...cards].sort((a, b) => {
+    // First sort by card type
+    const typeComparison = typeOrder[a.type] - typeOrder[b.type];
+    if (typeComparison !== 0) {
+      return typeComparison;
+    }
+
+    // For character cards, sort by starting card vs hirameki card
+    if (a.type === CardType.CHARACTER && b.type === CardType.CHARACTER) {
+      // Starting cards come before hirameki cards
+      const aIsStarting = a.isStartingCard ?? false;
+      const bIsStarting = b.isStartingCard ?? false;
+      
+      if (aIsStarting && !bIsStarting) return -1;
+      if (!aIsStarting && bIsStarting) return 1;
+    }
+
+    // Within same type and subtype, maintain stable order by id
+    return a.id.localeCompare(b.id);
+  });
+}
