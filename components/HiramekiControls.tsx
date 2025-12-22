@@ -87,13 +87,13 @@ export function HiramekiControls({
 
       {/* ヒラメキ選択モーダル（画像付きカード形プレビュー） */}
       <Dialog open={openHirameki} onOpenChange={setOpenHirameki}>
-        <DialogContent className="max-h-[85vh] overflow-hidden">
+        <DialogContent className="max-h-[85vh] overflow-hidden w-[95vw] max-w-7xl">
           <DialogHeader>
             <DialogTitle>{t("card.hirameki")}</DialogTitle>
             <button
               type="button"
               onClick={() => { onUpdateHirameki(card.deckId, 0); setOpenHirameki(false); }}
-              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              className="absolute right-16 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
             >
               <span className="text-sm font-medium">{t('common.remove', { defaultValue: '外す' })}</span>
               <span className="sr-only">{t('common.remove', { defaultValue: '外す' })}</span>
@@ -132,13 +132,13 @@ export function HiramekiControls({
 
       {/* 神ヒラメキ選択モーダル（横並びボタングループ + 効果プレビュー） */}
       <Dialog open={openGod} onOpenChange={setOpenGod}>
-        <DialogContent className="max-h-[85vh] overflow-hidden">
+        <DialogContent className="max-h-[85vh] overflow-hidden w-[95vw] max-w-7xl">
           <DialogHeader>
             <DialogTitle>{t("card.godSelect")}</DialogTitle>
             <button
               type="button"
               onClick={() => { onSetGodHirameki(card.deckId, null); onSetGodHiramekiEffect(card.deckId, null); setOpenGod(false); }}
-              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+              className="absolute right-16 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
             >
               <span className="text-sm font-medium">{t('common.remove', { defaultValue: '外す' })}</span>
               <span className="sr-only">{t('common.remove', { defaultValue: '外す' })}</span>
@@ -169,7 +169,7 @@ export function HiramekiControls({
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {GOD_HIRAMEKI_EFFECTS.filter(e => e.gods === "all" || e.gods.includes(selectedGod)).map((effect) => {
                   const baseInfo = getCardInfo(card, egoLevel, hasPotential);
-                  const costWithGod = baseInfo.cost + (effect.costModifier ?? 0);
+                  const costWithGod = (typeof baseInfo.cost === 'number' ? baseInfo.cost : parseInt(baseInfo.cost, 10)) + (effect.costModifier ?? 0);
                   const isSelected = card.godHiramekiType === selectedGod && card.godHiramekiEffectId === effect.id;
                   return (
                     <button

@@ -57,7 +57,6 @@ export function CardFrame({
   const categoryClass = isCompact
     ? "text-[11px]"
     : "text-xs md:text-base";
-  const bottomOffsetClass = isCompact ? "bottom-2" : "bottom-12";
   const descTextClass = isCompact ? "text-[11px]" : "text-xs md:text-lg";
 
   return (
@@ -78,7 +77,7 @@ export function CardFrame({
         <div className="flex flex-col items-start">
           <div className={cn(costClass, "font-extrabold text-white underline decoration-1 text-shadow-2xl leading-none")}>{cost}</div>
         </div>
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 text-left">
           <div className={cn(nameClass, "font-bold text-white text-shadow-2xl truncate")} title={displayName}>{displayName}</div>
           <div className={cn(categoryClass, "text-white/90 text-shadow-4xl")}>{category}</div>
         </div>
@@ -100,7 +99,7 @@ export function CardFrame({
 
       {/* Bottom overlay: statuses + description */}
       {((descriptionId || description) || (statuses && statuses.length > 0)) && (
-        <div className={cn("absolute left-2 right-2 bg-gray-600", bottomOffsetClass, "text-center text-white", descTextClass, "text-shadow-4xl whitespace-pre-wrap")}> 
+        <div className={cn("absolute left-2 right-2 bottom-6 bg-gray-600", "text-center text-white", descTextClass, "text-shadow-4xl whitespace-pre-wrap")}> 
           {statuses && statuses.length > 0 && (
             <div className="mb-1 font-semibold text-yellow-300">
               [{statuses.join(" / ")}]
