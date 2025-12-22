@@ -6,7 +6,7 @@
 
 ### 参考資料
 - ゲーム公式サイト: https://chaoszeronightmare.onstove.com/ja
-- 攻略情報: https://gamerch.com/chaoszeronightmare/
+- 攻略情報: https://nightmare.aosns.com/
 - デッキ参考画像: http://bit.ly/4oZ77Hx
 - 構造参考リポジトリ: https://github.com/danij91/resonanceDeckBuilder
 

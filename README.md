@@ -52,7 +52,7 @@ pnpm test
 このプロジェクトは以下の参考サイトを基に開発されています：
 
 - ゲーム公式: https://chaoszeronightmare.onstove.com/ja
-- 攻略情報: https://gamerch.com/chaoszeronightmare/
+- 攻略情報: https://nightmare.aosns.com/
 - 構造参考: https://github.com/danij91/resonanceDeckBuilder
 
 ## ライセンス
