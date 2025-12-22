@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 
 import { CznCard, CardType, Character } from "@/types";
 import { getCharacterHiramekiCards, getAddableCards, getCardById } from "@/lib/data";
-import { Card as UiCard, CardContent } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 import { CardFrame } from "./CardFrame";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 
@@ -90,7 +90,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
       : undefined;
 
     return (
-      <UiCard key={key} className={`cursor-pointer ${className}`} onClick={onClick} title={cardTitle}>
+      <Card key={key} className={`cursor-pointer ${className}`} onClick={onClick} title={cardTitle}>
         <CardFrame
           imgUrl={card.imgUrl}
           alt={translatedName}
@@ -100,7 +100,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           description={description}
           statuses={statuses}
         />
-      </UiCard>
+      </Card>
     );
   };
 
@@ -150,7 +150,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
   };
 
   return (
-    <UiCard>
+    <Card>
       <CardContent className="space-y-6">
         {!character && characterHiramekiCards.length === 0 && (
           <div className="text-sm text-muted-foreground text-center p-4">
@@ -212,6 +212,6 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           {renderAccordionCardType(CardType.FORBIDDEN, 'forbidden')}
         </Accordion>
       </CardContent>
-    </UiCard>
+    </Card>
   );
 }

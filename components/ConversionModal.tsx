@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from 'next-intl';
-import { Card as UiCard, CardContent } from "./ui/card";
+import { Card } from "./ui/card";
 import { CardFrame } from "./CardFrame";
 import { CznCard, CardType, JobType } from "@/types";
 import { getAddableCards } from "@/lib/data";
@@ -33,7 +33,7 @@ export function ConversionModal({ isOpen, onClose, onSelectCard, allowedJob }: C
     const statuses = baseVariation.statuses?.map(s => t(`status.${s}`));
 
     return (
-      <UiCard 
+      <Card 
         key={card.id} 
         className="cursor-pointer hover:ring-2 hover:ring-primary" 
         onClick={() => {
@@ -51,7 +51,7 @@ export function ConversionModal({ isOpen, onClose, onSelectCard, allowedJob }: C
           description={description}
           statuses={statuses}
         />
-      </UiCard>
+      </Card>
     );
   };
 

@@ -5,7 +5,7 @@ import { HiramekiControls } from './HiramekiControls';
 import { CardActionsMenu } from './CardActionsMenu';
 
 import { DeckCard, GodType, CznCard, JobType } from "@/types";
-import { Card as UiCard } from "./ui/card";
+import { Card } from "./ui/card";
 import { getCardInfo, sortDeckCards } from "@/lib/deck-utils";
 import { GOD_HIRAMEKI_EFFECTS } from "@/lib/god-hirameki";
 
@@ -33,9 +33,9 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
 
   if (cards.length === 0) {
     return (
-      <UiCard className="border-dashed border-2 p-10 text-center text-muted-foreground">
+      <Card className="border-dashed border-2 p-10 text-center text-muted-foreground">
         キャラクターを選択すると開始カードが表示されます
-      </UiCard>
+      </Card>
     );
   }
 
@@ -70,7 +70,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
         ) : undefined;
 
         return (
-          <UiCard key={card.deckId}>
+          <Card key={card.deckId}>
             <CardFrame
               imgUrl={card.imgUrl}
               alt={nameFallback}
@@ -95,7 +95,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
                 />
               }
             />
-          </UiCard>
+          </Card>
         );
       })}
     </div>
