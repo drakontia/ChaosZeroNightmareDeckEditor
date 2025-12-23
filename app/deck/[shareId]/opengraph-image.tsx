@@ -101,6 +101,12 @@ export default async function Image({
           : `https://czn-deck-editor.drakontia.com${card.imgUrl}`)
       : null;
     
+    // Get description from cardInfo
+    const description = cardInfo.description || '';
+    
+    // Get statuses from cardInfo
+    const statuses = cardInfo.statuses || [];
+    
     return {
       id: card.id,
       cost: cardInfo.cost,
@@ -108,6 +114,8 @@ export default async function Image({
       translatedCategory,
       type: card.type,
       imgUrl,
+      description,
+      statuses,
     };
   });
 
@@ -119,7 +127,7 @@ export default async function Image({
           flexDirection: 'column',
           width: '100%',
           height: '100%',
-          backgroundColor: '#f9fafb',
+          backgroundColor: '#fafafa',
           padding: '40px',
           fontFamily: 'system-ui',
         }}
@@ -128,35 +136,20 @@ export default async function Image({
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
+            fontSize: 18,
+            color: '#6b7280',
+            gap: '20px',
             marginBottom: '20px',
+            alignItems: 'center',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              fontSize: 36,
-              fontWeight: 'bold',
-              color: '#111827',
-              marginBottom: '8px',
-            }}
-          >
-            {deckName}
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              fontSize: 18,
-              color: '#6b7280',
-              gap: '20px',
-            }}
-          >
-            <span>{characterName}</span>
-            <span>•</span>
-            <span>{cardCount}枚</span>
-            <span>•</span>
-            <span>{faintMemoryPoints}pt</span>
-          </div>
+          <span style={{ fontWeight: 'bold', color: '#111827' }}>{deckName}</span>
+          <span>•</span>
+          <span>{characterName}</span>
+          <span>•</span>
+          <span>{cardCount}枚</span>
+          <span>•</span>
+          <span>{faintMemoryPoints}pt</span>
         </div>
 
         {/* Card Grid */}
@@ -175,7 +168,7 @@ export default async function Image({
                 display: 'flex',
                 flexDirection: 'column',
                 width: '165px',
-                height: '240px',
+                height: '340px',
                 backgroundColor: '#ffffff',
                 borderRadius: '8px',
                 border: '2px solid #e5e7eb',
@@ -216,60 +209,119 @@ export default async function Image({
                   width: '100%',
                   height: '100%',
                   padding: '12px',
+                  justifyContent: 'space-between',
                 }}
               >
                 {/* Top: Cost + Name */}
                 <div
                   style={{
                     display: 'flex',
-                    gap: '8px',
-                    alignItems: 'flex-start',
+                    flexDirection: 'column',
+                    gap: '4px',
                   }}
                 >
                   <div
                     style={{
                       display: 'flex',
-                      fontSize: '32px',
-                      fontWeight: 'bold',
-                      color: '#ffffff',
-                      textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                    }}
-                  >
-                    {card.cost}
-                  </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      flex: 1,
+                      gap: '8px',
+                      alignItems: 'flex-start',
                     }}
                   >
                     <div
                       style={{
                         display: 'flex',
-                        fontSize: '14px',
+                        fontSize: '32px',
                         fontWeight: 'bold',
                         color: '#ffffff',
                         textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                        overflow: 'hidden',
-                        whiteSpace: 'nowrap',
-                        textOverflow: 'ellipsis',
                       }}
                     >
-                      {card.translatedName}
+                      {card.cost}
                     </div>
                     <div
                       style={{
                         display: 'flex',
-                        fontSize: '11px',
-                        color: 'rgba(255,255,255,0.9)',
-                        textShadow: '0 1px 2px rgba(0,0,0,0.8)',
+                        flexDirection: 'column',
+                        flex: 1,
                       }}
                     >
-                      {card.translatedCategory}
+                      <div
+                        style={{
+                          display: 'flex',
+                          fontSize: '14px',
+                          fontWeight: 'bold',
+                          color: '#ffffff',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                          overflow: 'hidden',
+                          whiteSpace: 'nowrap',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {card.translatedName}
+                      </div>
+                      <div
+                        style={{
+                          display: 'flex',
+                          fontSize: '11px',
+                          color: 'rgba(255,255,255,0.9)',
+                          textShadow: '0 1px 2px rgba(0,0,0,0.8)',
+                        }}
+                      >
+                        {card.translatedCategory}
+                      </div>
                     </div>
                   </div>
+                  
+                  {/* Statuses */}
+                  {card.statuses.length > 0 && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '4px',
+                      }}
+                    >
+                      {card.statuses.map((status: string, idx: number) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: 'flex',
+                            fontSize: '9px',
+                            padding: '2px 6px',
+                            backgroundColor: 'rgba(255,255,255,0.2)',
+                            borderRadius: '4px',
+                            color: '#ffffff',
+                            textShadow: '0 1px 2px rgba(0,0,0,0.8)',
+                          }}
+                        >
+                          {status}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
+                
+                {/* Bottom: Description */}
+                {card.description && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      fontSize: '10px',
+                      lineHeight: 1.4,
+                      color: '#ffffff',
+                      textShadow: '0 1px 2px rgba(0,0,0,0.8)',
+                      backgroundColor: 'rgba(0,0,0,0.5)',
+                      padding: '8px',
+                      borderRadius: '4px',
+                      maxHeight: '80px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {card.description.length > 100 
+                      ? card.description.substring(0, 100) + '...' 
+                      : card.description}
+                  </div>
+                )}
               </div>
             </div>
           ))}
