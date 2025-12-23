@@ -25,26 +25,28 @@ export default async function Image({
 }: {
   params: Promise<{ shareId: string }>;
 }) {
-  const { shareId } = await params;
-  const deck = decodeDeckShare(shareId);
+  try {
+    const { shareId } = await params;
+    const deck = decodeDeckShare(shareId);
 
-  if (!deck) {
-    return new Response('Deck not found', { status: 404 });
-  }
-
-  const cookieStore = await cookies();
-  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'ja';
-  const messages = await getLocaleMessages(locale);
-
-  const t = (key: string, fallback: string) => {
-    const keys = key.split('.');
-    let value: any = messages;
-    for (const k of keys) {
-      value = value?.[k];
-      if (!value) return fallback;
+    if (!deck) {
+      console.error('[OG Image] Failed to decode deck share:', shareId);
+      return new Response('Deck not found', { status: 404 });
     }
-    return value || fallback;
-  };
+
+    const cookieStore = await cookies();
+    const locale = cookieStore.get('NEXT_LOCALE')?.value || 'ja';
+    const messages = await getLocaleMessages(locale);
+
+    const t = (key: string, fallback: string) => {
+      const keys = key.split('.');
+      let value: any = messages;
+      for (const k of keys) {
+        value = value?.[k];
+        if (!value) return fallback;
+      }
+      return value || fallback;
+    };
 
   const deckName = deck.name || t('deck.noDeck', 'Unnamed Deck');
   const characterName = deck.character?.name
@@ -92,11 +94,20 @@ export default async function Image({
     const categoryKey = `category.${card.category}`;
     const translatedCategory = t(categoryKey, card.category);
     
+    // Convert relative path to absolute URL for Edge Runtime
+    const imgUrl = card.imgUrl 
+      ? (card.imgUrl.startsWith('http') 
+          ? card.imgUrl 
+          : `https://czn-deck-editor.drakontia.com${card.imgUrl}`)
+      : null;
+    
     return {
-      ...card,
+      id: card.id,
       cost: cardInfo.cost,
       translatedName,
       translatedCategory,
+      type: card.type,
+      imgUrl,
     };
   });
 
@@ -280,4 +291,8 @@ export default async function Image({
       height: size.height,
     }
   );
+  } catch (error) {
+    console.error('[OG Image] Error generating image:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
 }
