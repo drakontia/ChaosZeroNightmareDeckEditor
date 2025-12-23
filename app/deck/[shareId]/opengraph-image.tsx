@@ -80,9 +80,9 @@ export default async function Image({
     category: t('category', 'カテゴリ'),
   };
 
-  // Get ego level and potential from character
-  const egoLevel = deck.character?.egoLevel ?? 0;
-  const hasPotential = deck.character?.hasPotential ?? false;
+  // Get ego level and potential from deck
+  const egoLevel = deck.egoLevel ?? 0;
+  const hasPotential = deck.hasPotential ?? false;
 
   // Get translated card info with correct costs
   const cardsWithTranslation = deck.cards.slice(0, 12).map((card) => {
