@@ -17,6 +17,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
+    imgUrl: "/images/cards/forbidden_card_8.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ80%×2\nインスピレーション:ヒット数2回増加" }
     ]
@@ -28,6 +29,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
+    imgUrl: "/images/cards/forbidden_card_9.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "ダメージ120%×1\n感化:ヒット数1回増加(最大5重複)" }
     ]
@@ -39,6 +41,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: [JobType.STRIKER, JobType.VANGUARD],
+    imgUrl: "/images/cards/forbidden_card_10.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "自分の攻撃カードドロー1、1ターンの間、そのカードのダメージ量+50%" }
     ]
@@ -50,6 +53,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
     allowedJobs: [JobType.STRIKER, JobType.VANGUARD],
+    imgUrl: "/images/cards/forbidden_card_11.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "シールド70%\n手札のカードに応じてシールド+25%" }
     ]
@@ -61,6 +65,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/forbidden_card_12.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "ドロー1\n山札または捨て札から、ランダムな禁忌カード1枚を手元に移動" }
     ]
@@ -72,6 +77,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/forbidden_card_13.png",
     hiramekiVariations: [
       { level: 0, cost: 3, description: "手札にランダムな禁忌カードを1枚生成" }
     ]
@@ -83,6 +89,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.LEAD],
     allowedJobs: [JobType.CONTROLLER, JobType.PSIONIC],
+    imgUrl: "/images/cards/forbidden_card_14.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "手札のカードが6枚以上の時、ランダムなカード1枚1ターンのコスト0（ターンごとに1回）" }
     ]
@@ -94,6 +101,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.LEAD],
     allowedJobs: [JobType.CONTROLLER, JobType.PSIONIC],
+    imgUrl: "/images/cards/forbidden_card_15.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "カード4枚使用時、ドロー1（ターンごとに1回）" }
     ]
@@ -105,7 +113,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN, CardStatus.EXHAUST],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_1.png",
+    imgUrl: "/images/cards/forbidden_card_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "感応:ドロー1、アクションポイント1獲得" },
     ]
@@ -117,7 +125,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST, CardStatus.INITIATION],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_2.png",
+    imgUrl: "/images/cards/forbidden_card_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "手札のランダムなカード1枚のコスト1減少" },
     ]
@@ -129,7 +137,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_3.png",
+    imgUrl: "/images/cards/forbidden_card_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ドロー1、そのカードのコストに応じて、ドロー" },
     ]
@@ -141,7 +149,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.INITIATION],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_4.png",
+    imgUrl: "/images/cards/forbidden_card_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "能力でドロー時、治癒40％、ランダムな戦闘員のストレス1減少" },
     ]
@@ -153,7 +161,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [CardStatus.RETAIN],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_5.png",
+    imgUrl: "/images/cards/forbidden_card_5.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 9, description: "ダメージ150%x4\n能力でドロー時、このカードのコスト1減少" },
     ]
@@ -165,7 +173,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_6.png",
+    imgUrl: "/images/cards/forbidden_card_6.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ70%x1\n手札のカード4枚ごとにヒット数1回追加\nヒット数に応じてドロー1" },
     ]
@@ -177,7 +185,7 @@ export const FORBIDDEN_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.LEAD],
     allowedJobs: "all",
-    imgUrl: "/cards/forbidden/forbidden_card_7.png",
+    imgUrl: "/images/cards/forbidden_card_7.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ドロー1\n手札のランダムカード発動2" },
     ]

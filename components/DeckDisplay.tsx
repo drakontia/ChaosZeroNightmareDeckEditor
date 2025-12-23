@@ -78,6 +78,7 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
               nameId={nameId}
               nameFallback={nameFallback}
               category={t(`category.${cardInfo.category ?? card.category}`)}
+              categoryId={cardInfo.category ?? card.category}
               descriptionId={`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`}
               descriptionFallback={cardInfo.description}
               godEffectId={godEffectId}

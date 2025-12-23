@@ -48,6 +48,7 @@ export function ConversionModal({ isOpen, onClose, onSelectCard, allowedJob }: C
           cost={baseVariation.cost}
           name={translatedName}
           category={t(`category.${card.category}`)}
+          categoryId={card.category}
           description={description}
           statuses={statuses}
         />

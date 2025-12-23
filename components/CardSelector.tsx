@@ -97,6 +97,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           cost={baseVariation.cost}
           name={translatedName}
           category={subtitle || t(`category.${card.category}`)}
+          categoryId={card.category}
           description={description}
           statuses={statuses}
         />

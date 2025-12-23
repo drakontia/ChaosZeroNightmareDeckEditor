@@ -117,6 +117,7 @@ export function HiramekiControls({
                     nameId={`cards.${card.id}.name`}
                     nameFallback={card.name}
                     category={t(`category.${info.category ?? card.category}`)}
+                    categoryId={info.category ?? card.category}
                     descriptionId={`cards.${card.id}.descriptions.${level}`}
                     descriptionFallback={info.description}
                     statuses={info.statuses?.map(s => t(`status.${s}`))}
@@ -185,6 +186,7 @@ export function HiramekiControls({
                         nameId={`cards.${card.id}.name`}
                         nameFallback={card.name}
                         category={t(`category.${baseInfo.category ?? card.category}`)}
+                        categoryId={baseInfo.category ?? card.category}
                         descriptionId={`cards.${card.id}.descriptions.${card.selectedHiramekiLevel}`}
                         descriptionFallback={card.hiramekiVariations[card.selectedHiramekiLevel]?.description}
                         godEffectId={effect.id}

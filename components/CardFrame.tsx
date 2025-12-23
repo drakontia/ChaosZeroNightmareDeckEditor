@@ -5,6 +5,13 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Zap } from "lucide-react";
 
+// カテゴリアイコンのマッピング
+const CATEGORY_ICONS: Record<string, string> = {
+  attack: "/images/cards/card_type_attack.png",
+  skill: "/images/cards/card_type_skill.png",
+  upgrade: "/images/cards/card_type_upgrade.png",
+};
+
 interface CardFrameProps {
   imgUrl?: string;
   alt?: string;
@@ -13,6 +20,7 @@ interface CardFrameProps {
   nameId?: string;
   nameFallback?: string;
   category: string;
+  categoryId?: string;
   description?: string;
   descriptionId?: string;
   descriptionFallback?: string;
@@ -33,6 +41,7 @@ export function CardFrame({
   nameId,
   nameFallback,
   category,
+  categoryId,
   description,
   descriptionId,
   descriptionFallback,
@@ -73,13 +82,24 @@ export function CardFrame({
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-black/60" />
 
       {/* Top overlay: cost + name/category */}
-      <div className="flex items-start pt-3 ml-4 gap-2 z-10 relative bg-gray-600">
+      <div className="flex items-start pt-3 ml-4 gap-2 z-10 relative">
         <div className="flex flex-col items-start">
           <div className={cn(costClass, "font-extrabold text-white underline decoration-1 text-shadow-2xl leading-none")}>{cost}</div>
         </div>
         <div className="min-w-0 flex-1 text-left">
           <div className={cn(nameClass, "font-bold text-white text-shadow-2xl truncate")} title={displayName}>{displayName}</div>
-          <div className={cn(categoryClass, "text-white/90 text-shadow-4xl")}>{category}</div>
+          <div className={cn(categoryClass, "text-white/90 text-shadow-4xl flex items-center gap-1")}>
+            {categoryId && CATEGORY_ICONS[categoryId.toLowerCase()] && (
+              <Image
+                src={CATEGORY_ICONS[categoryId.toLowerCase()]}
+                alt={category}
+                width={isCompact ? 12 : 16}
+                height={isCompact ? 12 : 16}
+                className="inline-block"
+              />
+            )}
+            {category}
+          </div>
         </div>
       </div>
 
@@ -99,7 +119,7 @@ export function CardFrame({
 
       {/* Bottom overlay: statuses + description */}
       {((descriptionId || description) || (statuses && statuses.length > 0)) && (
-        <div className={cn("absolute left-4 right-2 bottom-6 bg-gray-600 text-center text-white text-xs md:text-base text-shadow-4xl whitespace-pre-wrap")}> 
+        <div className={cn("absolute left-4 right-2 bottom-6 text-center text-white text-xs md:text-base text-shadow-4xl whitespace-pre-wrap")}> 
           {statuses && statuses.length > 0 && (
             <div className="mb-1 font-semibold text-yellow-300">
               [{statuses.join(" / ")}]

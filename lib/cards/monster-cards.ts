@@ -17,6 +17,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_01.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ50%×4\n標識3" }
     ]
@@ -28,6 +29,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_02.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ50%×4\n苦痛6" }
     ]
@@ -39,6 +41,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_03.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ150%\n脆弱4" }
     ]
@@ -50,6 +53,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_04.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ランダムな敵にダメージ50%×5" }
     ]
@@ -61,6 +65,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_05.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "敵全体にダメージ120%\n弱体化2\n損傷2" }
     ]
@@ -72,6 +77,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_06.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ120%×2\n撃破：ランダムな敵にダメージ120%×2" }
     ]
@@ -83,6 +89,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_07.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ120%\n対象の行動カウントが5以上の場合、アクションポイント2獲得" }
     ]
@@ -94,6 +101,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_08.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ160%\n行動カウント1増加" }
     ]
@@ -105,6 +113,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_09.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "ダメージ250%\n手札にこのカードだけがある場合、コスト2減少" }
     ]
@@ -116,6 +125,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_10.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "ダメージ300%\n大破時、アクションポイント2獲得" }
     ]
@@ -127,6 +137,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.ATTACK,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_11.png",
     hiramekiVariations: [
       { level: 0, cost: 3, description: "ダメージ350%\n対象がシールド保持中の場合、ダメージ量＋50%" }
     ]
@@ -138,6 +149,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_12.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "士気2\n士気2減少" }
     ]
@@ -149,6 +161,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_13.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "士気1減少\n決意3減少" }
     ]
@@ -160,6 +173,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_14.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "山札のカードをしたから1枚発動\n手札のカードを1枚選択、そのカードを山札の一番下に移動" }
     ]
@@ -171,6 +185,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST2],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_15.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ドロー4" }
     ]
@@ -182,6 +197,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_16.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "決意2\n減少したHPに応じて、シールド獲得" }
     ]
@@ -193,6 +209,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_17.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "山札から1枚を選択しドロー\nそのカード1枚を手札にコピー" }
     ]
@@ -204,6 +221,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_18.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "シールド120%、脆弱1\n対象が行動しなかった場合シールド獲得量+120%、脆弱1追加" }
     ]
@@ -215,6 +233,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_19.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "シールド140%\n次のターン開始時、敵全体の行動カウント2増加" }
     ]
@@ -226,6 +245,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_20.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ドロー1\n手札のカードがない場合、4追加" }
     ]
@@ -237,6 +257,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_21.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "シールド200%\n獲得したシールドに応じて、敵全体にダメージ" }
     ]
@@ -248,6 +269,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_22.png",
     hiramekiVariations: [
       { level: 0, cost: 0, description: "受けるダメージ量-15%(各ターン1回)" }
     ]
@@ -259,6 +281,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_23.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ターン終了時、ランダムな敵にダメージ200%" }
     ]
@@ -270,6 +293,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_24.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ターゲティング攻撃カード使用時、対象に苦痛1" }
     ]
@@ -281,6 +305,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_25.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "クリスタライズ5" }
     ]
@@ -292,6 +317,7 @@ export const MONSTER_CARDS: CznCard[] = [
     category: CardCategory.UPGRADE,
     statuses: [],
     allowedJobs: "all",
+    imgUrl: "/images/cards/monster_26.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "ターン開始時士気1" }
     ]

@@ -13,26 +13,26 @@ export const CHARACTER_CARDS: CznCard[] = [
   // Luke's starting cards
   {
     id: "luke_starting_1",
-    name: "精密射撃", // Fallback: See messages/*.json for translations
+    name: "単発射撃", // Fallback: See messages/*.json for translations
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/luke_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
   },
   {
     id: "luke_starting_2",
-    name: "精密射撃", // Fallback
+    name: "単発射撃", // Fallback
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/luke_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -45,7 +45,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/luke_starting_3.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "シールド100%" } // Fallback
     ]
@@ -58,7 +58,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: false,
     isStartingCard: true,
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AF_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E9%80%A3%E7%B6%9A%E6%92%83%E7%99%BA_0_20251126-220703.png",
+    imgUrl: "/images/cards/luke_starting_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ50%x2<wbr/>会心攻撃数に応じて、ハンドガン弾丸生成<wbr/>会心率+50%" },
       { level: 1, cost: 1, description: "ダメージ75%x2<wbr/>会心攻撃数に応じて、ハンドガン弾丸生成<wbr/>会心率+50%", statuses: [CardStatus.RETRIEVE] },
@@ -75,7 +75,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AF_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E9%9A%A0%E5%AF%86%E3%81%AA%E8%A3%85%E5%A1%AB_0_20251126-221313.png",
+    imgUrl: "/images/cards/luke_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ハンドガン弾丸2枚生成" },
       { level: 1, cost: 1, description: "ハンドガン弾丸2枚生成<wbr/>そのカードの会心率＋30%"},
@@ -91,7 +91,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.LEAD],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AF_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%A9%9F%E4%BC%9A%E6%8D%95%E6%8D%89_0_20251126-222046.png",
+    imgUrl: "/images/cards/luke_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>次に使用する弾丸カードのダメージ量＋120%", statuses: [CardStatus.LEAD] },
       { level: 1, cost: 1, description: "シールド150%<wbr/>次に使用する弾丸8)カードのダメージ量＋170%", statuses: [CardStatus.LEAD]  },
@@ -107,7 +107,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AF_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E9%AD%94%E7%9C%BC%E3%81%AE%E4%B9%B1%E8%88%9E_0_20251126-222911.png",
+    imgUrl: "/images/cards/luke_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ50%<wbr/>今回のターンで使用した弾丸カード数に応じて、ヒット数1回追加" },
       { level: 1, cost: 2, description: "ダメージ75%<wbr/>今回のターンで使用した弾丸カード数に応じて、ヒット数1回追加" },
@@ -123,7 +123,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.UNIQUE, CardStatus.BULLET],
-    imgUrl: "",
+    imgUrl: "/images/cards/luke_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "ダメージ200%<wbr/>ハンドガン弾丸4)カードを5枚使用時、使用不可を排除" },
     ]
@@ -137,7 +137,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/khalipe_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "防御依存ダメージ100%" } // Fallback
     ]
@@ -150,7 +150,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/khalipe_starting_2.png",
     hiramekiVariations: [
       { level: 0, cost: 2, description: "防御依存ダメージ180%" } // Fallback
     ]
@@ -163,7 +163,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/khalipe_starting_3.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "シールド100%" } // Fallback
     ]
@@ -176,7 +176,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [CardStatus.INITIATION, CardStatus.RETAIN],
     isBasicCard: false,
     isStartingCard: true,
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%83%AA%E3%83%BC%E3%83%9A_%E3%83%90%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC%E5%B0%84%E5%87%BA.png",
+    imgUrl: "/images/cards/khalipe_starting_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 3, description: "敵全体に防御依存ダメージ100%<wbr/>シールド80%<wbr/>銀色の帳7)1" },
       { level: 1, cost: 3, description: "敵全体に防御依存ダメージ210%<wbr/>銀色の帳1" },
@@ -193,7 +193,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%83%AA%E3%83%BC%E3%83%9A_%E5%A4%A7%E5%89%A3%E3%82%A2%E3%82%AF%E3%82%A4%E3%83%A9.png",
+    imgUrl: "/images/cards/khalipe_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "敵全体に防御依存ダメージ150%<wbr/>手札に手元バルチャー射出がある場合、コスト1増加、ダメージ量+100%" },
       { level: 1, cost: 1, description: "敵全体に防御依存ダメージ210%<wbr/>手札に手元バルチャー射出がある場合、コスト1増加、ダメージ量+120%"},
@@ -209,7 +209,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%83%AA%E3%83%BC%E3%83%9A_%E5%A8%81%E5%9C%A7.png",
+    imgUrl: "/images/cards/khalipe_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "シールド200%<wbr/>敵全体に強靭度ダメージ1"},
       { level: 1, cost: 2, description: "シールド250%<wbr/>敵全体に強靭度ダメージ1<wbr/>大破状態の敵数に応じてダメージ減少1"},
@@ -225,7 +225,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%83%AA%E3%83%BC%E3%83%9A_%E5%86%8D%E9%9B%86%E7%B5%90.png",
+    imgUrl: "/images/cards/khalipe_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド120%<wbr/>コストが最も高いカードを、ドロー15)1" },
       { level: 1, cost: 1, description: "シールド150%<wbr/>コストが最も高いカードを、ドロー1<wbr/>銀色の帳1" },
@@ -241,7 +241,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.FINALE],
-    imgUrl: "",
+    imgUrl: "/images/cards/khalipe_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: "X", description: "X分のシールド100%<wbr/>1ターンの間、手札のすべてのカード保存" },
     ]
@@ -255,7 +255,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/magna_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -266,7 +266,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/magna_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -279,7 +279,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/magna_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -292,7 +292,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.LEAD],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%82%B0%E3%83%8A_%E3%82%AB%E3%83%BC%E3%83%89_%E6%B0%B7%E3%81%AE%E7%A0%B4%E7%89%87_20251206-121328.png",
+    imgUrl: "/images/cards/magna_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -311,7 +311,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%82%B0%E3%83%8A_%E3%82%AB%E3%83%BC%E3%83%89_%E6%B0%B7%E6%B2%B3%E3%81%AE%E9%89%84%E6%8B%B3_20251206-121532.png",
+    imgUrl: "/images/cards/magna_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "防御依存ダメージ210%<wbr/>与ダメージの50%分、固定シールドを獲得（最大HPの20%を超えることはできない）" },
       { level: 1, cost: 2, description: "防御依存ダメージ315%<wbr/>与ダメージの50%分固定シールドを獲得（最大HPの20%を超えることはできない）"},
@@ -327,7 +327,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%82%B0%E3%83%8A_%E3%82%AB%E3%83%BC%E3%83%89_%E6%B0%B7%E3%81%AE%E5%A3%81_20251206-121858.png",
+    imgUrl: "/images/cards/magna_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "シールド100%<wbr/>反撃2<wbr/>1ターンの間、反撃の対象が敵全体に適用"},
       { level: 1, cost: 2, description: "シールド150%<wbr/>反撃3<wbr/>1ターンの間、反撃の対象が敵全体に適用"},
@@ -343,7 +343,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%82%B0%E3%83%8A_%E3%82%AB%E3%83%BC%E3%83%89_%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_20251206-122113.png",
+    imgUrl: "/images/cards/magna_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>敵全体に脆弱2" },
       { level: 1, cost: 1, description: "シールド150%<wbr/>敵全体に脆弱2<wbr/>敵数に応じてシールド獲得量+50%" },
@@ -359,7 +359,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.LEAD],
-    imgUrl: "",
+    imgUrl: "/images/cards/magna_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "能力でシールド獲得時、反撃1" },
     ]
@@ -373,7 +373,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/rin_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -384,7 +384,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/rin_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -397,7 +397,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/rin_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -410,7 +410,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E6%8A%9C%E5%88%80_0_20251117-001815.png",
+    imgUrl: "/images/cards/rin_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -429,7 +429,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%BB%92%E9%9B%B2%E5%A5%A5%E7%BE%A9_%E6%AE%8B_0_20251117-002021.png",
+    imgUrl: "/images/cards/rin_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "シールド100%<wbr/>自分のカード、ドロー2" },
       { level: 1, cost: 0, description: "自分のカード、ドロー1<wbr/>黒雲態勢獲得"},
@@ -445,7 +445,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%BB%92%E9%9B%B2%E5%A5%A5%E7%BE%A9_%E6%BB%85_0_20251117-002137.png",
+    imgUrl: "/images/cards/rin_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ150%<wbr/>黒雲態勢：ヒット数1回追加" },
       { level: 1, cost: 1, description: "ダメージ225%<wbr/>黒雲態勢：ヒット数1回追加"  },
@@ -461,7 +461,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%BB%92%E9%9B%B2%E3%81%AE%E5%BF%83%E6%B3%95_0_20251117-002249.png",
+    imgUrl: "/images/cards/rin_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "1ターンの間、黒雲態勢保存7)<wbr/>黒雲態勢：1ターンの間、自分の攻撃カードのダメージ量+30%" },
       { level: 1, cost: 1, description: "1ターンの間、黒雲態勢保存<wbr/>黒雲態勢：1ターンの間、自分の攻撃カードのダメージ量+60%" },
@@ -477,7 +477,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.UNIQUE, CardStatus.BULLET],
-    imgUrl: "",
+    imgUrl: "/images/cards/rin_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ80%<wbr/>黒雲態勢：手札のスキルカード数に応じてヒット数1回追加(最大5回)" },
     ]
@@ -485,24 +485,24 @@ export const CHARACTER_CARDS: CznCard[] = [
   // Orlea's starting cards
   {
     id: "orlea_starting_1",
-    name: "突撃だ、みんな", // Fallback: See messages/*.json for translations
+    name: "攻撃だ、みんな", // Fallback: See messages/*.json for translations
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/orlea_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
   },
   {
     id: "orlea_starting_2",
-    name: "突撃だ、みんな", // Fallback
+    name: "攻撃だ、みんな", // Fallback
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/orlea_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -515,7 +515,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/orlea_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -528,7 +528,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%AB%E3%83%AC%E3%82%A2_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E8%81%96%E3%81%AA%E3%82%8B%E9%A6%99%E7%82%89_0_20251122-155103.png",
+    imgUrl: "/images/cards/orlea_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -547,7 +547,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%AB%E3%83%AC%E3%82%A2_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%88%90%E9%95%B7%E4%BF%83%E9%80%B2_0_20251122-163235.png",
+    imgUrl: "/images/cards/orlea_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "治癒50%<wbr/>手札の自分のカードを1枚選択、保存効果2回発動" },
       { level: 1, cost: 0, description: "治癒50%<wbr/>手札のカードを1枚選択、保存効果2回発動"},
@@ -563,7 +563,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%AB%E3%83%AC%E3%82%A2_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%82%81%E3%82%93%E3%81%A9%E3%81%8F%E3%81%95%E3%81%84_0_20251122-164840.png",
+    imgUrl: "/images/cards/orlea_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "手札のカード数に応じて、固定ダメージ40%" },
       { level: 1, cost: 1, description: "手札のカード数に応じて、固定ダメージ40%<wbr/>6枚以上の場合、治癒150%"  },
@@ -579,7 +579,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%AB%E3%83%AC%E3%82%A2_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%88%90%E9%95%B7%E3%81%99%E3%82%8B%E5%89%B5%E9%80%A0%E7%89%A9_0_20251122-170104.png",
+    imgUrl: "/images/cards/orlea_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "創造物★を1枚生成<wbr/>保存：このカードを創造物★★★に変更" },
       { level: 1, cost: 1, description: "創造物★を1枚生成<wbr/>保存：創造物★1枚生成" },
@@ -595,7 +595,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/orlea_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "治癒200%<wbr/>手札にある全てのカードの保存効果発動" },
     ]
@@ -609,7 +609,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/meilin_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -620,7 +620,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/meilin_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -633,7 +633,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/meilin_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -646,7 +646,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE, CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A1%E3%82%A4%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E7%81%AB%E7%AB%9C%E3%81%AE%E5%AE%9D%E7%9F%B3_1_20251116-154724.png?w=150&h=225&tok=7bca46",
+    imgUrl: "/images/cards/meilin_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -665,7 +665,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A1%E3%82%A4%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E6%98%87%E9%BE%8D%E8%84%9A_1_20251116-093102.png",
+    imgUrl: "/images/cards/meilin_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ100%<wbr/>残り火2<wbr/>連続：ヒット数1回追加" },
       { level: 1, cost: 1, description: "ダメージ100%<wbr/>残り火2<wbr/>連続：ヒット数2回追加 "},
@@ -681,7 +681,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A1%E3%82%A4%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E6%94%BB%E9%98%B2%E4%B8%80%E4%BD%93_1_20251116-093807.png",
+    imgUrl: "/images/cards/meilin_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "自分の基本カードドロー2、1ターンの間、そのカードのコスト1減少" },
       { level: 1, cost: 0, description: "自分の基本カードドロー2、1ターンの間、そのカードのコスト1減少、ダメージ量、シールド獲得量50%増加"  },
@@ -697,7 +697,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A1%E3%82%A4%E3%83%AA%E3%83%B3_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E8%8A%B3%E9%A6%99%E6%97%8F%E3%81%AE%E7%B2%BE%E7%A5%9E_1_20251116-094745.png.png",
+    imgUrl: "/images/cards/meilin_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "1ターンの間、自分のカード使用時、自分のダメージ量+20%" },
       { level: 1, cost: 1, description: "1ターンの間、情熱カード使用時、自分のダメージ量+20%" },
@@ -713,7 +713,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.WEAKNESS_ATTACK],
-    imgUrl: "",
+    imgUrl: "/images/cards/meilin_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "ダメージ300%<wbr/>破壊：残り火保存" },
     ]
@@ -727,7 +727,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/velonica_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -738,7 +738,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/velonica_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -751,7 +751,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/velonica_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -764,7 +764,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.UNIQUE, CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AD%E3%83%8B%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E7%99%BA%E5%B0%84%E6%BA%96%E5%82%99_0_20251122-094718.png",
+    imgUrl: "/images/cards/velonica_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -783,7 +783,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AD%E3%83%8B%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%81%AF%E6%8A%9C%E3%81%8D_0_20251121-112200.png",
+    imgUrl: "/images/cards/velonica_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>他の戦闘員のカード8)ドロー2" },
       { level: 1, cost: 0, description: "他の戦闘員のカードドロー2"},
@@ -799,7 +799,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AD%E3%83%8B%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%B1%BA%E6%84%8F%E3%81%AE%E3%83%9A%E3%83%B3%E3%83%80%E3%83%B3%E3%83%88_0_20251122-112501.png",
+    imgUrl: "/images/cards/velonica_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "他の戦闘員のスキルカード使用時、装填1" },
       { level: 1, cost: 1, description: "スキルカード使用時、装填1" },
@@ -815,7 +815,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AD%E3%83%8B%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%82%B3%E3%83%AF%E3%83%AB%E3%82%B9%E3%82%AD%E3%83%BC%E5%8D%BF_0_20251122-120950.png",
+    imgUrl: "/images/cards/velonica_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "手札のバリスタ1枚を選択、発動時までダメージ量+100%<wbr/>ドロー1" },
       { level: 1, cost: 1, description: "手札のバリスタ1枚を選択、発動時までダメージ量+150%<wbr/>ドロー2" },
@@ -831,7 +831,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "",
+    imgUrl: "/images/cards/velonica_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "装填最大重複1増加<wbr/>装填1" },
     ]
@@ -845,7 +845,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/renoa_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -856,7 +856,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/renoa_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -869,7 +869,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/renoa_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -882,7 +882,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%83%8E%E3%82%A2_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E5%98%86%E3%81%8D%E3%81%AE%E5%B1%B1%E3%81%B3%E3%81%93_20251117-173713.png",
+    imgUrl: "/images/cards/renoa_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -901,7 +901,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%83%8E%E3%82%A2_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E5%8D%B3%E5%88%BB%E5%87%A6%E5%88%91_20251117-173938.png",
+    imgUrl: "/images/cards/renoa_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ180%<wbr/>手札に鎮魂の弾丸がある場合、1枚破棄し、ダメージ量+100%" },
       { level: 1, cost: 1, description: "ダメージ270%<wbr/>手札に鎮魂の弾丸がある場合、1枚破棄し、ダメージ量+150%"},
@@ -917,7 +917,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%83%8E%E3%82%A2_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E6%BC%86%E9%BB%92%E3%81%AE%E9%A0%8C%E8%A9%A9_20251117-174116.png",
+    imgUrl: "/images/cards/renoa_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ50%×3<wbr/>手札の鎮魂の弾丸の数に応じてダメージ量+20%" },
       { level: 1, cost: 1, description: "ダメージ75%×3<wbr/>手札の鎮魂の弾丸の数に応じて、ダメージ+30%"  },
@@ -933,7 +933,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%83%8E%E3%82%A2_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%81%8B%E5%91%BD%E3%82%92%E9%A3%B2%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E8%8A%B1_20251117-174451.png",
+    imgUrl: "/images/cards/renoa_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "手札を2枚まで破棄<wbr/>その数に応じて、鎮魂の弾丸を生成" },
       { level: 1, cost: 0, description: "手札を3枚まで破棄<wbr/>その数に応じて、鎮魂の弾丸を生成" },
@@ -949,7 +949,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "",
+    imgUrl: "/images/cards/renoa_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ150%(+0%)<wbr/>鎮魂の弾丸を全て破棄、その数に応じてダメージ+50%" },
     ]
@@ -963,7 +963,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/hugo_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -974,7 +974,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/hugo_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -987,7 +987,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/hugo_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1000,7 +1000,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%92%E3%83%A5%E3%83%BC%E3%82%B4_%E7%8B%A9%E7%8C%9F%E6%9C%AC%E8%83%BD.png",
+    imgUrl: "/images/cards/hugo_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1019,7 +1019,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%92%E3%83%A5%E3%83%BC%E3%82%B4_%E3%83%8A%E3%82%A4%E3%83%95%E6%8A%95%E6%93%B2.png",
+    imgUrl: "/images/cards/hugo_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ランダムな敵にダメージ60%×3<wbr/>攻撃した対象の数に応じて、狩猟の開始" },
       { level: 1, cost: 1, description: "ランダムな敵にダメージ90%×3<wbr/>攻撃した対象の数に応じて、狩猟の開始"},
@@ -1035,7 +1035,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%92%E3%83%A5%E3%83%BC%E3%82%B4_%E6%97%A9%E3%81%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95.png",
+    imgUrl: "/images/cards/hugo_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ80%×2<wbr/>狩猟の開始状態の場合、攻撃カードを1枚ドロー" },
       { level: 1, cost: 1, description: "ダメージ120%×2<wbr/>狩猟の開始状態の場合、攻撃カードを1枚ドロー" },
@@ -1051,7 +1051,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%92%E3%83%A5%E3%83%BC%E3%82%B4_%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B4%E3%81%AE%E9%81%A0%E5%90%A0%E3%81%88.png",
+    imgUrl: "/images/cards/hugo_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>狩猟の開始2" },
       { level: 1, cost: 1, description: "シールド150%<wbr/>狩猟の開始3" },
@@ -1067,7 +1067,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "",
+    imgUrl: "/images/cards/hugo_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "狩猟の開始の追加攻撃ダメージ量40%増加" },
     ]
@@ -1081,7 +1081,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/haru_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1092,7 +1092,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/haru_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1105,7 +1105,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/haru_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1118,7 +1118,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.PULVERIZE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8F%E3%83%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%88_20251204-202236.png",
+    imgUrl: "/images/cards/haru_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1137,7 +1137,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8F%E3%83%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC_20251204-202353.png",
+    imgUrl: "/images/cards/haru_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "山札または墓地7)からアンカーシュートを手札に移動" },
       { level: 1, cost: 0, description: "全アンカーシュートに回収付与"},
@@ -1153,7 +1153,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8F%E3%83%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%83%91%E3%83%AF%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_20251204-202509.png",
+    imgUrl: "/images/cards/haru_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "敵全体にダメージ180%<wbr/>単体対象の場合ダメージ量＋80%" },
       { level: 1, cost: 1, description: "敵全体にダメージ270%<wbr/>単体対象の場合ダメージ量＋120%" },
@@ -1169,7 +1169,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8F%E3%83%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_20251204-202637.png",
+    imgUrl: "/images/cards/haru_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "1ターンの間自分の攻撃カードダメージ量30%増加" },
       { level: 1, cost: 2, description: "1ターンの間自分の攻撃カードダメージ量40%増加" },
@@ -1185,7 +1185,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "",
+    imgUrl: "/images/cards/haru_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "手札のアンカーシュート<wbr/>1ターンの間、コスト1増加<wbr/>ダメージ量70%増加" },
     ]
@@ -1199,7 +1199,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/kayron_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1210,7 +1210,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/kayron_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1223,7 +1223,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/kayron_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1236,7 +1236,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%A4%E3%83%AD%E3%83%B3_%E8%99%9A%E7%84%A1%E3%81%AE%E6%AE%8B%E5%83%8F.png",
+    imgUrl: "/images/cards/kayron_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1255,7 +1255,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%A4%E3%83%AD%E3%83%B3_%E6%B6%88%E6%BB%85%E3%81%AE%E7%83%99%E5%8D%B0.png",
+    imgUrl: "/images/cards/kayron_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 3, description: "敵全体にダメージ300%<wbr/>カード消滅時、このカードは1ターンの間コスト1減少" },
       { level: 1, cost: 3, description: "敵全体にダメージ450%<wbr/>カード消滅時、このカードは1ターンの間コスト1減少"},
@@ -1271,7 +1271,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%A4%E3%83%AD%E3%83%B3_%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%9B%E3%83%BC%E3%83%AB.png",
+    imgUrl: "/images/cards/kayron_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ240%<wbr/>消滅した虚無数に応じてダメージ量+40%"},
       { level: 1, cost: 2, description: "ダメージ360%<wbr/>手札の虚無2枚発動"},
@@ -1287,7 +1287,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%A4%E3%83%AD%E3%83%B3_%E8%99%9A%E5%A6%84%E3%81%AE%E8%AA%93%E7%B4%84.png",
+    imgUrl: "/images/cards/kayron_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "虚無生成時、ダメージ、治癒80%効果を持つコスト1の攻撃カードに変更" },
       { level: 1, cost: 1, description: "虚無生成時、ダメージ、治癒120%効果を持つコスト1の攻撃カードに変更" },
@@ -1303,7 +1303,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/kayron_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ240%<wbr/>虚無 3生成<wbr/>その数に応じてダメージ+40%" },
     ]
@@ -1317,7 +1317,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/yuki_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1328,7 +1328,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/yuki_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1341,7 +1341,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/yuki_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1354,7 +1354,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A6%E3%82%AD_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E5%88%B6%E5%9C%A7%E6%BA%96%E5%82%99_0_20251116-215413.png",
+    imgUrl: "/images/cards/yuki_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1373,7 +1373,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A6%E3%82%AD_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E7%9B%97%E3%81%BF%E6%96%AC%E3%82%8A_0_20251116-220417.png",
+    imgUrl: "/images/cards/yuki_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "敵全体ダメージ180%<wbr/>インスピレーション：コスト1減少" },
       { level: 1, cost: 2, description: "敵全体ダメージ270%<wbr/>インスピレーション：コスト1減少"},
@@ -1389,7 +1389,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A6%E3%82%AD_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%A8%99%E3%81%97%E8%A8%8E%E3%81%A1_0_20251116-221044.png",
+    imgUrl: "/images/cards/yuki_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ150%<wbr/>手札のランダムな自分のカード1枚のインスピレーション効果有効化"},
       { level: 1, cost: 1, description: "ダメージ180%<wbr/>手札の自分のカード1枚選択、インスピレーション効果有効化"},
@@ -1405,7 +1405,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%A6%E3%82%AD_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E6%B0%B7%E3%81%AE%E5%88%83_0_20251116-221549.png",
+    imgUrl: "/images/cards/yuki_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "自分のインスピレーション効果が有効化したカードを使用したとき、敵全体にダメージ60%" },
       { level: 1, cost: 1, description: "自分のインスピレーション効果が有効化したカードを使用したとき、敵全体にダメージ90%" },
@@ -1421,7 +1421,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/yuki_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "敵全体ダメージ180%<wbr/>インスピレーション：ヒット数1回追加、ダメージ量20%減少" },
     ]
@@ -1435,7 +1435,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/chizuru_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1446,7 +1446,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/chizuru_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1459,7 +1459,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/chizuru_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1472,7 +1472,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%81%E3%82%BA%E3%83%AB_%E3%82%AB%E3%83%BC%E3%83%89_%E6%A5%AD%E7%81%AB_20251202-194357.png",
+    imgUrl: "/images/cards/chizuru_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1491,7 +1491,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%81%E3%82%BA%E3%83%AB_%E3%82%AB%E3%83%BC%E3%83%89_%E6%9C%88%E8%AA%AD_20251202-195205.png",
+    imgUrl: "/images/cards/chizuru_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "次に使用する自分の攻撃カードのヒット数に応じて鬼火2" },
       { level: 1, cost: 0, description: "次に使用する自分の攻撃カードのヒット数に応じて鬼火3"},
@@ -1507,7 +1507,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE, CardStatus.INITIATION],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%81%E3%82%BA%E3%83%AB_%E3%82%AB%E3%83%BC%E3%83%89_%E9%BB%84%E6%98%8F%E3%81%AE%E7%B5%90%E6%9D%9F_20251202-195538.png",
+    imgUrl: "/images/cards/chizuru_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ターン開始時、拘束を獲得<wbr/>ランダムな他の戦闘員のカード1枚、使用時までコスト1減少"},
       { level: 1, cost: 2, description: "ターン開始時、拘束を獲得<wbr/>ランダムなカード2枚使用時までコスト1減少"},
@@ -1523,7 +1523,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.HASTE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%81%E3%82%BA%E3%83%AB_%E3%82%AB%E3%83%BC%E3%83%89_%E9%AC%BC%E7%8B%A9%E3%82%8A_20251202-202014.png",
+    imgUrl: "/images/cards/chizuru_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ60%×3<wbr/>次に使用する結束カードのダメージ量+30%" },
       { level: 1, cost: 1, description: "ダメージ50%×4<wbr/>次に使用する結束カードのダメージ量+40%" },
@@ -1539,7 +1539,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.BIND, CardStatus.RETAIN],
-    imgUrl: "",
+    imgUrl: "/images/cards/chizuru_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ50%<wbr/>結束の重複数に応じてダメージ量+20%" },
     ]
@@ -1553,7 +1553,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/nia_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1564,7 +1564,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/nia_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1577,7 +1577,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/nia_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1590,7 +1590,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8B%E3%82%A2_g%E3%82%B3%E3%83%BC%E3%83%89.png",
+    imgUrl: "/images/cards/nia_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1609,7 +1609,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8B%E3%82%A2_%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%88%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%88.png",
+    imgUrl: "/images/cards/nia_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "コストが最も高いカードを1枚破棄<wbr/>そのカードを所有中の戦闘員はランダムな敵に追加攻撃150%" },
       { level: 1, cost: 1, description: "ランダムなカードを1枚破棄<wbr/>そのカードを所有中の戦闘員はランダムな敵に追加攻撃250%"},
@@ -1625,7 +1625,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8B%E3%82%A2_%E3%82%BD%E3%82%A6%E3%83%AB%E3%83%AA%E3%83%BC%E3%83%95.png",
+    imgUrl: "/images/cards/nia_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "治癒120%<wbr/>1ターンの間カードを破棄したときデシベル1"},
       { level: 1, cost: 2, description: "治癒150%<wbr/>デシベル2<wbr/>破棄されるときにも発動", statuses: []},
@@ -1641,7 +1641,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%8B%E3%82%A2_%E3%82%A2%E3%83%80%E3%82%B8%E3%82%AA.png",
+    imgUrl: "/images/cards/nia_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "ドロー1<wbr/>破棄1<wbr/>この効果で破棄されたカードを山札の上に移動" },
       { level: 1, cost: 0, description: "ドロー2<wbr/>破棄2<wbr/>この効果で破棄されたカードを山札の上に移動" },
@@ -1657,7 +1657,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/nia_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "山札のランダムなカード3枚を確認<wbr/>1枚選択してドロー<wbr/>残りは破棄" },
     ]
@@ -1671,7 +1671,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/selena_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1682,7 +1682,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/selena_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1695,7 +1695,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/selena_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1708,7 +1708,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%BB%E3%83%AC%E3%83%BC%E3%83%8A_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E9%AB%98%E5%80%8D%E7%8E%87%E7%85%A7%E6%BA%96%E5%99%A8_0_20251121-182953.png",
+    imgUrl: "/images/cards/selena_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1727,7 +1727,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%BB%E3%83%AC%E3%83%BC%E3%83%8A_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E7%9B%AE%E6%A8%99%E8%A3%9C%E8%B6%B3_0_20251121-201524.png",
+    imgUrl: "/images/cards/selena_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ150%<wbr/>感応：ランダムな敵に標識1" },
       { level: 1, cost: 1, description: "ダメージ100%<wbr/>感応：ランダムな敵にダメージ200%"},
@@ -1743,7 +1743,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%BB%E3%83%AC%E3%83%BC%E3%83%8A_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E7%88%86%E6%92%83_0_20251121-201927.png",
+    imgUrl: "/images/cards/selena_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "敵全体にダメージ120%、情熱弱点1"},
       { level: 1, cost: 1, description: "敵全体にダメージ120%、情熱弱点2"},
@@ -1759,7 +1759,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%BB%E3%83%AC%E3%83%BC%E3%83%8A_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%88%A6%E8%A1%93%E8%B5%B7%E5%8B%95_0_20251121-202059.png",
+    imgUrl: "/images/cards/selena_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド150%<wbr/>強靭度12)ダメージ2" },
       { level: 1, cost: 1, description: "シールド225%<wbr/>強靭度ダメージ3" },
@@ -1775,7 +1775,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "",
+    imgUrl: "/images/cards/selena_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "標識ダメージ量+40%" },
     ]
@@ -1789,7 +1789,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/tressa_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -1800,7 +1800,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/tressa_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1813,7 +1813,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/tressa_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1826,7 +1826,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%88%E3%83%AC%E3%82%B5_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E7%9F%AD%E5%89%A3%E6%8A%9C%E5%88%80_0_20251121-185045.png",
+    imgUrl: "/images/cards/tressa_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1845,7 +1845,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%88%E3%83%AC%E3%82%B5_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E5%91%AA%E3%81%84%E4%BB%98%E4%B8%8E_0_20251121-190751.png",
+    imgUrl: "/images/cards/tressa_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "1ターンの間、攻撃カード使用時、対象に苦痛1" },
       { level: 1, cost: 0, description: "1ターンの間、カード使用時、ランダムな敵に苦痛1"},
@@ -1861,7 +1861,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%88%E3%83%AC%E3%82%B5_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E5%BD%B1%E8%A3%85%E5%A1%AB_0_20251121-191754.png",
+    imgUrl: "/images/cards/tressa_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "治癒100%<wbr/>上級影の短剣1枚生成"},
       { level: 1, cost: 2, category: CardCategory.ATTACK, description: "敵全体にダメージ80%<wbr/>苦痛2<wbr/>手札の影の短剣を全て消滅、その数に応じて繰り返す", statuses: [CardStatus.RETAIN]},
@@ -1877,7 +1877,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%88%E3%83%AC%E3%82%B5_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%80%A5%E6%89%80%E6%94%BB%E6%92%83_0_20251121-193931.png",
+    imgUrl: "/images/cards/tressa_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ80%×3<wbr/>対象が苦痛状態の場合、ダメージ量+50%", statuses: [CardStatus.LEAD] },
       { level: 1, cost: 2, description: "ダメージ150%×3" },
@@ -1893,7 +1893,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/tressa_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "苦痛刻印2<wbr/>弱体化2" },
     ]
@@ -1907,7 +1907,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/amir_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "防御依存ダメージ100%" } // Fallback
     ]
@@ -1918,7 +1918,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/amir_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1931,7 +1931,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/amir_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -1944,7 +1944,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%A2%E3%83%9F%E3%83%BC%E3%83%AB_%E3%83%9B%E3%83%90%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%A1%E3%82%BF%E3%83%AB.png",
+    imgUrl: "/images/cards/amir_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -1963,7 +1963,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%A2%E3%83%9F%E3%83%BC%E3%83%AB_%E3%83%A1%E3%82%BF%E3%83%AB%E3%83%94%E3%82%A2%E3%82%B9.png",
+    imgUrl: "/images/cards/amir_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "防御依存ダメージ90%×2<wbr/>金属化状態の場合、金属化1減少、脆弱2" },
       { level: 1, cost: 1, description: "防御依存ダメージ110%×2<wbr/>金属化状態の場合、金属化1減少、ヒット数1回追加、脆弱2"},
@@ -1979,7 +1979,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%A2%E3%83%9F%E3%83%BC%E3%83%AB_%E9%87%91%E5%B1%9E%E6%8A%BD%E5%87%BA.png",
+    imgUrl: "/images/cards/amir_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "金属化2<wbr/>1ターンの間、決意1"},
       { level: 1, cost: 1, description: "金属化2<wbr/>1ターンの間、スキルカードのシールド獲得量30%増加"},
@@ -1995,7 +1995,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%A2%E3%83%9F%E3%83%BC%E3%83%AB_%E9%8B%BC%E9%89%84%E3%81%AE%E5%B5%90.png",
+    imgUrl: "/images/cards/amir_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "敵全体に防御依存ダメージ200%<wbr/>1ターンの間、金属化の対象が敵全体に適用、ダメージ量+20%" },
       { level: 1, cost: 2, description: "敵全体に防御依存ダメージ200%<wbr/>1ターンの間、金属化の対象が敵全体に適用、ダメージ量+60%" },
@@ -2011,7 +2011,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST, CardStatus.FINALE],
-    imgUrl: "",
+    imgUrl: "/images/cards/amir_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "1ターンの間、受けるダメージ量20%減少<wbr/>金属化5)最大4減少<wbr/>その数に応じてダメージ量20%追加減少" },
     ]
@@ -2025,7 +2025,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/lucas_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2036,7 +2036,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/lucas_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2049,7 +2049,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/lucas_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2062,7 +2062,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.LEAD],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AB%E3%82%B9_%E5%A4%A7%E5%AE%B9%E9%87%8F%E3%83%9E%E3%82%AC%E3%82%B8%E3%83%B3.png",
+    imgUrl: "/images/cards/lucas_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2081,7 +2081,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AB%E3%82%B9_s.s.s.png",
+    imgUrl: "/images/cards/lucas_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ100%<wbr/>1ターンの間、弾丸カードのダメージ量+40%" },
       { level: 1, cost: 1, description: "ダメージ200%<wbr/>1ターンの間、弾丸カードのダメージ量+40%"},
@@ -2097,7 +2097,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AB%E3%82%B9_%E3%83%95%E3%83%A9%E3%83%A1%E3%83%B3%E3%83%B4%E3%82%A7%E3%83%AB%E3%83%95%E3%82%A1%E3%83%BC.png",
+    imgUrl: "/images/cards/lucas_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "敵全体にダメージ180%<wbr/>ドロー1<wbr/>破棄1"},
       { level: 1, cost: 2, description: "敵全体にダメージ180%<wbr/>ドロー1<wbr/>破棄2<wbr/>破棄した数に応じて、ランチャー弾丸生成"},
@@ -2113,7 +2113,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AB%E3%83%BC%E3%82%AB%E3%82%B9_%E9%96%83%E5%85%89%E5%BC%BE.png",
+    imgUrl: "/images/cards/lucas_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "敵全体にダメージ120%<wbr/>弱体化2<wbr/>対象がシールド保持中の場合、ダメージ量+50%" },
       { level: 1, cost: 1, description: "敵全体にダメージ180%<wbr/>弱体化2<wbr/>対象がシールド保持中の場合、ダメージ量+75%" },
@@ -2125,11 +2125,11 @@ export const CHARACTER_CARDS: CznCard[] = [
   },
   {
     id: "lucas_hirameki_4",
-    name: "RPG-7", // Fallback
+    name: "R.P.G-7", // Fallback
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/lucas_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "弾丸2)カード消滅(このカードは使用後、消滅済みカードに移動))時、敵全体固定ダメージ3)40%" },
     ]
@@ -2143,7 +2143,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/maribell_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "防御依存ダメージ100%" } // Fallback
     ]
@@ -2154,7 +2154,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/maribell_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2167,7 +2167,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/maribell_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2180,7 +2180,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.PULVERIZE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%83%AA%E3%83%99%E3%83%AB_%E7%8C%AA%E7%AA%81%E7%8C%9B%E9%80%B2.png",
+    imgUrl: "/images/cards/maribell_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2199,7 +2199,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.PULVERIZE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%83%AA%E3%83%99%E3%83%AB_%E3%83%9E%E3%83%AA%E3%83%99%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%BF%E3%83%BCmk.%E2%85%B1.png",
+    imgUrl: "/images/cards/maribell_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "防御依存ダメージ100%<wbr/>与ダメージ分、固定シールドを獲得（最大HPの20%をこえることはできない）" },
       { level: 1, cost: 1, description: "敵全体に防御依存ダメージ100%<wbr/>与ダメージ分、固定シールドを獲得（最大HPの20%をこえることはできない"},
@@ -2215,7 +2215,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%83%AA%E3%83%99%E3%83%AB_%E3%82%A6%E3%83%AB%E3%83%96%E3%82%B9%E3%83%89%E3%83%BC%E3%83%A0.png",
+    imgUrl: "/images/cards/maribell_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "反撃2<wbr/>ターン開始時、反撃1" },
       { level: 1, cost: 0, description: "反撃2<wbr/>ターン開始時、反撃1", statuses: [CardStatus.INITIATION]},
@@ -2231,7 +2231,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9E%E3%83%AA%E3%83%99%E3%83%AB_%E3%81%82%E3%83%BC%E3%81%9D%E3%81%86%E3%81%AA%E3%82%93%E3%81%A0.png",
+    imgUrl: "/images/cards/maribell_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>反撃1<wbr/>敵全体弱体化1" },
       { level: 1, cost: 1, description: "シールド150%<wbr/>反撃1<wbr/>敵全体弱体化2" },
@@ -2247,7 +2247,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.PULVERIZE],
-    imgUrl: "",
+    imgUrl: "/images/cards/maribell_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "保有しているシールドに応じて固定ダメージ" },
     ]
@@ -2261,7 +2261,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/mika_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2272,7 +2272,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/mika_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2285,7 +2285,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/mika_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2298,7 +2298,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9F%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%B0%B4%E3%81%AE%E6%A0%B9%E6%BA%90_0_20251124-124458.png",
+    imgUrl: "/images/cards/mika_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2317,7 +2317,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9F%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%B3%A2%E3%81%AE%E5%8A%A0%E8%AD%B7_0_20251124-125708.png",
+    imgUrl: "/images/cards/mika_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "治癒100%<wbr/>アクションポイント数に応じて、治癒量30%増加" },
       { level: 1, cost: 1, description: "治癒150%<wbr/>アクションポイント数に応じて、治癒量30%増加<wbr/>超過した治癒量分シールド獲得"},
@@ -2333,7 +2333,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9F%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E4%BD%9C%E6%88%A6%E5%88%86%E6%9E%90_0_20251124-121637.png",
+    imgUrl: "/images/cards/mika_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "波1<wbr/>1ターンの間、<wbr/>治癒量+50%"},
       { level: 1, cost: 0, description: "治癒50%<wbr/>波1<wbr/>2ターンの間、<wbr/>治癒量+50%"},
@@ -2349,7 +2349,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%9F%E3%82%AB_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%B8%A6%E5%B7%BB%E3%81%8D_0_20251124-133057.png",
+    imgUrl: "/images/cards/mika_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "敵全体にダメージ200%<wbr/>攻撃した対象の数に応じて、治癒50%" },
       { level: 1, cost: 2, description: "敵全体にダメージ200%<wbr/>攻撃した対象の数に応じて、治癒100%" },
@@ -2365,7 +2365,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE, CardStatus.INITIATION],
-    imgUrl: "",
+    imgUrl: "/images/cards/mika_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "波1<wbr/>ターン開始時、波1" },
     ]
@@ -2379,7 +2379,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/beryl_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2390,7 +2390,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/beryl_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2403,7 +2403,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/beryl_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2416,7 +2416,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AA%E3%83%AB_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%9A%99%E3%81%82%E3%82%8A_0_20251119-205437.png",
+    imgUrl: "/images/cards/beryl_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2435,7 +2435,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.RETAIN],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AA%E3%83%AB_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8%E5%BC%BE_0_20251119-205603.png",
+    imgUrl: "/images/cards/beryl_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ200%<wbr/>保存：ダメージ量+80%" },
       { level: 1, cost: 2, description: "ダメージ300%<wbr/>保存：ダメージ量+120%" },
@@ -2451,7 +2451,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AA%E3%83%AB_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E9%9A%A0%E3%81%97%E3%81%A6%E3%81%9F%E3%83%81%E3%83%A7%E3%82%B3%E3%83%90%E3%83%BC_0_20251119-205715.png",
+    imgUrl: "/images/cards/beryl_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "ドロー3"},
       { level: 1, cost: 0, description: "ドロー3<wbr/>士気1"},
@@ -2467,7 +2467,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%99%E3%83%AA%E3%83%AB_%E3%81%B2%E3%82%89%E3%82%81%E3%81%8D_%E7%84%A1%E9%99%90%E3%81%AE%E7%81%AB%E5%8A%9B_0_20251119-205824.png",
+    imgUrl: "/images/cards/beryl_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド100%<wbr/>次に使用する自分の攻撃カードのダメージ量+80%" },
       { level: 1, cost: 1, description: "シールド150%<wbr/>次に使用する自分の攻撃カードのダメージ量+120%" },
@@ -2483,7 +2483,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/beryl_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "隙ありまたは、チャージ弾を1枚ずつ生成、そのカードに消滅付与、使用するまでコスト1減少" },
     ]
@@ -2497,7 +2497,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/cassius_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2508,7 +2508,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/cassius_starting_2.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2521,7 +2521,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/cassius_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2534,7 +2534,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%B7%E3%82%A6%E3%82%B9_%E3%83%9D%E3%83%83%E3%83%97%E3%82%A2%E3%82%A4%E3%83%89%E3%83%9D%E3%83%83%E3%83%91%E3%83%BC.png",
+    imgUrl: "/images/cards/cassius_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2553,7 +2553,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%B7%E3%82%A6%E3%82%B9_%E3%83%87%E3%83%93%E3%83%AB%E3%83%80%E3%82%A4%E3%82%B9.png",
+    imgUrl: "/images/cards/cassius_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ160%<wbr/>ドロー1" },
       { level: 1, cost: 1, description: "ダメージ200%<wbr/>クエストカード1枚生成"},
@@ -2569,7 +2569,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%B7%E3%82%A6%E3%82%B9_%E3%82%AB%E3%83%BC%E3%83%89%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB.png",
+    imgUrl: "/images/cards/cassius_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "手札のすべてのカードを破棄<wbr/>その数に応じてドロー"},
       { level: 1, cost: 1, description: "手札のすべてのカードを破棄<wbr/>その数に応じてドロー", statuses: [CardStatus.EXHAUST2]},
@@ -2585,7 +2585,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AB%E3%82%B7%E3%82%A6%E3%82%B9_%E3%83%80%E3%82%A4%E3%82%B9%E3%83%88%E3%83%AA%E3%83%83%E3%82%AF.png",
+    imgUrl: "/images/cards/cassius_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ240%<wbr/>完了したクエストの回数に応じてコスト減少" },
       { level: 1, cost: 2, description: "	ダメージ360%<wbr/>完了したクエストの回数に応じてコスト減少" },
@@ -2601,7 +2601,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/cassius_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "山札2)から1枚選択、そのカードを手札に移動" },
     ]
@@ -2615,7 +2615,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/owen_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2626,7 +2626,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/owen_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2639,7 +2639,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/owen_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2652,7 +2652,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%B3_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_0_20251124-142622.png",
+    imgUrl: "/images/cards/owen_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2671,7 +2671,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%B3_%E9%A2%A8%E6%96%AC%E3%82%8A_0_20251124-143724.png",
+    imgUrl: "/images/cards/owen_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "敵全体にダメージ220%" },
       { level: 1, cost: 1, description: "敵全体にダメージ220%"},
@@ -2683,11 +2683,11 @@ export const CHARACTER_CARDS: CznCard[] = [
   },
   {
     id: "owen_hirameki_2",
-    name: "防具潰し", // Fallback
+    name: "防具壊し", // Fallback
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%B3_%E9%98%B2%E5%85%B7%E5%A3%8A%E3%81%97_0_20251124-144459.png",
+    imgUrl: "/images/cards/owen_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ100%<wbr/>脆弱2"},
       { level: 1, cost: 1, description: "ダメージ150%<wbr/>1ターンの間不屈4 減少"},
@@ -2703,7 +2703,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%82%AA%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%B3_%E9%A2%A8%E4%B9%97%E3%82%8A_0_20251124-145234.png",
+    imgUrl: "/images/cards/owen_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "シールド150%<wbr/>捨て札からウィンドチャージを手札に移動" },
       { level: 1, cost: 1, description: "シールド220%<wbr/>捨て札から自分のカード2枚を手札に移動" },
@@ -2719,7 +2719,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/owen_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "ダメージ250%<wbr/>シールド80%" },
     ]
@@ -2733,7 +2733,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     isBasicCard: true,
     isStartingCard: true,
-    imgUrl: "",
+    imgUrl: "/images/cards/rei_starting_1.png",
     hiramekiVariations: [
       { level: 0, cost: 1, description: "ダメージ100%" } // Fallback
     ]
@@ -2744,7 +2744,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/rei_starting_1.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2757,7 +2757,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/rei_starting_3.png",
     isBasicCard: true,
     isStartingCard: true,
     hiramekiVariations: [
@@ -2770,7 +2770,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [CardStatus.LEAD],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%82%A4_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E9%97%87%E3%81%AE%E6%96%AC%E6%92%83_0_20251118-221443.png",
+    imgUrl: "/images/cards/rei_starting_4.png",
     isBasicCard: false,
     isStartingCard: true,
     hiramekiVariations: [ // Fallback descriptions
@@ -2789,7 +2789,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.UPGRADE,
     statuses: [CardStatus.UNIQUE],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%82%A4_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E5%85%B1%E9%B3%B4%E3%81%99%E3%82%8B%E6%9A%97%E9%97%87_0_20251118-221550.png",
+    imgUrl: "/images/cards/rei_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "コスト1のカードのダメージ量+40%" },
       { level: 1, cost: 1, description: "コスト1のカードのダメージ量+60%"},
@@ -2805,7 +2805,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [CardStatus.EXHAUST],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%82%A4_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E3%81%8A%E3%82%84%E3%81%A4%E3%81%AE%E6%99%82%E9%96%93_0_20251118-221652.png",
+    imgUrl: "/images/cards/rei_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "手札のカードを1枚選択し、消滅<wbr/>治癒100%<wbr/>ドロー1"},
       { level: 1, cost: 0, description: "手札のカードを1枚選択し、消滅<wbr/>治癒150%<wbr/>ドロー1", statuses: [CardStatus.EXHAUST2]},
@@ -2817,11 +2817,11 @@ export const CHARACTER_CARDS: CznCard[] = [
   },
   {
     id: "rei_hirameki_3",
-    name: "暗黒凝縮", // Fallback
+    name: "暗黒凝集", // Fallback
     type: CardType.CHARACTER,
     category: CardCategory.SKILL,
     statuses: [],
-    imgUrl: "https://nightmare.aosns.com/_media/%E3%82%AD%E3%83%A3%E3%83%A9%E4%B8%80%E8%A6%A7/%E3%83%AC%E3%82%A4_%E3%83%92%E3%83%A9%E3%83%A1%E3%82%AD_%E6%9A%97%E9%BB%92%E5%87%9D%E9%9B%86_0_20251118-221805.png",
+    imgUrl: "/images/cards/rei_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "手札の攻撃カードを1枚選択、1ターンの間、ダメージ量+100%" },
       { level: 1, cost: 1, description: "	手札の攻撃カードを1枚選択、1ターンの間、ダメージ量+150%" },
@@ -2837,7 +2837,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     type: CardType.CHARACTER,
     category: CardCategory.ATTACK,
     statuses: [],
-    imgUrl: "",
+    imgUrl: "/images/cards/rei_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ250%<wbr/>1ターンの間、士気2" },
     ]
