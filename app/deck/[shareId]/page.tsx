@@ -49,7 +49,7 @@ export async function generateMetadata({
       locale: locale,
       images: [
         {
-          url: `/deck/${shareId}/og-image`,
+          url: `/deck/${shareId}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: `${deckName}${t('deck.shareImageAlt', { defaultValue: 'のデッキ画像' })}`,
@@ -60,7 +60,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [`/deck/${shareId}/og-image`],
+      images: [`/deck/${shareId}/opengraph-image`],
     },
   };
 }
