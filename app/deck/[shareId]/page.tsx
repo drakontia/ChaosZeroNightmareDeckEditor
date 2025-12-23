@@ -2,13 +2,16 @@ import ClientDeckBuilderPage from '@/components/ClientDeckBuilderPage';
 import { decodeDeckShare } from '@/lib/deck-share';
 import { calculateFaintMemory } from '@/lib/deck-utils';
 import { getLocale, getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ shareId: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ shareId: string }>;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { shareId } = await params;
   const deck = decodeDeckShare(shareId);
   const locale = await getLocale();
@@ -42,6 +45,17 @@ export async function generateMetadata({
   return {
     title,
     description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
