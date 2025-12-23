@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from 'next-intl';
 
-import { CznCard, CardType, Character, RemovedCardEntry } from "@/types";
+import { CznCard, CardType, Character, RemovedCardEntry, ConvertedCardEntry } from "@/types";
 import { getCharacterHiramekiCards, getAddableCards, getCardById } from "@/lib/data";
 import { Card, CardContent } from "./ui/card";
 import { CardFrame } from "./CardFrame";
@@ -12,7 +12,7 @@ interface CardSelectorProps {
   onAddCard: (card: CznCard) => void;
   onRestoreCard: (card: CznCard) => void;
   removedCards?: Map<string, number | RemovedCardEntry>;
-  convertedCards?: Map<string, string>;
+  convertedCards?: Map<string, string | ConvertedCardEntry>;
   presentHiramekiIds?: Set<string>;
   searchQuery?: string;
 }
@@ -110,7 +110,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
     });
   };
 
-  const renderRemovedTile = (card: CznCard, count: number) => {
+  const renderRemovedTile = (card: CznCard) => {
     const translatedName = t(`cards.${card.id}.name`, { defaultValue: card.name });
     return renderCardTile(card, {
       keyPrefix: 'removed',
@@ -163,11 +163,11 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           <div className="space-y-3">
             <h3 className="text-lg font-semibold">削除したカード</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {Array.from(removedCards.entries()).map(([id, count]) => {
+              {Array.from(removedCards.entries()).map(([id, entry]) => {
                 const card = getCardById(id);
                 if (!card) return null;
                 if (!matchesQuery(card)) return null;
-                return renderRemovedTile(card, count);
+                return renderRemovedTile(card);
               })}
             </div>
           </div>
@@ -178,7 +178,7 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           <div className="space-y-3">
             <h3 className="text-lg font-semibold">変換したカード</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {Array.from(convertedCards.entries()).map(([originalId, convertedId]) => {
+              {Array.from(convertedCards.entries()).map(([originalId, entry]) => {
                 const originalCard = getCardById(originalId);
                 if (!originalCard) return null;
                 if (!matchesQuery(originalCard)) return null;
