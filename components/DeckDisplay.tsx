@@ -4,7 +4,7 @@ import { CardFrame } from './CardFrame';
 import { HiramekiControls } from './HiramekiControls';
 import { CardActionsMenu } from './CardActionsMenu';
 
-import { DeckCard, GodType, CznCard, JobType } from "@/types";
+import { DeckCard, GodType, CznCard, JobType, CardStatus } from "@/types";
 import { Card } from "./ui/card";
 import { getCardInfo, sortDeckCards } from "@/lib/deck-utils";
 import { GOD_HIRAMEKI_EFFECTS } from "@/lib/god-hirameki";
@@ -58,6 +58,12 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
           }
         }
 
+        // Add "copied" status if card is a copy
+        const displayStatuses = [...(cardInfo.statuses ?? [])];
+        if (card.isCopied) {
+          displayStatuses.push(CardStatus.COPIED);
+        }
+
         const leftControls = !hasNoHirameki ? (
           <HiramekiControls
             card={card}
@@ -83,7 +89,8 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
               descriptionFallback={cardInfo.description}
               godEffectId={godEffectId}
               godEffectFallback={godEffectFallback}
-              statuses={cardInfo.statuses?.map(s => t(`status.${s}`))}
+              statuses={displayStatuses.map(s => t(`status.${s}`))}
+              isCopied={card.isCopied}
               leftControls={leftControls}
               rightControls={
                 <CardActionsMenu

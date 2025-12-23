@@ -31,6 +31,7 @@ interface CardFrameProps {
   leftControls?: ReactNode;
   rightControls?: ReactNode;
   variant?: "default" | "compact";
+  isCopied?: boolean; // Whether this card is a copy
 }
 
 export function CardFrame({
@@ -52,6 +53,7 @@ export function CardFrame({
   leftControls,
   rightControls,
   variant = "default",
+  isCopied = false,
 }: CardFrameProps) {
   const t = useTranslations();
     const displayName = nameId ? t(nameId, { defaultValue: nameFallback ?? name ?? "" }) : (name ?? "");
@@ -75,7 +77,7 @@ export function CardFrame({
           src={imgUrl}
           alt={displayAlt}
           fill
-          className="object-cover"
+          className={cn("object-cover", isCopied && "scale-x-[-1]")}
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
       )}

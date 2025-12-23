@@ -86,7 +86,8 @@ export enum CardStatus {
   BULLET = "bullet",        // 弾丸
   WEAKNESS_ATTACK = "weakness_attack", // 弱点攻撃
   PULVERIZE = "pulverize",     // 粉砕
-  BIND = "bind"               // 結束
+  BIND = "bind",               // 結束
+  COPIED = "copied"            // コピー済み
 }
 
 // Hirameki variation for a card
