@@ -65,14 +65,12 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
               )}
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-h-[80vh] overflow-hidden">
-            <DialogHeader>
+          <DialogContent className="w-[80vw] max-w-5xl max-h-[80vh] overflow-hidden">
+            <DialogHeader className="flex-row items-center justify-between space-y-0">
               <DialogTitle>{t(titleKey)}</DialogTitle>
-            </DialogHeader>
-            <div className="p-6 pt-0 space-y-3 overflow-y-auto max-h-[60vh]">
               <Button
                 variant="ghost"
-                className="w-full justify-start"
+                size="sm"
                 onClick={() => {
                   onSelect(null, type);
                   setOpenType(null);
@@ -80,7 +78,9 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
               >
                 {t('common.remove', { defaultValue: '外す' })}
               </Button>
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            </DialogHeader>
+            <div className="p-6 pt-0 overflow-y-auto max-h-[60vh]">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {items.map((item) => (
                   <Button
                     key={item.id}
@@ -122,7 +122,7 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
   return (
     <FieldGroup className="pt-6 gap-2">
       <FieldLabel className="text-2xl text-gray-500"><Swords />{t('equipment.title')}</FieldLabel>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 gap-6">
         {renderEquipmentSection(EquipmentType.WEAPON, "equipment.weapon.title")}
         {renderEquipmentSection(EquipmentType.ARMOR, "equipment.armor.title")}
         {renderEquipmentSection(EquipmentType.PENDANT, "equipment.pendant.title")}

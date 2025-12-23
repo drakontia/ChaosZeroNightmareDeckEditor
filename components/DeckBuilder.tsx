@@ -16,7 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Field, FieldLabel, FieldGroup, FieldSet } from "./ui/field";
 import { Input } from './ui/input';
-import { Brain, CardSim, Clock12, Share2, Save as SaveIcon, FolderOpen } from 'lucide-react';
+import { Brain, CardSim, Clock12, Share2, Save as SaveIcon, FolderOpen, Eraser } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Camera } from 'lucide-react';
 import { decodeDeckShare } from "@/lib/deck-share";
@@ -120,18 +120,18 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
         <div ref={deckCaptureRef}>
           <FieldSet className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 p-6 rounded-xl border bg-card">
           {/* Top side - Deck name, Deck control */}
-          <FieldGroup className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-4">
-            <Field orientation={'horizontal'} className="lg:col-span-4">
+          <FieldGroup className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+            <Field orientation={'horizontal'} className="col-span-1 lg:col-span-4">
               <Input
                 id="deck-name"
                 type="text"
                 value={deck.name ?? ""}
                 onChange={(e) => setName(e.target.value)}
-                className="text-4xl h-12 font-bold"
+                className="text-2xl h-12 font-bold"
                 placeholder={t('deck.namePlaceholder')}
               />
             </Field>
-            <div className="lg:col-span-8 flex justify-end gap-2">
+            <div className="col-span-1 lg:col-span-8 flex justify-end gap-2">
               <Button
                 onClick={handleSaveDeck}
                 variant="secondary"
@@ -139,8 +139,8 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                 title={t('deck.save', { defaultValue: 'デッキを保存' })}
                 aria-label={t('deck.save', { defaultValue: 'デッキを保存' })}
               >
-                <SaveIcon className="mr-2 h-4 w-4" />
-                {t('deck.save', { defaultValue: 'デッキを保存' })}
+                <SaveIcon className="lg:mr-2 h-4 w-4" />
+                <span className="hidden lg:inline">{t('deck.save', { defaultValue: 'デッキを保存' })}</span>
               </Button>
               <Button
                 onClick={openLoadDialog}
@@ -148,8 +148,8 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                 title={t('deck.load', { defaultValue: 'デッキを読み込み' })}
                 aria-label={t('deck.load', { defaultValue: 'デッキを読み込み' })}
               >
-                <FolderOpen className="mr-2 h-4 w-4" />
-                {t('deck.load', { defaultValue: 'デッキを読み込み' })}
+                <FolderOpen className="lg:mr-2 h-4 w-4" />
+                <span className="hidden lg:inline">{t('deck.load', { defaultValue: 'デッキを読み込み' })}</span>
               </Button>
               <Button
                 onClick={handleShareDeck}
@@ -158,8 +158,8 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                 title={t('deck.share')}
                 aria-label={t('deck.share')}
               >
-                <Share2 className="mr-2 h-4 w-4" />
-                {t('deck.share')}
+                <Share2 className="lg:mr-2 h-4 w-4" />
+                <span className="hidden lg:inline">{t('deck.share')}</span>
               </Button>
               <Button
                 onClick={() => exportHandler(deckCaptureRef, deck.name || 'deck')}
@@ -168,14 +168,15 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                 title={t('deck.exportImage')}
                 aria-label={t('deck.exportImage')}
               >
-                <Camera className="mr-2 h-4 w-4" />
-                {t('deck.exportImage')}
+                <Camera className="lg:mr-2 h-4 w-4" />
+                <span className="hidden lg:inline">{t('deck.exportImage')}</span>
               </Button>
               <Button
                 onClick={handleClearDeck}
                 variant="destructive"
               >
-                {t('deck.clear')}
+                <Eraser className="lg:mr-2 h-4 w-4" />
+                <span className="hidden lg:inline">{t('deck.clear')}</span>
               </Button>
             </div>
           </FieldGroup>
