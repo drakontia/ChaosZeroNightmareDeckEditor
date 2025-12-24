@@ -61,6 +61,11 @@ export const CHARACTER_CARDS: CznCard[] = [
     imgUrl: "/images/cards/sereniel_starting_4.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 0, description: "ダメージ100%\n残光2\n大破時、墓地から手札に移動" },
+      { level: 1, cost: 0, description: "ダメージ150%\n大破時、墓地から手札に移動\n破壊：ヒット数1回追加" },
+      { level: 2, cost: 0, description: "ダメージ150%\n残光3\n大破時、手札に移動" },
+      { level: 3, cost: 1, description: "ダメージ150%\n残光2\n捨て札にホーミングレーザーL2枚作成" },
+      { level: 4, cost: 0, description: "ダメージ100%\n残光1\n大破時またはターン開始時、手札に移動" },
+      { level: 5, cost: 0, description: "ダメージ150%\n残光2\n墓地のホーミングレーザーL手札に移動" },
     ]
   },
   // Sereniel's hirameki cards
@@ -73,6 +78,11 @@ export const CHARACTER_CARDS: CznCard[] = [
     imgUrl: "/images/cards/sereniel_hirameki_1.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ダメージ120%\n強靱度ダメージ0.5\n対象が大破していない場合、もう1回発動" },
+      { level: 1, cost: 1, description: "ダメージ180%\n強靱度ダメージ1\n対象が大破していない場合、もう1回発動" },
+      { level: 2, cost: 1, description: "ダメージ180%\n対象の減少した強靱度の数に応じて、ダメージ量+60%\n(最大10)" },
+      { level: 3, cost: 1, description: "ダメージ120%\n本能弱点2\n1ターンの間、ホーミングレーザーダメージ量+60%" },
+      { level: 4, cost: 1, description: "ダメージ120%\n山札にホーミングレーザーL3枚作成" },
+      { level: 5, cost: 1, category: CardCategory.UPGRADE, description: "ターン終了時、ランダムな敵にダメージ50%\n1ターンの間、手札に移動したホーミングレーザーの数に応じて、ダメージ量+30%", statuses: [CardStatus.UNIQUE] },
     ]
   },
   {
@@ -84,6 +94,11 @@ export const CHARACTER_CARDS: CznCard[] = [
     imgUrl: "/images/cards/sereniel_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 1, description: "ホーミングレーザーL 2枚生成"},
+      { level: 0, cost: 1, description: "ホーミングレーザーL 3枚生成"},
+      { level: 0, cost: 1, description: "ホーミングレーザーL 2枚生成、そのカードの消滅2増加"},
+      { level: 0, cost: 1, category: CardCategory.UPGRADE, description: "ホーミングレーザーL 2枚生成\n大破時、ホーミングレーザーL2枚生成", statuses: [CardStatus.UNIQUE, CardStatus.INITIATION]},
+      { level: 0, cost: "X", description: "ホーミングレーザーLX+1枚生成\nそのカードに迅速付与"},
+      { level: 0, cost: 1, category: CardCategory.UPGRADE, description: "カードヒラメキが発生したホーミングレーザーを1枚選択して生成"},
     ]
   },
   {
@@ -95,6 +110,11 @@ export const CHARACTER_CARDS: CznCard[] = [
     imgUrl: "/images/cards/sereniel_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 3, description: "ランダムな敵にダメージ120%x4\nヒットごとに強靱度ダメージ1" },
+      { level: 1, cost: 3, description: "ランダムな敵にダメージ180%x4\nヒットごとに強靱度ダメージ1\n大破：コスト1減小" },
+      { level: 2, cost: 3, description: "ランダムな敵にダメージ120%x4\nヒットごとに強靱度ダメージ1\n保存：使用時まで、ヒット数1回追加\n(最大5回)", statuses: [CardStatus.RETAIN] },
+      { level: 3, cost: 2, description: "ランダムな敵にダメージ120%x4\nヒットした対象の数に応じて、ホーミングレーザーL1枚生成" },
+      { level: 4, cost: 1, description: "ランダムな敵にダメージ120%\n手札のホーミングレーザー数に応じて、ヒット数1回追加" },
+      { level: 5, cost: 3, description: "ダメージ120%x4\n大破：もう1回発動", statuses: [CardStatus.WEAKNESS_ATTACK] },
     ]
   },
   {
