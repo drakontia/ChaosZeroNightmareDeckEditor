@@ -46,7 +46,7 @@
     "noDeck": "Deck is empty",
     "selectCharacterHint": "Select a character to show starting cards",
     "namePlaceholder": "Deck Name",
-    "createdDate": "Created"
+    "createdDate": "Save date"
   },
   "rarity": {
     "★5": "★5",
@@ -2418,7 +2418,7 @@
     }
   },
   "equipment": {
-    "title": "Equipment",
+    "title": "Obtained Equipment",
     "none": "None",
     "rarity": {
       "mythical": "Mythical",

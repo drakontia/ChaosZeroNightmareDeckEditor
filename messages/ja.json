@@ -42,12 +42,12 @@
     "shareImageAlt": "のデッキ画像",
     "exportImage": "エクスポート",
     "exportImageFailed": "画像エクスポートに失敗しました",
-    "totalCards": "カード枚数",
+    "totalCards": "カード数",
     "totalCost": "合計コスト",
     "noDeck": "デッキが空です",
     "selectCharacterHint": "キャラクターを選択すると開始カードが表示されます",
     "namePlaceholder": "デッキ名",
-    "createdDate": "作成日"
+    "createdDate": "保存日"
   },
   "rarity": {
     "★5": "★5",
@@ -129,7 +129,6 @@
     "title": "キャラクター",
     "select": "キャラクターを選択",
     "job": "職業",
-    "vagueMemory": "曖昧な記憶",
     "faintMemory": "曖昧な記憶",
     "egoManifest": "エゴ発現",
     "potential": "潜在力",
@@ -2558,7 +2557,7 @@
     }
   },
   "equipment": {
-    "title": "装備",
+    "title": "獲得装備",
     "none": "なし",
     "rarity": {
       "mythical": "神話",
