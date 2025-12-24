@@ -51,14 +51,14 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                       sizes="100%"
                     />
                     {/* Rarity gradient band */}
-                    <div className={`absolute inset-y-0 left-0 w-8 ${selectedCharacter.rarity === '★5'
+                    <div className={`absolute inset-y-0 left-0 w-4 lg:w-8 ${selectedCharacter.rarity === '★5'
                         ? 'bg-linear-to-b from-purple-600 to-transparent'
                         : selectedCharacter.rarity === '★4'
                           ? 'bg-linear-to-b from-yellow-600 to-transparent'
                           : ''
                       }`} />
                     {/* Job, element icons and ego level */}
-                    <div className="absolute top-1 left-10 z-20 flex flex-col items-center gap-1">
+                    <div className="absolute top-1 left-6 lg:left-10 z-20 flex flex-col items-center gap-1">
                       {getJobIcon(selectedCharacter.job) && (
                         <Image
                           src={getJobIcon(selectedCharacter.job)}
@@ -124,7 +124,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                 <div
                   className="absolute z-10 bottom-0 right-0 pb-4 pr-4 text-right"
                 >
-                  <span className="text-4xl font-semibold text-gray-100 text-shadow-lg/20">{t(selectedCharacter.name)}</span>
+                  <span className="text-2xl lg:text-4xl font-semibold text-gray-100 text-shadow-lg/20">{t(selectedCharacter.name)}</span>
                 </div>
               </>
             ) : (

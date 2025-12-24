@@ -38,7 +38,7 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
           <DialogTrigger asChild>
             <Button
               variant="outline"
-              className="w-full h-32 border-double bg-gray-500 relative overflow-hidden"
+              className="w-full h-16 lg:h-32 border-double bg-gray-500 relative overflow-hidden"
             >
               {selected ? (
                 <>
@@ -79,7 +79,7 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                 {t('common.remove', { defaultValue: '外す' })}
               </Button>
             </DialogHeader>
-            <div className="p-6 pt-0 overflow-y-auto max-h-[60vh]">
+            <div className="p-6 pt-0 overflow-y-auto lg:max-h-[60vh]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {items.map((item) => (
                   <Button
@@ -120,8 +120,8 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
   };
 
   return (
-    <FieldGroup className="pt-12 gap-2">
-      <FieldLabel className="text-2xl text-gray-500"><Swords />{t('equipment.title')}</FieldLabel>
+    <FieldGroup className="pt-4 lg:pt-12 gap-2">
+      <FieldLabel className="text-base lg:text-2xl text-gray-500"><Swords />{t('equipment.title')}</FieldLabel>
       <div className="grid grid-cols-3 gap-6">
         {renderEquipmentSection(EquipmentType.WEAPON, "equipment.weapon.title")}
         {renderEquipmentSection(EquipmentType.ARMOR, "equipment.armor.title")}

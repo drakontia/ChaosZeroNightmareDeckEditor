@@ -48,10 +48,10 @@ export function CardActionsMenu({
         size="icon"
         aria-label={t("actions.menu", { defaultValue: "メニュー" })}
         onClick={() => setIsOpen(!isOpen)}
-        className="rounded-full"
+        className="h-6 lg:h-9 w-6 lg:w-9 rounded-full"
         title={t("actions.menu", { defaultValue: "メニュー" })}
       >
-        <Menu className="h-5 w-5" />
+        <Menu className="h-4 lg:h-5 w-4 lg:w-5" />
       </Button>
       {isOpen && (
         <div className="absolute right-0 mt-1 z-20">
@@ -59,7 +59,7 @@ export function CardActionsMenu({
             type="button"
             variant="destructive"
             size="icon"
-            className="rounded-full"
+            className="h-6 lg:h-9 w-6 lg:w-9 rounded-full"
             onClick={() => { onRemoveCard(card.deckId); closeMenu(); }}
             aria-label={t("common.delete", { defaultValue: "削除" })}
             title={t("common.delete", { defaultValue: "削除" })}
@@ -71,7 +71,7 @@ export function CardActionsMenu({
               type="button"
               variant="outline"
               size="icon"
-              className="rounded-full"
+              className="h-6 lg:h-9 w-6 lg:w-9 rounded-full"
               onClick={() => { onCopyCard(card.deckId); closeMenu(); }}
               aria-label={t("common.copy", { defaultValue: "コピー" })}
               title={t("common.copy", { defaultValue: "コピー" })}
@@ -83,7 +83,7 @@ export function CardActionsMenu({
             type="button"
             variant="outline"
             size="icon"
-            className="rounded-full"
+            className="h-6 lg:h-9 w-6 lg:w-9 rounded-full"
             onClick={handleConvertClick}
             aria-label={t("common.convert", { defaultValue: "変換" })}
             title={t("common.convert", { defaultValue: "変換" })}
@@ -95,7 +95,7 @@ export function CardActionsMenu({
               type="button"
               variant="outline"
               size="icon"
-              className="rounded-full"
+              className="h-6 lg:h-9 w-6 lg:w-9 rounded-full"
               onClick={() => { onUndoCard(card.deckId); closeMenu(); }}
               aria-label={t("actions.undo", { defaultValue: "戻す" })}
               title={t("actions.undo", { defaultValue: "戻す" })}

@@ -53,7 +53,7 @@ export function HiramekiControls({
         title={t("card.hirameki")}
         onClick={() => setOpenHirameki(true)}
         className={cn(
-          "inline-flex items-center justify-center rounded-full transition",
+          "inline-flex items-center justify-center h-6 lg:h-9 w-6 lg:w-9 rounded-full transition",
           isHiramekiActive
             ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
@@ -72,7 +72,7 @@ export function HiramekiControls({
         title={t("card.godSelect")}
         onClick={() => setOpenGod(true)}
         className={cn(
-          "inline-flex items-center justify-center rounded-full transition",
+          "inline-flex items-center justify-center h-6 lg:h-9 w-6 lg:w-9 rounded-full transition",
           isGodActive
             ? "bg-yellow-400 text-black hover:bg-yellow-400/90"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/90"

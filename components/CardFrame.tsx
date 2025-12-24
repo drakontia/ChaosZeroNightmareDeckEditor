@@ -56,16 +56,12 @@ export function CardFrame({
   isCopied = false,
 }: CardFrameProps) {
   const t = useTranslations();
-    const displayName = nameId ? t(nameId, { defaultValue: nameFallback ?? name ?? "" }) : (name ?? "");
-    const displayAlt = displayName || alt || "";
+  const displayName = nameId ? t(nameId, { defaultValue: nameFallback ?? name ?? "" }) : (name ?? "");
+  const displayAlt = displayName || alt || "";
   const isCompact = variant === "compact";
-  const costClass = isCompact
-    ? "text-2xl"
-    : "text-5xl";
   const categoryClass = isCompact
     ? "text-[11px]"
     : "text-xs md:text-base";
-  const descTextClass = isCompact ? "text-[11px]" : "text-xs md:text-lg";
 
   return (
     <div className={cn("relative overflow-hidden aspect-2/3 rounded-md", className)}>
@@ -81,19 +77,19 @@ export function CardFrame({
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-black/60" />
 
       {/* Top overlay: cost + name/category */}
-      <div className="flex items-start pt-3 ml-6 gap-2 z-10 relative">
+      <div className="flex items-start pt-1 lg:pt-3 ml-2 lg:ml-6 gap-2 z-10 relative">
         <div className="flex flex-col items-start">
-          <div className="text-2xl md:text-5xl font-extrabold text-white underline underline-offset-4 decoration-1 text-shadow-2xl align-middle leading-none">{cost}</div>
+          <div className="text-2xl lg:text-5xl font-extrabold text-white underline underline-offset-4 decoration-1 text-shadow-2xl align-middle leading-none">{cost}</div>
         </div>
         <div className="min-w-0 flex-1 text-left">
-          <div className="text-lg text-white text-shadow-2xl truncate" title={displayName}>{displayName}</div>
-          <div className={cn(categoryClass, "text-white/90 text-shadow-4xl flex items-center gap-1")}>
+          <div className="text-xs lg:text-lg text-white text-shadow-2xl truncate" title={displayName}>{displayName}</div>
+          <div className="text-xs lg:text-base text-white/90 text-shadow-4xl flex items-center gap-1 h-6 lg:h-8 ">
             {categoryId && CATEGORY_ICONS[categoryId.toLowerCase()] && (
               <Image
                 src={CATEGORY_ICONS[categoryId.toLowerCase()]}
                 alt={category}
-                width={isCompact ? 12 : 16}
-                height={isCompact ? 12 : 16}
+                width={16}
+                height={16}
                 className="inline-block"
               />
             )}
@@ -118,7 +114,7 @@ export function CardFrame({
 
       {/* Bottom overlay: statuses + description */}
       {((descriptionId || description) || (statuses && statuses.length > 0)) && (
-        <div className={cn("absolute left-4 right-2 bottom-6 text-center text-white text-xs md:text-base text-shadow-4xl whitespace-pre-wrap")}> 
+        <div className="absolute left-4 right-2 bottom-2 lg:bottom-6 text-center text-white text-xs lg:text-base text-shadow-4xl whitespace-pre-wrap">
           {statuses && statuses.length > 0 && (
             <div className="mb-1 text-yellow-300">
               [{statuses.join(" / ")}]

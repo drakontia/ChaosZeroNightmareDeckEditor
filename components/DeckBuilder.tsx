@@ -93,12 +93,12 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
   const faintMemoryPoints = calculateFaintMemory(deck);
 
   return (
-    <div className="min-h-screen p-4 md:p-8 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen p-4 lg:p-8 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-400 mx-auto">
         <header className="mb-6">
           <div className="flex justify-between items-start mb-2">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">
+              <h1 className="text-2xl lg:text-4xl font-bold mb-2">
                 <Link href="/" className="hover:underline">
                   {t('app.title')}
                 </Link>
@@ -118,145 +118,145 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
         )}
 
         <div ref={deckCaptureRef}>
-          <FieldSet className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 p-6 rounded-xl border bg-card">
-          {/* Top side - Deck name, Deck control */}
-          <FieldGroup className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
-            <Field orientation={'horizontal'} className="col-span-1 lg:col-span-4">
-              <Input
-                id="deck-name"
-                type="text"
-                value={deck.name ?? ""}
-                onChange={(e) => setName(e.target.value)}
-                className="text-2xl h-12 font-bold"
-                placeholder={t('deck.namePlaceholder')}
-              />
-            </Field>
-            <div className="col-span-1 lg:col-span-8 flex justify-end gap-2">
-              <Button
-                onClick={handleSaveDeck}
-                variant="secondary"
-                disabled={!deck.character}
-                title={t('deck.save', { defaultValue: 'デッキを保存' })}
-                aria-label={t('deck.save', { defaultValue: 'デッキを保存' })}
-              >
-                <SaveIcon className="lg:mr-2 h-4 w-4" />
-                <span className="hidden lg:inline">{t('deck.save', { defaultValue: 'デッキを保存' })}</span>
-              </Button>
-              <Button
-                onClick={openLoadDialog}
-                variant="secondary"
-                title={t('deck.load', { defaultValue: 'デッキを読み込み' })}
-                aria-label={t('deck.load', { defaultValue: 'デッキを読み込み' })}
-              >
-                <FolderOpen className="lg:mr-2 h-4 w-4" />
-                <span className="hidden lg:inline">{t('deck.load', { defaultValue: 'デッキを読み込み' })}</span>
-              </Button>
-              <Button
-                onClick={handleShareDeck}
-                variant="secondary"
-                disabled={isSharing || !deck.character}
-                title={t('deck.share')}
-                aria-label={t('deck.share')}
-              >
-                <Share2 className="lg:mr-2 h-4 w-4" />
-                <span className="hidden lg:inline">{t('deck.share')}</span>
-              </Button>
-              <Button
-                onClick={() => exportHandler(deckCaptureRef, deck.name || 'deck')}
-                variant="secondary"
-                disabled={isExporting}
-                title={t('deck.exportImage')}
-                aria-label={t('deck.exportImage')}
-              >
-                <Camera className="lg:mr-2 h-4 w-4" />
-                <span className="hidden lg:inline">{t('deck.exportImage')}</span>
-              </Button>
-              <Button
-                onClick={handleClearDeck}
-                variant="destructive"
-              >
-                <Eraser className="lg:mr-2 h-4 w-4" />
-                <span className="hidden lg:inline">{t('deck.clear')}</span>
-              </Button>
+          <FieldSet className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 gap-6 mb-6 p-3 lg:p-6 rounded-xl border bg-card">
+            {/* Top side - Deck name, Deck control */}
+            <FieldGroup className="sm:col-span-6 lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+              <Field orientation={'horizontal'} className="col-span-1 lg:col-span-4">
+                <Input
+                  id="deck-name"
+                  type="text"
+                  value={deck.name ?? ""}
+                  onChange={(e) => setName(e.target.value)}
+                  className="text-2xl h-12 font-bold"
+                  placeholder={t('deck.namePlaceholder')}
+                />
+              </Field>
+              <div className="col-span-1 lg:col-span-8 flex justify-end gap-2">
+                <Button
+                  onClick={handleSaveDeck}
+                  variant="secondary"
+                  disabled={!deck.character}
+                  title={t('deck.save', { defaultValue: 'デッキを保存' })}
+                  aria-label={t('deck.save', { defaultValue: 'デッキを保存' })}
+                >
+                  <SaveIcon className="lg:mr-2 h-4 w-4" />
+                  <span className="hidden lg:inline">{t('deck.save', { defaultValue: 'デッキを保存' })}</span>
+                </Button>
+                <Button
+                  onClick={openLoadDialog}
+                  variant="secondary"
+                  title={t('deck.load', { defaultValue: 'デッキを読み込み' })}
+                  aria-label={t('deck.load', { defaultValue: 'デッキを読み込み' })}
+                >
+                  <FolderOpen className="lg:mr-2 h-4 w-4" />
+                  <span className="hidden lg:inline">{t('deck.load', { defaultValue: 'デッキを読み込み' })}</span>
+                </Button>
+                <Button
+                  onClick={handleShareDeck}
+                  variant="secondary"
+                  disabled={isSharing || !deck.character}
+                  title={t('deck.share')}
+                  aria-label={t('deck.share')}
+                >
+                  <Share2 className="lg:mr-2 h-4 w-4" />
+                  <span className="hidden lg:inline">{t('deck.share')}</span>
+                </Button>
+                <Button
+                  onClick={() => exportHandler(deckCaptureRef, deck.name || 'deck')}
+                  variant="secondary"
+                  disabled={isExporting}
+                  title={t('deck.exportImage')}
+                  aria-label={t('deck.exportImage')}
+                >
+                  <Camera className="lg:mr-2 h-4 w-4" />
+                  <span className="hidden lg:inline">{t('deck.exportImage')}</span>
+                </Button>
+                <Button
+                  onClick={handleClearDeck}
+                  variant="destructive"
+                >
+                  <Eraser className="lg:mr-2 h-4 w-4" />
+                  <span className="hidden lg:inline">{t('deck.clear')}</span>
+                </Button>
+              </div>
+            </FieldGroup>
+
+            {/* Left side - Character, Points, Equipment */}
+            <div className="sm:col-span-2 lg:col-span-4 space-y-6">
+              {/* Character Selection */}
+              <Card>
+                <CardContent className="p-2 lg:p-6">
+                  <CharacterSelector
+                    characters={CHARACTERS}
+                    selectedCharacter={deck.character}
+                    onSelect={selectCharacter}
+                    hasPotential={deck.hasPotential}
+                    onTogglePotential={togglePotential}
+                  />
+
+                  {/* Points/Stats Section */}
+                  <FieldGroup className='gap-2'>
+                    <Field orientation={'horizontal'} className='border-b'>
+                      <FieldLabel className='text-base lg:text-2xl text-gray-500 align-middle'><Clock12 className='align-middle' />{t('deck.createdDate')}</FieldLabel>
+                      <div className="flex justify-between items-center p-1">
+                        <span className="text-base lg:text-2xl font-bold text-gray-500">
+                          {(() => {
+                            const d = new Date(deck.createdAt);
+                            const yy = String(d.getFullYear()).slice(-2);
+                            const mm = String(d.getMonth() + 1).padStart(2, '0');
+                            const dd = String(d.getDate()).padStart(2, '0');
+                            return `${yy}.${mm}.${dd}`;
+                          })()}
+                        </span>
+                      </div>
+                    </Field>
+                    <Field orientation={'horizontal'} className='border-b' data-testid="total-cards">
+                      <FieldLabel className='text-base lg:text-2xl text-gray-500'><CardSim />{t('deck.totalCards')}</FieldLabel>
+                      <div className="flex justify-between items-center p-1">
+                        <span className="text-base lg:text-2xl font-bold text-gray-500">{deck.cards.length}</span>
+                      </div>
+                    </Field>
+                    <Field orientation={'horizontal'}>
+                      <FieldLabel className='text-base lg:text-2xl text-gray-500'><Brain />{t('character.faintMemory')}</FieldLabel>
+                      <div className="flex justify-between items-center p-1">
+                        <span className="text-base lg:text-2xl font-bold text-gray-500">{faintMemoryPoints} points</span>
+                      </div>
+                    </Field>
+                  </FieldGroup>
+                  <EquipmentSelector
+                    equipment={EQUIPMENT}
+                    selectedEquipment={deck.equipment}
+                    onSelect={selectEquipment}
+                  />
+                </CardContent>
+
+              </Card>
+
+
+              {/* Equipment Section */}
             </div>
-          </FieldGroup>
 
-          {/* Left side - Character, Points, Equipment */}
-          <div className="lg:col-span-4 space-y-6">
-            {/* Character Selection */}
-            <Card>
-              <CardContent className="p-6">
-                <CharacterSelector
-                  characters={CHARACTERS}
-                  selectedCharacter={deck.character}
-                  onSelect={selectCharacter}
-                  hasPotential={deck.hasPotential}
-                  onTogglePotential={togglePotential}
-                />
+            {/* Right side - Cards in 4-column grid */}
+            <div className="sm:col-span-4 lg:col-span-8 space-y-6">
+              <Card>
+                <CardContent className="p-2 lg:p-6">
+                  <DeckDisplay
+                    cards={deck.cards}
+                    egoLevel={deck.egoLevel}
+                    hasPotential={deck.hasPotential}
+                    allowedJob={deck.character?.job}
+                    onRemoveCard={removeCard}
+                    onUndoCard={undoCard}
+                    onCopyCard={copyCard}
+                    onConvertCard={convertCard}
+                    onUpdateHirameki={updateCardHirameki}
+                    onSetGodHirameki={setCardGodHirameki}
+                    onSetGodHiramekiEffect={setCardGodHiramekiEffect}
+                  />
 
-                {/* Points/Stats Section */}
-                <FieldGroup className='gap-2'>
-                  <Field orientation={'horizontal'} className='border-b'>
-                    <FieldLabel className='text-2xl text-gray-500 align-middle'><Clock12 className='align-middle'/>{t('deck.createdDate')}</FieldLabel>
-                    <div className="flex justify-between items-center p-1">
-                      <span className="text-2xl font-bold text-gray-500">
-                        {(() => {
-                          const d = new Date(deck.createdAt);
-                          const yy = String(d.getFullYear()).slice(-2);
-                          const mm = String(d.getMonth() + 1).padStart(2, '0');
-                          const dd = String(d.getDate()).padStart(2, '0');
-                          return `${yy}.${mm}.${dd}`;
-                        })()}
-                      </span>
-                    </div>
-                  </Field>
-                  <Field orientation={'horizontal'} className='border-b' data-testid="total-cards">
-                    <FieldLabel className='text-2xl text-gray-500'><CardSim />{t('deck.totalCards')}</FieldLabel>
-                    <div className="flex justify-between items-center p-1">
-                      <span className="text-2xl font-bold text-gray-500">{deck.cards.length}</span>
-                    </div>
-                  </Field>
-                  <Field orientation={'horizontal'}>
-                    <FieldLabel className='text-2xl text-gray-500'><Brain />{t('character.faintMemory')}</FieldLabel>
-                    <div className="flex justify-between items-center p-1">
-                      <span className="text-2xl font-bold text-gray-500">{faintMemoryPoints} points</span>
-                    </div>
-                  </Field>
-                </FieldGroup>
-                <EquipmentSelector
-                  equipment={EQUIPMENT}
-                  selectedEquipment={deck.equipment}
-                  onSelect={selectEquipment}
-                />
-              </CardContent>
-
-            </Card>
-
-
-            {/* Equipment Section */}
-          </div>
-
-          {/* Right side - Cards in 4-column grid */}
-          <div className="lg:col-span-8 space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <DeckDisplay
-                  cards={deck.cards}
-                  egoLevel={deck.egoLevel}
-                  hasPotential={deck.hasPotential}
-                  allowedJob={deck.character?.job}
-                  onRemoveCard={removeCard}
-                  onUndoCard={undoCard}
-                  onCopyCard={copyCard}
-                  onConvertCard={convertCard}
-                  onUpdateHirameki={updateCardHirameki}
-                  onSetGodHirameki={setCardGodHirameki}
-                  onSetGodHiramekiEffect={setCardGodHiramekiEffect}
-                />
-
-              </CardContent>
-            </Card>
-          </div>
+                </CardContent>
+              </Card>
+            </div>
           </FieldSet>
         </div>
 
