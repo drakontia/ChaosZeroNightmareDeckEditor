@@ -45,7 +45,7 @@ export const PENDANTS: Equipment[] = [
     id: "heart_of_gemstone",
     name: "equipment.pendant.heart_of_gemstone.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.heart_of_gemstone.description",
     imgUrl: "/images/equipment/pendants/heart_of_gemstone.png"
   },
@@ -53,7 +53,7 @@ export const PENDANTS: Equipment[] = [
     id: "heart_of_gold",
     name: "equipment.pendant.heart_of_gold.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.heart_of_gold.description",
     imgUrl: "/images/equipment/pendants/heart_of_gold.png"
   },
@@ -61,7 +61,7 @@ export const PENDANTS: Equipment[] = [
     id: "quantum_collector",
     name: "equipment.pendant.quantum_collector.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.quantum_collector.description",
     imgUrl: "/images/equipment/pendants/quantum_collector.png"
   },
@@ -69,7 +69,7 @@ export const PENDANTS: Equipment[] = [
     id: "destruction_moon",
     name: "equipment.pendant.destruction_moon.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.destruction_moon.description",
     imgUrl: "/images/equipment/pendants/destruction_moon.png"
   },
@@ -77,7 +77,7 @@ export const PENDANTS: Equipment[] = [
     id: "metacube",
     name: "equipment.pendant.metacube.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.metacube.description",
     imgUrl: "/images/equipment/pendants/metacube.png"
   },
@@ -85,7 +85,7 @@ export const PENDANTS: Equipment[] = [
     id: "goddess_scale",
     name: "equipment.pendant.goddess_scale.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.goddess_scale.description",
     imgUrl: "/images/equipment/pendants/goddess_scale.png"
   },
@@ -173,7 +173,7 @@ export const PENDANTS: Equipment[] = [
     id: "wildfire_bone_ring",
     name: "equipment.pendant.wildfire_bone_ring.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.wildfire_bone_ring.description",
     imgUrl: "/images/equipment/pendants/wildfire_bone_ring.png"
   },
@@ -181,7 +181,7 @@ export const PENDANTS: Equipment[] = [
     id: "ancient_soul_call",
     name: "equipment.pendant.ancient_soul_call.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.ancient_soul_call.description",
     imgUrl: "/images/equipment/pendants/ancient_soul_call.png"
   },
@@ -189,7 +189,7 @@ export const PENDANTS: Equipment[] = [
     id: "deep_green_noon",
     name: "equipment.pendant.deep_green_noon.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.deep_green_noon.description",
     imgUrl: "/images/equipment/pendants/deep_green_noon.png"
   },
@@ -197,7 +197,7 @@ export const PENDANTS: Equipment[] = [
     id: "deep_green_night",
     name: "equipment.pendant.deep_green_night.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.deep_green_night.description",
     imgUrl: "/images/equipment/pendants/deep_green_night.png"
   },
@@ -205,7 +205,7 @@ export const PENDANTS: Equipment[] = [
     id: "lead_holy_water",
     name: "equipment.pendant.lead_holy_water.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.lead_holy_water.description",
     imgUrl: "/images/equipment/pendants/lead_holy_water.png"
   },
@@ -213,7 +213,7 @@ export const PENDANTS: Equipment[] = [
     id: "viadewus_reactor",
     name: "equipment.pendant.viadewus_reactor.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.viadewus_reactor.description",
     imgUrl: "/images/equipment/pendants/viadewus_reactor.png"
   },
@@ -221,7 +221,7 @@ export const PENDANTS: Equipment[] = [
     id: "golden_law",
     name: "equipment.pendant.golden_law.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.golden_law.description",
     imgUrl: "/images/equipment/pendants/golden_law.png"
   },
@@ -261,7 +261,7 @@ export const PENDANTS: Equipment[] = [
     id: "soaked_core",
     name: "equipment.pendant.soaked_core.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.soaked_core.description",
     imgUrl: "/images/equipment/pendants/soaked_core.png"
   },
@@ -301,7 +301,7 @@ export const PENDANTS: Equipment[] = [
     id: "excellent_individual_proof",
     name: "equipment.pendant.excellent_individual_proof.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.excellent_individual_proof.description",
     imgUrl: "/images/equipment/pendants/excellent_individual_proof.png"
   },
@@ -309,7 +309,7 @@ export const PENDANTS: Equipment[] = [
     id: "superconducting_tanpakushitsu",
     name: "equipment.pendant.superconducting_tanpakushitsu.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.superconducting_tanpakushitsu.description",
     imgUrl: "/images/equipment/pendants/superconducting_tanpakushitsu.png"
   },
@@ -317,7 +317,7 @@ export const PENDANTS: Equipment[] = [
     id: "unconfirmed_ample",
     name: "equipment.pendant.unconfirmed_ample.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.unconfirmed_ample.description",
     imgUrl: "/images/equipment/pendants/unconfirmed_ample.png"
   },
@@ -325,7 +325,7 @@ export const PENDANTS: Equipment[] = [
     id: "taboo_root",
     name: "equipment.pendant.taboo_root.name",
     type: EquipmentType.PENDANT,
-    rarity: "equipment.rarity.epic",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.pendant.taboo_root.description",
     imgUrl: "/images/equipment/pendants/taboo_root.png"
   }
