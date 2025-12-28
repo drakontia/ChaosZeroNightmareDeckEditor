@@ -86,7 +86,7 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                   <Button
                     key={item.id}
                     variant={selected?.id === item.id ? "secondary" : "outline"}
-                    className="h-auto flex-col justify-start p-4 text-center"
+                    className="h-auto flex-col justify-start p-4 text-center relative"
                     onClick={() => {
                       onSelect(item, type);
                       setOpenType(null);
@@ -101,12 +101,12 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                           className="object-cover"
                           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         />
-                        {/* インフォメーションマークを画像右上に絶対配置 */}
                         {item.description && (
                           <InfoDialog
                             description={t(item.description)}
                             rarity={t(item.rarity)}
                             t={t}
+                            triggerAsChild
                           />
                         )}
                       </div>
