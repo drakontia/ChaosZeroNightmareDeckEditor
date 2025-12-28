@@ -10,6 +10,8 @@ interface SharedDeckCard {
   copiedFromCardId?: string;
 }
 
+import type { RemovedCardEntry, CopiedCardEntry, ConvertedCardEntry } from "@/types";
+
 interface SharedDeckPayload {
   v: 1;
   n?: string;
@@ -23,9 +25,9 @@ interface SharedDeckPayload {
   ego?: number;
   pot?: boolean;
   ct?: string;
-  rm?: Array<[string, number]>;
-  cp?: Array<[string, number]>;
-  cv?: Array<[string, string]>;
+  rm?: Array<[string, number | RemovedCardEntry]>;
+  cp?: Array<[string, number | CopiedCardEntry]>;
+  cv?: Array<[string, string | ConvertedCardEntry]>;
 }
 
 const DEFAULT_VERSION = 1;
@@ -200,28 +202,9 @@ export function decodeDeckShare(value: string): Deck | null {
       egoLevel: payload.ego ?? 0,
       hasPotential: payload.pot ?? false,
       createdAt: validCreatedAt,
-      removedCards: new Map((payload.rm ?? []).map(([id, entry]) => {
-        // entryがobjectならスナップショット型として復元
-        if (typeof entry === 'object' && entry !== null) {
-          return [id, entry];
-        } else {
-          return [id, entry];
-        }
-      })),
-      copiedCards: new Map((payload.cp ?? []).map(([id, entry]) => {
-        if (typeof entry === 'object' && entry !== null) {
-          return [id, entry];
-        } else {
-          return [id, entry];
-        }
-      })),
-      convertedCards: new Map((payload.cv ?? []).map(([id, entry]) => {
-        if (typeof entry === 'object' && entry !== null) {
-          return [id, entry];
-        } else {
-          return [id, entry];
-        }
-      })),
+      removedCards: new Map<string, number | RemovedCardEntry>((payload.rm ?? []).map(([id, entry]) => [id, entry])),
+      copiedCards: new Map<string, number | CopiedCardEntry>((payload.cp ?? []).map(([id, entry]) => [id, entry])),
+      convertedCards: new Map<string, string | ConvertedCardEntry>((payload.cv ?? []).map(([id, entry]) => [id, entry])),
     };
   } catch (error) {
     console.error("Failed to decode deck share", error);
