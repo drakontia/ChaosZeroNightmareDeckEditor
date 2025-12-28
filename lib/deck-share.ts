@@ -117,20 +117,32 @@ export function encodeDeckShare(deck: Deck): string {
     ...(deck.egoLevel && { ego: deck.egoLevel }),
     ...(deck.hasPotential && { pot: deck.hasPotential }),
     ct: deck.createdAt.toISOString(),
-    ...(deck.removedCards.size && { 
-      rm: Array.from(deck.removedCards.entries()).map(([id, entry]) => 
-        [id, typeof entry === 'number' ? entry : entry.count] as [string, number]
-      )
+    ...(deck.removedCards.size && {
+      rm: Array.from(deck.removedCards.entries()).map(([id, entry]) => {
+        if (typeof entry === 'number') {
+          return [id, entry];
+        } else {
+          return [id, entry]; // entryはRemovedCardEntry型
+        }
+      })
     }),
-    ...(deck.copiedCards.size && { 
-      cp: Array.from(deck.copiedCards.entries()).map(([id, entry]) => 
-        [id, typeof entry === 'number' ? entry : entry.count] as [string, number]
-      )
+    ...(deck.copiedCards.size && {
+      cp: Array.from(deck.copiedCards.entries()).map(([id, entry]) => {
+        if (typeof entry === 'number') {
+          return [id, entry];
+        } else {
+          return [id, entry]; // entryはCopiedCardEntry型
+        }
+      })
     }),
-    ...(deck.convertedCards.size && { 
-      cv: Array.from(deck.convertedCards.entries()).map(([id, entry]) => 
-        [id, typeof entry === 'string' ? entry : entry.convertedToId] as [string, string]
-      )
+    ...(deck.convertedCards.size && {
+      cv: Array.from(deck.convertedCards.entries()).map(([id, entry]) => {
+        if (typeof entry === 'string') {
+          return [id, entry];
+        } else {
+          return [id, entry]; // entryはConvertedCardEntry型
+        }
+      })
     }),
   };
 
@@ -188,9 +200,28 @@ export function decodeDeckShare(value: string): Deck | null {
       egoLevel: payload.ego ?? 0,
       hasPotential: payload.pot ?? false,
       createdAt: validCreatedAt,
-      removedCards: new Map(payload.rm ?? []),
-      copiedCards: new Map(payload.cp ?? []),
-      convertedCards: new Map(payload.cv ?? []),
+      removedCards: new Map((payload.rm ?? []).map(([id, entry]) => {
+        // entryがobjectならスナップショット型として復元
+        if (typeof entry === 'object' && entry !== null) {
+          return [id, entry];
+        } else {
+          return [id, entry];
+        }
+      })),
+      copiedCards: new Map((payload.cp ?? []).map(([id, entry]) => {
+        if (typeof entry === 'object' && entry !== null) {
+          return [id, entry];
+        } else {
+          return [id, entry];
+        }
+      })),
+      convertedCards: new Map((payload.cv ?? []).map(([id, entry]) => {
+        if (typeof entry === 'object' && entry !== null) {
+          return [id, entry];
+        } else {
+          return [id, entry];
+        }
+      })),
     };
   } catch (error) {
     console.error("Failed to decode deck share", error);

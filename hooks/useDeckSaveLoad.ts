@@ -10,8 +10,9 @@ type ErrorUpdater = (value: string | null) => void;
 
 type TranslationFn = (key: string, opts?: { defaultValue?: string }) => string;
 
+
 type Params = {
-  deck: Deck;
+  deck?: Deck;
   setName: NameUpdater;
   setSharedDeck: DeckUpdater;
   setShareError: ErrorUpdater;
@@ -82,6 +83,7 @@ export function useDeckSaveLoad({ deck, setName, setSharedDeck, setShareError, t
   );
 
   const handleSaveDeck = useCallback(() => {
+    if (!deck) return;
     const defaultName = deck.name || "deck";
     const name = window.prompt(t("deck.savePrompt", { defaultValue: "保存名を入力" }), defaultName);
     if (!name) return;

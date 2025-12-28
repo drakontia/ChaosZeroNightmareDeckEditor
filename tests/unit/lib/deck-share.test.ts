@@ -218,4 +218,56 @@ describe('deck-share', () => {
       expect(encoded.length).toBeLessThan(1000);
     });
   });
+
+  describe('snapshot attributes', () => {
+    it('should preserve RemovedCardEntry/CopiedCardEntry/ConvertedCardEntry snapshot attributes', () => {
+      const deck: Deck = {
+        name: 'snaptest',
+        character: {
+          id: 'chizuru',
+          name: 'character.chizuru',
+          job: 'PSIONIC' as any,
+          element: 'VOID' as any,
+          startingCards: [],
+          hiramekiCards: [],
+          imgUrl: ''
+        } as any,
+        equipment: { weapon: null, armor: null, pendant: null },
+        cards: [],
+        egoLevel: 0,
+        hasPotential: false,
+        createdAt: new Date(),
+        removedCards: new Map([
+          ['c1', { count: 2, type: CardType.SHARED, selectedHiramekiLevel: 1, godHiramekiType: GodType.KILKEN }]
+        ]),
+        copiedCards: new Map([
+          ['c2', { count: 1, type: CardType.MONSTER, selectedHiramekiLevel: 2, godHiramekiType: GodType.SECLAID }]
+        ]),
+        convertedCards: new Map([
+          ['c3', { convertedToId: 'c4', originalType: CardType.FORBIDDEN, selectedHiramekiLevel: 3, godHiramekiType: GodType.DIALOS }]
+        ])
+      };
+      const encoded = encodeDeckShare(deck);
+      const decoded = decodeDeckShare(encoded)!;
+      // RemovedCardEntry
+      const removed = decoded.removedCards.get('c1');
+      expect(typeof removed).toBe('object');
+      expect((removed as any).type).toBe(CardType.SHARED);
+      expect((removed as any).selectedHiramekiLevel).toBe(1);
+      expect((removed as any).godHiramekiType).toBe(GodType.KILKEN);
+      // CopiedCardEntry
+      const copied = decoded.copiedCards.get('c2');
+      expect(typeof copied).toBe('object');
+      expect((copied as any).type).toBe(CardType.MONSTER);
+      expect((copied as any).selectedHiramekiLevel).toBe(2);
+      expect((copied as any).godHiramekiType).toBe(GodType.SECLAID);
+      // ConvertedCardEntry
+      const converted = decoded.convertedCards.get('c3');
+      expect(typeof converted).toBe('object');
+      expect((converted as any).convertedToId).toBe('c4');
+      expect((converted as any).originalType).toBe(CardType.FORBIDDEN);
+      expect((converted as any).selectedHiramekiLevel).toBe(3);
+      expect((converted as any).godHiramekiType).toBe(GodType.DIALOS);
+    });
+  });
 });

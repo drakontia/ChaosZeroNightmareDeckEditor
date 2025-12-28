@@ -33,9 +33,9 @@ export function ConversionModal({ isOpen, onClose, onSelectCard, allowedJob }: C
     const statuses = baseVariation.statuses?.map(s => t(`status.${s}`));
 
     return (
-      <Card 
-        key={card.id} 
-        className="cursor-pointer hover:ring-2 hover:ring-primary" 
+      <Card
+        key={card.id}
+        className="cursor-pointer hover:ring-2 hover:ring-primary"
         onClick={() => {
           onSelectCard(card);
           onClose();
@@ -46,7 +46,8 @@ export function ConversionModal({ isOpen, onClose, onSelectCard, allowedJob }: C
           imgUrl={card.imgUrl}
           alt={translatedName}
           cost={baseVariation.cost}
-          name={translatedName}
+          nameId={`cards.${card.id}.name`}
+          nameFallback={card.name}
           category={t(`category.${card.category}`)}
           categoryId={card.category}
           description={description}

@@ -59,11 +59,12 @@ export function getCardInfo(
 }
 
 // Calculate Faint Memory points based on deck edits
-export function calculateFaintMemory(deck: Deck): number {
+export function calculateFaintMemory(deck: Deck | null | undefined): number {
+  if (!deck || !Array.isArray(deck.cards)) return 0;
   let points = 0;
-
   // Points for cards in the deck
-  for (const card of deck.cards) {
+  const cards = deck.cards;
+  for (const card of cards) {
     // Character cards: base cards do not add points.
     // Collect God Hirameki state once and handle uniformly for all types.
     const hasGodHirameki = (card.godHiramekiType && card.godHiramekiEffectId && !card.isBasicCard);

@@ -46,8 +46,6 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
         const hasNoHirameki = card.hiramekiVariations.length === 1;
         const nameId = `cards.${card.id}.name`;
         const nameFallback = card.name;
-
-        // Pass god effect ID and fallback; CardFrame will translate at render time
         let godEffectId: string | undefined;
         let godEffectFallback: string | undefined;
         if (card.godHiramekiType && card.godHiramekiEffectId) {
@@ -57,13 +55,10 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
             godEffectFallback = effect.additionalEffect;
           }
         }
-
-        // Add "copied" status if card is a copy
         const displayStatuses = [...(cardInfo.statuses ?? [])];
         if (card.isCopied) {
           displayStatuses.push(CardStatus.COPIED);
         }
-
         const leftControls = !hasNoHirameki ? (
           <HiramekiControls
             card={card}
@@ -74,7 +69,6 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
             onSetGodHiramekiEffect={onSetGodHiramekiEffect}
           />
         ) : undefined;
-
         return (
           <Card key={card.deckId}>
             <CardFrame
@@ -107,5 +101,5 @@ export function DeckDisplay({ cards, egoLevel, hasPotential, allowedJob, onRemov
         );
       })}
     </div>
-  );
-}
+    );
+  }

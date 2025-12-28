@@ -95,10 +95,12 @@ export function CardSelector({ character, onAddCard, onRestoreCard, removedCards
           imgUrl={card.imgUrl}
           alt={translatedName}
           cost={baseVariation.cost}
-          name={translatedName}
+          nameId={`cards.${card.id}.name`}
+          nameFallback={card.name}
           category={subtitle || t(`category.${card.category}`)}
           categoryId={card.category}
-          description={description}
+          descriptionId={`cards.${card.id}.descriptions.0`}
+          descriptionFallback={baseVariation.description}
           statuses={statuses}
         />
       </Card>

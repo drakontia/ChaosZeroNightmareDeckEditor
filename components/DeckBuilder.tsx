@@ -3,7 +3,8 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useDeckBuilder } from "@/hooks/useDeckBuilder";
+import { useDeckBuilderStore } from "@/hooks/useDeckBuilderStore";
+import { DeckCard, CznCard, Equipment, EquipmentType } from "@/types";
 import { CardType } from "@/types";
 import { CharacterSelector } from "./CharacterSelector";
 import { EquipmentSelector } from "./EquipmentSelector";
@@ -31,35 +32,66 @@ export type DeckBuilderProps = {
 };
 
 export function DeckBuilder({ shareId }: DeckBuilderProps) {
+  // Zustandストアから状態と操作を取得（必ず最初に呼ぶ）
+  const deck = useDeckBuilderStore((s) => s.deck);
+  const setDeck = useDeckBuilderStore((s) => s.setDeck);
+  const setCharacter = useDeckBuilderStore((s) => s.setCharacter);
+  const setPotential = useDeckBuilderStore((s) => s.setPotential);
+  const addCard = useDeckBuilderStore((s) => s.addCard);
+  const removeCard = useDeckBuilderStore((s) => s.removeCard);
+  const restoreCard = useDeckBuilderStore((s) => s.restoreCard);
+  const selectEquipment = useDeckBuilderStore((s) => s.selectEquipment);
+  const updateCardHirameki = useDeckBuilderStore((s) => s.updateCardHirameki);
+  const setCardGodHirameki = useDeckBuilderStore((s) => s.setCardGodHirameki);
+  const setCardGodHiramekiEffect = useDeckBuilderStore((s) => s.setCardGodHiramekiEffect);
+  const reset = useDeckBuilderStore((s) => s.reset);
+  const undoCard = useDeckBuilderStore((s) => s.undoCard);
+  const copyCard = useDeckBuilderStore((s) => s.copyCard);
+  const convertCard = useDeckBuilderStore((s) => s.convertCard);
+
   const t = useTranslations();
   const locale = useLocale();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
+  const [deckName, setName] = useState("");
   const [sharedDeck, setSharedDeck] = useState<Deck | null>(null);
   const [shareError, setShareError] = useState<string | null>(null);
   const hasLoadedShare = useRef(false);
   const deckCaptureRef = useRef<HTMLDivElement | null>(null);
 
-  const {
-    deck,
-    selectCharacter,
-    selectEquipment,
-    addCard,
-    removeCard,
-    restoreCard,
-    undoCard,
-    copyCard,
-    convertCard,
-    updateCardHirameki,
-    setCardGodHirameki,
-    setCardGodHiramekiEffect,
-    clearDeck,
-    setName,
-    togglePotential
-  } = useDeckBuilder(sharedDeck ?? undefined);
+  // デッキがnullなら初期化（初回表示時やリセット直後）
+  useEffect(() => {
+    if (!deck) {
+      setDeck({
+        name: '',
+        character: null,
+        equipment: { weapon: null, armor: null, pendant: null },
+        cards: [],
+        egoLevel: 0,
+        hasPotential: false,
+        createdAt: new Date(),
+        removedCards: new Map(),
+        copiedCards: new Map(),
+        convertedCards: new Map(),
+      });
+    }
+  }, [deck, setDeck]);
+
+  // 読込ダイアログでsharedDeckがセットされたらZustandストアに反映
+  useEffect(() => {
+    if (sharedDeck) {
+      setDeck(sharedDeck);
+    }
+  }, [sharedDeck, setDeck]);
+
+  // DeckDisplay用: (deckId: string, targetCard: CznCard) => void にラップ
+  const handleConvertCard = useCallback((deckId: string, targetCard: CznCard) => {
+    convertCard(deckId, targetCard.id);
+  }, [convertCard]);
 
   const { isSharing, handleShareDeck: shareHandler } = useShareDeck();
   const { isExporting, handleExportDeckImage: exportHandler } = useExportDeckImage();
+  // deckがnullのときはundefinedを渡す（useDeckSaveLoad側でnull/undefined対応必須）
   const {
     savedList,
     loadOpen,
@@ -68,30 +100,39 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
     openLoadDialog,
     handleLoadDeck,
     handleDeleteSaved,
-  } = useDeckSaveLoad({ deck, setName, setSharedDeck, setShareError, t });
+  } = useDeckSaveLoad({ deck: deck ?? undefined, setName, setSharedDeck, setShareError, t });
 
+  // 共有デッキ読み込み（shareIdがある場合のみ1回だけ）
   useEffect(() => {
     if (!shareId || hasLoadedShare.current) return;
     const decoded = decodeDeckShare(shareId);
+    console.log('[デバッグ] 共有デッキデコード結果:', decoded);
     if (decoded) {
-      setSharedDeck(decoded);
+      console.log('[デバッグ] character:', decoded.character);
+      console.log('[デバッグ] cards:', decoded.cards);
+      setDeck(decoded);
     } else {
       setShareError(t('deck.shareInvalid', { defaultValue: '共有リンクが無効です。' }));
     }
     hasLoadedShare.current = true;
-  }, [shareId, t]);
+  }, [shareId, t, setDeck, setCharacter]);
+
 
   const handleShareDeck = useCallback(() => {
-    shareHandler(deck);
+    if (deck) shareHandler(deck);
   }, [deck, shareHandler]);
 
   const handleClearDeck = useCallback(() => {
-    clearDeck();
+    reset();
     router.push('/');
-  }, [clearDeck, router]);
+  }, [reset, router]);
 
-  const faintMemoryPoints = calculateFaintMemory(deck);
+  const faintMemoryPoints = deck ? calculateFaintMemory(deck) : 0;
 
+  // Hooks呼び出し後に初期化中判定（必ず1箇所のみ）
+  if (!deck) {
+    return <div className="min-h-screen flex items-center justify-center text-lg">Loading...</div>;
+  }
   return (
     <div className="min-h-screen p-4 lg:p-8 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-400 mx-auto">
@@ -111,11 +152,11 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
           </div>
         </header>
 
-        {shareError && (
-          <div className="mb-4 text-sm text-destructive">
-            {shareError}
-          </div>
-        )}
+      {shareError && (
+        <div className="mb-4 text-sm text-destructive">
+          {shareError}
+        </div>
+      )}
 
         <div ref={deckCaptureRef}>
           <FieldSet className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 gap-6 mb-6 p-3 lg:p-6 rounded-xl border bg-card">
@@ -126,7 +167,10 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                   id="deck-name"
                   type="text"
                   value={deck.name ?? ""}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    setDeck({ ...deck, name: e.target.value });
+                    setName(e.target.value);
+                  }}
                   className="text-2xl h-12 font-bold"
                   placeholder={t('deck.namePlaceholder')}
                 />
@@ -188,10 +232,10 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                 <CardContent className="p-2 lg:p-6">
                   <CharacterSelector
                     characters={CHARACTERS}
-                    selectedCharacter={deck.character}
-                    onSelect={selectCharacter}
+                    character={deck.character}
+                    onSelect={setCharacter}
                     hasPotential={deck.hasPotential}
-                    onTogglePotential={togglePotential}
+                    onTogglePotential={() => setPotential(!deck.hasPotential)}
                   />
 
                   {/* Points/Stats Section */}
@@ -226,10 +270,11 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                   <EquipmentSelector
                     equipment={EQUIPMENT}
                     selectedEquipment={deck.equipment}
-                    onSelect={selectEquipment}
+                    onSelect={(equipment: Equipment | null, type?: EquipmentType) => {
+                      if (type) selectEquipment(type, equipment);
+                    }}
                   />
                 </CardContent>
-
               </Card>
 
 
@@ -248,7 +293,7 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
                     onRemoveCard={removeCard}
                     onUndoCard={undoCard}
                     onCopyCard={copyCard}
-                    onConvertCard={convertCard}
+                    onConvertCard={handleConvertCard}
                     onUpdateHirameki={updateCardHirameki}
                     onSetGodHirameki={setCardGodHirameki}
                     onSetGodHiramekiEffect={setCardGodHiramekiEffect}
@@ -308,19 +353,37 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
               </CardHeader>
               <CardContent className="p-6">
                 {/* Card Selection for adding cards */}
-                <CardSelector
-                  character={deck.character}
-                  onAddCard={addCard}
-                  onRestoreCard={restoreCard}
-                  removedCards={deck.removedCards}
-                  convertedCards={deck.convertedCards}
-                  presentHiramekiIds={new Set(
-                    deck.cards
-                      .filter(c => c.type === CardType.CHARACTER)
-                      .map(c => c.id)
-                  )}
-                  searchQuery={searchQuery}
-                />
+                  <CardSelector
+                    character={deck.character}
+                    onAddCard={(card: CznCard) => {
+                      const deckCard: DeckCard = {
+                        ...card,
+                        deckId: `${card.id}_${Date.now()}_${Math.random()}`,
+                        selectedHiramekiLevel: 0,
+                        godHiramekiType: null,
+                        godHiramekiEffectId: null,
+                      };
+                      addCard(deckCard);
+                    }}
+                    onRestoreCard={(card: CznCard) => {
+                      const deckCard: DeckCard = {
+                        ...card,
+                        deckId: `${card.id}_${Date.now()}_${Math.random()}`,
+                        selectedHiramekiLevel: 0,
+                        godHiramekiType: null,
+                        godHiramekiEffectId: null,
+                      };
+                      restoreCard(deckCard);
+                    }}
+                    removedCards={deck.removedCards}
+                    convertedCards={deck.convertedCards}
+                    presentHiramekiIds={new Set(
+                      deck.cards
+                        .filter(c => c.type === CardType.CHARACTER)
+                        .map(c => c.id)
+                    )}
+                    searchQuery={searchQuery}
+                  />
               </CardContent>
             </Card>
           </div>

@@ -1,4 +1,4 @@
-import ClientDeckBuilderPage from '@/components/ClientDeckBuilderPage';
+import { DeckBuilder } from '@/components/DeckBuilder';
 import { decodeDeckShare } from '@/lib/deck-share';
 import { calculateFaintMemory } from '@/lib/deck-utils';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -65,5 +65,5 @@ export default async function SharedDeckPage({
   params: Promise<{ shareId: string }>;
 }) {
   const { shareId } = await params;
-  return <ClientDeckBuilderPage shareId={shareId} />;
+  return <DeckBuilder shareId={shareId} />;
 }

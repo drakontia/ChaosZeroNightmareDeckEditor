@@ -3,6 +3,8 @@ import { test, expect, Page } from '@playwright/test';
 const selectCharacterAndWeapon = async (page: Page) => {
   // Character selection
   await page.getByRole('button', { name: 'キャラクターを選択' }).click();
+  // ダイアログが開いて「チズル」ボタンが表示されるまで待機
+  await page.getByRole('button', { name: 'チズル' }).waitFor({ state: 'visible' });
   await page.getByRole('button', { name: 'チズル' }).click();
 
   // Weapon selection

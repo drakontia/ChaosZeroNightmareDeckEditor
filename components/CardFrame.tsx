@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Zap } from "lucide-react";
 
 // カテゴリアイコンのマッピング
 const CATEGORY_ICONS: Record<string, string> = {

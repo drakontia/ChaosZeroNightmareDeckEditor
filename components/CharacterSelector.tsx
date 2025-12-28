@@ -15,13 +15,13 @@ const formatEgoLevel = (level?: number) => String(level ?? 0).padStart(2, "0");
 
 interface CharacterSelectorProps {
   characters: Character[];
-  selectedCharacter: Character | null;
+  character: Character | null;
   onSelect: (character: Character) => void;
   hasPotential: boolean;
   onTogglePotential: () => void;
 }
 
-export function CharacterSelector({ characters, selectedCharacter, onSelect, hasPotential, onTogglePotential }: CharacterSelectorProps) {
+export function CharacterSelector({ characters, character, onSelect, hasPotential, onTogglePotential }: CharacterSelectorProps) {
   const t = useTranslations();
   const {
     isOpen,
@@ -29,7 +29,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
     getEgoLevel,
     handleEgoIncrement,
     handleSelect,
-  } = useCharacterSelection({ selectedCharacter, onSelect });
+  } = useCharacterSelection({ character, onSelect });
 
   return (
     <Field className="mb-6">
@@ -39,39 +39,39 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
             variant="outline"
             className="w-full aspect-2/1 h-auto border-dashed relative overflow-hidden"
           >
-            {selectedCharacter ? (
+            {character ? (
               <>
-                {selectedCharacter.imgUrl && (
+                {character.imgUrl && (
                   <div className="absolute inset-0 rounded-md overflow-hidden bg-muted">
                     <Image
-                      src={selectedCharacter.imgUrl}
-                      alt={t(selectedCharacter.name)}
+                      src={character.imgUrl}
+                      alt={t(character.name)}
                       fill
                       className="object-cover"
                       sizes="100%"
                     />
                     {/* Rarity gradient band */}
-                    <div className={`absolute inset-y-0 left-0 w-4 lg:w-8 ${selectedCharacter.rarity === '★5'
+                    <div className={`absolute inset-y-0 left-0 w-4 lg:w-8 ${character.rarity === '★5'
                         ? 'bg-linear-to-b from-purple-600 to-transparent'
-                        : selectedCharacter.rarity === '★4'
+                        : character.rarity === '★4'
                           ? 'bg-linear-to-b from-yellow-600 to-transparent'
                           : ''
                       }`} />
                     {/* Job, element icons and ego level */}
                     <div className="absolute top-1 left-6 lg:left-10 z-20 flex flex-col items-center gap-1">
-                      {getJobIcon(selectedCharacter.job) && (
+                      {getJobIcon(character.job) && (
                         <Image
-                          src={getJobIcon(selectedCharacter.job)}
-                          alt={selectedCharacter.job}
+                          src={getJobIcon(character.job)}
+                          alt={character.job}
                           width={32}
                           height={32}
                           className="w-8 h-8"
                         />
                       )}
-                      {getElementIcon(selectedCharacter.element) && (
+                      {getElementIcon(character.element) && (
                         <Image
-                          src={getElementIcon(selectedCharacter.element)}
-                          alt={selectedCharacter.element ?? "element"}
+                          src={getElementIcon(character.element)}
+                          alt={character.element ?? "element"}
                           width={32}
                           height={32}
                           className="w-8 h-8"
@@ -83,19 +83,19 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                         onClick={(e) => {
                           e.stopPropagation();
                           e.preventDefault();
-                          handleEgoIncrement(selectedCharacter, true);
+                          handleEgoIncrement(character, true);
                         }}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.stopPropagation();
                             e.preventDefault();
-                            handleEgoIncrement(selectedCharacter, true);
+                            handleEgoIncrement(character, true);
                           }
                         }}
                         className="px-1 py-1 rounded border-3 border-white bg-black/80 w-8 h-8 cursor-pointer"
                       >
                         <span className="text-base font-bold leading-none text-white">
-                          {formatEgoLevel(getEgoLevel(selectedCharacter))}
+                          {formatEgoLevel(getEgoLevel(character))}
                         </span>
                       </div>
                       <div
@@ -124,7 +124,7 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                 <div
                   className="absolute z-10 bottom-0 right-0 pb-4 pr-4 text-right"
                 >
-                  <span className="text-2xl lg:text-4xl font-semibold text-gray-100 text-shadow-lg/20">{t(selectedCharacter.name)}</span>
+                  <span className="text-2xl lg:text-4xl font-semibold text-gray-100 text-shadow-lg/20">{t(character.name)}</span>
                 </div>
               </>
             ) : (
@@ -142,8 +142,9 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
               {characters.map((character) => (
                 <Button
                   key={character.id}
-                  variant={selectedCharacter?.id === character.id ? "secondary" : "outline"}
+                  variant={character?.id === character.id ? "secondary" : "outline"}
                   className="h-auto w-full flex-col justify-start p-2 text-center"
+                  aria-label={t(character.name)}
                   onClick={() => handleSelect(character)}
                 >
                   {character.imgUrl && (
@@ -188,13 +189,13 @@ export function CharacterSelector({ characters, selectedCharacter, onSelect, has
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();
-                            handleEgoIncrement(character, selectedCharacter?.id === character.id);
+                            handleEgoIncrement(character, character?.id === character.id);
                           }}
                           onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                               e.stopPropagation();
                               e.preventDefault();
-                              handleEgoIncrement(character, selectedCharacter?.id === character.id);
+                              handleEgoIncrement(character, character?.id === character.id);
                             }
                           }}
                             className="px-1.5 py-0.5 rounded border-2 border-white bg-black/80 cursor-pointer pointer-events-auto"

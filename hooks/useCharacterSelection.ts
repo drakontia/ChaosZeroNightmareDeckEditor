@@ -2,11 +2,11 @@ import { useState, useCallback } from "react";
 import { Character } from "@/types";
 
 interface UseCharacterSelectionProps {
-  selectedCharacter: Character | null;
+  character: Character | null;
   onSelect: (character: Character) => void;
 }
 
-export function useCharacterSelection({ selectedCharacter, onSelect }: UseCharacterSelectionProps) {
+export function useCharacterSelection({ character, onSelect }: UseCharacterSelectionProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [egoLevels, setEgoLevels] = useState<Record<string, number>>({});
 
@@ -18,10 +18,10 @@ export function useCharacterSelection({ selectedCharacter, onSelect }: UseCharac
     const current = getEgoLevel(character);
     const next = current >= 6 ? 0 : current + 1;
     setEgoLevels((prev) => ({ ...prev, [character.id]: next }));
-    if (syncSelect || selectedCharacter?.id === character.id) {
+    if (syncSelect || character?.id === character.id) {
       onSelect({ ...character, egoLevel: next });
     }
-  }, [getEgoLevel, selectedCharacter, onSelect]);
+  }, [getEgoLevel, character, onSelect]);
 
   const handleSelect = useCallback((character: Character) => {
     onSelect(character);
