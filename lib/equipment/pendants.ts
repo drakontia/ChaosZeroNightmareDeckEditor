@@ -2,28 +2,28 @@ import { Equipment, EquipmentType } from "@/types";
 
 export const PENDANTS: Equipment[] = [
   {
-    id: "nonstandard_cube",
-    name: "equipment.pendant.nonstandard_cube.name",
+    id: "amorphous_cube",
+    name: "equipment.pendant.amorphous_cube.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.nonstandard_cube.description",
-    imgUrl: "/images/equipment/pendants/nonstandard_cube.png"
+    description: "equipment.pendant.amorphous_cube.description",
+    imgUrl: "/images/equipment/pendants/amorphous_cube.png"
   },
   {
-    id: "polyhedral_universe_link",
-    name: "equipment.pendant.polyhedral_universe_link.name",
+    id: "multifaceted_parallel_universe_nexus",
+    name: "equipment.pendant.multifaceted_parallel_universe_nexus.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.polyhedral_universe_link.description",
-    imgUrl: "/images/equipment/pendants/polyhedral_universe_link.png"
+    description: "equipment.pendant.multifaceted_parallel_universe_nexus.description",
+    imgUrl: "/images/equipment/pendants/multifaceted_parallel_universe_nexus.png"
   },
   {
-    id: "time_adjuster",
-    name: "equipment.pendant.time_adjuster.name",
+    id: "time_regulator",
+    name: "equipment.pendant.time_regulator.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.time_adjuster.description",
-    imgUrl: "/images/equipment/pendants/time_adjuster.png"
+    description: "equipment.pendant.time_regulator.description",
+    imgUrl: "/images/equipment/pendants/time_regulator.png"
   },
   {
     id: "absolute_zero_tetrahedron",
@@ -34,20 +34,20 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/absolute_zero_tetrahedron.png"
   },
   {
-    id: "mana_sapphire",
-    name: "equipment.pendant.mana_sapphire.name",
+    id: "magic_infused_sapphire",
+    name: "equipment.pendant.magic_infused_sapphire.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.mana_sapphire.description",
-    imgUrl: "/images/equipment/pendants/mana_sapphire.png"
+    description: "equipment.pendant.magic_infused_sapphire.description",
+    imgUrl: "/images/equipment/pendants/magic_infused_sapphire.png"
   },
   {
-    id: "heart_of_gemstone",
-    name: "equipment.pendant.heart_of_gemstone.name",
+    id: "heart_of_the_jewel",
+    name: "equipment.pendant.heart_of_the_jewel.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.heart_of_gemstone.description",
-    imgUrl: "/images/equipment/pendants/heart_of_gemstone.png"
+    description: "equipment.pendant.heart_of_the_jewel.description",
+    imgUrl: "/images/equipment/pendants/heart_of_the_jewel.png"
   },
   {
     id: "heart_of_gold",
@@ -66,36 +66,92 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/quantum_collector.png"
   },
   {
-    id: "destruction_moon",
-    name: "equipment.pendant.destruction_moon.name",
+    id: "moon_of_destruction",
+    name: "equipment.pendant.moon_of_destruction.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.destruction_moon.description",
-    imgUrl: "/images/equipment/pendants/destruction_moon.png"
+    description: "equipment.pendant.moon_of_destruction.description",
+    imgUrl: "/images/equipment/pendants/moon_of_destruction.png"
   },
   {
-    id: "metacube",
-    name: "equipment.pendant.metacube.name",
+    id: "dimensional_cube",
+    name: "equipment.pendant.dimensional_cube.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.metacube.description",
-    imgUrl: "/images/equipment/pendants/metacube.png"
+    description: "equipment.pendant.dimensional_cube.description",
+    imgUrl: "/images/equipment/pendants/dimensional_cube.png"
   },
   {
-    id: "goddess_scale",
-    name: "equipment.pendant.goddess_scale.name",
+    id: "water_drops_of_the_goddess",
+    name: "equipment.pendant.water_drops_of_the_goddess.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.goddess_scale.description",
-    imgUrl: "/images/equipment/pendants/goddess_scale.png"
+    description: "equipment.pendant.water_drops_of_the_goddess.description",
+    imgUrl: "/images/equipment/pendants/water_drops_of_the_goddess.png"
   },
   {
-    id: "gray_orb",
-    name: "equipment.pendant.gray_orb.name",
+    id: "grey_orb",
+    name: "equipment.pendant.grey_orb.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.gray_orb.description",
-    imgUrl: "/images/equipment/pendants/gray_orb.png"
+    description: "equipment.pendant.grey_orb.description",
+    imgUrl: "/images/equipment/pendants/grey_orb.png"
+  },
+  {
+    id: "sphere_of_randomness",
+    name: "equipment.pendant.sphere_of_randomness.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.sphere_of_randomness.description",
+    imgUrl: "/images/equipment/pendants/sphere_of_randomness.png"
+  },
+  {
+    id: "dice_of_derangement",
+    name: "equipment.pendant.dice_of_derangement.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.dice_of_derangement.description",
+    imgUrl: "/images/equipment/pendants/dice_of_derangement.png"
+  },
+  {
+    id: "bloodstone_of_the_void",
+    name: "equipment.pendant.bloodstone_of_the_void.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.bloodstone_of_the_void.description",
+    imgUrl: "/images/equipment/pendants/bloodstone_of_the_void.png"
+  },
+  {
+    id: "proof_of_initiation",
+    name: "equipment.pendant.proof_of_initiation.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.proof_of_initiation.description",
+    imgUrl: "/images/equipment/pendants/proof_of_initiation.png"
+  },
+  {
+    id: "natures_gift",
+    name: "equipment.pendant.natures_gift.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.natures_gift.description",
+    imgUrl: "/images/equipment/pendants/natures_gift.png"
+  },
+  {
+    id: "eternal_stone",
+    name: "equipment.pendant.eternal_stone.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.eternal_stone.description",
+    imgUrl: "/images/equipment/pendants/eternal_stone.png"
+  },
+  {
+    id: "madmans_masterpiece",
+    name: "equipment.pendant.madmans_masterpiece.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.madmans_masterpiece.description",
+    imgUrl: "/images/equipment/pendants/madmans_masterpiece.png"
   },
   {
     id: "chaos_bible",
@@ -106,6 +162,22 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/chaos_bible.png"
   },
   {
+    id: "crimson_bloodstone",
+    name: "equipment.pendant.crimson_bloodstone.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.crimson_bloodstone.description",
+    imgUrl: "/images/equipment/pendants/crimson_bloodstone.png"
+  },
+  {
+    id: "orders_emblem",
+    name: "equipment.pendant.orders_emblem.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.orders_emblem.description",
+    imgUrl: "/images/equipment/pendants/orders_emblem.png"
+  },
+  {
     id: "bloody_pendant",
     name: "equipment.pendant.bloody_pendant.name",
     type: EquipmentType.PENDANT,
@@ -114,140 +186,252 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/bloody_pendant.png"
   },
   {
-    id: "glum_eye",
-    name: "equipment.pendant.glum_eye.name",
+    id: "gloomy_primes_eye",
+    name: "equipment.pendant.gloomy_primes_eye.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.glum_eye.description",
-    imgUrl: "/images/equipment/pendants/glum_eye.png"
+    description: "equipment.pendant.gloomy_primes_eye.description",
+    imgUrl: "/images/equipment/pendants/gloomy_primes_eye.png"
   },
   {
-    id: "shameful_jade",
-    name: "equipment.pendant.shameful_jade.name",
+    id: "forbidden_bible",
+    name: "equipment.pendant.forbidden_bible.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.shameful_jade.description",
-    imgUrl: "/images/equipment/pendants/shameful_jade.png"
+    description: "equipment.pendant.forbidden_bible.description",
+    imgUrl: "/images/equipment/pendants/forbidden_bible.png"
   },
   {
-    id: "vanishing_lamp",
-    name: "equipment.pendant.vanishing_lamp.name",
+    id: "dice_of_chaos",
+    name: "equipment.pendant.dice_of_chaos.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.vanishing_lamp.description",
-    imgUrl: "/images/equipment/pendants/vanishing_lamp.png"
+    description: "equipment.pendant.dice_of_chaos.description",
+    imgUrl: "/images/equipment/pendants/dice_of_chaos.png"
   },
   {
-    id: "void_revelation_record",
-    name: "equipment.pendant.void_revelation_record.name",
+    id: "first_aid_kit",
+    name: "equipment.pendant.first_aid_kit.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.void_revelation_record.description",
-    imgUrl: "/images/equipment/pendants/void_revelation_record.png"
+    description: "equipment.pendant.first_aid_kit.description",
+    imgUrl: "/images/equipment/pendants/first_aid_kit.png"
   },
   {
-    id: "greedy_eye",
-    name: "equipment.pendant.greedy_eye.name",
+    id: "lepidolas_wing",
+    name: "equipment.pendant.lepidolas_wing.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.greedy_eye.description",
-    imgUrl: "/images/equipment/pendants/greedy_eye.png"
+    description: "equipment.pendant.lepidolas_wing.description",
+    imgUrl: "/images/equipment/pendants/lepidolas_wing.png"
   },
   {
-    id: "forest_clover",
-    name: "equipment.pendant.forest_clover.name",
+    id: "kiraks_core",
+    name: "equipment.pendant.kiraks_core.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.kiraks_core.description",
+    imgUrl: "/images/equipment/pendants/kiraks_core.png"
+  },
+  {
+    id: "natural_predator",
+    name: "equipment.pendant.natural_predator.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.natural_predator.description",
+    imgUrl: "/images/equipment/pendants/natural_predator.png"
+  },
+  {
+    id: "voracious_swarm",
+    name: "equipment.pendant.voracious_swarm.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.voracious_swarm.description",
+    imgUrl: "/images/equipment/pendants/voracious_swarm.png"
+  },
+  {
+    id: "pulsating_egg",
+    name: "equipment.pendant.pulsating_egg.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.pulsating_egg.description",
+    imgUrl: "/images/equipment/pendants/pulsating_egg.png"
+  },
+  {
+    id: "soul_orb",
+    name: "equipment.pendant.soul_orb.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.soul_orb.description",
+    imgUrl: "/images/equipment/pendants/soul_orb.png"
+  },
+  {
+    id: "the_famished_ones_belly",
+    name: "equipment.pendant.the_famished_ones_belly.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.the_famished_ones_belly.description",
+    imgUrl: "/images/equipment/pendants/the_famished_ones_belly.png"
+  },
+  {
+    id: "mss_data_pad",
+    name: "equipment.pendant.mss_data_pad.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.mss_data_pad.description",
+    imgUrl: "/images/equipment/pendants/mss_data_pad.png"
+  },
+  {
+    id: "flower_of_dead_souls",
+    name: "equipment.pendant.flower_of_dead_souls.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.flower_of_dead_souls.description",
+    imgUrl: "/images/equipment/pendants/flower_of_dead_souls.png"
+  },
+  {
+    id: "mss_data_pad_se",
+    name: "equipment.pendant.mss_data_pad_se.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.mss_data_pad_se.description",
+    imgUrl: "/images/equipment/pendants/mss_data_pad_se.png"
+  },
+  {
+    id: "eye_of_the_eyeless",
+    name: "equipment.pendant.eye_of_the_eyeless.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.eye_of_the_eyeless.description",
+    imgUrl: "/images/equipment/pendants/eye_of_the_eyeless.png"
+  },
+  {
+    id: "palasias_orb",
+    name: "equipment.pendant.palasias_orb.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.palasias_orb.description",
+    imgUrl: "/images/equipment/pendants/palasias_orb.png"
+  },
+  {
+    id: "torch_that_should_not_be_extinguished",
+    name: "equipment.pendant.torch_that_should_not_be_extinguished.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.torch_that_should_not_be_extinguished.description",
+    imgUrl: "/images/equipment/pendants/torch_that_should_not_be_extinguished.png"
+  },
+  {
+    id: "revelations_of_futility",
+    name: "equipment.pendant.revelations_of_futility.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.revelations_of_futility.description",
+    imgUrl: "/images/equipment/pendants/revelations_of_futility.png"
+  },
+  {
+    id: "eye_of_gluttony",
+    name: "equipment.pendant.eye_of_gluttony.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.legendary",
+    description: "equipment.pendant.eye_of_gluttony.description",
+    imgUrl: "/images/equipment/pendants/eye_of_gluttony.png"
+  },
+  {
+    id: "clover_of_the_forest",
+    name: "equipment.pendant.clover_of_the_forest.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.forest_clover.description",
-    imgUrl: "/images/equipment/pendants/forest_clover.png"
+    description: "equipment.pendant.clover_of_the_forest.description",
+    imgUrl: "/images/equipment/pendants/clover_of_the_forest.png"
   },
   {
-    id: "stealth_passfinder",
-    name: "equipment.pendant.stealth_passfinder.name",
+    id: "poachers_pathfinder",
+    name: "equipment.pendant.poachers_pathfinder.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.stealth_passfinder.description",
-    imgUrl: "/images/equipment/pendants/stealth_passfinder.png"
+    description: "equipment.pendant.poachers_pathfinder.description",
+    imgUrl: "/images/equipment/pendants/poachers_pathfinder.png"
   },
   {
-    id: "wildfire_bone_ring",
-    name: "equipment.pendant.wildfire_bone_ring.name",
+    id: "bone_ring_of_wildfire",
+    name: "equipment.pendant.bone_ring_of_wildfire.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.wildfire_bone_ring.description",
-    imgUrl: "/images/equipment/pendants/wildfire_bone_ring.png"
+    description: "equipment.pendant.bone_ring_of_wildfire.description",
+    imgUrl: "/images/equipment/pendants/bone_ring_of_wildfire.png"
   },
   {
-    id: "ancient_soul_call",
-    name: "equipment.pendant.ancient_soul_call.name",
+    id: "call_of_the_ancient_spirit",
+    name: "equipment.pendant.call_of_the_ancient_spirit.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.ancient_soul_call.description",
-    imgUrl: "/images/equipment/pendants/ancient_soul_call.png"
+    description: "equipment.pendant.call_of_the_ancient_spirit.description",
+    imgUrl: "/images/equipment/pendants/call_of_the_ancient_spirit.png"
   },
   {
-    id: "deep_green_noon",
-    name: "equipment.pendant.deep_green_noon.name",
+    id: "verdant_day",
+    name: "equipment.pendant.verdant_day.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.deep_green_noon.description",
-    imgUrl: "/images/equipment/pendants/deep_green_noon.png"
+    description: "equipment.pendant.verdant_day.description",
+    imgUrl: "/images/equipment/pendants/verdant_day.png"
   },
   {
-    id: "deep_green_night",
-    name: "equipment.pendant.deep_green_night.name",
+    id: "verdant_night",
+    name: "equipment.pendant.verdant_night.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.deep_green_night.description",
-    imgUrl: "/images/equipment/pendants/deep_green_night.png"
+    description: "equipment.pendant.verdant_night.description",
+    imgUrl: "/images/equipment/pendants/verdant_night.png"
   },
   {
-    id: "lead_holy_water",
-    name: "equipment.pendant.lead_holy_water.name",
+    id: "lead_colored_holy_water",
+    name: "equipment.pendant.lead_colored_holy_water.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.lead_holy_water.description",
-    imgUrl: "/images/equipment/pendants/lead_holy_water.png"
+    description: "equipment.pendant.lead_colored_holy_water.description",
+    imgUrl: "/images/equipment/pendants/lead_colored_holy_water.png"
   },
   {
-    id: "viadewus_reactor",
-    name: "equipment.pendant.viadewus_reactor.name",
+    id: "vladeus_reactor",
+    name: "equipment.pendant.vladeus_reactor.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.viadewus_reactor.description",
-    imgUrl: "/images/equipment/pendants/viadewus_reactor.png"
+    description: "equipment.pendant.vladeus_reactor.description",
+    imgUrl: "/images/equipment/pendants/vladeus_reactor.png"
   },
   {
-    id: "golden_law",
-    name: "equipment.pendant.golden_law.name",
+    id: "the_golden_rule",
+    name: "equipment.pendant.the_golden_rule.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.golden_law.description",
-    imgUrl: "/images/equipment/pendants/golden_law.png"
+    description: "equipment.pendant.the_golden_rule.description",
+    imgUrl: "/images/equipment/pendants/the_golden_rule.png"
   },
   {
-    id: "hibernating_seed",
-    name: "equipment.pendant.hibernating_seed.name",
+    id: "dormant_seeds",
+    name: "equipment.pendant.dormant_seeds.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.hibernating_seed.description",
-    imgUrl: "/images/equipment/pendants/hibernating_seed.png"
+    description: "equipment.pendant.dormant_seeds.description",
+    imgUrl: "/images/equipment/pendants/dormant_seeds.png"
   },
   {
-    id: "deep_green_kihan",
-    name: "equipment.pendant.deep_green_kihan.name",
+    id: "verdant_shackles",
+    name: "equipment.pendant.verdant_shackles.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.deep_green_kihan.description",
-    imgUrl: "/images/equipment/pendants/deep_green_kihan.png"
+    description: "equipment.pendant.verdant_shackles.description",
+    imgUrl: "/images/equipment/pendants/verdant_shackles.png"
   },
   {
-    id: "rune_code",
-    name: "equipment.pendant.rune_code.name",
+    id: "rune_chord",
+    name: "equipment.pendant.rune_chord.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.rune_code.description",
-    imgUrl: "/images/equipment/pendants/rune_code.png"
+    description: "equipment.pendant.rune_chord.description",
+    imgUrl: "/images/equipment/pendants/rune_chord.png"
   },
   {
     id: "guardian_core",
@@ -258,75 +442,75 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/guardian_core.png"
   },
   {
-    id: "soaked_core",
-    name: "equipment.pendant.soaked_core.name",
+    id: "corroded_core",
+    name: "equipment.pendant.corroded_core.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.soaked_core.description",
-    imgUrl: "/images/equipment/pendants/soaked_core.png"
+    description: "equipment.pendant.corroded_core.description",
+    imgUrl: "/images/equipment/pendants/corroded_core.png"
   },
   {
-    id: "fallen_core",
-    name: "equipment.pendant.fallen_core.name",
+    id: "corrupted_core",
+    name: "equipment.pendant.corrupted_core.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.fallen_core.description",
-    imgUrl: "/images/equipment/pendants/fallen_core.png"
+    description: "equipment.pendant.corrupted_core.description",
+    imgUrl: "/images/equipment/pendants/corrupted_core.png"
   },
   {
-    id: "punisher_eye",
-    name: "equipment.pendant.punisher_eye.name",
+    id: "eye_of_the_punisher",
+    name: "equipment.pendant.eye_of_the_punisher.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.pendant.punisher_eye.description",
-    imgUrl: "/images/equipment/pendants/punisher_eye.png"
+    description: "equipment.pendant.eye_of_the_punisher.description",
+    imgUrl: "/images/equipment/pendants/eye_of_the_punisher.png"
   },
   {
-    id: "divine_hacking_module",
-    name: "equipment.pendant.divine_hacking_module.name",
+    id: "nerve_hacking_module",
+    name: "equipment.pendant.nerve_hacking_module.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.divine_hacking_module.description",
-    imgUrl: "/images/equipment/pendants/divine_hacking_module.png"
+    description: "equipment.pendant.nerve_hacking_module.description",
+    imgUrl: "/images/equipment/pendants/nerve_hacking_module.png"
   },
   {
-    id: "overimmunity_holmon",
-    name: "equipment.pendant.overimmunity_holmon.name",
+    id: "hyperimmunity_hormone",
+    name: "equipment.pendant.hyperimmunity_hormone.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.rare",
-    description: "equipment.pendant.overimmunity_holmon.description",
-    imgUrl: "/images/equipment/pendants/overimmunity_holmon.png"
+    description: "equipment.pendant.hyperimmunity_hormone.description",
+    imgUrl: "/images/equipment/pendants/hyperimmunity_hormone.png"
   },
   {
-    id: "excellent_individual_proof",
-    name: "equipment.pendant.excellent_individual_proof.name",
+    id: "emblem_of_an_exceptional_entity",
+    name: "equipment.pendant.emblem_of_an_exceptional_entity.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.excellent_individual_proof.description",
-    imgUrl: "/images/equipment/pendants/excellent_individual_proof.png"
+    description: "equipment.pendant.emblem_of_an_exceptional_entity.description",
+    imgUrl: "/images/equipment/pendants/emblem_of_an_exceptional_entity.png"
   },
   {
-    id: "superconducting_tanpakushitsu",
-    name: "equipment.pendant.superconducting_tanpakushitsu.name",
+    id: "superconductive_protein",
+    name: "equipment.pendant.superconductive_protein.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.superconducting_tanpakushitsu.description",
-    imgUrl: "/images/equipment/pendants/superconducting_tanpakushitsu.png"
+    description: "equipment.pendant.superconductive_protein.description",
+    imgUrl: "/images/equipment/pendants/superconductive_protein.png"
   },
   {
-    id: "unconfirmed_ample",
-    name: "equipment.pendant.unconfirmed_ample.name",
+    id: "unconfirmed_recovery_ampule",
+    name: "equipment.pendant.unconfirmed_recovery_ampule.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.unconfirmed_ample.description",
-    imgUrl: "/images/equipment/pendants/unconfirmed_ample.png"
+    description: "equipment.pendant.unconfirmed_recovery_ampule.description",
+    imgUrl: "/images/equipment/pendants/unconfirmed_recovery_ampule.png"
   },
   {
-    id: "taboo_root",
-    name: "equipment.pendant.taboo_root.name",
+    id: "source_of_the_forbidden",
+    name: "equipment.pendant.source_of_the_forbidden.name",
     type: EquipmentType.PENDANT,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.pendant.taboo_root.description",
-    imgUrl: "/images/equipment/pendants/taboo_root.png"
+    description: "equipment.pendant.source_of_the_forbidden.description",
+    imgUrl: "/images/equipment/pendants/source_of_the_forbidden.png"
   }
 ];

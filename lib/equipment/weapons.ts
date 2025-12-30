@@ -2,28 +2,28 @@ import { Equipment, EquipmentType } from "@/types";
 
 export const WEAPONS: Equipment[] = [
   {
-    id: "black_onyx_sword",
-    name: "equipment.weapon.black_onyx_sword.name",
+    id: "obsidian_sword",
+    name: "equipment.weapon.obsidian_sword.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.black_onyx_sword.description",
-    imgUrl: "/images/equipment/weapons/black_onyx_sword.png"
+    description: "equipment.weapon.obsidian_sword.description",
+    imgUrl: "/images/equipment/weapons/obsidian_sword.png"
   },
   {
-    id: "gastrol_nomicon",
-    name: "equipment.weapon.gastrol_nomicon.name",
+    id: "gastronomicon",
+    name: "equipment.weapon.gastronomicon.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.gastrol_nomicon.description",
-    imgUrl: "/images/equipment/weapons/gastrol_nomicon.png"
+    description: "equipment.weapon.gastronomicon.description",
+    imgUrl: "/images/equipment/weapons/gastronomicon.png"
   },
   {
-    id: "m85_grenade",
-    name: "equipment.weapon.m85_grenade.name",
+    id: "m85_military_grenade",
+    name: "equipment.weapon.m85_military_grenade.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.m85_grenade.description",
-    imgUrl: "/images/equipment/weapons/m85_grenade.png"
+    description: "equipment.weapon.m85_military_grenade.description",
+    imgUrl: "/images/equipment/weapons/m85_military_grenade.png"
   },
   {
     id: "big_game_hunter",
@@ -34,12 +34,12 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/big_game_hunter.png"
   },
   {
-    id: "angry_matsumei",
-    name: "equipment.weapon.angry_matsumei.name",
+    id: "torch_of_wrath",
+    name: "equipment.weapon.torch_of_wrath.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.angry_matsumei.description",
-    imgUrl: "/images/equipment/weapons/angry_matsumei.png"
+    description: "equipment.weapon.torch_of_wrath.description",
+    imgUrl: "/images/equipment/weapons/torch_of_wrath.png"
   },
   {
     id: "bone_cutter",
@@ -50,44 +50,44 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/bone_cutter.png"
   },
   {
-    id: "flash_bullet",
-    name: "equipment.weapon.flash_bullet.name",
+    id: "flashbang",
+    name: "equipment.weapon.flashbang.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.flash_bullet.description",
-    imgUrl: "/images/equipment/weapons/flash_bullet.png"
+    description: "equipment.weapon.flashbang.description",
+    imgUrl: "/images/equipment/weapons/flashbang.png"
   },
   {
-    id: "order_108",
-    name: "equipment.weapon.order_108.name",
+    id: "command_108",
+    name: "equipment.weapon.command_108.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.order_108.description",
-    imgUrl: "/images/equipment/weapons/order_108.png"
+    description: "equipment.weapon.command_108.description",
+    imgUrl: "/images/equipment/weapons/command_108.png"
   },
   {
-    id: "red_sword",
-    name: "equipment.weapon.red_sword.name",
+    id: "crimson_sword",
+    name: "equipment.weapon.crimson_sword.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.red_sword.description",
-    imgUrl: "/images/equipment/weapons/red_sword.png"
+    description: "equipment.weapon.crimson_sword.description",
+    imgUrl: "/images/equipment/weapons/crimson_sword.png"
   },
   {
-    id: "second_trick",
-    name: "equipment.weapon.second_trick.name",
+    id: "second_method",
+    name: "equipment.weapon.second_method.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.second_trick.description",
-    imgUrl: "/images/equipment/weapons/second_trick.png"
+    description: "equipment.weapon.second_method.description",
+    imgUrl: "/images/equipment/weapons/second_method.png"
   },
   {
-    id: "mocking_short_sword",
-    name: "equipment.weapon.mocking_short_sword.name",
+    id: "sneering_dagger",
+    name: "equipment.weapon.sneering_dagger.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.mocking_short_sword.description",
-    imgUrl: "/images/equipment/weapons/mocking_short_sword.png"
+    description: "equipment.weapon.sneering_dagger.description",
+    imgUrl: "/images/equipment/weapons/sneering_dagger.png"
   },
   {
     id: "rfs_17",
@@ -98,100 +98,100 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/rfs_17.png"
   },
   {
-    id: "corpse_mountain_blood_sea",
-    name: "equipment.weapon.corpse_mountain_blood_sea.name",
+    id: "mountain_of_corpses",
+    name: "equipment.weapon.mountain_of_corpses.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.corpse_mountain_blood_sea.description",
-    imgUrl: "/images/equipment/weapons/corpse_mountain_blood_sea.png"
+    description: "equipment.weapon.mountain_of_corpses.description",
+    imgUrl: "/images/equipment/weapons/mountain_of_corpses.png"
   },
   {
-    id: "chaos_finger",
-    name: "equipment.weapon.chaos_finger.name",
+    id: "intellect_of_discord",
+    name: "equipment.weapon.intellect_of_discord.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.chaos_finger.description",
-    imgUrl: "/images/equipment/weapons/chaos_finger.png"
+    description: "equipment.weapon.intellect_of_discord.description",
+    imgUrl: "/images/equipment/weapons/intellect_of_discord.png"
   },
   {
-    id: "chaos_era_handler",
-    name: "equipment.weapon.chaos_era_handler.name",
+    id: "tentacles_of_chaos",
+    name: "equipment.weapon.tentacles_of_chaos.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.chaos_era_handler.description",
-    imgUrl: "/images/equipment/weapons/chaos_era_handler.png"
+    description: "equipment.weapon.tentacles_of_chaos.description",
+    imgUrl: "/images/equipment/weapons/tentacles_of_chaos.png"
   },
   {
-    id: "stellar_short_sword",
-    name: "equipment.weapon.stellar_short_sword.name",
+    id: "steelers_dagger",
+    name: "equipment.weapon.steelers_dagger.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.stellar_short_sword.description",
-    imgUrl: "/images/equipment/weapons/stellar_short_sword.png"
+    description: "equipment.weapon.steelers_dagger.description",
+    imgUrl: "/images/equipment/weapons/steelers_dagger.png"
   },
   {
-    id: "sharp_bone_knife",
-    name: "equipment.weapon.sharp_bone_knife.name",
+    id: "dull_bone_blade",
+    name: "equipment.weapon.dull_bone_blade.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.sharp_bone_knife.description",
-    imgUrl: "/images/equipment/weapons/sharp_bone_knife.png"
+    description: "equipment.weapon.dull_bone_blade.description",
+    imgUrl: "/images/equipment/weapons/dull_bone_blade.png"
   },
   {
-    id: "natural_enemy",
-    name: "equipment.weapon.natural_enemy.name",
+    id: "natures_hostility",
+    name: "equipment.weapon.natures_hostility.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.natural_enemy.description",
-    imgUrl: "/images/equipment/weapons/natural_enemy.png"
+    description: "equipment.weapon.natures_hostility.description",
+    imgUrl: "/images/equipment/weapons/natures_hostility.png"
   },
   {
-    id: "mutated_claw",
-    name: "equipment.weapon.mutated_claw.name",
+    id: "mutated_claws",
+    name: "equipment.weapon.mutated_claws.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.mutated_claw.description",
-    imgUrl: "/images/equipment/weapons/mutated_claw.png"
+    description: "equipment.weapon.mutated_claws.description",
+    imgUrl: "/images/equipment/weapons/mutated_claws.png"
   },
   {
-    id: "executioner_blade",
-    name: "equipment.weapon.executioner_blade.name",
+    id: "executioners_edge",
+    name: "equipment.weapon.executioners_edge.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.executioner_blade.description",
-    imgUrl: "/images/equipment/weapons/executioner_blade.png"
+    description: "equipment.weapon.executioners_edge.description",
+    imgUrl: "/images/equipment/weapons/executioners_edge.png"
   },
   {
-    id: "ritual_short_sword",
-    name: "equipment.weapon.ritual_short_sword.name",
+    id: "ritual_dagger",
+    name: "equipment.weapon.ritual_dagger.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.ritual_short_sword.description",
-    imgUrl: "/images/equipment/weapons/ritual_short_sword.png"
+    description: "equipment.weapon.ritual_dagger.description",
+    imgUrl: "/images/equipment/weapons/ritual_dagger.png"
   },
   {
-    id: "vicious_smoke_head",
-    name: "equipment.weapon.vicious_smoke_head.name",
+    id: "esophagus_of_madness",
+    name: "equipment.weapon.esophagus_of_madness.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.vicious_smoke_head.description",
-    imgUrl: "/images/equipment/weapons/vicious_smoke_head.png"
+    description: "equipment.weapon.esophagus_of_madness.description",
+    imgUrl: "/images/equipment/weapons/esophagus_of_madness.png"
   },
   {
-    id: "claw_of_darkness",
-    name: "equipment.weapon.claw_of_darkness.name",
+    id: "dark_grips_claws",
+    name: "equipment.weapon.dark_grips_claws.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.claw_of_darkness.description",
-    imgUrl: "/images/equipment/weapons/claw_of_darkness.png"
+    description: "equipment.weapon.dark_grips_claws.description",
+    imgUrl: "/images/equipment/weapons/dark_grips_claws.png"
   },
   {
-    id: "mutant_authority",
-    name: "equipment.weapon.mutant_authority.name",
+    id: "mutated_order",
+    name: "equipment.weapon.mutated_order.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.mutant_authority.description",
-    imgUrl: "/images/equipment/weapons/mutant_authority.png"
+    description: "equipment.weapon.mutated_order.description",
+    imgUrl: "/images/equipment/weapons/mutated_order.png"
   },
   {
     id: "bug_killer",
@@ -202,20 +202,108 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/bug_killer.png"
   },
   {
-    id: "purple_butterfly_knife",
-    name: "equipment.weapon.purple_butterfly_knife.name",
+    id: "violet_butterflys_whip",
+    name: "equipment.weapon.violet_butterflys_whip.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.purple_butterfly_knife.description",
-    imgUrl: "/images/equipment/weapons/purple_butterfly_knife.png"
+    description: "equipment.weapon.violet_butterflys_whip.description",
+    imgUrl: "/images/equipment/weapons/violet_butterflys_whip.png"
   },
   {
-    id: "damaged_folmika_spear",
-    name: "equipment.weapon.damaged_folmika_spear.name",
+    id: "abyssal_bug_tooth",
+    name: "equipment.weapon.abyssal_bug_tooth.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.damaged_folmika_spear.description",
-    imgUrl: "/images/equipment/weapons/damaged_folmika_spear.png"
+    description: "equipment.weapon.abyssal_bug_tooth.description",
+    imgUrl: "/images/equipment/weapons/abyssal_bug_tooth.png"
+  },
+  {
+    id: "the_destruction_of_erysichthon",
+    name: "equipment.weapon.the_destruction_of_erysichthon.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.the_destruction_of_erysichthon.description",
+    imgUrl: "/images/equipment/weapons/the_destruction_of_erysichthon.png"
+  },
+  {
+    id: "formicas_perfect_spear",
+    name: "equipment.weapon.formicas_perfect_spear.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.formicas_perfect_spear.description",
+    imgUrl: "/images/equipment/weapons/formicas_perfect_spear.png"
+  },
+  {
+    id: "lepidolas_whip",
+    name: "equipment.weapon.lepidolas_whip.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.lepidolas_whip.description",
+    imgUrl: "/images/equipment/weapons/lepidolas_whip.png"
+  },
+  {
+    id: "twin_swords_of_greater_and_lesser_evil",
+    name: "equipment.weapon.twin_swords_of_greater_and_lesser_evil.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.twin_swords_of_greater_and_lesser_evil.description",
+    imgUrl: "/images/equipment/weapons/twin_swords_of_greater_and_lesser_evil.png"
+  },
+  {
+    id: "shell_bug_horn",
+    name: "equipment.weapon.shell_bug_horn.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.shell_bug_horn.description",
+    imgUrl: "/images/equipment/weapons/shell_bug_horn.png"
+  },
+  {
+    id: "dream_of_the_devoured",
+    name: "equipment.weapon.dream_of_the_devoured.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.dream_of_the_devoured.description",
+    imgUrl: "/images/equipment/weapons/dream_of_the_devoured.png"
+  },
+  {
+    id: "unexploded_plasma_bomb",
+    name: "equipment.weapon.unexploded_plasma_bomb.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.unexploded_plasma_bomb.description",
+    imgUrl: "/images/equipment/weapons/unexploded_plasma_bomb.png"
+  },
+  {
+    id: "blood_giant_claw",
+    name: "equipment.weapon.blood_giant_claw.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.blood_giant_claw.description",
+    imgUrl: "/images/equipment/weapons/blood_giant_claw.png"
+  },
+  {
+    id: "void_of_the_devourer",
+    name: "equipment.weapon.void_of_the_devourer.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.void_of_the_devourer.description",
+    imgUrl: "/images/equipment/weapons/void_of_the_devourer.png"
+  },
+  {
+    id: "foggy_crystal_ball",
+    name: "equipment.weapon.foggy_crystal_ball.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.foggy_crystal_ball.description",
+    imgUrl: "/images/equipment/weapons/foggy_crystal_ball.png"
+  },
+  {
+    id: "formicas_broken_spear",
+    name: "equipment.weapon.formicas_broken_spear.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.formicas_broken_spear.description",
+    imgUrl: "/images/equipment/weapons/formicas_broken_spear.png"
   },
   {
     id: "fallen_life_flower",
@@ -226,92 +314,92 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/fallen_life_flower.png"
   },
   {
-    id: "shadow_short_sword",
-    name: "equipment.weapon.shadow_short_sword.name",
+    id: "dagger_that_tricked_the_shadow",
+    name: "equipment.weapon.dagger_that_tricked_the_shadow.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.shadow_short_sword.description",
-    imgUrl: "/images/equipment/weapons/shadow_short_sword.png"
+    description: "equipment.weapon.dagger_that_tricked_the_shadow.description",
+    imgUrl: "/images/equipment/weapons/dagger_that_tricked_the_shadow.png"
   },
   {
-    id: "lake_offering_sword",
-    name: "equipment.weapon.lake_offering_sword.name",
+    id: "sword_reflected_in_the_lake",
+    name: "equipment.weapon.sword_reflected_in_the_lake.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.lake_offering_sword.description",
-    imgUrl: "/images/equipment/weapons/lake_offering_sword.png"
+    description: "equipment.weapon.sword_reflected_in_the_lake.description",
+    imgUrl: "/images/equipment/weapons/sword_reflected_in_the_lake.png"
   },
   {
-    id: "sun_strike_bow",
-    name: "equipment.weapon.sun_strike_bow.name",
+    id: "sun_setting_bow",
+    name: "equipment.weapon.sun_setting_bow.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.sun_strike_bow.description",
-    imgUrl: "/images/equipment/weapons/sun_strike_bow.png"
+    description: "equipment.weapon.sun_setting_bow.description",
+    imgUrl: "/images/equipment/weapons/sun_setting_bow.png"
   },
   {
-    id: "sacred_tree_branch",
-    name: "equipment.weapon.sacred_tree_branch.name",
+    id: "branch_of_the_sacred_tree",
+    name: "equipment.weapon.branch_of_the_sacred_tree.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.sacred_tree_branch.description",
-    imgUrl: "/images/equipment/weapons/sacred_tree_branch.png"
+    description: "equipment.weapon.branch_of_the_sacred_tree.description",
+    imgUrl: "/images/equipment/weapons/branch_of_the_sacred_tree.png"
   },
   {
-    id: "life_flower",
-    name: "equipment.weapon.life_flower.name",
+    id: "the_flower_of_life",
+    name: "equipment.weapon.the_flower_of_life.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.life_flower.description",
-    imgUrl: "/images/equipment/weapons/life_flower.png"
+    description: "equipment.weapon.the_flower_of_life.description",
+    imgUrl: "/images/equipment/weapons/the_flower_of_life.png"
   },
   {
-    id: "evil_tree_branch",
-    name: "equipment.weapon.evil_tree_branch.name",
+    id: "branch_of_the_evil_tree",
+    name: "equipment.weapon.branch_of_the_evil_tree.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.evil_tree_branch.description",
-    imgUrl: "/images/equipment/weapons/evil_tree_branch.png"
+    description: "equipment.weapon.branch_of_the_evil_tree.description",
+    imgUrl: "/images/equipment/weapons/branch_of_the_evil_tree.png"
   },
   {
-    id: "electric_lance",
-    name: "equipment.weapon.electric_lance.name",
+    id: "cavalry_of_lightning",
+    name: "equipment.weapon.cavalry_of_lightning.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.electric_lance.description",
-    imgUrl: "/images/equipment/weapons/electric_lance.png"
+    description: "equipment.weapon.cavalry_of_lightning.description",
+    imgUrl: "/images/equipment/weapons/cavalry_of_lightning.png"
   },
   {
-    id: "eternal_branch",
-    name: "equipment.weapon.eternal_branch.name",
+    id: "branch_of_eternity",
+    name: "equipment.weapon.branch_of_eternity.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.eternal_branch.description",
-    imgUrl: "/images/equipment/weapons/eternal_branch.png"
+    description: "equipment.weapon.branch_of_eternity.description",
+    imgUrl: "/images/equipment/weapons/branch_of_eternity.png"
   },
   {
-    id: "lune_lance",
-    name: "equipment.weapon.lune_lance.name",
+    id: "rune_lance",
+    name: "equipment.weapon.rune_lance.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.lune_lance.description",
-    imgUrl: "/images/equipment/weapons/lune_lance.png"
+    description: "equipment.weapon.rune_lance.description",
+    imgUrl: "/images/equipment/weapons/rune_lance.png"
   },
   {
-    id: "castle_flame",
-    name: "equipment.weapon.castle_flame.name",
+    id: "flame_of_purification",
+    name: "equipment.weapon.flame_of_purification.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.castle_flame.description",
-    imgUrl: "/images/equipment/weapons/castle_flame.png"
+    description: "equipment.weapon.flame_of_purification.description",
+    imgUrl: "/images/equipment/weapons/flame_of_purification.png"
   },
   {
-    id: "revelation_lappa",
-    name: "equipment.weapon.revelation_lappa.name",
+    id: "trumpet_of_revelation",
+    name: "equipment.weapon.trumpet_of_revelation.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.revelation_lappa.description",
-    imgUrl: "/images/equipment/weapons/revelation_lappa.png"
+    description: "equipment.weapon.trumpet_of_revelation.description",
+    imgUrl: "/images/equipment/weapons/trumpet_of_revelation.png"
   },
   {
     id: "singing_sword",
@@ -322,28 +410,28 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/singing_sword.png"
   },
   {
-    id: "shining_jewel",
-    name: "equipment.weapon.shining_jewel.name",
+    id: "radiant_orb",
+    name: "equipment.weapon.radiant_orb.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.legendary",
-    description: "equipment.weapon.shining_jewel.description",
-    imgUrl: "/images/equipment/weapons/shining_jewel.png"
+    description: "equipment.weapon.radiant_orb.description",
+    imgUrl: "/images/equipment/weapons/radiant_orb.png"
   },
   {
-    id: "overcurrent_shocker",
-    name: "equipment.weapon.overcurrent_shocker.name",
+    id: "overcurrent_shock_unit",
+    name: "equipment.weapon.overcurrent_shock_unit.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.overcurrent_shocker.description",
-    imgUrl: "/images/equipment/weapons/overcurrent_shocker.png"
+    description: "equipment.weapon.overcurrent_shock_unit.description",
+    imgUrl: "/images/equipment/weapons/overcurrent_shock_unit.png"
   },
   {
-    id: "mutant_predator_strike",
-    name: "equipment.weapon.mutant_predator_strike.name",
+    id: "mutant_predator_spike",
+    name: "equipment.weapon.mutant_predator_spike.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.mutant_predator_strike.description",
-    imgUrl: "/images/equipment/weapons/mutant_predator_strike.png"
+    description: "equipment.weapon.mutant_predator_spike.description",
+    imgUrl: "/images/equipment/weapons/mutant_predator_spike.png"
   },
   {
     id: "w_52_dopamine_injector",
