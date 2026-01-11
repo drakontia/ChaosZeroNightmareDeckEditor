@@ -66,14 +66,6 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/command_108.png"
   },
   {
-    id: "the_fading_flower_of_life",
-    name: "equipment.weapon.the_fading_flower_of_life.name",
-    type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.the_fading_flower_of_life.description",
-    imgUrl: "/images/equipment/weapons/the_fading_flower_of_life.png"
-  },
-  {
     id: "crimson_sword",
     name: "equipment.weapon.crimson_sword.name",
     type: EquipmentType.WEAPON,
@@ -218,6 +210,14 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/violet_butterflys_whip.png"
   },
   {
+    id: "formicas_broken_spear",
+    name: "equipment.weapon.formicas_broken_spear.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.mythical",
+    description: "equipment.weapon.formicas_broken_spear.description",
+    imgUrl: "/images/equipment/weapons/formicas_broken_spear.png"
+  },
+  {
     id: "abyssal_bug_tooth",
     name: "equipment.weapon.abyssal_bug_tooth.name",
     type: EquipmentType.WEAPON,
@@ -285,7 +285,7 @@ export const WEAPONS: Equipment[] = [
     id: "blood_giant_claw",
     name: "equipment.weapon.blood_giant_claw.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.blood_giant_claw.description",
     imgUrl: "/images/equipment/weapons/blood_giant_claw.png"
   },
@@ -306,18 +306,18 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/foggy_crystal_ball.png"
   },
   {
-    id: "formicas_broken_spear",
-    name: "equipment.weapon.formicas_broken_spear.name",
+    id: "the_fading_flower_of_life",
+    name: "equipment.weapon.the_fading_flower_of_life.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.formicas_broken_spear.description",
-    imgUrl: "/images/equipment/weapons/formicas_broken_spear.png"
+    rarity: "equipment.rarity.rare",
+    description: "equipment.weapon.the_fading_flower_of_life.description",
+    imgUrl: "/images/equipment/weapons/the_fading_flower_of_life.png"
   },
   {
     id: "dagger_that_tricked_the_shadow",
     name: "equipment.weapon.dagger_that_tricked_the_shadow.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.dagger_that_tricked_the_shadow.description",
     imgUrl: "/images/equipment/weapons/dagger_that_tricked_the_shadow.png"
   },
@@ -325,7 +325,7 @@ export const WEAPONS: Equipment[] = [
     id: "sword_reflected_in_the_lake",
     name: "equipment.weapon.sword_reflected_in_the_lake.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.sword_reflected_in_the_lake.description",
     imgUrl: "/images/equipment/weapons/sword_reflected_in_the_lake.png"
   },
@@ -333,7 +333,7 @@ export const WEAPONS: Equipment[] = [
     id: "sun_setting_bow",
     name: "equipment.weapon.sun_setting_bow.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.sun_setting_bow.description",
     imgUrl: "/images/equipment/weapons/sun_setting_bow.png"
   },
@@ -341,7 +341,7 @@ export const WEAPONS: Equipment[] = [
     id: "branch_of_the_sacred_tree",
     name: "equipment.weapon.branch_of_the_sacred_tree.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.branch_of_the_sacred_tree.description",
     imgUrl: "/images/equipment/weapons/branch_of_the_sacred_tree.png"
   },
@@ -349,7 +349,7 @@ export const WEAPONS: Equipment[] = [
     id: "the_flower_of_life",
     name: "equipment.weapon.the_flower_of_life.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.the_flower_of_life.description",
     imgUrl: "/images/equipment/weapons/the_flower_of_life.png"
   },
@@ -357,7 +357,7 @@ export const WEAPONS: Equipment[] = [
     id: "branch_of_the_evil_tree",
     name: "equipment.weapon.branch_of_the_evil_tree.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.branch_of_the_evil_tree.description",
     imgUrl: "/images/equipment/weapons/branch_of_the_evil_tree.png"
   },
@@ -365,7 +365,7 @@ export const WEAPONS: Equipment[] = [
     id: "cavalry_of_lightning",
     name: "equipment.weapon.cavalry_of_lightning.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.cavalry_of_lightning.description",
     imgUrl: "/images/equipment/weapons/cavalry_of_lightning.png"
   },
@@ -373,7 +373,7 @@ export const WEAPONS: Equipment[] = [
     id: "branch_of_eternity",
     name: "equipment.weapon.branch_of_eternity.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.branch_of_eternity.description",
     imgUrl: "/images/equipment/weapons/branch_of_eternity.png"
   },
@@ -389,7 +389,7 @@ export const WEAPONS: Equipment[] = [
     id: "flame_of_purification",
     name: "equipment.weapon.flame_of_purification.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.flame_of_purification.description",
     imgUrl: "/images/equipment/weapons/flame_of_purification.png"
   },
@@ -397,7 +397,7 @@ export const WEAPONS: Equipment[] = [
     id: "trumpet_of_revelation",
     name: "equipment.weapon.trumpet_of_revelation.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.trumpet_of_revelation.description",
     imgUrl: "/images/equipment/weapons/trumpet_of_revelation.png"
   },
@@ -405,7 +405,7 @@ export const WEAPONS: Equipment[] = [
     id: "singing_sword",
     name: "equipment.weapon.singing_sword.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.singing_sword.description",
     imgUrl: "/images/equipment/weapons/singing_sword.png"
   },
@@ -413,7 +413,7 @@ export const WEAPONS: Equipment[] = [
     id: "radiant_orb",
     name: "equipment.weapon.radiant_orb.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.radiant_orb.description",
     imgUrl: "/images/equipment/weapons/radiant_orb.png"
   },
@@ -429,7 +429,7 @@ export const WEAPONS: Equipment[] = [
     id: "mutant_predator_spike",
     name: "equipment.weapon.mutant_predator_spike.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.mutant_predator_spike.description",
     imgUrl: "/images/equipment/weapons/mutant_predator_spike.png"
   },
@@ -437,7 +437,7 @@ export const WEAPONS: Equipment[] = [
     id: "w_52_dopamine_injector",
     name: "equipment.weapon.w_52_dopamine_injector.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.w_52_dopamine_injector.description",
     imgUrl: "/images/equipment/weapons/w_52_dopamine_injector.png"
   },
@@ -445,7 +445,7 @@ export const WEAPONS: Equipment[] = [
     id: "mutagenic_wave_amplifier",
     name: "equipment.weapon.mutagenic_wave_amplifier.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.mutagenic_wave_amplifier.description",
     imgUrl: "/images/equipment/weapons/mutagenic_wave_amplifier.png"
   },
@@ -453,7 +453,7 @@ export const WEAPONS: Equipment[] = [
     id: "replica_core",
     name: "equipment.weapon.replica_core.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.replica_core.description",
     imgUrl: "/images/equipment/weapons/replica_core.png"
   },
@@ -461,7 +461,7 @@ export const WEAPONS: Equipment[] = [
     id: "chimeranite",
     name: "equipment.weapon.chimeranite.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.chimeranite.description",
     imgUrl: "/images/equipment/weapons/chimeranite.png"
   }
