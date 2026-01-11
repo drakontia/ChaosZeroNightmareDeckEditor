@@ -482,6 +482,14 @@ export const PENDANTS: Equipment[] = [
     imgUrl: "/images/equipment/pendants/hyperimmunity_hormone.png"
   },
   {
+    id: "administrator_id_badge",
+    name: "equipment.pendant.administrator_id_badge.name",
+    type: EquipmentType.PENDANT,
+    rarity: "equipment.rarity.rare",
+    description: "equipment.pendant.administrator_id_badge.description",
+    imgUrl: "/images/equipment/pendants/administrator_id_badge.png"
+  },
+  {
     id: "emblem_of_an_exceptional_entity",
     name: "equipment.pendant.emblem_of_an_exceptional_entity.name",
     type: EquipmentType.PENDANT,

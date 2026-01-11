@@ -66,6 +66,14 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/command_108.png"
   },
   {
+    id: "the_fading_flower_of_life",
+    name: "equipment.weapon.the_fading_flower_of_life.name",
+    type: EquipmentType.WEAPON,
+    rarity: "equipment.rarity.rare",
+    description: "equipment.weapon.the_fading_flower_of_life.description",
+    imgUrl: "/images/equipment/weapons/the_fading_flower_of_life.png"
+  },
+  {
     id: "crimson_sword",
     name: "equipment.weapon.crimson_sword.name",
     type: EquipmentType.WEAPON,
@@ -306,14 +314,6 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/formicas_broken_spear.png"
   },
   {
-    id: "fallen_life_flower",
-    name: "equipment.weapon.fallen_life_flower.name",
-    type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.rare",
-    description: "equipment.weapon.fallen_life_flower.description",
-    imgUrl: "/images/equipment/weapons/fallen_life_flower.png"
-  },
-  {
     id: "dagger_that_tricked_the_shadow",
     name: "equipment.weapon.dagger_that_tricked_the_shadow.name",
     type: EquipmentType.WEAPON,
@@ -442,12 +442,12 @@ export const WEAPONS: Equipment[] = [
     imgUrl: "/images/equipment/weapons/w_52_dopamine_injector.png"
   },
   {
-    id: "mutant_wave_amplifier",
-    name: "equipment.weapon.mutant_wave_amplifier.name",
+    id: "mutagenic_wave_amplifier",
+    name: "equipment.weapon.mutagenic_wave_amplifier.name",
     type: EquipmentType.WEAPON,
     rarity: "equipment.rarity.mythical",
-    description: "equipment.weapon.mutant_wave_amplifier.description",
-    imgUrl: "/images/equipment/weapons/mutant_wave_amplifier.png"
+    description: "equipment.weapon.mutagenic_wave_amplifier.description",
+    imgUrl: "/images/equipment/weapons/mutagenic_wave_amplifier.png"
   },
   {
     id: "replica_core",

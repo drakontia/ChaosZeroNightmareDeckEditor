@@ -43,6 +43,10 @@
                 "name": "命令：108号",
                 "description": "攻撃カードのダメージ量40%増加（各戦闘1回）"
             },
+            "the_fading_flower_of_life": {
+                "name": "枯れた生命の花",
+                "description": "最大HPの場合、ダメージ量+40%"
+            },
             "crimson_sword": {
                 "name": "赤い剣",
                 "description": "ターゲッティング攻撃カードでダメージを与えた対象に、苦痛3（各ターン1回）"
@@ -163,10 +167,6 @@
                 "name": "破損したフォルミカの槍",
                 "description": "敵数に応じてダメージ量6%増加"
             },
-            "fallen_life_flower": {
-                "name": "枯れた生命の花",
-                "description": "カード消滅時、次に使用するカードのダメージ量35%増加（最大1回重複）"
-            },
             "dagger_that_tricked_the_shadow": {
                 "name": "影を騙した短剣",
                 "description": "会心ダメージ+12% "
@@ -231,7 +231,7 @@
                 "name": "W-52「ドーパミン注入器」",
                 "description": "能力でドロー時、1ターンの間、ダメージ量20%増加(各ターン2回)"
             },
-            "mutant_wave_amplifier": {
+            "mutagenic_wave_amplifier": {
                 "name": "変異波動増幅器",
                 "description": "状態異常、呪いカードのドロー時、1ターンの間、ダメージ量+12%"
             },
@@ -668,6 +668,10 @@
             "hyperimmunity_hormone": {
                 "name": "過剰免疫ホルモン",
                 "description": "能力でドロー時、1ターンの間、シールド獲得量+25%（各ターン2回）"
+            },
+            "administrator_id_badge": {
+                "name": "管理者身分証",
+                "description": "戦闘開始時、回避1"
             },
             "emblem_of_an_exceptional_entity": {
                 "name": "優秀な個体の証",
