@@ -15,13 +15,19 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-// Next.js OG Image Route: export async function GET(request, { params })
-export async function GET(
-  req: Request,
-  { params }: { params: { shareId: string } }
-) {
+// Next.js 16 OG Image Route - default export関数でparamsを受け取る
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ shareId: string }>;
+}) {
   try {
-    const { shareId } = params;
+    const { shareId } = await params;
+    
+    if (!shareId) {
+      console.error('[OG Image] No shareId in params');
+      return new Response('Invalid request', { status: 400 });
+    }
     const deck = decodeDeckShare(shareId);
 
     if (!deck) {
@@ -347,7 +353,3 @@ export async function GET(
     return new Response('Internal Server Error', { status: 500 });
   }
 }
-
-// Next.js OG Image Routeはdefault export必須
-// ※必ずファイル末尾に置くこと
-export { GET as default };
