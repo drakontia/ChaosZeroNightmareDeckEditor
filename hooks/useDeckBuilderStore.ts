@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { Character, Deck, Equipment, EquipmentType, DeckCard, GodType } from "@/types";
+import { getCardById, CHARACTERS } from "@/lib/data";
 
 interface DeckBuilderStore {
   deck: Deck | null;
@@ -26,7 +27,6 @@ export const useDeckBuilderStore = create<DeckBuilderStore>((set) => ({
   egoLevels: {},
   setCharacter: (character) => {
     set((state) => {
-      const { getCardById } = require("@/lib/data");
       const startingCards = character.startingCards?.map(id => {
         const base = getCardById(id);
         if (!base) return undefined;
@@ -66,7 +66,6 @@ export const useDeckBuilderStore = create<DeckBuilderStore>((set) => ({
     let charObj = null;
     if (deck.character) {
       if (typeof deck.character === 'string') {
-        const { CHARACTERS } = require("@/lib/data");
         const charId = deck.character as string;
         charObj = CHARACTERS.find((c: Character) => c.id === charId) ?? null;
       } else {
@@ -217,7 +216,6 @@ export const useDeckBuilderStore = create<DeckBuilderStore>((set) => ({
       if (!state.deck) return {};
       const cardToConvert = state.deck.cards.find((c) => c.deckId === deckId);
       if (!cardToConvert) return {};
-      const { getCardById } = require("@/lib/data");
       const target = getCardById(targetCardId);
       if (!target) return {};
       const convertedCard = {

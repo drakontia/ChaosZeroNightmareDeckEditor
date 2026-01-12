@@ -18,7 +18,7 @@ describe('deck-share', () => {
         imgUrl: ''
       } as any,
       equipment: {
-        weapon: { id: 'weapon_1', name: 'equipment.weapon.weapon_1.name', type: EquipmentType.WEAPON, rarity: 'RARE' },
+        weapon: { id: 'obsidian_sword', name: 'equipment.weapon.obsidian_sword.name', type: EquipmentType.WEAPON, rarity: 'equipment.rarity.rare' },
         armor: null,
         pendant: null
       },
@@ -120,7 +120,7 @@ describe('deck-share', () => {
       const encoded = encodeDeckShare(mockDeck);
       const decoded = decodeDeckShare(encoded);
 
-      expect(decoded!.equipment.weapon?.id).toBe('weapon_1');
+      expect(decoded!.equipment.weapon?.id).toBe('obsidian_sword');
       expect(decoded!.equipment.armor).toBeNull();
     });
 

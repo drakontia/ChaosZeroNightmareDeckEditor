@@ -17,12 +17,27 @@ describe('useDeckSaveLoad', () => {
   beforeEach(() => {
     // localStorageをモック
     const store: Record<string, string> = {};
-    vi.stubGlobal('window', Object.create(window));
-    vi.stubGlobal('localStorage', {
+    const mockLocalStorage = {
       getItem: (key: string) => store[key] || null,
       setItem: (key: string, value: string) => { store[key] = value; },
       removeItem: (key: string) => { delete store[key]; },
-      clear: () => { Object.keys(store).forEach(k => delete store[k]); }
+      clear: () => { Object.keys(store).forEach(k => delete store[k]); },
+      length: 0,
+      key: (index: number) => null
+    };
+    Object.defineProperty(global, 'localStorage', {
+      value: mockLocalStorage,
+      writable: true
+    });
+    // window.promptとwindow.alertをモック
+    Object.defineProperty(global, 'window', {
+      value: {
+        localStorage: mockLocalStorage,
+        prompt: vi.fn((message: string, defaultValue: string) => defaultValue),
+        alert: vi.fn(),
+        confirm: vi.fn(() => true)
+      },
+      writable: true
     });
     sharedDeck = null;
     name = '';

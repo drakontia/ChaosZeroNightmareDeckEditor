@@ -101,13 +101,13 @@ export function encodeDeckShare(deck: Deck): string {
     v: DEFAULT_VERSION,
     ...(deck.name && { n: deck.name }),
     ...(deck.character && { c: deck.character.id }),
-    ...(deck.equipment.weapon || deck.equipment.armor || deck.equipment.pendant) && {
+    ...((deck.equipment.weapon || deck.equipment.armor || deck.equipment.pendant) && {
       e: {
         ...(deck.equipment.weapon && { w: deck.equipment.weapon.id }),
         ...(deck.equipment.armor && { a: deck.equipment.armor.id }),
         ...(deck.equipment.pendant && { p: deck.equipment.pendant.id }),
       },
-    },
+    }),
     k: deck.cards.map((card) => ({
       id: card.id,
       ...(card.selectedHiramekiLevel !== undefined && { selectedHiramekiLevel: card.selectedHiramekiLevel }),

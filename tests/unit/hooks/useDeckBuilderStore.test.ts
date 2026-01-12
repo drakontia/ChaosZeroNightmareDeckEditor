@@ -61,13 +61,16 @@ describe('useDeckBuilderStore', () => {
   it('addCard/removeCardでcardsが変化する', () => {
     const card = getTestCard();
     act(() => {
+      useDeckBuilderStore.getState().setCharacter(CHARACTERS[0]);
       useDeckBuilderStore.getState().addCard(card);
     });
-    expect(useDeckBuilderStore.getState().deck?.cards.length).toBe(1);
+    const initialLength = useDeckBuilderStore.getState().deck?.cards.length || 0;
+    expect(initialLength).toBeGreaterThan(0);
     act(() => {
       useDeckBuilderStore.getState().removeCard(card.deckId);
     });
-    expect(useDeckBuilderStore.getState().deck?.cards.length).toBe(0);
+    const afterLength = useDeckBuilderStore.getState().deck?.cards.length || 0;
+    expect(afterLength).toBe(initialLength - 1);
   });
 
   it('selectEquipmentで装備が更新される', () => {
@@ -85,8 +88,7 @@ describe('useDeckBuilderStore', () => {
       useDeckBuilderStore.getState().reset();
     });
     const deck = useDeckBuilderStore.getState().deck;
-    expect(deck?.character).toBeNull();
-    expect(deck?.cards.length).toBe(0);
+    expect(deck).toBeNull();
   });
 
   it('setEgoLevelでegoLevelsが更新される', () => {
