@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
@@ -59,22 +59,22 @@ export function CardFrame({
   isCopied = false,
 }: CardFrameProps) {
   const t = useTranslations();
+  const [imageError, setImageError] = useState(false);
+  
   const displayName = nameId ? t(nameId, { defaultValue: nameFallback ?? name ?? "" }) : (name ?? "");
   const displayAlt = displayName || alt || "";
   const isCompact = variant === "compact";
-  const categoryClass = isCompact
-    ? "text-[11px]"
-    : "text-xs md:text-base";
 
   return (
     <div className={cn("relative overflow-hidden aspect-2/3 rounded-md", className)}>
       {imgUrl && (
         <Image
-          src={imgUrl}
+          src={imageError ? '/images/cards/card_placeholder.png' : imgUrl}
           alt={displayAlt}
           fill
           className={cn("object-cover", isCopied && "scale-x-[-1]")}
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          onError={() => setImageError(true)}
         />
       )}
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/10 to-black/60" />

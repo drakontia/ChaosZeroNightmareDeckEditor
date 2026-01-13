@@ -4,6 +4,13 @@ import { useState } from "react";
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Equipment, EquipmentType } from "@/types";
+
+// 装備タイプごとのプレースホルダー画像
+const EQUIPMENT_PLACEHOLDER: Record<EquipmentType, string> = {
+  [EquipmentType.WEAPON]: '/images/equipment/weapons_placeholder.png',
+  [EquipmentType.ARMOR]: '/images/equipment/armors_placeholder.png',
+  [EquipmentType.PENDANT]: '/images/equipment/pendants_placeholder.png',
+};
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Field, FieldGroup, FieldLabel } from "./ui/field";
@@ -23,6 +30,15 @@ interface EquipmentSelectorProps {
 export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: EquipmentSelectorProps) {
   const t = useTranslations();
   const [openType, setOpenType] = useState<EquipmentType | null>(null);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (equipmentId: string) => {
+    setImageErrors(prev => new Set(prev).add(equipmentId));
+  };
+
+  const getImageSrc = (imgUrl: string, equipmentId: string) => {
+    return imageErrors.has(equipmentId) ? '/images/equipment/equipment_placeholder.png' : imgUrl;
+  };
 
   const getEquipmentByType = (type: EquipmentType) => {
     return equipment.filter(eq => eq.type === type);
@@ -46,12 +62,21 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                   {selected.imgUrl && (
                     <div className="absolute inset-0 rounded-md overflow-hidden bg-muted">
                       <Image
-                        src={selected.imgUrl}
+                        src={getImageSrc(selected.imgUrl, selected.id)}
                         alt={t(selected.name)}
                         fill
                         className="object-cover"
                         sizes="100%"
+                        onError={() => handleImageError(selected.id)}
                       />
+                      {selected.description && (
+                        <InfoDialog
+                          description={t(selected.description)}
+                          rarity={t(selected.rarity)}
+                          t={t}
+                          triggerAsChild
+                        />
+                      )}
                     </div>
                   )}
                   <div
@@ -61,7 +86,15 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                   </div>
                 </>
               ) : (
-                <span className="text-gray-100 font-semibold">{t(titleKey)}</span>
+                <div className="absolute inset-0 rounded-md overflow-hidden bg-muted">
+                  <Image
+                    src={EQUIPMENT_PLACEHOLDER[type]}
+                    alt={t(titleKey)}
+                    fill
+                    className="object-cover"
+                    sizes="100%"
+                  />
+                </div>
               )}
             </Button>
           </DialogTrigger>
@@ -94,11 +127,12 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                     {item.imgUrl && (
                       <div className="relative w-full aspect-square rounded-md overflow-hidden bg-muted mb-3">
                         <Image
-                          src={item.imgUrl}
+                          src={getImageSrc(item.imgUrl, item.id)}
                           alt={t(item.name)}
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          onError={() => handleImageError(item.id)}
                         />
                         {item.description && (
                           <InfoDialog

@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Character } from "@/types";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
@@ -23,6 +24,8 @@ interface CharacterSelectorProps {
 
 export function CharacterSelector({ characters, character, onSelect, hasPotential, onTogglePotential }: CharacterSelectorProps) {
   const t = useTranslations();
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+  
   const {
     isOpen,
     setIsOpen,
@@ -30,6 +33,14 @@ export function CharacterSelector({ characters, character, onSelect, hasPotentia
     handleEgoIncrement,
     handleSelect,
   } = useCharacterSelection({ character, onSelect });
+
+  const handleImageError = (characterId: string) => {
+    setImageErrors(prev => new Set(prev).add(characterId));
+  };
+
+  const getImageSrc = (characterImgUrl: string, characterId: string) => {
+    return imageErrors.has(characterId) ? '/images/characters/character_placeholder.png' : characterImgUrl;
+  };
 
   return (
     <Field className="mb-6">
@@ -44,11 +55,12 @@ export function CharacterSelector({ characters, character, onSelect, hasPotentia
                 {character.imgUrl && (
                   <div className="absolute inset-0 rounded-md overflow-hidden bg-muted">
                     <Image
-                      src={character.imgUrl}
+                      src={getImageSrc(character.imgUrl, character.id)}
                       alt={t(character.name)}
                       fill
                       className="object-cover"
                       sizes="100%"
+                      onError={() => handleImageError(character.id)}
                     />
                     {/* Rarity gradient band */}
                     <div className={`absolute inset-y-0 left-0 w-4 lg:w-8 ${character.rarity === '★5'
@@ -150,11 +162,12 @@ export function CharacterSelector({ characters, character, onSelect, hasPotentia
                   {character.imgUrl && (
                     <div className="relative w-full aspect-2/1 rounded-md overflow-hidden bg-muted">
                       <Image
-                        src={character.imgUrl}
+                        src={getImageSrc(character.imgUrl, character.id)}
                         alt={t(character.name)}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        onError={() => handleImageError(character.id)}
                       />
                       {/* Rarity gradient band */}
                        <div className={`absolute inset-y-0 left-0 w-5 ${character.rarity === '★5'
