@@ -224,29 +224,94 @@ export const useDeckBuilderStore = create<DeckBuilderStore>((set) => ({
   undoCard: (deckId) => {
     set((state) => {
       if (!state.deck) return {};
-      const cardToRemove = state.deck.cards.find((c) => c.deckId === deckId);
-      if (!cardToRemove) return {};
+      const cardToUndo = state.deck.cards.find((c) => c.deckId === deckId);
+      if (!cardToUndo) return {};
       
-      // Track removal in removedCards map with snapshot of current card state
-      const newRemoved = new Map(state.deck.removedCards);
-      const existing = newRemoved.get(cardToRemove.id);
-      const currentCount = typeof existing === "number" ? existing : (existing?.count ?? 0);
+      // Check if this card was converted from another card
+      // convertedCards maps originalId -> convertedToId
+      // We need to find if current card's ID is a convertedToId
+      const newConverted = new Map(state.deck.convertedCards);
+      let isConverted = false;
+      let originalCardId: string | null = null;
       
-      const snapshot: RemovedCardEntry = {
-        count: currentCount + 1,
-        type: cardToRemove.type,
-        selectedHiramekiLevel: cardToRemove.selectedHiramekiLevel,
-        godHiramekiType: cardToRemove.godHiramekiType,
-        godHiramekiEffectId: cardToRemove.godHiramekiEffectId,
-        isBasicCard: cardToRemove.isBasicCard,
-      };
-      newRemoved.set(cardToRemove.id, snapshot);
+      for (const [origId, entry] of newConverted.entries()) {
+        const convertedToId = typeof entry === 'string' ? entry : entry?.convertedToId;
+        if (convertedToId === cardToUndo.id) {
+          isConverted = true;
+          originalCardId = origId;
+          break;
+        }
+      }
       
+      // If this is a converted card, restore the original card
+      if (isConverted && originalCardId) {
+        const originalCard = getCardById(originalCardId);
+        if (originalCard) {
+          const entry = newConverted.get(originalCardId);
+          const snapshot = typeof entry === 'string' ? null : entry;
+          
+          const restoredCard: DeckCard = {
+            ...originalCard,
+            deckId: `${originalCard.id}_${Date.now()}_${Math.random()}`,
+            selectedHiramekiLevel: snapshot?.selectedHiramekiLevel ?? 0,
+            godHiramekiType: snapshot?.godHiramekiType ?? null,
+            godHiramekiEffectId: snapshot?.godHiramekiEffectId ?? null,
+            selectedHiddenHiramekiId: null,
+          };
+          
+          // Replace converted card with original card
+          const cardIndex = state.deck.cards.findIndex((c) => c.deckId === deckId);
+          const newCards = [...state.deck.cards];
+          newCards[cardIndex] = restoredCard;
+          
+          // Remove from convertedCards
+          newConverted.delete(originalCardId);
+          
+          return {
+            deck: {
+              ...state.deck,
+              cards: newCards,
+              convertedCards: newConverted,
+            },
+          };
+        }
+      }
+      
+      // If this is a copied card, just remove it
+      if (cardToUndo.isCopied) {
+        const newCopied = new Map(state.deck.copiedCards);
+        const copiedFromId = cardToUndo.copiedFromCardId || cardToUndo.id;
+        const existing = newCopied.get(copiedFromId);
+        const currentCount = typeof existing === "number" ? existing : (existing?.count ?? 0);
+        
+        if (currentCount > 1) {
+          const snapshot = typeof existing === 'number' ? null : existing;
+          newCopied.set(copiedFromId, {
+            count: currentCount - 1,
+            type: snapshot?.type ?? cardToUndo.type,
+            selectedHiramekiLevel: snapshot?.selectedHiramekiLevel ?? cardToUndo.selectedHiramekiLevel,
+            godHiramekiType: snapshot?.godHiramekiType ?? cardToUndo.godHiramekiType,
+            godHiramekiEffectId: snapshot?.godHiramekiEffectId ?? cardToUndo.godHiramekiEffectId,
+            isBasicCard: snapshot?.isBasicCard ?? cardToUndo.isBasicCard,
+          });
+        } else {
+          newCopied.delete(copiedFromId);
+        }
+        
+        return {
+          deck: {
+            ...state.deck,
+            cards: state.deck.cards.filter((c) => c.deckId !== deckId),
+            copiedCards: newCopied,
+          },
+        };
+      }
+      
+      // Otherwise, just remove the card from the deck (for manually added cards)
       return {
         deck: {
           ...state.deck,
           cards: state.deck.cards.filter((c) => c.deckId !== deckId),
-          removedCards: newRemoved,
         },
       };
     });

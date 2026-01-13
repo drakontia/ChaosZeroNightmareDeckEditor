@@ -33,6 +33,7 @@ describe('deck-share', () => {
           selectedHiramekiLevel: 0,
           godHiramekiType: null,
           godHiramekiEffectId: null,
+          selectedHiddenHiramekiId: null,
           isBasicCard: false,
           isCopied: true,
           copiedFromCardId: 'shared_01',
@@ -177,6 +178,7 @@ describe('deck-share', () => {
           selectedHiramekiLevel: 0,
           godHiramekiType: 'kilken' as GodType,
           godHiramekiEffectId: 'kilken_01',
+          selectedHiddenHiramekiId: null,
           isBasicCard: false,
           hiramekiVariations: [
             { level: 0, cost: 4, description: 'モンスターを召喚して攻撃' }

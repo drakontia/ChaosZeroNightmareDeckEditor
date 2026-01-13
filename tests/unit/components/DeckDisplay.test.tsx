@@ -72,6 +72,7 @@ describe('DeckDisplay - Copied Card Feature', () => {
     selectedHiramekiLevel: 0,
     godHiramekiType: null,
     godHiramekiEffectId: null,
+    selectedHiddenHiramekiId: null,
     isBasicCard: false,
     isCopied: false,
     ...overrides
@@ -92,7 +93,8 @@ describe('DeckDisplay - Copied Card Feature', () => {
     onConvertCard: vi.fn(),
     onUpdateHirameki: vi.fn(),
     onSetGodHirameki: vi.fn(),
-    onSetGodHiramekiEffect: vi.fn()
+    onSetGodHiramekiEffect: vi.fn(),
+    onSetHiddenHirameki: vi.fn()
   };
 
   beforeEach(() => {

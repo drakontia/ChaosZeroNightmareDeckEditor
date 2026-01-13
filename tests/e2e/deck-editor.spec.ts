@@ -499,4 +499,247 @@ test.describe('Deck Editor', () => {
     const finalCount = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
     expect(finalCount).toBe(initialCount + 2);
   });
+
+  test('should undo converted card to restore original card', async ({ page }) => {
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const originalName = await addFirstHiramekiCard(page);
+    const totalBefore = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+
+    // Convert the card
+    const deckCard = getDeckCardContainerByName(page, originalName);
+    await deckCard.getByRole('button', { name: 'メニュー' }).click();
+    await deckCard.getByRole('button', { name: '変換' }).click();
+
+    const targetName = '加虐性';
+    const dialog = page.getByRole('dialog');
+    const targetTile = dialog.getByText(targetName, { exact: true }).first();
+    await expect(targetTile).toBeVisible();
+    await targetTile.click({ timeout: 10_000 });
+    await page.waitForTimeout(400);
+
+    // Verify converted card is in deck
+    const convertedDeckCard = getDeckCardContainerByName(page, targetName);
+    await expect(convertedDeckCard).toBeVisible();
+
+    // Undo the converted card
+    await convertedDeckCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    const undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Verify original card is restored in deck
+    const restoredDeckCard = getDeckCardContainerByName(page, originalName);
+    await expect(restoredDeckCard).toBeVisible();
+
+    // Verify converted card is no longer in deck
+    const convertedCards = page.getByText(targetName, { exact: true })
+      .locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
+    await expect(convertedCards).toHaveCount(0);
+
+    // Verify total cards count remains the same
+    const totalAfter = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+    expect(totalAfter).toBe(totalBefore);
+
+    // Verify converted list is cleared
+    const convertedSection = page.getByRole('heading', { name: '変換したカード' }).locator('..');
+    await expect(convertedSection.locator(`div[title="${originalName}"]`)).toHaveCount(0);
+  });
+
+  test('should undo copied card to remove it from deck', async ({ page }) => {
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const cardName = '加虐性';
+    await openAccordion(page, '共用カード');
+    const sharedSection = page.getByRole('heading', { name: '共用カード' }).locator('..');
+    await sharedSection.getByText(cardName, { exact: true }).first().click({ timeout: 10_000 });
+    await page.waitForTimeout(400);
+
+    const totalBefore = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+
+    // Copy the card
+    const deckCard = getDeckCardContainerByName(page, cardName);
+    await deckCard.getByRole('button', { name: 'メニュー' }).click();
+    const copyBtn = page.getByRole('button', { name: 'コピー', exact: true });
+    await expect(copyBtn).toBeVisible();
+    await copyBtn.click();
+    await page.waitForTimeout(400);
+
+    const totalAfterCopy = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+    expect(totalAfterCopy).toBe(totalBefore + 1);
+
+    // Get the copied card (should be the last one with this name)
+    const allCards = page.getByText(cardName, { exact: true })
+      .locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
+    const copiedCard = allCards.last();
+
+    // Undo the copied card
+    await copiedCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    const undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Verify card count decreased back to original
+    const totalAfterUndo = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+    expect(totalAfterUndo).toBe(totalBefore);
+  });
+
+  test('should undo added card to remove it from deck', async ({ page }) => {
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const totalBefore = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+
+    const cardName = await addFirstHiramekiCard(page);
+    await page.waitForTimeout(400);
+
+    const totalAfterAdd = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+    expect(totalAfterAdd).toBe(totalBefore + 1);
+
+    // Undo the added card
+    const deckCard = getDeckCardContainerByName(page, cardName);
+    await deckCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    const undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Verify card count decreased back to original
+    const totalAfterUndo = parseInt(await page.locator('[data-testid="total-cards"]').innerText());
+    expect(totalAfterUndo).toBe(totalBefore);
+
+    // Verify card is no longer in deck
+    const cardInDeck = page.getByText(cardName, { exact: true })
+      .locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
+    await expect(cardInDeck).toHaveCount(0);
+  });
+
+  test('should reduce Faint Memory points when undoing a copied card', async ({ page }) => {
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const cardName = '加虐性';
+    await openAccordion(page, '共用カード');
+    const sharedSection = page.getByRole('heading', { name: '共用カード' }).locator('..');
+    await sharedSection.getByText(cardName, { exact: true }).first().click({ timeout: 10_000 });
+    await page.waitForTimeout(400);
+
+    // Get initial faint memory points
+    const faintMemoryText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const initialPoints = parseInt(faintMemoryText.replace(/[^0-9]/g, ''));
+
+    // Copy the card
+    const deckCard = getDeckCardContainerByName(page, cardName);
+    await deckCard.getByRole('button', { name: 'メニュー' }).click();
+    const copyBtn = page.getByRole('button', { name: 'コピー', exact: true });
+    await expect(copyBtn).toBeVisible();
+    await copyBtn.click();
+    await page.waitForTimeout(400);
+
+    // Get points after copy (first copy adds 0 points)
+    const afterCopyText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const afterCopyPoints = parseInt(afterCopyText.replace(/[^0-9]/g, ''));
+    expect(afterCopyPoints).toBe(initialPoints); // First copy = 0 points
+
+    // Get the copied card (should be the last one with this name)
+    const allCards = page.getByText(cardName, { exact: true })
+      .locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
+    const copiedCard = allCards.last();
+
+    // Undo the copied card
+    await copiedCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    const undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Verify points returned to initial value
+    const afterUndoText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const afterUndoPoints = parseInt(afterUndoText.replace(/[^0-9]/g, ''));
+    expect(afterUndoPoints).toBe(initialPoints);
+  });
+
+  test('should reduce Faint Memory points progressively when undoing multiple copies', async ({ page }) => {
+    await page.goto('/');
+    await selectCharacterAndWeapon(page);
+
+    const cardName = '加虐性';
+    await openAccordion(page, '共用カード');
+    const sharedSection = page.getByRole('heading', { name: '共用カード' }).locator('..');
+    await sharedSection.getByText(cardName, { exact: true }).first().click({ timeout: 10_000 });
+    await page.waitForTimeout(400);
+
+    // Get initial points
+    const initialText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const initialPoints = parseInt(initialText.replace(/[^0-9]/g, ''));
+
+    const deckCard = getDeckCardContainerByName(page, cardName);
+
+    // Make 3 copies
+    for (let i = 0; i < 3; i++) {
+      await deckCard.getByRole('button', { name: 'メニュー' }).click();
+      await page.waitForTimeout(200);
+      const copyBtn = page.getByRole('button', { name: 'コピー', exact: true });
+      await expect(copyBtn).toBeVisible();
+      await copyBtn.click();
+      await page.waitForTimeout(400);
+    }
+
+    // Points after 3 copies: 0 + 10 + 30 = 40
+    const after3CopiesText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const after3CopiesPoints = parseInt(after3CopiesText.replace(/[^0-9]/g, ''));
+    expect(after3CopiesPoints).toBe(initialPoints + 40);
+
+    // Undo one copy
+    const allCards = page.getByText(cardName, { exact: true })
+      .locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
+    let lastCard = allCards.last();
+    await lastCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    let undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Points after undoing 1 copy: 0 + 10 = 10
+    const after2CopiesText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const after2CopiesPoints = parseInt(after2CopiesText.replace(/[^0-9]/g, ''));
+    expect(after2CopiesPoints).toBe(initialPoints + 10);
+
+    // Undo another copy
+    lastCard = allCards.last();
+    await lastCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Points after undoing 2 copies: 0
+    const after1CopyText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const after1CopyPoints = parseInt(after1CopyText.replace(/[^0-9]/g, ''));
+    expect(after1CopyPoints).toBe(initialPoints);
+
+    // Undo the last copy
+    lastCard = allCards.last();
+    await lastCard.getByRole('button', { name: 'メニュー' }).click();
+    await page.waitForTimeout(200);
+    undoBtn = page.getByRole('button', { name: '戻す' });
+    await expect(undoBtn).toBeVisible();
+    await undoBtn.click();
+    await page.waitForTimeout(500);
+
+    // Points after undoing all copies: back to initial
+    const finalText = await page.locator('[data-testid="faint-memory"]').innerText();
+    const finalPoints = parseInt(finalText.replace(/[^0-9]/g, ''));
+    expect(finalPoints).toBe(initialPoints);
+  });
 });

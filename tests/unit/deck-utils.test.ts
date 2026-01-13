@@ -12,7 +12,7 @@ describe('getCardInfo', () => {
       description: 'Base description',
       statuses: [CardStatus.INITIATION]
     };
-    
+
     const variation1: HiramekiVariation = {
       level: 1,
       cost: 6,
@@ -39,6 +39,7 @@ describe('getCardInfo', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation, variation1]
     };
@@ -131,7 +132,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'char-1',
@@ -142,6 +143,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -154,7 +156,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'shared-1',
@@ -165,6 +167,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -177,7 +180,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'monster-1',
@@ -188,6 +191,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -200,7 +204,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'forbidden-1',
@@ -211,6 +215,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -223,7 +228,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'shared-1',
@@ -234,6 +239,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 2, // Has hirameki
       godHiramekiType: null,
       godHiramekiEffectId: null,
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -246,7 +252,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push({
       deckId: '1',
       id: 'shared-1',
@@ -257,6 +263,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 0,
       godHiramekiType: GodType.KILKEN,
       godHiramekiEffectId: 'godhirameki_1',
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -277,7 +284,7 @@ describe('calculateFaintMemory', () => {
     baseDeck.removedCards.set('card-3', 3);
     baseDeck.removedCards.set('card-4', 4);
     baseDeck.removedCards.set('card-5', 5);
-    
+
     expect(calculateFaintMemory(baseDeck)).toBe(860);
   });
 
@@ -304,7 +311,7 @@ describe('calculateFaintMemory', () => {
     expect(calculateFaintMemory(baseDeck)).toBe(290); // 0 + (10+30) + (50+20) + (70+20) + (70+20)
   });
 
-    it('should add removal points for 3 different character cards', () => {
+  it('should add removal points for 3 different character cards', () => {
     // luke_starting_1: 1 removal = removal #1 = (0+20) = 20
     // luke_starting_2: 2 removals = removal #2, #3 = (10+20) + (30+20) = 30 + 50 = 80
     // luke_starting_3: 3 removals = removal #4, #5, #6 = (50+20) + (70+20) + (70+20) = 70 + 90 + 90 = 250
@@ -352,7 +359,7 @@ describe('calculateFaintMemory', () => {
     baseDeck.copiedCards.set('card-1', 1);
     baseDeck.copiedCards.set('card-2', 2);
     baseDeck.copiedCards.set('card-3', 3);
-    
+
     expect(calculateFaintMemory(baseDeck)).toBe(230);
   });
 
@@ -360,7 +367,7 @@ describe('calculateFaintMemory', () => {
     baseDeck.convertedCards.set('card-1', 'converted-1');
     baseDeck.convertedCards.set('card-2', 'converted-2');
     baseDeck.convertedCards.set('card-3', 'converted-3');
-    
+
     expect(calculateFaintMemory(baseDeck)).toBe(30);
   });
 
@@ -370,7 +377,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     // Add 1 shared card with hirameki and god hirameki
     baseDeck.cards.push({
       deckId: '1',
@@ -382,6 +389,7 @@ describe('calculateFaintMemory', () => {
       selectedHiramekiLevel: 2,
       godHiramekiType: GodType.KILKEN,
       godHiramekiEffectId: 'godhirameki_1',
+      selectedHiddenHiramekiId: null,
       isBasicCard: false,
       hiramekiVariations: [variation]
     });
@@ -402,7 +410,7 @@ describe('calculateFaintMemory', () => {
       cost: 0,
       description: ''
     };
-    
+
     baseDeck.cards.push(
       {
         deckId: '1',
@@ -414,6 +422,7 @@ describe('calculateFaintMemory', () => {
         selectedHiramekiLevel: 0,
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [variation]
       },
@@ -427,6 +436,7 @@ describe('calculateFaintMemory', () => {
         selectedHiramekiLevel: 0,
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [variation]
       }
@@ -543,6 +553,7 @@ describe('calculateFaintMemory (snapshot attribute handling)', () => {
         selectedHiramekiLevel: 2,
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [
           {
@@ -590,6 +601,102 @@ describe('calculateFaintMemory (snapshot attribute handling)', () => {
     // Total: 10 + 0 + 10 = 20
     expect(calculateFaintMemory(deck)).toBe(20);
   });
+
+  it('should subtract conversion points when conversion is undone', () => {
+    // Shared card with hirameki converted to monster
+    const variation: HiramekiVariation = {
+      level: 0,
+      cost: 0,
+      description: ''
+    };
+
+    deck.cards = [
+      {
+        deckId: 'monster_01_deck',
+        id: 'monster_01',
+        name: 'Monster Card',
+        type: CardType.MONSTER,
+        category: CardCategory.ATTACK,
+        statuses: [],
+        selectedHiramekiLevel: 0,
+        godHiramekiType: null,
+        godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
+        isBasicCard: false,
+        hiramekiVariations: [variation]
+      }
+    ];
+
+    // Conversion entry: shared card (Lv1) was converted to monster
+    deck.convertedCards.set('shared_01', {
+      convertedToId: 'monster_01',
+      originalType: CardType.SHARED,
+      selectedHiramekiLevel: 1,
+      godHiramekiType: null,
+      godHiramekiEffectId: null,
+      isBasicCard: false
+    });
+
+    // With conversion: type(80) + conversion(10) + original_hirameki(10) = 100
+    const pointsBeforeUndo = calculateFaintMemory(deck);
+    expect(pointsBeforeUndo).toBe(100);
+
+    // After undoing the conversion (removing from convertedCards)
+    deck.convertedCards.delete('shared_01');
+
+    // Without conversion: type(80) only = 80
+    // The +10pt conversion and +10pt original hirameki should be gone
+    const pointsAfterUndo = calculateFaintMemory(deck);
+    expect(pointsAfterUndo).toBe(80);
+  });
+
+  it('should correctly calculate points when converting back with preserved hirameki', () => {
+    const variation: HiramekiVariation = {
+      level: 0,
+      cost: 0,
+      description: ''
+    };
+
+    // Initial: monster card with hirameki Lv2
+    deck.cards = [
+      {
+        deckId: 'shared_01_deck',
+        id: 'shared_01',
+        name: 'Shared Card',
+        type: CardType.SHARED,
+        category: CardCategory.ATTACK,
+        statuses: [],
+        selectedHiramekiLevel: 2,
+        godHiramekiType: null,
+        godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
+        isBasicCard: false,
+        hiramekiVariations: [variation]
+      }
+    ];
+
+    // Conversion entry: shared card (Lv2) was converted to monster
+    deck.convertedCards.set('shared_01', {
+      convertedToId: 'monster_01',
+      originalType: CardType.SHARED,
+      selectedHiramekiLevel: 2,
+      godHiramekiType: null,
+      godHiramekiEffectId: null,
+      isBasicCard: false
+    });
+
+    // After conversion: shared(20) + hirameki(10) + conversion(10) + preserved_hirameki(10) = 50
+    const pointsWithConversion = calculateFaintMemory(deck);
+    expect(pointsWithConversion).toBe(50);
+
+    // When undoing conversion
+    deck.convertedCards.delete('shared_01');
+
+    // After undo: shared(20) + hirameki(10) = 30
+    // The +10pt conversion and +10pt preserved hirameki should be gone
+    const pointsAfterUndo = calculateFaintMemory(deck);
+    expect(pointsAfterUndo).toBe(30);
+  });
 });
 
 describe('calculateFaintMemory (copy double-counting issue)', () => {
@@ -622,6 +729,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
         selectedHiramekiLevel: 1,
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [
           {
@@ -648,9 +756,9 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
     // Copy sequence: copy #1 = base 0
     // Copy snapshot should NOT add type/hirameki points since original is still in deck
     // Expected: 30 + 0 = 30
-    
+
     const points = calculateFaintMemory(deck);
-    
+
     // Fixed: Should not double-count when original is in deck
     expect(points).toBe(30);
   });
@@ -658,7 +766,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
   it('should count snapshot points only when copy is made AFTER removing original from deck', () => {
     // Scenario: Card was copied while in deck with certain attributes, then original was removed
     // In this case, we should count the snapshot attributes
-    
+
     deck.cards = []; // Original card removed from deck
 
     deck.copiedCards.set('shared_01', {
@@ -689,6 +797,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
         selectedHiramekiLevel: 2, // Now at Lv2
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [
           {
@@ -714,9 +823,9 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
     // Copy sequence: copy #1 = base 0
     // Copy snapshot should NOT be added since original is still in deck
     // Expected: 30 + 0 = 30
-    
+
     const points = calculateFaintMemory(deck);
-    
+
     // Fixed: Should only count once even with different attributes
     expect(points).toBe(30);
   });
@@ -734,6 +843,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
         selectedHiramekiLevel: 2,
         godHiramekiType: GodType.KILKEN,
         godHiramekiEffectId: 'godhirameki_1',
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [
           {
@@ -759,9 +869,9 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
     // Copy sequence: copy #1=0, #2=10, #3=30 = 40
     // Copy snapshot should NOT be added since original is in deck
     // Expected: 110 + 40 = 150
-    
+
     const points = calculateFaintMemory(deck);
-    
+
     // Fixed: snapshot should not add type/hirameki/god if original in deck
     expect(points).toBe(150);
   });
@@ -769,7 +879,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
   it('should handle undo copy correctly - removing copy should clear copiedCards entry', () => {
     // This tests the interaction with useDeckBuilder's undoCard function
     // When a copied card is undone, the copiedCards count should decrease
-    
+
     // Original card in deck
     deck.cards = [
       {
@@ -782,6 +892,7 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
         selectedHiramekiLevel: 1,
         godHiramekiType: null,
         godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
         isBasicCard: false,
         hiramekiVariations: [
           {
@@ -800,5 +911,116 @@ describe('calculateFaintMemory (copy double-counting issue)', () => {
     // Only original card points should count
     // type(20) + hirameki(10) = 30
     expect(calculateFaintMemory(deck)).toBe(30);
+  });
+
+  it('should reduce points when a copy is undone (count decreases)', () => {
+    // Original card in deck
+    deck.cards = [
+      {
+        id: 'shared_01',
+        deckId: 'shared_01_original',
+        name: 'Shared Card',
+        type: CardType.SHARED,
+        category: CardCategory.ATTACK,
+        statuses: [],
+        selectedHiramekiLevel: 1,
+        godHiramekiType: null,
+        godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
+        isBasicCard: false,
+        hiramekiVariations: [
+          {
+            level: 0,
+            cost: 5,
+            description: 'Base'
+          }
+        ]
+      }
+    ];
+
+    // Made 3 copies, then undone 1 copy (now count = 2)
+    deck.copiedCards.set('shared_01', {
+      count: 2,
+      type: CardType.SHARED,
+      selectedHiramekiLevel: 1,
+      godHiramekiType: null,
+      godHiramekiEffectId: null,
+      isBasicCard: false
+    });
+
+    // type(20) + hirameki(10) + copy(0 + 10) = 40
+    expect(calculateFaintMemory(deck)).toBe(40);
+  });
+
+  it('should handle multiple undo operations reducing copy count progressively', () => {
+    // Original card in deck
+    deck.cards = [
+      {
+        id: 'monster_01',
+        deckId: 'monster_01_original',
+        name: 'Monster Card',
+        type: CardType.MONSTER,
+        category: CardCategory.ATTACK,
+        statuses: [],
+        selectedHiramekiLevel: 2,
+        godHiramekiType: GodType.KILKEN,
+        godHiramekiEffectId: 'godhirameki_1',
+        selectedHiddenHiramekiId: null,
+        isBasicCard: false,
+        hiramekiVariations: [
+          {
+            level: 0,
+            cost: 5,
+            description: 'Base'
+          }
+        ]
+      }
+    ];
+
+    // Originally made 5 copies, undone 2 copies (now count = 3)
+    deck.copiedCards.set('monster_01', {
+      count: 3,
+      type: CardType.MONSTER,
+      selectedHiramekiLevel: 2,
+      godHiramekiType: GodType.KILKEN,
+      godHiramekiEffectId: 'godhirameki_1',
+      isBasicCard: false
+    });
+
+    // type(80) + hirameki(10) + god(20) + copy(0 + 10 + 30) = 150
+    expect(calculateFaintMemory(deck)).toBe(150);
+  });
+
+  it('should correctly calculate points after all copies are undone', () => {
+    // Scenario: made copies, then undone all of them
+    // Original card in deck
+    deck.cards = [
+      {
+        id: 'forbidden_01',
+        deckId: 'forbidden_01_original',
+        name: 'Forbidden Card',
+        type: CardType.FORBIDDEN,
+        category: CardCategory.ATTACK,
+        statuses: [],
+        selectedHiramekiLevel: 0,
+        godHiramekiType: null,
+        godHiramekiEffectId: null,
+        selectedHiddenHiramekiId: null,
+        isBasicCard: false,
+        hiramekiVariations: [
+          {
+            level: 0,
+            cost: 5,
+            description: 'Base'
+          }
+        ]
+      }
+    ];
+
+    // All copies were undone
+    deck.copiedCards.clear();
+
+    // Only type(20) from original card
+    expect(calculateFaintMemory(deck)).toBe(20);
   });
 });
