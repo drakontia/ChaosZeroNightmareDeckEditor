@@ -1662,6 +1662,124 @@ export const CHARACTER_CARDS: CznCard[] = [
       { level: 0, cost: 1, description: "ダメージ50%<wbr/>結束の重複数に応じてダメージ量+20%" },
     ]
   },
+  // Narja's starting cards
+  {
+    id: "narja_starting_1",
+    name: "NA：攻撃反応", // Fallback: See messages/*.json for translations
+    type: CardType.CHARACTER,
+    category: CardCategory.ATTACK,
+    statuses: [],
+    isBasicCard: true,
+    isStartingCard: true,
+    imgUrl: "/images/cards/narja_starting_1.png",
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "防御依存ダメージ100%" } // Fallback
+    ]
+  },
+  {
+    id: "narja_starting_2",
+    name: "NA：保護反応", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.SKILL,
+    statuses: [],
+    imgUrl: "/images/cards/narja_starting_2.png",
+    isBasicCard: true,
+    isStartingCard: true,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "治癒100%" } // Fallback
+    ]
+  },
+  {
+    id: "narja_starting_3",
+    name: "NA：保護反応", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.SKILL,
+    statuses: [],
+    imgUrl: "/images/cards/narja_starting_2.png",
+    isBasicCard: true,
+    isStartingCard: true,
+    hiramekiVariations: [
+      { level: 0, cost: 1, description: "治癒100%" } // Fallback
+    ]
+  },
+  {
+    id: "narja_starting_4",
+    name: "飢餓の枷", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.ATTACK,
+    statuses: [],
+    imgUrl: "/images/cards/narja_starting_4.png",
+    isBasicCard: false,
+    isStartingCard: true,
+    hiramekiVariations: [ // Fallback descriptions
+      { level: 0, cost: 1, description: "感応：貪触4<wbr/>防御依存ダメージ30% x 3" },
+      { level: 1, cost: 1, description: "感応：貪触6<wbr/>防御依存ダメージ30% x 4"},
+      { level: 2, cost: 0, description: "感応：貪触1<wbr/>防御依存ダメージ30% x 2<wbr/>ターン開始時、前のターンで貪食を3回以上発動した場合、手札へ移動" },
+      { level: 3, cost: 1, description: "防御依存ダメージ50% x 3<wbr/>所持中の貪食4ごとにヒット1回追加(最大3回)"},
+      { level: 4, cost: 1, category: CardCategory.SKILL, description: "貪食が最大5減小<wbr/>その数分、次に使用する攻撃カードのダメージ+40%<wbr/>5減小した場合、捕食3", statuses: [CardStatus.RETAIN] },
+      { level: 5, cost: 0, category: CardCategory.SKILL, description: "シールド60%<wbr/>貪食が最大3減小<wbr/>その数に応じて繰り返す"}
+    ]
+  },
+  // Narja's hirameki cards
+  {
+    id: "narja_hirameki_1",
+    name: "限りなき飢え", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.SKILL,
+    statuses: [],
+    imgUrl: "/images/cards/narja_hirameki_1.png",
+    hiramekiVariations: [ // Fallback descriptions
+      { level: 0, cost: 0, description: "次の2回の貪食発動時、手札のランダムなカード1枚が1ターンの間、コスト1減小" },
+      { level: 1, cost: 0, description: "貪食3<wbr/>次の2回の貪食発動時、手札のランダムなカード1枚が1ターンの間、コスト1減小"},
+      { level: 2, cost: 0, description: "次の2回の貪食発動時、手札のランダムなカード2枚が1ターンの間、コスト1減小"},
+      { level: 3, cost: 1, category: CardCategory.UPGRADE, description: "1ターンの間に貪食3回発動時、手札のランダムなカード1枚使用時までコスト1減小(各ターン1回)", statuses: [CardStatus.UNIQUE]},
+      { level: 4, cost: 0, description: "1ターンの間、防御依存ダメージ+100%", statuses: [CardStatus.RETAIN]},
+      { level: 5, cost: 1, description: "貪食7<wbr/>1ターンの間、貪食が発動するたびに、次の完全な食事のダメージ量+40%", statuses: [CardStatus.LEAD] }
+    ]
+  },
+  {
+    id: "narja_hirameki_2",
+    name: "アクティブコントロール", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.SKILL,
+    statuses: [],
+    imgUrl: "/images/cards/narja_hirameki_2.png",
+    hiramekiVariations: [ // Fallback descriptions
+      { level: 0, cost: 1, description: "貪食が6未満なら、貪食6<wbr/>6以上なら、捕食2"},
+      { level: 1, cost: 1, description: "貪食が6未満なら、貪食9<wbr/>6以上なら、捕食3"},
+      { level: 2, cost: 0, description: "完全な食事が山札にある場合、手札に移動<wbr/>墓地にある場合、1ターンの間、士気3" },
+      { level: 3, cost: 1, description: "2ターンの間、対象の行動カウントが減少するたびに貪食1" },
+      { level: 4, cost: 1, category: CardCategory.UPGRADE, description: "貪食10<wbr/>攻撃カードを1枚選択<wbr/>そのカードが手札へ移動するたびに、捕食1", statuses: [CardStatus.UNIQUE] },
+      { level: 5, cost: 1, category: CardCategory.UPGRADE, description: "基本攻撃カードでヒットするたびに貪食1<wbr/>基本攻撃カードのダメージ量+60%", statuses: [CardStatus.UNIQUE] }
+    ]
+  },
+  {
+    id: "narja_hirameki_3",
+    name: "貪食の領域", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.ATTACK,
+    statuses: [],
+    imgUrl: "/images/cards/narja_hirameki_3.png",
+    hiramekiVariations: [ // Fallback descriptions
+      { level: 0, cost: 1, description: "敵全体に防御依存ダメージ100%<wbr/>対象は次の大破時まで、受ける強靱度ダメージ100%増加" },
+      { level: 1, cost: 1, description: "敵全体に防御依存ダメージ100%<wbr/>対象は次の大破時まで、受ける強靱度ダメージ100%増加、大破時、貪食3" },
+      { level: 2, cost: 1, description: "敵全体に防御依存ダメージ100%<wbr/>2ターンの間、対象が受ける防御依存ダメージ+100%" },
+      { level: 3, cost: 1, description: "敵全体に防御依存ダメージ150%<wbr/>次の5回対象をヒット時治癒40%" },
+      { level: 4, cost: 3, description: "敵全体に防御依存ダメージ320%<wbr/>貪食と捕食がある場合もう1回発動", statuses: [CardStatus.RETAIN] },
+      { level: 5, cost: 1, category: CardCategory.UPGRADE, description: "完全な食事を使用するたびに、治癒200%", statuses: [CardStatus.UNIQUE] }
+    ]
+  },
+  {
+    id: "narja_hirameki_4",
+    name: "完全な食事", // Fallback
+    type: CardType.CHARACTER,
+    category: CardCategory.ATTACK,
+    statuses: [CardStatus.RETAIN, CardStatus.UNIQUE],
+    imgUrl: "/images/cards/narja_hirameki_4.png",
+    hiramekiVariations: [ // Fallback descriptions
+      { level: 0, cost: 6, description: "貪食が減少すると、使用時までコスト1減小、治癒量+30%(最大10)<wbr/>敵全体に防御依存ダメージ160%<wbr/>治癒100%<wbr/>捕食4" },
+    ]
+  },
   // Nia's starting cards
   {
     id: "nia_starting_1",

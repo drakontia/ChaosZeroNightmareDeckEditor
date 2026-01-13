@@ -142,6 +142,16 @@ export const CHARACTERS: Character[] = [
     hiramekiCards: ["kayron_hirameki_1", "kayron_hirameki_2", "kayron_hirameki_3", "kayron_hirameki_4"]
   },
   {
+    id: "narja",
+    name: "character.narja",
+    rarity: "★5",
+    job: JobType.CONTROLLER,
+    element: ElementType.INSTINCT,
+    imgUrl: "/images/characters/character_narja.png",
+    startingCards: ["narja_starting_1", "narja_starting_2", "narja_starting_3", "narja_starting_4"],
+    hiramekiCards: ["narja_hirameki_1", "narja_hirameki_2", "narja_hirameki_3", "narja_hirameki_4"]
+  },
+  {
     id: "nia",
     name: "character.nia",
     rarity: "★4",
