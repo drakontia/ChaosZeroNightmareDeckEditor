@@ -118,7 +118,17 @@ export function encodeDeckShare(deck: Deck): string {
     })),
     ...(deck.egoLevel && { ego: deck.egoLevel }),
     ...(deck.hasPotential && { pot: deck.hasPotential }),
-    ct: deck.createdAt.toISOString(),
+    // createdAt を安全に ISO 文字列に変換
+    ct: (() => {
+      if (deck.createdAt instanceof Date) {
+        return deck.createdAt.toISOString();
+      }
+      if (typeof deck.createdAt === 'string') {
+        return deck.createdAt;
+      }
+      // フォールバック：現在時刻を使用
+      return new Date().toISOString();
+    })(),
     ...(deck.removedCards.size && {
       rm: Array.from(deck.removedCards.entries()).map(([id, entry]) => {
         if (typeof entry === 'number') {
@@ -192,8 +202,14 @@ export function decodeDeckShare(value: string): Deck | null {
       })
       .filter((card): card is DeckCard => Boolean(card));
 
-    const createdAt = payload.ct ? new Date(payload.ct) : new Date();
-    const validCreatedAt = Number.isNaN(createdAt.getTime()) ? new Date() : createdAt;
+    // createdAt を安全に Date に変換
+    let validCreatedAt = new Date();
+    if (payload.ct) {
+      const parsed = new Date(payload.ct);
+      if (!Number.isNaN(parsed.getTime())) {
+        validCreatedAt = parsed;
+      }
+    }
 
     return {
       name: payload.n ?? "",

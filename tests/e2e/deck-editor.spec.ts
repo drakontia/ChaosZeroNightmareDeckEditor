@@ -287,7 +287,10 @@ test.describe('Deck Editor', () => {
     await expect(page.getByTestId('total-cards')).toContainText(String(totalBefore + 1));
   });
 
-  test.skip('should copy share URL and load shared deck', async ({ page }) => {
+  test('should copy share URL and load shared deck', async ({ page, context }) => {
+    // Grant clipboard permissions
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
     await page.goto('/');
     await selectCharacterAndWeapon(page);
 
@@ -295,18 +298,6 @@ test.describe('Deck Editor', () => {
 
     // Confirm deck card count is now 5
     await expect(page.getByTestId('total-cards')).toContainText('5');
-
-    // Stub clipboard to capture share URL reliably
-    await page.evaluate(() => {
-      (window as any).__copiedURL = '';
-      (navigator as any).clipboard = {
-        writeText: async (text: string) => {
-          (window as any).__copiedURL = text;
-          return Promise.resolve();
-        },
-        readText: async () => (window as any).__copiedURL,
-      };
-    });
 
     // Click share and capture alert
     const shareBtn = page.getByRole('button', { name: '共有' });
@@ -321,6 +312,7 @@ test.describe('Deck Editor', () => {
 
     await shareBtn.click();
     const alertMessage = await alertPromise;
+    
     expect(alertMessage).toContain('共有URLをコピーしました');
 
     // Read clipboard and navigate to shared URL

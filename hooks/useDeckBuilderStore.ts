@@ -74,9 +74,20 @@ export const useDeckBuilderStore = create<DeckBuilderStore>((set) => ({
         charObj = deck.character;
       }
     }
+    
+    // createdAt が文字列の場合は Date に正規化
+    const normalizedCreatedAt = 
+      deck.createdAt instanceof Date
+        ? deck.createdAt
+        : new Date(deck.createdAt as any);
+    
     let newDeck = deck;
-    if (charObj) {
-      newDeck = { ...deck, character: charObj };
+    if (charObj || !(deck.createdAt instanceof Date)) {
+      newDeck = { 
+        ...deck, 
+        ...(charObj && { character: charObj }),
+        ...(!(deck.createdAt instanceof Date) && { createdAt: normalizedCreatedAt })
+      };
     }
     set({ deck: newDeck });
   },

@@ -29,7 +29,8 @@ export function useShareDeck() {
           );
         }
       } catch (err) {
-        console.error("Failed to create deck share URL", err);
+        const errorMsg = err instanceof Error ? err.message : String(err);
+        console.error("Failed to create deck share URL:", errorMsg, err);
         alert(
           t("deck.shareFailed", {
             defaultValue: "共有URLの生成に失敗しました。",
