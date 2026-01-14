@@ -1,14 +1,10 @@
 import { ImageResponse } from 'next/og';
+import { getTranslations } from 'next-intl/server';
 import { decodeDeckShare } from '@/lib/deck-share';
+import { calculateFaintMemory, getCardInfo } from '@/lib/deck-utils';
 import { cookies } from 'next/headers';
-import { getCardInfo } from '@/lib/deck-utils';
 
-// Edge RuntimeではNode.js API不可。JSONを直接import。
-import ja_common from '../../../messages/ja/common.json';
-import ja_equipment from '../../../messages/ja/equipment.json';
-import ja_cards from '../../../messages/ja/cards.json';
-
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const size = {
   width: 1200,
   height: 630,
@@ -23,7 +19,7 @@ export default async function Image({
 }) {
   try {
     const { shareId } = await params;
-    
+
     if (!shareId) {
       console.error('[OG Image] No shareId in params');
       return new Response('Invalid request', { status: 400 });
@@ -37,81 +33,50 @@ export default async function Image({
 
     const cookieStore = await cookies();
     const locale = cookieStore.get('NEXT_LOCALE')?.value || 'ja';
-    // 必要な言語分岐を追加する場合はここで分岐
-    // 今回はjaのみ対応
 
-    const messages = {
-      ...ja_common,
-      ...ja_equipment,
-      ...ja_cards,
-    };
+    const t = await getTranslations({ locale });
 
-    const t = (key: string, fallback: string) => {
-      const keys = key.split('.');
-      let value: any = messages;
-      for (const k of keys) {
-        value = value?.[k];
-        if (!value) return fallback;
-      }
-      return value || fallback;
-    };
-
-    const deckName = deck.name || t('deck.noDeck', 'Unnamed Deck');
+    const deckName = deck.name || t('deck.noDeck');
     const characterName = deck.character?.name
-      ? (messages as any).character?.[deck.character.id] || deck.character.name
-      : t('character.select', 'No Character');
+      ? t(`character.${deck.character.id}`)
+      : t('character.select');
     const cardCount = deck.cards.length;
     const createdDate = new Date(deck.createdAt).toLocaleDateString(locale, {
       year: '2-digit',
       month: '2-digit',
       day: '2-digit',
     });
-    // Calculate faint memory points
-    let faintMemoryPoints = 0;
-    for (const card of deck.cards) {
-      if (card.type === 'shared') faintMemoryPoints += 20;
-      if (card.type === 'monster') faintMemoryPoints += 80;
-      if (card.type === 'forbidden') faintMemoryPoints += 20;
-      if (
-        (card.type === 'shared' || card.type === 'monster') &&
-        card.selectedHiramekiLevel > 0
-      ) {
-        faintMemoryPoints += 10;
-      }
-      if (card.godHiramekiType) faintMemoryPoints += 20;
-    }
+
+    // Use existing faint memory calculation logic
+    const faintMemoryPoints = calculateFaintMemory(deck);
 
     const labels = {
-      title: t('app.title', 'カオスゼロナイトメア デッキエディター'),
-      character: t('character.title', 'キャラクター'),
-      totalCards: t('deck.totalCards', 'カード枚数'),
-      faintMemory: t('character.faintMemory', '曖昧な記憶'),
-      category: t('category', 'カテゴリ'),
+      title: t('app.title'),
+      character: t('character.title'),
+      totalCards: t('deck.totalCards'),
+      faintMemory: t('character.faintMemory'),
     };
 
     // Get ego level and potential from deck
     const egoLevel = deck.egoLevel ?? 0;
     const hasPotential = deck.hasPotential ?? false;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://czn-deck-editor.drakontia.com';
 
     // Get translated card info with correct costs
     const cardsWithTranslation = deck.cards.slice(0, 12).map((card) => {
       const cardInfo = getCardInfo(card, egoLevel, hasPotential);
-      const nameKey = `cards.${card.id}.name`;
-      const translatedName = t(nameKey, card.name);
-      const categoryKey = `category.${card.category}`;
-      const translatedCategory = t(categoryKey, card.category);
+      const translatedName = card.name;
+      const categoryKey = `category.${card.category.toLowerCase()}`;
+      const translatedCategory = t(categoryKey);
 
-      // Convert relative path to absolute URL for Edge Runtime
+      // Convert relative path to absolute URL
       const imgUrl = card.imgUrl
         ? (card.imgUrl.startsWith('http')
           ? card.imgUrl
-          : `https://czn-deck-editor.drakontia.com${card.imgUrl}`)
+          : `${baseUrl}${card.imgUrl}`)
         : null;
 
-      // Get description from cardInfo
       const description = cardInfo.description || '';
-
-      // Get statuses from cardInfo
       const statuses = cardInfo.statuses || [];
 
       return {
