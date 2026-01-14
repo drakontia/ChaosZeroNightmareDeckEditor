@@ -62,7 +62,8 @@ export default async function Image({
       : t('character.select', 'No Character');
     const cardCount = deck.cards.length;
     const createdDate = new Date(deck.createdAt).toLocaleDateString(locale, {
-      year: 'numeric',
+      year: '2-digit',
+      month: '2-digit',
       day: '2-digit',
     });
     // Calculate faint memory points
@@ -312,7 +313,6 @@ export default async function Image({
                         lineHeight: 1.4,
                         color: '#ffffff',
                         textShadow: '0 1px 2px rgba(0,0,0,0.8)',
-                        backgroundColor: 'rgba(0,0,0,0.5)',
                         padding: '8px',
                         borderRadius: '4px',
                         maxHeight: '80px',
