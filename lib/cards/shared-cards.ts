@@ -47,30 +47,6 @@ export const SHARED_CARDS: CznCard[] = [
     ]
   },
   {
-    id: "shared_04",
-    name: "禁じられたアルゴリズム",
-    type: CardType.SHARED,
-    category: CardCategory.SKILL,
-    statuses: [CardStatus.EXHAUST, CardStatus.LEAD],
-    allowedJobs: "all",
-    imgUrl: "/images/cards/shared_04.png",
-    hiramekiVariations: [
-      { level: 0, cost: 3, description: "ランダムな禁忌カード1枚生成" }
-    ]
-  },
-  {
-    id: "shared_05",
-    name: "強制略奪",
-    type: CardType.SHARED,
-    category: CardCategory.SKILL,
-    statuses: [],
-    allowedJobs: "all",
-    imgUrl: "/images/cards/shared_05.png",
-    hiramekiVariations: [
-      { level: 0, cost: 0, description: "ドロー1\n山札または捨て札からランダムな禁忌カード1枚を手札に移動" }
-    ]
-  },
-  {
     id: "shared_06",
     name: "超再生",
     type: CardType.SHARED,
