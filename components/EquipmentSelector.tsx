@@ -73,7 +73,6 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                         <InfoDialog
                           description={t(selected.description)}
                           rarity={t(selected.rarity)}
-                          t={t}
                           triggerAsChild
                         />
                       )}
@@ -138,7 +137,6 @@ export function EquipmentSelector({ equipment, selectedEquipment, onSelect }: Eq
                           <InfoDialog
                             description={t(item.description)}
                             rarity={t(item.rarity)}
-                            t={t}
                             triggerAsChild
                           />
                         )}

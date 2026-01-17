@@ -1,16 +1,17 @@
 import * as React from "react";
 import { Info } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 
 
 interface InfoDialogProps {
   description: string;
   rarity: string;
-  t: (key: string, params?: Record<string, any>) => string;
   triggerAsChild?: boolean;
 }
 
-export function InfoDialog({ description, rarity, t, triggerAsChild }: InfoDialogProps) {
+export function InfoDialog({ description, rarity, triggerAsChild }: InfoDialogProps) {
+  const t = useTranslations();
   return (
     <Popover>
       <PopoverTrigger asChild={!!triggerAsChild}>
