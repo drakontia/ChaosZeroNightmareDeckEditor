@@ -133,8 +133,9 @@ export function CardFrame({
             </div>
           )}
           {godEffectId && (
-            <div className="mt-2">
-              <Zap className="h-5 w-5" /> <span className="text-blue-300">{t(`godEffects.${godEffectId}`, { defaultValue: godEffectFallback ?? "" })}</span>
+            <div className="mt-2 flex items-center justify-center gap-1">
+              <Zap className="h-5 w-5" />
+              <span className="text-blue-300">{t(`godEffects.${godEffectId}`, { defaultValue: godEffectFallback ?? "" })}</span>
             </div>
           )}
         </div>
