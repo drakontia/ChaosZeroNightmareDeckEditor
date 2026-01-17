@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Zap } from "lucide-react";
 
 // カテゴリアイコンのマッピング
 const CATEGORY_ICONS: Record<string, string> = {
@@ -126,14 +127,14 @@ export function CardFrame({
           {descriptionId
             ? t(descriptionId, { defaultValue: descriptionFallback ?? "" })
             : description}
-          {godEffectId && (
-            <div className="mt-2">
-              {t(`godEffects.${godEffectId}`, { defaultValue: godEffectFallback ?? "" })}
-            </div>
-          )}
           {hiddenEffectId && (
             <div className="mt-2">
               {t(`hiddenEffects.${hiddenEffectId}`, { defaultValue: hiddenEffectFallback ?? "" })}
+            </div>
+          )}
+          {godEffectId && (
+            <div className="mt-2">
+              <Zap className="h-5 w-5" /> <span className="text-blue-300">{t(`godEffects.${godEffectId}`, { defaultValue: godEffectFallback ?? "" })}</span>
             </div>
           )}
         </div>
