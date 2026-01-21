@@ -99,6 +99,55 @@ describe('getCardInfo', () => {
     // Should not apply god hirameki effect
     expect(info.description).not.toContain('このカードのコスト1減少');
   });
+
+  it('should not allow negative cost from god hirameki modifier', () => {
+    // Create a card with cost 0
+    const variation: HiramekiVariation = {
+      level: 0,
+      cost: 0,
+      description: 'Zero cost card'
+    };
+    baseCard.hiramekiVariations = [variation];
+    baseCard.selectedHiramekiLevel = 0;
+    baseCard.godHiramekiType = GodType.KILKEN;
+    baseCard.godHiramekiEffectId = 'godhirameki_3'; // Cost -1 effect
+    
+    const info = getCardInfo(baseCard);
+    expect(info.cost).toBe(0); // Should be 0, not -1
+  });
+
+  it('should not allow negative cost from hidden hirameki modifier', () => {
+    // Create a card with cost 0
+    const variation: HiramekiVariation = {
+      level: 0,
+      cost: 0,
+      description: 'Zero cost card'
+    };
+    baseCard.hiramekiVariations = [variation];
+    baseCard.selectedHiramekiLevel = 0;
+    baseCard.selectedHiddenHiramekiId = 'hidden_hirameki_cost_minus_1'; // Assuming a cost -1 hidden hirameki
+    
+    const info = getCardInfo(baseCard);
+    expect(info.cost).toBe(0); // Should be 0, not -1
+  });
+
+  it('should not allow negative cost from multiple modifiers', () => {
+    // Create a card with cost 1
+    const variation: HiramekiVariation = {
+      level: 0,
+      cost: 1,
+      description: 'Low cost card'
+    };
+    baseCard.hiramekiVariations = [variation];
+    baseCard.selectedHiramekiLevel = 0;
+    // Apply both god hirameki (-1) and hidden hirameki (-1)
+    baseCard.godHiramekiType = GodType.KILKEN;
+    baseCard.godHiramekiEffectId = 'godhirameki_3'; // Cost -1
+    baseCard.selectedHiddenHiramekiId = 'hidden_hirameki_cost_minus_1'; // Cost -1
+    
+    const info = getCardInfo(baseCard);
+    expect(info.cost).toBe(0); // Should be 0, not -1 (1 + (-1) + (-1))
+  });
 });
 
 describe('calculateFaintMemory', () => {

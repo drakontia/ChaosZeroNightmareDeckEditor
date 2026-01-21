@@ -70,6 +70,11 @@ export function getCardInfo(
     }
   }
 
+  // Ensure cost is never negative
+  if (typeof cost === "number" && cost < 0) {
+    cost = 0;
+  }
+
   return { cost, description, category, statuses };
 }
 
