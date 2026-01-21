@@ -203,33 +203,6 @@
 | nihilum | ニヒルム | Nihilum | 尼希鲁姆 | 니힐룸 |
 | vitol | ヴィトル | Vitol | 维托尔 | 비톨 |
 
-#### 神毎の効果（各神は複数の効果を持つ）
-
-**キルケン（Kilken）** - 攻撃系
-1. 追加ダメージ: 攻撃時、追加ダメージを与える（コスト-1）
-2. クリティカル: クリティカル率が上昇する（コスト変化なし）
-3. 連続攻撃: 攻撃が2回連続で発動する（コスト+1）
-
-**セクレド（Seclaid）** - 防御系
-1. 防御強化: 防御力を大幅に上昇させる（コスト変化なし）
-2. ダメージ軽減: 受けるダメージを50%軽減する（コスト変化なし）
-3. バリア: 次の攻撃を完全に無効化する（コスト+1）
-
-**ディアロス（Dialos）** - 範囲系
-1. 全体効果: 全体効果に変化する（コスト変化なし）
-2. 範囲拡大: 効果範囲が2倍になる（コスト+1）
-3. 味方強化: 味方全体に効果を付与する（コスト-1）
-
-**ニヒルム（Nihilum）** - 妨害系
-1. 効果無効化: 敵の強化効果を無効化する（コスト変化なし）
-2. デバフ解除: 味方のデバフを全て解除する（コスト変化なし）
-3. 沈黙: 敵をスキル使用不可にする（コスト+1）
-
-**ヴィトル（Vitol）** - 回復系
-1. HP回復: HPを回復する（コスト変化なし）
-2. 継続回復: 3ターンの間、継続的にHPを回復する（コスト+1）
-3. 蘇生: 倒れた味方を復活させる（コスト+2）
-
 #### 神ヒラメキ選択UI（2段階選択）
 
 1. **第1段階**: 神の選択
@@ -602,7 +575,7 @@ pnpm start     # プロダクションサーバー起動
 
 ## ライセンス
 
-MIT License
+GPL v3 License
 
 ---
 
@@ -618,4 +591,4 @@ MIT License
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Playwright Documentation](https://playwright.dev/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [next-intl Documentation](https://next-intl-docs.vercel.app/)
+- [next-intl Documentation](https://next-intl.dev/)
