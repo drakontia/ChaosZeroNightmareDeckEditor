@@ -132,8 +132,8 @@ export function DeckBuilder({ shareId }: DeckBuilderProps) {
   const faintMemoryPoints = deck ? calculateFaintMemory(deck) : 0;
 
   // 統一されたテキストスタイル定数
-  const statLabelClass = "text-sm sm:text-base md:text-lg lg:text-xl text-gray-500";
-  const statValueClass = "text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-500";
+  const statLabelClass = "text-sm sm:text-base md:text-lg lg:text-2xl text-gray-500";
+  const statValueClass = "text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-gray-500";
 
   // Hooks呼び出し後に初期化中判定（必ず1箇所のみ）
   if (!deck) {
