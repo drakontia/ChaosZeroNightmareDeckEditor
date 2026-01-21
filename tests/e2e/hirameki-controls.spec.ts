@@ -30,17 +30,14 @@ test.describe('Hirameki Controls (non-character cards)', () => {
     await openAccordion(page, '共用カード');
     const sharedSection = page.getByRole('heading', { name: '共用カード' }).locator('..');
     await sharedSection.getByText('加虐性', { exact: true }).first().click({ timeout: 10_000 });
-    await page.waitForTimeout(300);
 
     await openAccordion(page, 'モンスターカード');
     const monsterSection = page.getByRole('heading', { name: 'モンスターカード' }).locator('..');
     await monsterSection.getByText('恥ずかしがり屋の庭師', { exact: true }).first().click({ timeout: 10_000 });
-    await page.waitForTimeout(300);
 
     await openAccordion(page, '禁忌カード');
     const forbiddenSection = page.getByRole('heading', { name: '禁忌カード' }).locator('..');
     await forbiddenSection.getByText('禁じられたアルゴリズム', { exact: true }).first().click({ timeout: 10_000 });
-    await page.waitForTimeout(300);
 
     // Verify controls exist on each deck card with shorter timeout
     for (const name of ['加虐性', '恥ずかしがり屋の庭師', '禁じられたアルゴリズム']) {
@@ -50,7 +47,7 @@ test.describe('Hirameki Controls (non-character cards)', () => {
     }
   });
 
-  test('apply hidden hirameki to shared card marks Hirameki active', async ({ page }) => {
+  test('apply hidden hirameki to shared card updates description (and marks active)', async ({ page }) => {
     // Add a shared card
     await openAccordion(page, '共用カード');
     const sharedSection = page.getByRole('heading', { name: '共用カード' }).locator('..');
@@ -73,17 +70,23 @@ test.describe('Hirameki Controls (non-character cards)', () => {
     if (hasAccordion) {
       await accordionTrigger.click();
       await page.waitForTimeout(500);
-      const firstHiddenTile = dialog.locator('button').filter({ hasText: /hidden|隠し/i }).first();
-      const hasTile = await firstHiddenTile.isVisible({ timeout: 2000 }).catch(() => false);
-      
-      if (hasTile) {
-        await firstHiddenTile.click();
-        // Hirameki button should indicate active state (yellow)
-        await expect(hiramekiBtn).toHaveClass(/bg-yellow-400/);
-      } else {
-        // Close dialog if no hidden tiles
-        await page.keyboard.press('Escape');
+
+      // Use the button[title] tiles used in the UI; capture text to assert later
+      const firstHiddenTile = dialog.locator('button[title]').first();
+      await expect(firstHiddenTile).toBeVisible({ timeout: 3000 });
+      const tileText = (await firstHiddenTile.innerText()).split('\n').map(s => s.trim()).filter(Boolean)[0] ?? '';
+      await firstHiddenTile.click();
+      // Wait for dialog to close
+      await expect(dialog).not.toBeVisible({ timeout: 5000 });
+
+      // Re-fetch deck card and verify description contains a snippet from selected hidden effect
+      const updatedDeckCard = getDeckCardContainerByName(page, cardName);
+      if (tileText) {
+        await expect(updatedDeckCard).toContainText(tileText, { timeout: 5000 });
       }
+      // Optionally, check button active style (best-effort)
+      const updatedHiramekiBtn = updatedDeckCard.getByRole('button', { name: 'ヒラメキ', exact: true });
+      await expect(updatedHiramekiBtn).toHaveClass(/bg-yellow-400|bg-yellow-300/, { timeout: 3000 });
     } else {
       // Close dialog if no accordion
       await page.keyboard.press('Escape');
@@ -102,30 +105,42 @@ test.describe('Hirameki Controls (non-character cards)', () => {
     await expect(godBtn).toBeVisible();
     await godBtn.click();
 
-    // pick first effect after selecting default god
+    // Select god from dropdown and pick effect
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible({ timeout: 5000 });
     
-    // Wait for effect tiles to render
-    await page.waitForTimeout(500);
-    const effectTile = dialog.locator('button').filter({ hasText: /コスト|cost|効果/i }).first();
-    const hasTile = await effectTile.isVisible({ timeout: 3000 }).catch(() => false);
+    // Click the god dropdown button within the dialog
+    const godDropdown = dialog.getByRole('button', { name: '神ヒラメキ選択' }).first();
+    await godDropdown.click();
     
-    if (hasTile) {
-      await effectTile.click();
-      // God button should indicate active state (yellow)
-      await expect(godBtn).toHaveClass(/bg-yellow-400/, { timeout: 3000 });
-    } else {
-      // Try any button in the dialog as fallback
-      const anyEffectBtn = dialog.locator('button[title]').first();
-      const hasAnyBtn = await anyEffectBtn.isVisible({ timeout: 2000 }).catch(() => false);
-      if (hasAnyBtn) {
-        await anyEffectBtn.click();
-        await expect(godBtn).toHaveClass(/bg-yellow-400/, { timeout: 3000 });
-      } else {
-        // Close dialog
-        await page.keyboard.press('Escape');
+    // Select Kilken from the menu
+    const kilkenOption = page.getByRole('menuitem', { name: 'キルケン' }).first();
+    await kilkenOption.click();
+    
+    // Now click the first effect tile and remember text snippet (use title-bearing tiles)
+    const effectTiles = dialog.locator('button[title]');
+    const tileCount = await effectTiles.count();
+    
+    if (tileCount > 0) {
+      const firstTile = effectTiles.first();
+      await expect(firstTile).toBeVisible();
+      const allLines = (await firstTile.innerText()).split('\n').map(s => s.trim()).filter(Boolean);
+      // Heuristic: pick the longest line that is not the card name or a pure number (likely the effect text)
+      const candidate = allLines
+        .filter(line => line !== cardName && !/^\d+$/.test(line))
+        .sort((a, b) => b.length - a.length)[0] ?? '';
+      await firstTile.click();
+      // Wait for dialog to close
+      await expect(dialog).not.toBeVisible({ timeout: 5000 });
+      
+      // Re-fetch deck card and verify effect text appears
+      const updatedDeckCard = getDeckCardContainerByName(page, cardName);
+      if (candidate) {
+        await expect(updatedDeckCard).toContainText(candidate, { timeout: 5000 });
       }
+    } else {
+      // Close dialog
+      await page.keyboard.press('Escape');
     }
   });
 });
