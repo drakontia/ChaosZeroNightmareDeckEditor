@@ -152,7 +152,13 @@
     "hiddenhirameki_22": "At turn start, apply Torment 2 to all enemies",
     "hiddenhirameki_23": "At turn end, Shield 20%",
     "hiddenhirameki_24": "Increase Action Count by 2",
-    "hiddenhirameki_25": "Increase Action Count by 1 for all enemies"
+    "hiddenhirameki_25": "Increase Action Count by 1 for all enemies",
+    "hiddenhirameki_26": "不屈1",
+    "hiddenhirameki_27": "1ターンの間、不屈2",
+    "hiddenhirameki_28": "ターン終了時、治癒20%",
+    "hiddenhirameki_29": "ターン終了時、治癒40%",
+    "hiddenhirameki_30": "エゴポイント2獲得",
+    "hiddenhirameki_31": "次のターン、アクションポイント1"
   },
   "job": {
     "controller": "Controller",

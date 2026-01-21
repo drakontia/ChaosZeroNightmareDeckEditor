@@ -6,13 +6,16 @@ import { NextIntlClientProvider } from 'next-intl';
 
 // Mock components
 vi.mock('@/components/CardFrame', () => ({
-  CardFrame: ({ isCopied, statuses, name }: any) => (
+  CardFrame: ({ isCopied, statuses, name, leftControls, rightControls }: any) => (
     <div data-testid="card-frame">
       <div data-testid="card-name">{name}</div>
       {isCopied && <div data-testid="is-copied">Flipped</div>}
       {statuses && statuses.length > 0 && (
         <div data-testid="statuses">{statuses.join(', ')}</div>
       )}
+      {/* Render controls to allow tests to detect them */}
+      <div data-testid="left-controls">{leftControls}</div>
+      <div data-testid="right-controls">{rightControls}</div>
     </div>
   )
 }));
@@ -38,6 +41,11 @@ describe('DeckDisplay - Copied Card Feature', () => {
       attack: 'Attack',
       skill: 'Skill',
       upgrade: 'Upgrade'
+    },
+    card: {
+      hirameki: 'Hirameki',
+      godSelect: 'God Select',
+      hiddenHirameki: 'Hidden Hirameki'
     },
     status: {
       unique: 'Unique',
@@ -225,5 +233,63 @@ describe('DeckDisplay - Copied Card Feature', () => {
 
     const flippedCards = screen.getAllByTestId('is-copied');
     expect(flippedCards).toHaveLength(2);
+  });
+
+  it('shows HiramekiControls for non-character cards with only base variation (SHARED/MONSTER/FORBIDDEN)', () => {
+    const shared = createMockCard({ deckId: 'd-shared', type: CardType.SHARED });
+    const monster = createMockCard({ deckId: 'd-monster', type: CardType.MONSTER });
+    const forbidden = createMockCard({ deckId: 'd-forbidden', type: CardType.FORBIDDEN });
+
+    renderWithIntl(
+      <DeckDisplay
+        cards={[shared, monster, forbidden]}
+        egoLevel={0}
+        hasPotential={false}
+        {...mockHandlers}
+      />
+    );
+
+    const controls = screen.getAllByTestId('hirameki-controls');
+    expect(controls.length).toBe(3);
+  });
+
+  it('does NOT show HiramekiControls for character cards with only base variation', () => {
+    const charBase: DeckCard = createMockCard({
+      deckId: 'd-char-base',
+      type: CardType.CHARACTER,
+    });
+
+    renderWithIntl(
+      <DeckDisplay
+        cards={[charBase]}
+        egoLevel={0}
+        hasPotential={false}
+        {...mockHandlers}
+      />
+    );
+
+    expect(screen.queryByTestId('hirameki-controls')).toBeNull();
+  });
+
+  it('shows HiramekiControls for character cards that have hirameki variations (>1)', () => {
+    const charWithVar: DeckCard = {
+      ...createMockCard({ deckId: 'd-char-var' }),
+      type: CardType.CHARACTER,
+      hiramekiVariations: [
+        { level: 0, cost: 2, description: 'Base description', statuses: [] },
+        { level: 1, cost: 3, description: 'Lv1 description', statuses: [] },
+      ],
+    };
+
+    renderWithIntl(
+      <DeckDisplay
+        cards={[charWithVar]}
+        egoLevel={0}
+        hasPotential={false}
+        {...mockHandlers}
+      />
+    );
+
+    expect(screen.getByTestId('hirameki-controls')).toBeDefined();
   });
 });

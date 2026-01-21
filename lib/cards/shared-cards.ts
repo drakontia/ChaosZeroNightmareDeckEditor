@@ -526,10 +526,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_36.png",
     hiramekiVariations: [
-      { level: 0, cost: 0, description: "ダメージ80%\nドロー1" },
-      { level: 1, cost: 0, description: "ダメージ80%\nドロー1\n対象に標識1" },
-      { level: 2, cost: 0, description: "ダメージ80%\nドロー1\n対象に弱体化1" },
-      { level: 3, cost: 0, description: "ダメージ80%\nドロー1\n対象に苦痛2" }
+      { level: 0, cost: 0, description: "ダメージ80%\nドロー1" }
     ]
   },
   {
@@ -541,11 +538,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_37.png",
     hiramekiVariations: [
-      { level: 0, cost: 0, description: "敵全体にダメー200%" },
-      { level: 1, cost: 0, description: "敵全体にダメー200%\n次のターン、アクションポイント1" },
-      { level: 2, cost: 0, description: "敵全体にダメー200%\n次のターン、ドロー1" },
-      { level: 3, cost: 0, description: "敵全体にダメー200%\n敵全体苦痛2" },
-      { level: 4, cost: 0, description: "敵全体にダメー200%\n敵全体標識2" }
+      { level: 0, cost: 0, description: "敵全体にダメー200%" }
     ]
   },
   {
@@ -557,8 +550,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_38.png",
     hiramekiVariations: [
-      { level: 0, cost: 0, description: "ダメージ80%\n大破時このカードを墓地から手札に移動" },
-      { level: 1, cost: 0, description: "ダメージ80%\n大破時このカードを墓地から手札に移動\n対象に苦痛2" }
+      { level: 0, cost: 0, description: "ダメージ80%\n大破時このカードを墓地から手札に移動" }
     ]
   },
   {
@@ -570,8 +562,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_39.png",
     hiramekiVariations: [
-      { level: 0, cost: 2, description: "ダメージ350%\n次のターン開始時、ドロー1" },
-      { level: 1, cost: 2, description: "ダメージ350%\n次のターン開始時、ドロー1\n対象に標識2" }
+      { level: 0, cost: 2, description: "ダメージ350%\n次のターン開始時、ドロー1" }
     ]
   },
   {
@@ -595,8 +586,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_41.png",
     hiramekiVariations: [
-      { level: 0, cost: 0, description: "ダメージ120%\nドロー1\n手札のカードを1枚選択、そのカードを山札の一番上に移動" },
-      { level: 1, cost: 0, description: "ダメージ120%\nドロー1\n手札のカードを1枚選択、そのカードを山札の一番上に移動\n対象に弱体化1" }
+      { level: 0, cost: 0, description: "ダメージ120%\nドロー1\n手札のカードを1枚選択、そのカードを山札の一番上に移動" }
     ]
   },
   {
@@ -608,8 +598,7 @@ export const SHARED_CARDS: CznCard[] = [
     allowedJobs: [JobType.RANGER, JobType.HUNTER],
     imgUrl: "/images/cards/shared_42.png",
     hiramekiVariations: [
-      { level: 0, cost: 2, description: "ダメージ400%\nチャージ：クレジット20獲得" },
-      { level: 1, cost: 2, description: "ダメージ400%\nチャージ：クレジット20獲得\nアクションポイント1獲得" }
+      { level: 0, cost: 2, description: "ダメージ400%\nチャージ：クレジット20獲得" }
     ]
   },
   // For Controller and Psionic jobs
