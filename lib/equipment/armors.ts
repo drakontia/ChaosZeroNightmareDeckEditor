@@ -61,7 +61,7 @@ export const ARMORS: Equipment[] = [
     id: "assault_boots",
     name: "equipment.armor.assault_boots.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.assault_boots.description",
     imgUrl: "/images/equipment/armors/assault_boots.png"
   },
@@ -69,7 +69,7 @@ export const ARMORS: Equipment[] = [
     id: "reinforced_combat_suit",
     name: "equipment.armor.reinforced_combat_suit.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.reinforced_combat_suit.description",
     imgUrl: "/images/equipment/armors/reinforced_combat_suit.png"
   },
@@ -77,7 +77,7 @@ export const ARMORS: Equipment[] = [
     id: "cloud_walking_shoes",
     name: "equipment.armor.cloud_walking_shoes.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.cloud_walking_shoes.description",
     imgUrl: "/images/equipment/armors/cloud_walking_shoes.png"
   },
@@ -85,7 +85,7 @@ export const ARMORS: Equipment[] = [
     id: "psionic_combat_suit",
     name: "equipment.armor.psionic_combat_suit.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.psionic_combat_suit.description",
     imgUrl: "/images/equipment/armors/psionic_combat_suit.png"
   },
@@ -93,7 +93,7 @@ export const ARMORS: Equipment[] = [
     id: "shell_of_aberration",
     name: "equipment.armor.shell_of_aberration.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.shell_of_aberration.description",
     imgUrl: "/images/equipment/armors/shell_of_aberration.png"
   },
@@ -101,7 +101,7 @@ export const ARMORS: Equipment[] = [
     id: "disaster_shroud",
     name: "equipment.armor.disaster_shroud.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.disaster_shroud.description",
     imgUrl: "/images/equipment/armors/disaster_shroud.png"
   },
@@ -117,7 +117,7 @@ export const ARMORS: Equipment[] = [
     id: "wolves_banes_spine",
     name: "equipment.armor.wolves_banes_spine.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.wolves_banes_spine.description",
     imgUrl: "/images/equipment/armors/wolves_banes_spine.png"
   },
@@ -125,7 +125,7 @@ export const ARMORS: Equipment[] = [
     id: "shield_of_the_watcher",
     name: "equipment.armor.shield_of_the_watcher.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.shield_of_the_watcher.description",
     imgUrl: "/images/equipment/armors/shield_of_the_watcher.png"
   },
@@ -133,7 +133,7 @@ export const ARMORS: Equipment[] = [
     id: "the_chosen_vessel",
     name: "equipment.armor.the_chosen_vessel.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.the_chosen_vessel.description",
     imgUrl: "/images/equipment/armors/the_chosen_vessel.png"
   },
@@ -141,7 +141,7 @@ export const ARMORS: Equipment[] = [
     id: "cursed_doll",
     name: "equipment.armor.cursed_doll.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.cursed_doll.description",
     imgUrl: "/images/equipment/armors/cursed_doll.png"
   },
@@ -149,7 +149,7 @@ export const ARMORS: Equipment[] = [
     id: "torture_toolbox",
     name: "equipment.armor.torture_toolbox.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.torture_toolbox.description",
     imgUrl: "/images/equipment/armors/torture_toolbox.png"
   },
@@ -157,7 +157,7 @@ export const ARMORS: Equipment[] = [
     id: "chains_of_obsession",
     name: "equipment.armor.chains_of_obsession.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.chains_of_obsession.description",
     imgUrl: "/images/equipment/armors/chains_of_obsession.png"
   },
@@ -165,7 +165,7 @@ export const ARMORS: Equipment[] = [
     id: "wild_fur_cloak",
     name: "equipment.armor.wild_fur_cloak.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.wild_fur_cloak.description",
     imgUrl: "/images/equipment/armors/wild_fur_cloak.png"
   },
@@ -173,7 +173,7 @@ export const ARMORS: Equipment[] = [
     id: "kentris_chitin_armor",
     name: "equipment.armor.kentris_chitin_armor.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.kentris_chitin_armor.description",
     imgUrl: "/images/equipment/armors/kentris_chitin_armor.png"
   },
@@ -189,7 +189,7 @@ export const ARMORS: Equipment[] = [
     id: "growing_carapace",
     name: "equipment.armor.growing_carapace.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.growing_carapace.description",
     imgUrl: "/images/equipment/armors/growing_carapace.png"
   },
@@ -197,7 +197,7 @@ export const ARMORS: Equipment[] = [
     id: "dance_of_the_night_butterflies",
     name: "equipment.armor.dance_of_the_night_butterflies.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.dance_of_the_night_butterflies.description",
     imgUrl: "/images/equipment/armors/dance_of_the_night_butterflies.png"
   },
@@ -205,7 +205,7 @@ export const ARMORS: Equipment[] = [
     id: "wings_of_the_swarm",
     name: "equipment.armor.wings_of_the_swarm.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.wings_of_the_swarm.description",
     imgUrl: "/images/equipment/armors/wings_of_the_swarm.png"
   },
@@ -221,7 +221,7 @@ export const ARMORS: Equipment[] = [
     id: "mss_scope",
     name: "equipment.armor.mss_scope.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.mss_scope.description",
     imgUrl: "/images/equipment/armors/mss_scope.png"
   },
@@ -229,7 +229,7 @@ export const ARMORS: Equipment[] = [
     id: "regenerative_ribcage",
     name: "equipment.armor.regenerative_ribcage.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.regenerative_ribcage.description",
     imgUrl: "/images/equipment/armors/regenerative_ribcage.png"
   },
@@ -237,7 +237,7 @@ export const ARMORS: Equipment[] = [
     id: "gluttonous_tailcoat",
     name: "equipment.armor.gluttonous_tailcoat.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.gluttonous_tailcoat.description",
     imgUrl: "/images/equipment/armors/gluttonous_tailcoat.png"
   },
@@ -245,7 +245,7 @@ export const ARMORS: Equipment[] = [
     id: "fragment_of_the_empty_void",
     name: "equipment.armor.fragment_of_the_empty_void.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.fragment_of_the_empty_void.description",
     imgUrl: "/images/equipment/armors/fragment_of_the_empty_void.png"
   },
@@ -261,7 +261,7 @@ export const ARMORS: Equipment[] = [
     id: "immortal_scale",
     name: "equipment.armor.immortal_scale.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.immortal_scale.description",
     imgUrl: "/images/equipment/armors/immortal_scale.png"
   },
@@ -269,7 +269,7 @@ export const ARMORS: Equipment[] = [
     id: "fairy_kings_crown",
     name: "equipment.armor.fairy_kings_crown.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.fairy_kings_crown.description",
     imgUrl: "/images/equipment/armors/fairy_kings_crown.png"
   },
@@ -277,7 +277,7 @@ export const ARMORS: Equipment[] = [
     id: "wings_of_light",
     name: "equipment.armor.wings_of_light.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.wings_of_light.description",
     imgUrl: "/images/equipment/armors/wings_of_light.png"
   },
@@ -285,7 +285,7 @@ export const ARMORS: Equipment[] = [
     id: "ring_of_the_seraphim",
     name: "equipment.armor.ring_of_the_seraphim.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.ring_of_the_seraphim.description",
     imgUrl: "/images/equipment/armors/ring_of_the_seraphim.png"
   },
@@ -293,7 +293,7 @@ export const ARMORS: Equipment[] = [
     id: "star_lit_cloak",
     name: "equipment.armor.star_lit_cloak.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.star_lit_cloak.description",
     imgUrl: "/images/equipment/armors/star_lit_cloak.png"
   },
@@ -301,7 +301,7 @@ export const ARMORS: Equipment[] = [
     id: "mask_of_flames",
     name: "equipment.armor.mask_of_flames.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.mask_of_flames.description",
     imgUrl: "/images/equipment/armors/mask_of_flames.png"
   },
@@ -309,7 +309,7 @@ export const ARMORS: Equipment[] = [
     id: "twisted_discipline",
     name: "equipment.armor.twisted_discipline.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.twisted_discipline.description",
     imgUrl: "/images/equipment/armors/twisted_discipline.png"
   },
@@ -317,7 +317,7 @@ export const ARMORS: Equipment[] = [
     id: "primordial_discipline",
     name: "equipment.armor.primordial_discipline.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.primordial_discipline.description",
     imgUrl: "/images/equipment/armors/primordial_discipline.png"
   },
@@ -325,7 +325,7 @@ export const ARMORS: Equipment[] = [
     id: "consecrated_halo",
     name: "equipment.armor.consecrated_halo.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.armor.consecrated_halo.description",
     imgUrl: "/images/equipment/armors/consecrated_halo.png"
   },
@@ -349,7 +349,7 @@ export const ARMORS: Equipment[] = [
     id: "wings_of_freedom",
     name: "equipment.armor.wings_of_freedom.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.wings_of_freedom.description",
     imgUrl: "/images/equipment/armors/wings_of_freedom.png"
   },
@@ -357,7 +357,7 @@ export const ARMORS: Equipment[] = [
     id: "rocket_adorned_cape",
     name: "equipment.armor.rocket_adorned_cape.name",
     type: EquipmentType.ARMOR,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.armor.rocket_adorned_cape.description",
     imgUrl: "/images/equipment/armors/rocket_adorned_cape.png"
   }

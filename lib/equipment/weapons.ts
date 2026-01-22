@@ -69,7 +69,7 @@ export const WEAPONS: Equipment[] = [
     id: "crimson_sword",
     name: "equipment.weapon.crimson_sword.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.crimson_sword.description",
     imgUrl: "/images/equipment/weapons/crimson_sword.png"
   },
@@ -77,7 +77,7 @@ export const WEAPONS: Equipment[] = [
     id: "second_method",
     name: "equipment.weapon.second_method.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.second_method.description",
     imgUrl: "/images/equipment/weapons/second_method.png"
   },
@@ -85,7 +85,7 @@ export const WEAPONS: Equipment[] = [
     id: "sneering_dagger",
     name: "equipment.weapon.sneering_dagger.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.sneering_dagger.description",
     imgUrl: "/images/equipment/weapons/sneering_dagger.png"
   },
@@ -93,7 +93,7 @@ export const WEAPONS: Equipment[] = [
     id: "rfs_17",
     name: "equipment.weapon.rfs_17.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.rfs_17.description",
     imgUrl: "/images/equipment/weapons/rfs_17.png"
   },
@@ -101,7 +101,7 @@ export const WEAPONS: Equipment[] = [
     id: "mountain_of_corpses",
     name: "equipment.weapon.mountain_of_corpses.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.mountain_of_corpses.description",
     imgUrl: "/images/equipment/weapons/mountain_of_corpses.png"
   },
@@ -109,7 +109,7 @@ export const WEAPONS: Equipment[] = [
     id: "intellect_of_discord",
     name: "equipment.weapon.intellect_of_discord.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.intellect_of_discord.description",
     imgUrl: "/images/equipment/weapons/intellect_of_discord.png"
   },
@@ -117,7 +117,7 @@ export const WEAPONS: Equipment[] = [
     id: "tentacles_of_chaos",
     name: "equipment.weapon.tentacles_of_chaos.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.tentacles_of_chaos.description",
     imgUrl: "/images/equipment/weapons/tentacles_of_chaos.png"
   },
@@ -141,7 +141,7 @@ export const WEAPONS: Equipment[] = [
     id: "natures_hostility",
     name: "equipment.weapon.natures_hostility.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.natures_hostility.description",
     imgUrl: "/images/equipment/weapons/natures_hostility.png"
   },
@@ -149,7 +149,7 @@ export const WEAPONS: Equipment[] = [
     id: "mutated_claws",
     name: "equipment.weapon.mutated_claws.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.mutated_claws.description",
     imgUrl: "/images/equipment/weapons/mutated_claws.png"
   },
@@ -157,7 +157,7 @@ export const WEAPONS: Equipment[] = [
     id: "executioners_edge",
     name: "equipment.weapon.executioners_edge.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.executioners_edge.description",
     imgUrl: "/images/equipment/weapons/executioners_edge.png"
   },
@@ -165,7 +165,7 @@ export const WEAPONS: Equipment[] = [
     id: "ritual_dagger",
     name: "equipment.weapon.ritual_dagger.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.ritual_dagger.description",
     imgUrl: "/images/equipment/weapons/ritual_dagger.png"
   },
@@ -173,7 +173,7 @@ export const WEAPONS: Equipment[] = [
     id: "esophagus_of_madness",
     name: "equipment.weapon.esophagus_of_madness.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.esophagus_of_madness.description",
     imgUrl: "/images/equipment/weapons/esophagus_of_madness.png"
   },
@@ -181,7 +181,7 @@ export const WEAPONS: Equipment[] = [
     id: "dark_grips_claws",
     name: "equipment.weapon.dark_grips_claws.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.dark_grips_claws.description",
     imgUrl: "/images/equipment/weapons/dark_grips_claws.png"
   },
@@ -189,7 +189,7 @@ export const WEAPONS: Equipment[] = [
     id: "mutated_order",
     name: "equipment.weapon.mutated_order.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.legendary",
+    rarity: "equipment.rarity.mythical",
     description: "equipment.weapon.mutated_order.description",
     imgUrl: "/images/equipment/weapons/mutated_order.png"
   },
@@ -205,7 +205,7 @@ export const WEAPONS: Equipment[] = [
     id: "violet_butterflys_whip",
     name: "equipment.weapon.violet_butterflys_whip.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.violet_butterflys_whip.description",
     imgUrl: "/images/equipment/weapons/violet_butterflys_whip.png"
   },
@@ -213,7 +213,7 @@ export const WEAPONS: Equipment[] = [
     id: "formicas_broken_spear",
     name: "equipment.weapon.formicas_broken_spear.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.formicas_broken_spear.description",
     imgUrl: "/images/equipment/weapons/formicas_broken_spear.png"
   },
@@ -221,7 +221,7 @@ export const WEAPONS: Equipment[] = [
     id: "abyssal_bug_tooth",
     name: "equipment.weapon.abyssal_bug_tooth.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.abyssal_bug_tooth.description",
     imgUrl: "/images/equipment/weapons/abyssal_bug_tooth.png"
   },
@@ -229,7 +229,7 @@ export const WEAPONS: Equipment[] = [
     id: "the_destruction_of_erysichthon",
     name: "equipment.weapon.the_destruction_of_erysichthon.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.the_destruction_of_erysichthon.description",
     imgUrl: "/images/equipment/weapons/the_destruction_of_erysichthon.png"
   },
@@ -269,7 +269,7 @@ export const WEAPONS: Equipment[] = [
     id: "dream_of_the_devoured",
     name: "equipment.weapon.dream_of_the_devoured.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.dream_of_the_devoured.description",
     imgUrl: "/images/equipment/weapons/dream_of_the_devoured.png"
   },
@@ -277,7 +277,7 @@ export const WEAPONS: Equipment[] = [
     id: "unexploded_plasma_bomb",
     name: "equipment.weapon.unexploded_plasma_bomb.name",
     type: EquipmentType.WEAPON,
-    rarity: "equipment.rarity.mythical",
+    rarity: "equipment.rarity.legendary",
     description: "equipment.weapon.unexploded_plasma_bomb.description",
     imgUrl: "/images/equipment/weapons/unexploded_plasma_bomb.png"
   },
