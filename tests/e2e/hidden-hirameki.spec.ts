@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Hidden Hirameki E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
-    // Navigate to the deck editor
+    // Navigate to the deck builder
     await page.goto('/');
   });
 

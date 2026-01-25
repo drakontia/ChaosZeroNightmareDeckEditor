@@ -8,8 +8,8 @@
     "undo": "Undo"
   },
   "app": {
-    "description": "A tool to freely edit Chaos Zero Nightmare decks\nThis is a machine translation and may contain inaccuracies.",
-    "title": "Chaos Zero Nightmare Deck Editor β"
+    "description": "A tool to freely build Chaos Zero Nightmare decks\nThis is a machine translation and may contain inaccuracies.",
+    "title": "Chaos Zero Nightmare Deck Builder"
   },
   "card": {
     "add": "Add Card",
@@ -19,7 +19,7 @@
     "god": "Select which God's Epiphany to use",
     "godHirameki": "God Epiphany",
     "godSelect": "Select God Epiphany",
-    "hiddenHirameki": "Hidden Hirameki",
+    "hiddenHirameki": "Hidden Epiphany",
     "hirameki": "Epiphany",
     "hiramekiCards": "Hirameki Cards",
     "characterCards": "Character Cards",

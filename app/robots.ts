@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://czn-deck-editor.drakontia.com/sitemap.xml',
+    sitemap: 'https://czn-deck-builder.drakontia.com/sitemap.xml',
   };
 }

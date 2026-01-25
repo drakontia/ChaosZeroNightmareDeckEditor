@@ -1,4 +1,4 @@
-# ChaosZeroNightmare Deck Editor — Copilot Coding Agent Instructions
+# ChaosZeroNightmare Deck Builder — Copilot Coding Agent Instructions
 
 ## このドキュメントについて
 

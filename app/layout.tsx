@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, useTranslations } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 
+const t = useTranslations()
 export const metadata: Metadata = {
-  title: "カオスゼロナイトメア デッキエディター",
-  description: "ゲーム「カオスゼロナイトメア」のカードデッキを作成・保存出来る攻略補助サイトです。",
+  title: t('app.title'),
+  description: t('app.description'),
+  keywords: ['カオスゼロナイトメア', 'カオゼロ', 'Chaos Zero Nightmare', 'Deck Builder', 'デッキビルダー', 'ローグライク', 'Roguelike', 'カードゲーム', 'Card Game' ],
 };
 
 export default async function RootLayout({

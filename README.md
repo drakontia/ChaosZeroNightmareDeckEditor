@@ -1,4 +1,4 @@
-# ChaosZeroNitghmareDeckEditor
+# ChaosZeroNitghmareDeckBuilder
 
 ゲーム「カオスゼロナイトメア」のカードデッキを作成・編集できる攻略補助サイトです。
 

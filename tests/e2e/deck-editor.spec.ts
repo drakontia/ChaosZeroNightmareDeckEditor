@@ -37,10 +37,10 @@ const getDeckCardContainerByName = (page: Page, cardName: string) => {
   return nameLocator.locator('xpath=ancestor::div[.//button[@aria-label="メニュー"]][1]');
 };
 
-test.describe('Deck Editor', () => {
-  test('should load the deck editor page', async ({ page }) => {
+test.describe('Deck Builder', () => {
+  test('should load the deck builder page', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByText('カオスゼロナイトメア デッキエディター')).toBeVisible();
+    await expect(page.getByText('カオスゼロナイトメア デッキビルダー')).toBeVisible();
   });
 
   test('should export deck image', async ({ page }) => {

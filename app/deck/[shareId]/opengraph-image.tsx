@@ -61,7 +61,7 @@ export default async function Image({
     // Get ego level and potential from deck
     const egoLevel = deck.egoLevel ?? 0;
     const hasPotential = deck.hasPotential ?? false;
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://czn-deck-editor.drakontia.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://czn-deck-builder.drakontia.com';
 
     // Get translated card info with correct costs
     const cardsWithTranslation = deck.cards.slice(0, 12).map((card) => {

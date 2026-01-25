@@ -21,6 +21,7 @@ export async function generateMetadata(
     return {
       title: t('app.title'),
       description: t('app.description'),
+      keywords: ['カオスゼロナイトメア', 'カオゼロ', 'Chaos Zero Nightmare', 'Deck Builder', 'デッキビルダー', 'ローグライク', 'Roguelike', 'カードゲーム', 'Card Game' ],
     };
   }
 
