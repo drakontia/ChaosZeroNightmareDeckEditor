@@ -13,8 +13,8 @@ import { Button } from '@/components/ui/button';
 const LANGUAGES = [
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  // { code: 'zh', name: '中文', flag: '🇨🇳' },
+  // { code: 'ko', name: '한국어', flag: '🇰🇷' },
 ];
 
 export function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
