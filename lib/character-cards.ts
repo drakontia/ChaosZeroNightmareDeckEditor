@@ -2070,7 +2070,7 @@ export const CHARACTER_CARDS: CznCard[] = [
       { level: 1, cost: 0, description: "影の短剣を2枚生成"},
       { level: 2, cost: 1, description: "影の短剣を3枚生成" },
       { level: 3, cost: 1, category: CardCategory.UPGRADE, description: "影の短剣を1枚生成<wbr/>ターン開始時、影の短剣を1枚生成" },
-      { level: 4, cost: 1, description: "影の短剣を2枚生成<wbr/>生成された影の短剣の苦痛付与効果が3増加" },
+      { level: 4, cost: 1, description: "影の短剣を2枚生成<wbr/>生成された影の短剣の苦痛付与効果が2増加" },
       { level: 5, cost: 1, description: "影の短剣を4枚生成", statuses: [CardStatus.EXHAUST] }
     ]
   },
@@ -2100,11 +2100,11 @@ export const CHARACTER_CARDS: CznCard[] = [
     imgUrl: "/images/cards/tressa_hirameki_2.png",
     hiramekiVariations: [ // Fallback descriptions
       { level: 0, cost: 2, description: "治癒100%<wbr/>上級影の短剣1枚生成"},
-      { level: 1, cost: 2, category: CardCategory.ATTACK, description: "敵全体にダメージ80%<wbr/>苦痛2<wbr/>手札の影の短剣を全て消滅、その数に応じて繰り返す", statuses: [CardStatus.RETAIN]},
-      { level: 2, cost: 2, description: "治癒100%<wbr/>上級影の短剣2枚生成" },
-      { level: 3, cost: 2, description: "治癒100%xX<wbr/>影の短剣X枚生成" },
-      { level: 4, cost: 2, category: CardCategory.UPGRADE, description: "スキルカードで治癒時、影の短剣を1枚生成", statuses: [CardStatus.INITIATION] },
-      { level: 5, cost: 2, description: "カードを全て破棄<wbr/>その数に応じて、影の短剣を生成", statuses: [CardStatus.EXHAUST] }
+      { level: 1, cost: 1, category: CardCategory.ATTACK, description: "敵全体にダメージ80%<wbr/>苦痛2<wbr/>手札の影の短剣を全て消滅、その数に応じて繰り返す", statuses: [CardStatus.RETAIN]},
+      { level: 2, cost: 0, description: "治癒150%<wbr/>上級影の短剣1枚生成" },
+      { level: 3, cost: "X", description: "治癒100%xX<wbr/>影の短剣、上級影の短剣のうちランダムにX枚生成" },
+      { level: 4, cost: 1, description: "全ての影の短剣消滅<wbr/>その数に応じて、上級影の短剣を生成" },
+      { level: 5, cost: 1, description: "カードを全て破棄<wbr/>その数に応じて、影の短剣を生成", statuses: [CardStatus.EXHAUST2] }
     ]
   },
   {
@@ -2118,7 +2118,7 @@ export const CHARACTER_CARDS: CznCard[] = [
       { level: 0, cost: 2, description: "ダメージ80%×3<wbr/>対象が苦痛状態の場合、ダメージ量+50%", statuses: [CardStatus.LEAD] },
       { level: 1, cost: 2, description: "ダメージ150%×3" },
       { level: 2, cost: 2, description: "ダメージ120%×3<wbr/>対象が苦痛状態の場合、ダメージ量+70%" },
-      { level: 3, cost: 2, description: "ダメージ80%×3<wbr/>1ターンの間、苦痛ダメージ量+50%" },
+      { level: 3, cost: 1, description: "ダメージ80%×3<wbr/>苦痛2～6" },
       { level: 4, cost: 2, description: "ダメージ200%×2<wbr/>対象の苦痛3 以上の場合、1回さらに発動" },
       { level: 5, cost: 2, description: "ダメージ150%×3<wbr/>対象の苦痛数に応じて、ダメージ量+10%" }
     ]
@@ -2131,7 +2131,7 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     imgUrl: "/images/cards/tressa_hirameki_4.png",
     hiramekiVariations: [ // Fallback descriptions
-      { level: 0, cost: 1, description: "苦痛刻印2<wbr/>弱体化2" },
+      { level: 0, cost: 1, description: "対象が保有中の自分の苦痛発動" },
     ]
   },
   // Amir's starting cards
@@ -2823,12 +2823,12 @@ export const CHARACTER_CARDS: CznCard[] = [
     statuses: [],
     imgUrl: "/images/cards/cassius_hirameki_3.png",
     hiramekiVariations: [ // Fallback descriptions
-      { level: 0, cost: 2, description: "ダメージ240%<wbr/>完了したクエストの回数に応じてコスト減少" },
-      { level: 1, cost: 2, description: "	ダメージ360%<wbr/>完了したクエストの回数に応じてコスト減少" },
-      { level: 2, cost: 2, description: "敵全体にダメージ300%<wbr/>完了したクエストの回数に応じてコスト減少" },
-      { level: 3, cost: 0, description: "ダメージ80%<wbr/>完了したクエストの回数に応じて、ダメージ量+80%" },
-      { level: 4, cost: 2, category: CardCategory.UPGRADE, description: "クエストカード使用時、治癒100%、ランダムな敵に固定ダメージ100%" },
-      { level: 5, cost: 2, category: CardCategory.UPGRADE, description: "クエスト完了時、クエストカードを1枚生成" }
+      { level: 0, cost: 2, description: "ダメージ240%<wbr/>1ターンの間、士気1減少<wbr/>完了したクエストの回数に応じてコスト減少" },
+      { level: 1, cost: 2, description: "	ダメージ360%<wbr/>1ターンの間、士気1減少<wbr/>完了したクエストの回数に応じてコスト減少" },
+      { level: 2, cost: 2, description: "敵全体にダメージ300%<wbr/>1ターンの間、士気1減少<wbr/>完了したクエストの回数に応じてコスト減少" },
+      { level: 3, cost: 0, description: "ダメージ80%<wbr/>完了したクエストの回数に応じて、ダメージ量+80%(最大5回)" },
+      { level: 4, cost: 2, category: CardCategory.UPGRADE, description: "クエストカード使用時、治癒100%、ランダムな敵に固定ダメージ100%", statuses: [CardStatus.UNIQUE] },
+      { level: 5, cost: 2, category: CardCategory.UPGRADE, description: "ターン開始時、強化されたクエストカードを1枚生成", statuses: [CardStatus.UNIQUE] }
     ]
   },
   {
